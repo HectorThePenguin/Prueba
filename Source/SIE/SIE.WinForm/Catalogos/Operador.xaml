@@ -1,0 +1,200 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.Operador"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:Enums="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info">
+
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type Enums:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enums:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="Administración de Operador"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Operador_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="1"
+                       Content="{x:Static resx:Resources.Operador_Lbl_Descripcion}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.Operador_Lbl_Organizacion}"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       VerticalAlignment="Center">
+                </Label>
+
+
+                <Label Grid.Column="3"
+                       Content="{x:Static resx:Resources.Operador_Lbl_Estatus}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                     Grid.ColumnSpan="2"></Label>
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Column="2"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         Width="255"
+                         TabIndex="1"
+                         MaxLength="150"
+                         PreviewTextInput="TxtLetrasNumerosPreviewTextInput">
+                    <TextBox.Text>
+                        <Binding Path="Nombre"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <StackPanel Name="SplAyudaOrganizacion"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Height="23"
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <ComboBox Name="cboEstatus"
+                        Grid.Column="4"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Height="25"
+                          Width="110"
+                          HorizontalAlignment="Left"/>
+
+                <StackPanel Grid.Column="6"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}"
+                            Click="BtnBuscar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="7"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnNuevo}"
+                            Click="BtnNuevo_Click"
+                            Margin="10 0 10 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=OperadorInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="{x:Static resx:Resources.Operador_Grid_CodigoSAP}"
+                                     Width="100"
+                                     Binding="{Binding Path=OperadorID}"
+                                     Visibility="Hidden" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_CodigoSAP}"
+                                    Width="100"
+                                    Binding="{Binding Path=CodigoSAP}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_Nombre}"
+                                    Width="*"
+                                    Binding="{Binding Path=Nombre}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_ApellidoPaterno}"
+                                    Width="*"
+                                    Binding="{Binding Path=ApellidoPaterno}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_ApellidoMaterno}"
+                                    Width="*"
+                                    Binding="{Binding Path=ApellidoMaterno}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_RolID}"
+                                    Width="*"
+                                    Binding="{Binding Path=Rol.Descripcion}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_Organizacion}"
+                                    Width="*"
+                                    Binding="{Binding Path=Organizacion.Descripcion}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.Operador_Grid_Activo}"
+                                    Width="100"
+                                    Binding="{Binding Path=Activo}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Operador_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

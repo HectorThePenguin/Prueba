@@ -1,0 +1,113 @@
+﻿#contenedorMensaje {
+    font-size: 14px;
+    text-align: center;
+}
+.numeroGrande {
+    font-size: 16px;
+}
+
+.treeView img {
+        width:24px; height:24px;
+}
+.treeViewParent img {
+    width:24px; height:24px;
+}
+.treeView a {
+        color: black;
+    }
+.ventanaCargando {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('../img/loadingme.gif') 
+                50% 50% 
+                no-repeat;
+    background-size: 10% auto;
+}
+/* When the body has the loading class, we turn
+    the scrollbar off with overflow:hidden */
+body.cargando {
+    overflow: hidden;   
+}
+/* Anytime the body has the loading class, our
+    modal element will be visible */
+body.cargando .ventanaCargando {
+    display: block;
+}
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+    cursor: pointer;
+}
+.tree ul {
+    color: black;
+    margin-left:1em;
+    position: relative;
+}
+.tree ul ul {
+    margin-left: 2em;
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+}
+.tree li {
+    margin:0;
+    padding:0 1em;
+    line-height:2em;
+    color:black;
+    font-weight:700;
+    position: relative;
+}
+.modulo-linea {
+    font-size: 18px;
+}
+.alerta-group {
+    font-size: 16px;
+}
+.estado-linea {
+    font-size: 14px;
+}
+.tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left: 0;
+}
+.tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1em;
+    bottom: 0;
+}
+.indicator {
+    margin-right:5px;
+}
+.tree li a {
+    text-decoration: none;
+    color:black;
+}
+.tree li button, .tree li button:active, .tree li button:focus {
+    text-decoration: none;
+    color:#369;
+    border:none;
+    background:transparent;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    outline: 0;
+}

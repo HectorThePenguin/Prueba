@@ -1,0 +1,76 @@
+﻿<Window x:Name="WindowOtrosCostos"
+        x:Class="SIE.WinForm.MateriaPrima.SalidaVentaTraspasoAutorizar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Height="250"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        Background="Black"
+        Margin="2"
+        WindowStyle="None"
+        HorizontalAlignment="Center"
+        >
+
+    <Grid Margin="2"
+          Background="White">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="107"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="52" />
+            <ColumnDefinition Width="87" />
+            <ColumnDefinition Width="313"/>
+            <ColumnDefinition Width="52" />
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="15 10 15 10"
+                          Margin="38,-3,37,5"
+                          x:Name="ucTitulo"
+                          Height="Auto"
+                          TextoTitulo="{x:Static resx:Resources.Autorizacion_Titulo}"
+                          VisibleCerrar="Visible"
+                          Grid.ColumnSpan="4" />
+        <GroupBox Header="{x:Static resx:Resources.Autorizacion_gbSupervisor}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="76*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="*"
+                    x:Name="lblUsuarioRequerido"
+                    Style="{StaticResource labelRequerido}"
+                    Margin="-5,-1,26,0" Height="28" VerticalAlignment="Top" />
+                <Label Content="{x:Static resx:Resources.Autorizacion_lblUsuario}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,0,0,0" Width="53"/>
+                <TextBox Name="txtUsuario" PreviewTextInput="TxtInput_OnPreviewTextInput" MaxLength="100" HorizontalAlignment="Left" Height="23" Margin="10,4,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146" Grid.Column="1"/>
+                <Label Content="*"
+                    x:Name="lblContraseniaRequerido"
+                    Style="{StaticResource labelRequerido}"
+                    Margin="-5,26,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" />
+                <Label Content="{x:Static resx:Resources.Autorizacion_lblContrasenia}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,28,0,0" Width="75"/>
+                <PasswordBox Name="txtContrasenia"  MaxLength="50" HorizontalAlignment="Left" Height="23" Margin="10,34,0,0" VerticalAlignment="Top" Width="146" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>     
+        <Label Content="*"
+            x:Name="lblJustificacionRequerido"
+            Style="{StaticResource labelRequerido}"
+            Margin="51,0,63,78" Height="28" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2" />
+        <Label Content="{x:Static resx:Resources.Autorizacion_lblJustificacion}" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Margin="6,4,0,0" Width="75"/>
+        <TextBox Name="txtJustificacion" PreviewTextInput="TxtInput_OnPreviewTextInput" MaxLength="255" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="14,9,0,0" Grid.Row="2" TextWrapping="Wrap"  VerticalAlignment="Top" Width="299"/>
+        <Button Content="{x:Static resx:Resources.Autorizacion_btnGuardar}" Click="BtnGuardar_Click" Grid.Column="2" HorizontalAlignment="Left" Margin="142,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+        <Button Content="{x:Static resx:Resources.Autorizacion_btnCancelar}"  Click="BtnCancelar_Click"  Grid.Column="2" HorizontalAlignment="Left" Margin="237,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.155,0.95"/>
+    </Grid>
+</Window>

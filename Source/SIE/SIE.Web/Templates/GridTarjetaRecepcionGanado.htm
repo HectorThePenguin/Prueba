@@ -1,0 +1,25 @@
+﻿<table class="table table-hover table-striped table-bordered data-table" border="1">
+        
+     <caption class=""><span class="campoRequerido">*</span>Condiciones de Ganado</caption>    
+    <thead>
+        {#foreach $T.Condiciones as item} 
+        <th scope="col" class="alineacionCentro" >
+            <span>{$T.item.Descripcion}</span>
+        </th>
+        {#/for}
+    </thead>
+     <tbody>
+         <tr>
+             {#foreach $T.Condiciones as item} 
+             <td data-CondicionID ={$T.item.CondicionID} class="columnaGridCondiciones " style="background: gainsboro" >
+                 <input type="tel"  
+                        id="txtCantidad" 
+                        value="" 
+                        class="span3 textBoxTablas"  
+                        onkeypress="return isNumberKey(event);" 
+                        maxlength="5"/>
+             </td>
+             {#/for}
+         </tr>
+    </tbody>
+</table>

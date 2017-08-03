@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="SIE.WinForm.Manejo.ProgramacionReimplanteGanado"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             Width="Auto"
+             Height="Auto"
+             xmlns:Info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+             xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+             xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+             Loaded="programacionReimplanteGanado_Loaded">
+
+    <Grid Margin="20"
+          Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50"></RowDefinition>            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="700*" />
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="0 0 0 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ProgramacionReimplanteGanado_lblTitulo}"
+                          x:Name="ucTitulo"
+                          Grid.Column="1" />
+
+        <GroupBox Grid.Column="1"
+                  Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_GpbTitulo}"
+                  HorizontalAlignment="Left"
+                  Margin="20 0 20 0"
+                  Style="{StaticResource groupBox}"
+                  Grid.Row="3"
+                  Height="360"
+                  VerticalAlignment="Top">
+            <DataGrid AutoGenerateColumns="False"
+                      HorizontalAlignment="Left"
+                      Name="dgCorrales"
+                      VerticalAlignment="Top"
+                      ItemsSource="{Binding}"
+                      CanUserResizeColumns="False"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Sorting="dgCorrales_Sorting"
+                      LoadingRow="dgCorrales_LoadingRow" Height="315" Margin="20,10,20,-1">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn  Header="{x:Null}"
+                                             Width="30">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Name="checkSeleccionado"
+                                          IsEnabled="{Binding EsEditable}"
+                                          IsChecked="{Binding Seleccionado}"
+                                          Click="checkSeleccionado_Click_1"
+                                          HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_Corral}"
+                                        Width="70"
+                                        Binding="{Binding CodigoCorralOrigen}" />
+
+                    <DataGridTemplateColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_Destino}"
+                                            Width="79">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="Info:CorralInfo">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Style="{StaticResource iconButton}" 
+                                                HorizontalAlignment="Center"
+                                                CommandParameter="{Binding}" 
+                                                Click="btnBuscarDestino_Click" >
+                                        <Image Source="{StaticResource findIcon}" 
+                                                    Style="{StaticResource iconImage}"
+                                                    ToolTip="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_BuscarCorralDestino}" />
+                                    </Button>
+                                </StackPanel>
+                                <!--<ComboBox ItemsSource="{Binding Path=CorralesDestino}"
+                                          DisplayMemberPath="Codigo"
+                                          SelectedItem="{Binding CorralDestinoSeleccionado, UpdateSourceTrigger=PropertyChanged}" />
+                                -->
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_Lote}"
+                                        Width="67"
+                                        Binding="{Binding LoteId}" />
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_TipoGanado}"
+                                        Width="*"
+                                        Binding="{Binding TipoGanado.Descripcion}" />
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_KgsProyectados}"
+                                        Width="110"
+                                        Binding="{Binding KilosProyectados}" />
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_Cabezas}"
+                                        Width="67"
+                                        Binding="{Binding Cabezas}" />
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_FehaReimplante}"
+                                        Width="120"
+                                        Binding="{Binding FechaReimplante, StringFormat={}{0:dd/MM/yyyy}}" />
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_NumeroReimplante}"
+                                        Width="95"
+                                        Binding="{Binding NumeroReimplante}" />
+                    <DataGridTemplateColumn Header="{x:Static resx:Resources.ProgramacionReimplanteGanado_Grid_Columna_TipoReimplante}"
+                                            Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="Info:ProductoInfo">
+                                <ComboBox ItemsSource="{Binding Path=Productos}"
+                                          DisplayMemberPath="ProductoDescripcion"
+                                          SelectedItem="{Binding ProductoSeleccionado, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,20,10"
+                    Grid.Row="4">
+            <Label 
+                   Content="{x:Static resx:Resources.ProgramacionReimplanteGanado_total}"
+                   Width="40" />
+            <Label 
+                   Content="0"
+                   Name="lblTotalCabezas"
+                   Width="60" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="20 0 20 0"
+                    Orientation="Horizontal">            
+            <Label Name="lblFecha"
+                   Content="{x:Static resx:Resources.ProgramacionReimplanteGanado_lblFechaReimplante}" />
+            <DatePicker Name="dtfFecha"
+                        Height="30"
+                        Margin="10 0 20 0"
+                        HorizontalAlignment="Left" SelectedDateChanged="DtfFecha_OnSelectedDateChanged" />
+            <Button Name="btnImprimir"
+                    Click="btnImprimir_Click"
+                    Content="{x:Static resx:Resources.ProgramacionReimplante_btnImprimir}">
+            </Button>
+        </StackPanel>        
+    </Grid>
+</UserControl>

@@ -1,0 +1,28 @@
+﻿<table class="table table-hover table-striped table-bordered span12">
+    <thead>
+        <th scope="col"></th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Calidad}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Hembras}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Machos}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Calidades as item}
+        <tr>
+            <td class="textoDerecha columnaCalidad span1">{$T.item.Calidad}
+            </td>
+            {#if $T.item.Descripcion == 'CEBU'}
+                <td class="span9">TODOS
+            {#else}
+                <td class="span9">{$T.item.Descripcion}
+            {#/if}            
+            </td>
+            <td class="alineacionCentro span1">
+                <input class="textBoxTablas span12 soloNumeros alineacionCentro {$T.item.ClasificacionCalidad} Hembras" disabled="disabled" oninput="maxLengthCheck(this)" id="{$T.item.CalidadGanadoHembraID}" value="0" maxlength = "3" type="number" />
+            </td>
+            <td class="alineacionCentro span1">
+                <input class="textBoxTablas span12 soloNumeros alineacionCentro {$T.item.ClasificacionCalidad} Machos" disabled="disabled" oninput="maxLengthCheck(this)" id="{$T.item.CalidadGanadoMachoID}" value="0" maxlength = "3" type="number" />
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

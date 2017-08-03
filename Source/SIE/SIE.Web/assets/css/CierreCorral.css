@@ -1,0 +1,263 @@
+﻿fieldset.scheduler-border
+{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border
+{
+    width: auto; /* Or auto */
+    padding: 0 10px; /* To give a bit of padding on the left and right */
+    border-bottom: none;
+    font-size: small;
+    font-weight: bold;
+}
+
+img {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.alineacionCentro
+{
+    text-align: center !important;
+}
+
+.alineacionIzquierda
+{
+    float: left;
+}
+
+.alineacionDerecha
+{
+    float: right;
+}
+
+.textoDerecha
+{
+    text-align: right !important;
+}
+
+.subTitulo
+{
+    width: 100%;
+    display: table;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 7px;
+    font-weight: bold !important;
+    background-color: #B94A48 !important;
+    border: 1px solid #B94A48;
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.espacioIzquierda
+{
+    margin-left: 30%;
+}
+
+.espacioRadioButton
+{
+    margin-right: 3px !important;
+}
+
+.pantallaCompleta
+{
+    width: 100%;
+}
+
+.divCheckList
+{
+    border: 1px solid #C61B1A;
+    margin: 5px 5px 5px 5px;
+    padding-bottom: 5px;
+}
+.textBoxTablas
+{
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+}
+
+.combosTablas
+{
+    height: 30px !important;
+    margin-bottom: 0px !important;
+}
+
+.circuloRetraso {
+    background: none repeat scroll 0 0 #c40202 !important;
+    border-radius: 50%  !important;
+	width: 20px  !important;
+	height: 20px  !important; 
+    margin-top: 7px !important;
+   margin-left: 5px !important;
+}
+
+.circuloAbierto {
+    background: none repeat scroll 0 0 #0f8b00 !important;
+    border-radius: 50%  !important;
+	width: 20px  !important;
+	height: 20px  !important; 
+    margin-top: 7px !important;
+   margin-left: 5px !important;
+}
+
+.circuloCerrado {
+    background: none repeat scroll 0 0 #3900ff !important;
+    border-radius: 50%  !important;
+	width: 20px  !important;
+	height: 20px  !important; 
+    margin-top: 7px !important;
+    margin-left: 5px !important;
+}
+.margenEstatus {
+    margin-left: 25px !important;
+}
+.columnaGridCorrales {
+    width: 100px ;
+}
+
+.LockOff
+{
+	display: none;
+	visibility: hidden;
+}
+.LockOn
+{
+	display: block;
+	visibility: visible;
+	position: absolute;
+	z-index: 999;
+	top: 0px;
+	left: 0px;
+	width: 105%;
+	height: 105%;
+	background: no-repeat center #FFFFFF;
+	font: normal 16px Tahoma, Geneva, sans-serif;
+	text-align: center;
+	color: #0000FF;
+	font-weight: bolder;
+	padding-top: 20%;
+	filter: alpha(opacity=80);
+	opacity: 0.75;
+	overflow: auto;
+}
+
+.table thead tr th {
+       background-color: #D8D8D8 !important;
+       border: 1px groove #ddd !important;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+
+@media only screen and (max-width: 900px), (min-device-width: 760px) and (max-device-width: 1024px)
+{
+
+    /* Force table to not be like tables anymore */
+    #GridCorrales table, #GridCorrales thead, #GridCorrales tbody, #GridCorrales th, #GridCorrales td, #GridCorrales tr
+    {
+        display: block !important;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        #GridCorrales thead tr
+        {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+        }
+
+    #GridCorrales tr
+    {
+        border: 1px solid #ccc !important;
+    }
+
+    #GridCorrales td
+    {
+        /* Behave  like a "row" */
+        border: none !important;
+        border-bottom: 1px solid #eee !important;
+        position: relative !important;
+        padding-left: 50% !important;
+    }
+
+        #GridCorrales td:before
+        {
+            /* Now like a table header */
+            position: absolute !important;
+            /* Top/left values mimic padding */
+            top: 6px !important;
+            left: 6px !important;
+            width: 45% !important;
+            padding-right: 10px !important;
+            white-space: nowrap !important;
+        }
+
+        /*
+	Label the data
+	*/
+        #GridCorrales td:nth-of-type(1):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Corral";
+        }
+
+        #GridCorrales td:nth-of-type(2):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Lote";
+        }
+
+        #GridCorrales td:nth-of-type(3):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Total Cabezas";
+        }
+
+        #GridCorrales td:nth-of-type(4):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Cabezas Actuales";
+        }
+
+        #GridCorrales td:nth-of-type(5):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Cabezas Restantes";
+        }
+
+        #GridCorrales td:nth-of-type(6):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Fecha Inicio";
+        }
+
+        #GridCorrales td:nth-of-type(7):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Fecha Fin";
+        }
+
+        #GridCorrales td:nth-of-type(8):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Estatus";
+        }
+
+        #GridCorrales td:nth-of-type(9):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Opción";
+        }
+}

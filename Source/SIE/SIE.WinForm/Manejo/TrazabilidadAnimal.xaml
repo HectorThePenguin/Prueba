@@ -1,0 +1,434 @@
+﻿<vista:ControlBase  x:Class="SIE.WinForm.Manejo.TrazabilidadAnimal"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                    mc:Ignorable="d"
+                    xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                    xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                    Height="Auto"
+                    Width="Auto"    
+                    d:DesignHeight="600"
+                    Loaded="TrazabilidadAnimal_OnLoaded"
+                    d:DesignWidth="1600">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="160"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="350*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.TrazabilidadAnimal_TituloTrazabilidadAnimal}"
+                          x:Name="ucTitulo" />
+
+        
+        <GroupBox Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ProgramacionEmbarque_LblDatosGenerales}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="49"></ColumnDefinition>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="94"></ColumnDefinition>
+                    <ColumnDefinition Width="95"></ColumnDefinition>
+                    <ColumnDefinition Width="88"></ColumnDefinition>
+                    <ColumnDefinition Width="325"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblOrganizacion}"
+                       Margin="8,6,0,6" Height="28" Width="96" />
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblArete}"
+                       Margin="8,6,0,6" Height="28" Width="47" />
+                <TextBox Grid.Row="0" Grid.Column="3"
+                         TextAlignment="Right" 
+                         MaxLength="20" 
+                         HorizontalContentAlignment="Right"
+                         HorizontalAlignment="Stretch" 
+                         Name="txtArete"
+                         VerticalAlignment="Center" 
+                         CharacterCasing="Upper"
+                         Width="Auto"
+                         Text="{Binding Path=Animal.Arete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="1,9,0,9" 
+                         
+                         
+                         ></TextBox>
+                <Label Grid.Row="0"
+                       Grid.Column="4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblAreteRFID}"
+                       Margin="8,6,0,6" Grid.ColumnSpan="2" Height="28" Width="84" />
+                <TextBox Grid.Column="6"
+                         Grid.Row="0"
+                         Width="Auto"
+                         HorizontalContentAlignment="Right"
+                         HorizontalAlignment="Stretch" 
+                         VerticalAlignment="Center" 
+                         CharacterCasing="Upper"
+                         Name="txtAreteRFID"
+                         MaxLength="20"
+                         Text="{Binding Path=Animal.AreteMetalico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="1,9,0,9"></TextBox>
+
+                <Label Grid.Row="1"
+                       Grid.Column="4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblProveedor}"
+                       Margin="8,6,0,6" Grid.ColumnSpan="2" Height="28" Width="78" />
+                <TextBox Grid.Column="6"
+                         Grid.Row="1"
+                         Width="Auto"
+                         IsEnabled="False"
+                         HorizontalContentAlignment="Right"
+                         HorizontalAlignment="Stretch" 
+                         VerticalAlignment="Center" 
+                         CharacterCasing="Upper"
+                         Name="TxtProveedor"
+                         MaxLength="20"
+                         Text="{Binding Path=Animal.Proveedor.Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="1,9,0,9"></TextBox>
+                <Label Grid.Row="2"
+                       Grid.Column="4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_LblOrigen}"
+                       Margin="8,6,0,6" Grid.ColumnSpan="2" Height="28" Width="56" />
+                <TextBox Grid.Column="6"
+                         Grid.Row="2"
+                         Width="Auto"
+                         IsEnabled="False"
+                         HorizontalContentAlignment="Right"
+                         HorizontalAlignment="Stretch" 
+                         VerticalAlignment="Center" 
+                         CharacterCasing="Upper"
+                         Name="TxtOrigen"
+                         MaxLength="20"
+                         Text="{Binding Path=Animal.Origen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="1,9,0,9"></TextBox>
+                <Button Name="btnBuscar"
+                        Grid.Column="7"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.btnBuscar}"
+                        Margin="10,8,4,8"
+                        Click="BtnBuscar_OnClick" Height="Auto"/>
+                <Button Name="btnLimpiar"
+                        Grid.Column="8"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.btnLimpiar}"
+                        Margin="10,8,5,8"
+                        Click="BtnLimpiar_OnClick" Height="Auto">
+                </Button>
+                <Button Name="btnCostosAbastos"
+                        Grid.Column="7"
+                        Grid.Row="1"
+                        IsEnabled="False"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.TrazabilidadAnimal_btnCosto}"
+                        Margin="10,8,4,8" Click="btnCostosAbastos_Click" Height="Auto"/>
+                <Label
+                    Name="lblAbastos"
+                    Grid.Column="9"
+                    Grid.Row="1"
+                    Content="{x:Static resx:Resources.TrazabilidadAnimal_LblAbasto}"
+                    Margin="5,6" Grid.ColumnSpan="2" Height="Auto"
+                    />
+                <Button Name="btnConsumoAbastos"
+                        Grid.Column="8"
+                        Grid.Row="1"
+                        IsEnabled="False"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.TrazabilidadAnimal_btnConsumo}"
+                        Margin="10,8,5,8" Click="btnConsumoAbastos_Click" Height="Auto">
+                </Button>
+                <Button Name="btnCostos"
+                        Grid.Column="7"
+                        Grid.Row="2"
+                        IsEnabled="False"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.TrazabilidadAnimal_btnCosto}"
+                        Margin="10,8,4,8"
+                        Click="BtnCostos_OnClick" Height="Auto"/>
+                <Button Name="btnConsumo"
+                        Grid.Column="8"
+                        Grid.Row="2"
+                        IsEnabled="False"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.TrazabilidadAnimal_btnConsumo}"
+                        Margin="10,8,5,8"
+                        Click="BtnConsumo_OnClick" Height="Auto">
+                </Button>
+                <Label
+                    Name="lblEngorda"
+                    Grid.Column="9"
+                    Grid.Row="2"
+                    Content="{x:Static resx:Resources.TrazabilidadAnimal_LblEngorda}"
+                    Margin="5,6" Grid.ColumnSpan="2" Height="Auto"
+                    />
+                <Controles:ControlAyuda AnchoDescripcion="150"
+                                        x:Name="skAyudaOrganizacion"
+                                        DataContext="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaOrganizacion_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaOrganizacion_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerSoloGanaderaPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaTipoOrganizacion"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" Grid.ColumnSpan="2" Margin="0,2" Height="Auto" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblFolioEntrada}"
+                       Margin="8,6,0,6" Height="28" Width="97" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="1"
+                         Width="150"
+                         HorizontalContentAlignment="Right"
+                         Name="txtFolioEntrada"
+                         MaxLength="10"
+                         IsEnabled="False"
+                         Text="{Binding Path=Animal.FolioEntrada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,9" Height="Auto"></TextBox>
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblFechaEntrada}"
+                       Margin="8,6,0,6" Height="28" Width="106" />
+                <DatePicker x:Name="cmbFechaEntrada"
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                IsEnabled="False"
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                SelectedDate="{Binding Path=Animal.FechaEntrada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                TabIndex="4"
+                                Height="24" Margin="1,8,0,8" Width="150"
+                                ></DatePicker>
+                <Label Grid.Row="2"
+                       Grid.Column="2"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblPesoLlegada}"
+                       Margin="8,6,0,6" Height="28" Width="100" />
+                <TextBox Grid.Column="3"
+                         Grid.Row="2"
+                         HorizontalContentAlignment="Right"
+                         Name="txtPesoOrigen"
+                         MaxLength="10"
+                         Width="150"
+                         IsEnabled="False"
+                         Text="{Binding Path=Animal.PesoLlegada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,9" Height="Auto"></TextBox>
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.TrazabilidadAnimal_lblPesoCompra}"
+                       Margin="8,6,0,6" Height="28" Width="99" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="2"
+                         Width="150"
+                         HorizontalContentAlignment="Right"
+                         Name="txtPesoCompra"
+                         MaxLength="10"
+                         IsEnabled="False"
+                         Text="{Binding Path=Animal.PesoCompra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,9" Height="Auto"></TextBox>
+
+
+            </Grid>
+
+        </GroupBox>
+
+            
+            <GroupBox Grid.Column="1"
+                  Grid.ColumnSpan="1"
+                  Grid.Row="2"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="-80,0,20,0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.TrazabilidadAnimal_gridMovimientos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="600*" />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*" />
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="DgMovimientoAnimal"
+                          HorizontalAlignment="Center"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Visible"
+                          AutoGenerateColumns="False"
+                          Width="Auto"
+                          ColumnWidth="*"
+                          FrozenColumnCount="12"
+                          ItemsSource="{Binding AnimalMovimientoInfo}"
+                          SelectionMode="Single" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="100*"
+                                            Binding="{Binding Path=TipoMovimiento.Descripcion}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridTipoMovimiento}" />
+                        <DataGridTextColumn Width="70"
+                                            Binding="{Binding Path=FechaMovimiento, StringFormat={}{0:dd/MM/yyyy} }"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridFecha}"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="60"
+                                            Binding="{Binding Path=Peso}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridPeso}" >
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="90"
+                                            Binding="{Binding Path=LoteOrigen.Corral.Codigo}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridCorralOrigen}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="90"
+                                            Binding="{Binding Path=LoteOrigen.Lote}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridLoteOrigen}"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="95"
+                                            Binding="{Binding Path=LoteDestino.Corral.Codigo}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridCorralDestino}"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="85"
+                                            Binding="{Binding Path=LoteDestino.Lote}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridLoteDestino}"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="60" 
+                                            Binding="{Binding Path=Trampa.TrampaID}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridTrampa}" >
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="{Binding Trampa.Descripcion}" />
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Left"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Width="220"
+                                            Binding="{Binding Path=Usuario.Nombre}"
+                                            Header="{x:Static resx:Resources.TrazabilidadAnimal_gridResponsable}"  >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTemplateColumn Width="70" 
+                                                Header="{x:Static resx:Resources.TrazabilidadAnimal_gridProducto}" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                            Click="BtnMostrarProductosAplicadosClick"
+                                            CommandParameter="{Binding}">
+                                        <Image Source="{StaticResource tableIcon}"
+                                               Style="{StaticResource iconImage}"
+                                               ToolTip="{x:Static resx:Resources.TrazabilidadAnimal_gridProducto}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</vista:ControlBase>

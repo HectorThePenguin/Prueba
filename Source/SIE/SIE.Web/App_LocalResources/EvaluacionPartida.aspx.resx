@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BoundFieldResource1.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource1.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource10.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource10.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource10.HeaderText" xml:space="preserve">
+    <value>Concepto</value>
+  </data>
+  <data name="BoundFieldResource2.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource2.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource2.HeaderText" xml:space="preserve">
+    <value>Folio</value>
+  </data>
+  <data name="BoundFieldResource3.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource3.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource3.HeaderText" xml:space="preserve">
+    <value>Corral</value>
+  </data>
+  <data name="BoundFieldResource4.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource4.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource4.HeaderText" xml:space="preserve">
+    <value>Lote</value>
+  </data>
+  <data name="BoundFieldResource5.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource5.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource5.HeaderText" xml:space="preserve">
+    <value>Cabezas</value>
+  </data>
+  <data name="BoundFieldResource6.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource6.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource6.HeaderText" xml:space="preserve">
+    <value>Kgs Llegada</value>
+  </data>
+  <data name="BoundFieldResource7.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource7.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource7.HeaderText" xml:space="preserve">
+    <value>Fecha Recepción</value>
+  </data>
+  <data name="BoundFieldResource8.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource8.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource8.HeaderText" xml:space="preserve">
+    <value>Origen</value>
+  </data>
+  <data name="BoundFieldResource9.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource9.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BoundFieldResource9.HeaderText" xml:space="preserve">
+    <value>Salida</value>
+  </data>
+  <data name="btnCancelarResource1.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkPreguntaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkPreguntaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmbEvaluadorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dgvDatosEnfermeriaResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dgvDatosEnfermeriaResource1.EmptyDataText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dgvDatosEnfermeriaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gvBusquedaResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gvBusquedaResource1.EmptyDataText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gvBusquedaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gvPreguntasResource1.Caption" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gvPreguntasResource1.EmptyDataText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gvPreguntasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="imgLogoResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="imgLogoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Label3Resource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="Label3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblAccionesResource1.Text" xml:space="preserve">
+    <value>Acciones a seguir:</value>
+  </data>
+  <data name="lblAccionesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblBusquedaFolioResource1.Text" xml:space="preserve">
+    <value>Búsqueda de Folio</value>
+  </data>
+  <data name="lblBusquedaFolioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaCabezasResource1.Text" xml:space="preserve">
+    <value>Cabezas:</value>
+  </data>
+  <data name="lblEtiquetaCabezasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaCorralResource1.Text" xml:space="preserve">
+    <value>Corral:</value>
+  </data>
+  <data name="lblEtiquetaCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaEvaluadorResource1.Text" xml:space="preserve">
+    <value>Evaluador</value>
+  </data>
+  <data name="lblEtiquetaEvaluadorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaFechaEvaluacionResource1.Text" xml:space="preserve">
+    <value>Fecha Evaluación</value>
+  </data>
+  <data name="lblEtiquetaFechaEvaluacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaFechaLlegadaResource1.Text" xml:space="preserve">
+    <value>Fecha de Llegada:</value>
+  </data>
+  <data name="lblEtiquetaFechaLlegadaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaHrResource1.Text" xml:space="preserve">
+    <value>Hora Evaluación</value>
+  </data>
+  <data name="lblEtiquetaHrResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaInvInicialResource1.Text" xml:space="preserve">
+    <value>Inv Inicial</value>
+  </data>
+  <data name="lblEtiquetaInvInicialResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaLoteResource1.Text" xml:space="preserve">
+    <value>Lote:</value>
+  </data>
+  <data name="lblEtiquetaLoteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaProcedenciaResource1.Text" xml:space="preserve">
+    <value>Procedencia de Animales:</value>
+  </data>
+  <data name="lblEtiquetaProcedenciaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaTituloResource1.Text" xml:space="preserve">
+    <value>Evaluación de riesgo para complejo respiratorio bovino </value>
+  </data>
+  <data name="lblEtiquetaTituloResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblEtiquetaTotalResource1.Text" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="lblEtiquetaTotalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaLlegadaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaLlegadaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblInvFinalResource1.Text" xml:space="preserve">
+    <value>Inv Final</value>
+  </data>
+  <data name="lblInvFinalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblJustificacionResource1.Text" xml:space="preserve">
+    <value>Justificación:</value>
+  </data>
+  <data name="lblJustificacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLotesResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLotesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblNotaDescripcionResource1.Text" xml:space="preserve">
+    <value>Para aplicar METAFILAXIA debe cumplir con cuatro puntos, de lo contrario requerirá autorización del jefe de sanidad.</value>
+  </data>
+  <data name="lblNotaDescripcionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblNotaResource1.Text" xml:space="preserve">
+    <value>Nota:</value>
+  </data>
+  <data name="lblNotaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblNumeroPartidaResource1.Text" xml:space="preserve">
+    <value>Número de Partida:</value>
+  </data>
+  <data name="lblNumeroPartidaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblObligatorioInvResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="lblObligatorioInvResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblObligatorioResource1.Text" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="lblObligatorioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPartidaGarrapatasResource1.Text" xml:space="preserve">
+    <value>Partida con garrapata</value>
+  </data>
+  <data name="lblPartidaGarrapatasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTituloResource1.Text" xml:space="preserve">
+    <value>Evaluación de riesgo en las partidas</value>
+  </data>
+  <data name="lblTituloResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTotalResource1.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTotalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="radioCorralResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="radioCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rbdGraveResource1.Text" xml:space="preserve">
+    <value>Grave &gt;= cbz</value>
+  </data>
+  <data name="rbdGraveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdbLeveResource1.Text" xml:space="preserve">
+    <value>Leve &lt;= cbz</value>
+  </data>
+  <data name="rdbLeveResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdbMetafilaxiaResource1.Text" xml:space="preserve">
+    <value>Metafilaxia</value>
+  </data>
+  <data name="rdbMetafilaxiaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdbModeradoResource1.Text" xml:space="preserve">
+    <value>Moderado &gt;5 cbz</value>
+  </data>
+  <data name="rdbModeradoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdbNormalResource1.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="rdbNormalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rdnMetafilaxiaAutorizadaResource1.Text" xml:space="preserve">
+    <value>Metafilaxia Autorizada</value>
+  </data>
+  <data name="rdnMetafilaxiaAutorizadaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource1.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource1.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource1.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource2.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource2.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource2.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource3.AccessibleHeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource3.FooterText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TemplateFieldResource3.HeaderText" xml:space="preserve">
+    <value>Resultados</value>
+  </data>
+  <data name="txtCabezasResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCabezasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCorralResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaEvaluacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaEvaluacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtHrEvalacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtHrEvalacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtInventarioInicialResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtInventarioInicialResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtInvFinalResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtInvFinalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtJustificacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtJustificacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtPartidasResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtPartidasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtProcedenciaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtProcedenciaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtResultadoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtResultadoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="seleccione" xml:space="preserve">
+    <value>Selecione</value>
+  </data>
+  <data name="CC3" xml:space="preserve">
+    <value>CC3 Mayor a 3</value>
+  </data>
+  <data name="CC3OMENOS" xml:space="preserve">
+    <value>% CC3 o menos</value>
+  </data>
+  <data name="Codebehind.DatosObligatorios" xml:space="preserve">
+    <value>Existen datos obligatorios en blanco. Es necesario ingresarlos para continuar.</value>
+  </data>
+  <data name="Codebehind.ErrorGuardar" xml:space="preserve">
+    <value>Ocurrio un error al guardar</value>
+  </data>
+  <data name="Codebehind.Guardado" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="Codebehind.NoPreguntas" xml:space="preserve">
+    <value>No hay preguntas disponibles.</value>
+  </data>
+  <data name="ENFERMOSGRADO1" xml:space="preserve">
+    <value>Numero de Enfermos Grado 1</value>
+  </data>
+  <data name="ENFERMOSGRADO1A" xml:space="preserve">
+    <value>Número de Enfermos Grado 1</value>
+  </data>
+  <data name="lblBuscarResource1.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lblCancelarEtiquetaResource1.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCerrarEtiquetaResource1.Text" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="lblDatosEnfermeriaResource1.text" xml:space="preserve">
+    <value>Datos de Enfermería</value>
+  </data>
+  <data name="lblDatosMetafilaxiaResource1.Text" xml:space="preserve">
+    <value>Datos Metafilaxia</value>
+  </data>
+  <data name="lblEnfermeriaResource1.Text" xml:space="preserve">
+    <value>Datos Enfermería</value>
+  </data>
+  <data name="lblGuardarConfirmResource1.Text" xml:space="preserve">
+    <value>¿Está seguro que desea guardar?</value>
+  </data>
+  <data name="lblGuardarEtiquetaBotonResource1.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblGuardarEtiquetaResource1.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblSeleccionarEtiquetaResource1.Text" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="TASAMORABILIDAD" xml:space="preserve">
+    <value>% de Tasa de Morbilidad</value>
+  </data>
+  <data name="Codebehind.CapturarDatosPreguntas" xml:space="preserve">
+    <value>Debe de capturar datos para todas las preguntas.</value>
+  </data>
+  <data name="Codebehind.CapturarInvFinal" xml:space="preserve">
+    <value>Favor de capturar el inventario final.</value>
+  </data>
+  <data name="Codebehind.GuardadoExito" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="Codebehind.InventarioNoMayorInicial" xml:space="preserve">
+    <value>El inventario final no puede ser mayor al inicial.</value>
+  </data>
+  <data name="Codebehind.MetafiaxiaJustificacion" xml:space="preserve">
+    <value>Si la metafilaxia es autorizada necesita ingresar una justificación para continuar.</value>
+  </data>
+  <data name="Codebehind.NoHayEvaluadores" xml:space="preserve">
+    <value>No hay evaluadores.</value>
+  </data>
+  <data name="Codebehind.NoHayPreguntas" xml:space="preserve">
+    <value>No hay preguntas.</value>
+  </data>
+  <data name="Codebehind.NoHayPreguntasGuardar" xml:space="preserve">
+    <value>No hay preguntas para guardar.</value>
+  </data>
+  <data name="Codebehind.NoHayRegistros" xml:space="preserve">
+    <value>No se encontró resultado.</value>
+  </data>
+  <data name="Codebehind.NoSeleccionar" xml:space="preserve">
+    <value>No hay registros para seleccionar.</value>
+  </data>
+  <data name="Codebehind.SeleccionarEvaluador" xml:space="preserve">
+    <value>Favor de seleccionar un evaluador.</value>
+  </data>
+  <data name="Codebehind.CorralNoExiste" xml:space="preserve">
+    <value>No existe el corral.</value>
+  </data>
+  <data name="Codebehind.CorralNoValido" xml:space="preserve">
+    <value>No ha seleccionada un corral para evaluar.</value>
+  </data>
+  <data name="Codebehind.NecesarioRadio" xml:space="preserve">
+    <value>Es necesario que se autorize metafilaxia.</value>
+  </data>
+  <data name="Codebehind.SeleccioneFolio" xml:space="preserve">
+    <value>Debe de seleccionar por lo menos un folio.</value>
+  </data>
+  <data name="Codebehind.SinCorral" xml:space="preserve">
+    <value>No se encontraron resultados con el corral proporcionado.</value>
+  </data>
+</root>

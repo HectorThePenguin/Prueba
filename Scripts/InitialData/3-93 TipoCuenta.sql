@@ -1,0 +1,7 @@
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Inventario',1,GETDATE(),1)
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Provision',1,GETDATE(),1)
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Transito',1,GETDATE(),1)
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Iva',1,GETDATE(),1)
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Producto',1,GETDATE(),1)
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Gastos',1,GETDATE(),1)
+INSERT INTO TipoCuenta (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Materia Prima',1,GETDATE(),1)

@@ -1,0 +1,198 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Abasto.TipoCredito"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"
+                   KeyDown="Window_KeyDown"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.TipoCredito_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.TipoCredito_Filtro}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="230" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="190" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="4"
+                            Grid.ColumnSpan="4"
+                            Grid.Row="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Name="stpAyudaOrganizacion" />
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.TipoCredito_Lbl_Descripcion}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="0"
+                         Grid.Column="2"
+                         HorizontalAlignment="Left"
+                         CharacterCasing="Upper"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="100"
+                         Width="230"
+                         Height="23"
+                         Margin="0 0 0 0"                         
+                         TabIndex="1">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 TargetNullValue="''"                                 
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Grid.Column="3"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.TipoCredito_Estatus}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       ></Label>
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="0"
+                          Grid.Column="4"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding Path=Activo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                          
+                          Width="110"
+                          TabIndex="4"
+                          HorizontalAlignment="Left" />
+                <StackPanel Grid.Column="5"
+                            Orientation="Horizontal"
+                            Grid.ColumnSpan="2">
+                    <Button 
+                        TabIndex="5"                        
+                        Click="btnBuscar_Click"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.btnBuscar}"
+                        Margin="5 0 0 0">
+                    </Button>
+                    <Button TabIndex="6"
+                            Click="btnNuevo_Click"
+                            HorizontalAlignment="Center"
+                            Content="{x:Static resx:Resources.btnNuevo}"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="250"
+                  ColumnWidth="*"
+                  VerticalAlignment="Center"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="70" Header="{x:Static resx:Resources.TipoCredito_Grid_ID}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=TipoCreditoID}"
+                                   HorizontalAlignment="Center"
+                                   FontSize="12"
+                                   FontFamily="Tahoma"
+                                   VerticalAlignment="Center">
+                            </Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="300*" Header="{x:Static resx:Resources.TipoCredito_Grid_Descripcion}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Descripcion}"
+                                   HorizontalAlignment="Left"
+                                   FontSize="12"
+                                   FontFamily="Tahoma"
+                                   VerticalAlignment="Center">
+                            </Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110" Header="{x:Static resx:Resources.TipoCredito_Grid_Estatus}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Activo}"
+                                   HorizontalAlignment="Center"
+                                   FontSize="12"
+                                   FontFamily="Tahoma"
+                                   VerticalAlignment="Center">
+                            </Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BotonEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.TipoCredito_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

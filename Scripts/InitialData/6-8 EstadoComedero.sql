@@ -1,0 +1,18 @@
+
+/* EstadoComedero  */ 
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('No se servirá alimento', 'NO SERVIR', 1, 0.00, '=', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('El comedero se encuentra totalmente limpio', 'BARRIDO', 0, 6.00, '>', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('El ganado consumió todo el alimento', 'LIMPIO', 0, 3.00, '>', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('Se servirá igual, hay una tendencia a aumentar la ración', 'POSIBLE INCREMENTO', 0, 0.00, '>', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('No hay cambio en el comportamiento, no hay cambio ni tendencia', 'NORMAL', 0, 0.00, '=', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('Se servirá igual, hay una tendencia a disminuir la ración', 'POSIBLE BAJA', 0, 0.00, '<', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('Hubo sobrante de alimento, se disminuirá la ración', 'LLENO', 0, 0.00, '<', 1, GETDATE(), 1)
+INSERT INTO EstadoComedero ([Descripcion], [DescripcionCorta], [NoServir], [AjusteBase], [Tendencia], [Activo], [FechaCreacion], [UsuarioCreacionID]) 
+VALUES ('No generar', 'NO GENERAR', 1, 0.00, '=', 1, GETDATE(), 1)

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:p1="http://SuKarne.com/pi/LOGIN/Cancelar_DoctosContables" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="SI_LOGIN_CancelarDoctos" targetNamespace="http://SuKarne.com/pi/LOGIN/Cancelar_DoctosContables" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation />
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="OP_SI_LOGIN_CancelarDoctos" />
+  <wsdl:types>
+    <xsd:schema xmlns="http://SuKarne.com/pi/LOGIN/Cancelar_DoctosContables" targetNamespace="http://SuKarne.com/pi/LOGIN/Cancelar_DoctosContables" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="MT_CancelarDoctos_Resp" type="p1:DT_SAP_CancelarDoctos_Res" />
+      <xsd:element name="MT_LOGIN_CacelarDoctos_Req" type="p1:DT_LOGIN_CancelarDoctos_Item" />
+      <xsd:complexType name="DT_LOGIN_CancelarDoctos_Item">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">5db24f8e1e8911e4b5730000008991c6</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="item">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">262eab301e8911e49779549c2bb9a909</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="sociedad" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cf91e8911e4c01b549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="noref" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cfa1e8911e4b3c7549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="periodo" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cfb1e8911e49ff3549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="clase_doc" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cfc1e8911e499f5549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="archivo" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cfd1e8911e4bb3d549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="division" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cfe1e8911e4959c549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="fecha_canc" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8cff1e8911e48ec5549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="doc_sap" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">262e8d001e8911e4aa0f549c2bb9a909</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DT_SAP_CancelarDoctos_Res">
+        <xsd:annotation>
+          <xsd:appinfo source="http://sap.com/xi/VersionID">4dafb2692c8611e4abf40000008991c6</xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item">
+            <xsd:annotation>
+              <xsd:appinfo source="http://sap.com/xi/TextID">4347d6302c8411e48b155486432d990e</xsd:appinfo>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="ID" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d6272c8411e48b6c5486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="NUMBER" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d6282c8411e485105486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="TYPE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d6292c8411e49c735486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d62a2c8411e4a7dc5486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE_V1" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d62b2c8411e4ad3a5486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE_V2" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d62c2c8411e4cd525486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE_V3" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d62d2c8411e4b1ca5486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="MESSAGE_V4" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d62e2c8411e4b2615486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+                <xsd:element minOccurs="0" name="SYSTEM" type="xsd:string">
+                  <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/TextID">4347d62f2c8411e497df5486432d990e</xsd:appinfo>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MT_LOGIN_CacelarDoctos_Req">
+    <wsdl:documentation />
+    <wsdl:part name="MT_LOGIN_CacelarDoctos_Req" element="p1:MT_LOGIN_CacelarDoctos_Req" />
+  </wsdl:message>
+  <wsdl:message name="MT_CancelarDoctos_Resp">
+    <wsdl:documentation />
+    <wsdl:part name="MT_CancelarDoctos_Resp" element="p1:MT_CancelarDoctos_Resp" />
+  </wsdl:message>
+  <wsdl:portType name="SI_LOGIN_CancelarDoctos">
+    <wsdl:documentation />
+    <wsdl:operation name="SI_LOGIN_CancelarDoctos">
+      <wsdl:documentation />
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_SI_LOGIN_CancelarDoctos" />
+      </wsp:Policy>
+      <wsdl:input message="p1:MT_LOGIN_CacelarDoctos_Req" />
+      <wsdl:output message="p1:MT_CancelarDoctos_Resp" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SI_LOGIN_CancelarDoctosBinding" type="p1:SI_LOGIN_CancelarDoctos">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <wsdl:operation name="SI_LOGIN_CancelarDoctos">
+      <operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <wsdl:input>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:input>
+      <wsdl:output>
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SI_LOGIN_CancelarDoctosService">
+    <wsdl:port name="HTTP_Port" binding="p1:SI_LOGIN_CancelarDoctosBinding">
+      <address location="http://sk-pi-pip.gviz.com:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_LOGIN&amp;receiverParty=&amp;receiverService=&amp;interface=SI_LOGIN_CancelarDoctos&amp;interfaceNamespace=http%3A%2F%2FSuKarne.com%2Fpi%2FLOGIN%2FCancelar_DoctosContables" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+    <wsdl:port name="HTTPS_Port" binding="p1:SI_LOGIN_CancelarDoctosBinding">
+      <address location="https://sk-pi-pip.gviz.com:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=BS_LOGIN&amp;receiverParty=&amp;receiverService=&amp;interface=SI_LOGIN_CancelarDoctos&amp;interfaceNamespace=http%3A%2F%2FSuKarne.com%2Fpi%2FLOGIN%2FCancelar_DoctosContables" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

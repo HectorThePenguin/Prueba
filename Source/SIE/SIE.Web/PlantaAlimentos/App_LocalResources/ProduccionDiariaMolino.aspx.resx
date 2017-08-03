@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="imgLogoResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="imgLogoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblAgregarResource1.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="lblAgregarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCancelarResource1.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDatosProduccionResource1.Text" xml:space="preserve">
+    <value>Datos de Producción Diaria </value>
+  </data>
+  <data name="lblDatosProduccionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaResource1.Text" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="lblFechaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblForrajeResource1.Text" xml:space="preserve">
+    <value>Especificación Forraje:</value>
+  </data>
+  <data name="lblForrajeResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblGuardarResource1.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblGuardarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHoraMuertasResource1.Text" xml:space="preserve">
+    <value>Horas Muertas</value>
+  </data>
+  <data name="lblHoraMuertasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHoraTicketFinalResource1.Text" xml:space="preserve">
+    <value>Hora Ticket Final:</value>
+  </data>
+  <data name="lblHoraTicketFinalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHoraTicketInicialResource1.Text" xml:space="preserve">
+    <value>Hora Ticket Inicial:</value>
+  </data>
+  <data name="lblHoraTicketInicialResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHorometroFinalResource1.Text" xml:space="preserve">
+    <value>Horómetro Final:</value>
+  </data>
+  <data name="lblHorometroFinalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHorometroInicialResource1.Text" xml:space="preserve">
+    <value>Horómetro Inicial:</value>
+  </data>
+  <data name="lblHorometroInicialResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblHumedadResource1.Text" xml:space="preserve">
+    <value>% Humedad Forraje Molido:</value>
+  </data>
+  <data name="lblHumedadResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblKilosNetoResource1.Text" xml:space="preserve">
+    <value>Kilos Neto:</value>
+  </data>
+  <data name="lblKilosNetoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLimpiarResource1.Text" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="lblLimpiarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLitroFinalResource1.Text" xml:space="preserve">
+    <value>Litros Agua / Grasa Final:</value>
+  </data>
+  <data name="lblLitroFinalResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLitrosInicialResource1.Text" xml:space="preserve">
+    <value>Litros Agua / Grasa Inicial:</value>
+  </data>
+  <data name="lblLitrosInicialResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLoteResource1.Text" xml:space="preserve">
+    <value>Lote:</value>
+  </data>
+  <data name="lblLoteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblObservacionesResource1.Text" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="lblObservacionesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPacasResource1.Text" xml:space="preserve">
+    <value>Conteo Pacas:</value>
+  </data>
+  <data name="lblPacasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblProductoResource1.Text" xml:space="preserve">
+    <value>Producto:</value>
+  </data>
+  <data name="lblProductoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblSupervisorResource1.Text" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="lblSupervisorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTicketResource1.Text" xml:space="preserve">
+    <value>Ticket:</value>
+  </data>
+  <data name="lblTicketResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTipoEstatusResource1.Text" xml:space="preserve">
+    <value>Tipo Estatus:</value>
+  </data>
+  <data name="lblTipoEstatusResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTituloResource1.Text" xml:space="preserve">
+    <value>Producción Diaria de Molino</value>
+  </data>
+  <data name="lblTituloResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTurnoResource1.Text" xml:space="preserve">
+    <value>Turno:</value>
+  </data>
+  <data name="lblTurnoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>Produccion Diaria de Molino </value>
+  </data>
+  <data name="lblAceptar.Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="lblAgregarMuertas.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="lblCancelarSupervisor.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCausa.Text" xml:space="preserve">
+    <value>Causa:</value>
+  </data>
+  <data name="lblCausasRegistradas.Text" xml:space="preserve">
+    <value>Causas Registradas</value>
+  </data>
+  <data name="lblCerrarHorasMuertas.Text" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="lblContrasenia.Text" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="lblDatosHorasMuertes.Text" xml:space="preserve">
+    <value>Horas Muertas</value>
+  </data>
+  <data name="lblHoraFinal.Text" xml:space="preserve">
+    <value>Hora Final:</value>
+  </data>
+  <data name="lblHoraInicial.Text" xml:space="preserve">
+    <value>Hora Inicial:</value>
+  </data>
+  <data name="lblIniciarSesion.Text" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
+  <data name="lblLimpiarMuertas.Text" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="lblSupervisorTitulo.Text" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="lblTituloHorasMuertas.Text" xml:space="preserve">
+    <value>Horas Muertas</value>
+  </data>
+  <data name="lblUsuario.Text" xml:space="preserve">
+    <value>Usuario:</value>
+  </data>
+  <data name="js.Aceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="js.ColumnaCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="js.ColumnaConsumo" xml:space="preserve">
+    <value>Consumo Agua/Grasa</value>
+  </data>
+  <data name="js.ColumnaConteoPacas" xml:space="preserve">
+    <value>Conteo Pacas</value>
+  </data>
+  <data name="js.ColumnaDescripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="js.ColumnaEspecificacionForraje" xml:space="preserve">
+    <value>Especificación Forraje</value>
+  </data>
+  <data name="js.ColumnaHorasMuertas" xml:space="preserve">
+    <value>Horas Muertas</value>
+  </data>
+  <data name="js.ColumnaHoraTicket" xml:space="preserve">
+    <value>Hora Ticket</value>
+  </data>
+  <data name="js.ColumnaHorometroFinal" xml:space="preserve">
+    <value>Horómetro Final</value>
+  </data>
+  <data name="js.ColumnaHorometroInicial" xml:space="preserve">
+    <value>Horómetro Inicial</value>
+  </data>
+  <data name="js.ColumnaHumedad" xml:space="preserve">
+    <value>% Humedad Forraje Molido</value>
+  </data>
+  <data name="js.ColumnaId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="js.ColumnaKilosNetos" xml:space="preserve">
+    <value>Kilos Netos</value>
+  </data>
+  <data name="js.ColumnaLote" xml:space="preserve">
+    <value>Lote</value>
+  </data>
+  <data name="js.ColumnaProducto" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="js.ColumnaTicket" xml:space="preserve">
+    <value>Ticket</value>
+  </data>
+  <data name="js.ErrorCausasTiempoMuerto" xml:space="preserve">
+    <value>Ocurrio un error al obtener las causas.</value>
+  </data>
+  <data name="js.ErrorConsultarProductos" xml:space="preserve">
+    <value>Ocurrio un error al consultar el producto.</value>
+  </data>
+  <data name="js.ErrorConsultarTickets" xml:space="preserve">
+    <value>Ocurrio un error al consultar los tickets.</value>
+  </data>
+  <data name="js.ErrorInformacionAdicional" xml:space="preserve">
+    <value>Ocurrio un error al consultar la información adicional del producto.</value>
+  </data>
+  <data name="js.ErrorInformacionAdicionalTicket" xml:space="preserve">
+    <value>Ocurrio un error al consultar la información adicional del ticket.</value>
+  </data>
+  <data name="js.ErrorObtenerForraje" xml:space="preserve">
+    <value>Ocurrio un error al obtener las especificaciones de forraje.</value>
+  </data>
+  <data name="js.ErrorTurnos" xml:space="preserve">
+    <value>Ocurrio un error al obtener los turnos.</value>
+  </data>
+  <data name="js.ErrorValidarUsuario" xml:space="preserve">
+    <value>Ocurrio un error al validar el usuario.</value>
+  </data>
+  <data name="js.MensajeCamposRequeridos" xml:space="preserve">
+    <value>Existen campos requeridos en blanco. Favor de verificar.</value>
+  </data>
+  <data name="js.MensajeCancelarTicket" xml:space="preserve">
+    <value>¿Esta seguro que desea cancelar el ticket registrado?.</value>
+  </data>
+  <data name="js.MensajeCapturarObservaciones" xml:space="preserve">
+    <value>Debe capturar las observaciones.</value>
+  </data>
+  <data name="js.MensajeConsultarProductosTodos" xml:space="preserve">
+    <value>Ocurrio un error al consultar los productos.</value>
+  </data>
+  <data name="js.MensajeDatosGuardar" xml:space="preserve">
+    <value>No hay datos para registrar, favor de verificar.</value>
+  </data>
+  <data name="js.MensajeFormatoHoraFinal" xml:space="preserve">
+    <value>El valor de la hora final no tiene el formato correcto. Favor de verificar.</value>
+  </data>
+  <data name="js.MensajeFormatoHoraInicial" xml:space="preserve">
+    <value>El valor de la hora inicial no tiene el formato correcto. Favor de verificar.</value>
+  </data>
+  <data name="js.MensajeGuardoExito" xml:space="preserve">
+    <value>Datos guardados con éxito</value>
+  </data>
+  <data name="js.MensajeHoraFinalMenor" xml:space="preserve">
+    <value>La hora final no puede ser menor a la hora inicial.</value>
+  </data>
+  <data name="js.MensajeHoraFinalRequerida" xml:space="preserve">
+    <value>Debe capturar la hora final.</value>
+  </data>
+  <data name="js.MensajeHoraInicialRequerida" xml:space="preserve">
+    <value>Debe capturar la hora inicial.</value>
+  </data>
+  <data name="js.MensajeLitrosIniciales" xml:space="preserve">
+    <value>Los litros iniciales no pueden ser mayor a los litros finales.</value>
+  </data>
+  <data name="js.MensajeModificarHorasMuertas" xml:space="preserve">
+    <value>Ya no es posible modificar las horas muertas.</value>
+  </data>
+  <data name="js.MensajeProductoNoExiste" xml:space="preserve">
+    <value>El producto no existe.</value>
+  </data>
+  <data name="js.MensajeRegistroCompleto" xml:space="preserve">
+    <value>El registro ya se encuentra completo, favor de seleccionar otro.</value>
+  </data>
+  <data name="js.MensajeSalirSinGuardar" xml:space="preserve">
+    <value>¿Esta seguro que desea salir sin guardar los datos?.</value>
+  </data>
+  <data name="js.MensajeSalirSinSeleccionarProducto" xml:space="preserve">
+    <value>¿Esta seguro que desea salir sin agregar el producto?.</value>
+  </data>
+  <data name="js.MensajeSalirSinSeleccionarTicket" xml:space="preserve">
+    <value>¿Esta seguro que desea salir sin agregar el ticket?.</value>
+  </data>
+  <data name="js.MensajeSeleccionarProducto" xml:space="preserve">
+    <value>Debe seleccionar un producto.</value>
+  </data>
+  <data name="js.MensajeSeleccionarRegistroHorasMuertas" xml:space="preserve">
+    <value>Debe seleccionar un registro para asignarle horas muertas.</value>
+  </data>
+  <data name="js.MensajeSeleccionarTicket" xml:space="preserve">
+    <value>Debe seleccionar un ticket.</value>
+  </data>
+  <data name="js.MensajeSinPesajeMateriaPrima" xml:space="preserve">
+    <value>No se encuentra información de almacen inventario lote y/o calidad materia prima</value>
+  </data>
+  <data name="js.MensajesRegistrosIncompletos" xml:space="preserve">
+    <value>Se encuentran registros que no están completos. Favor de verificar.</value>
+  </data>
+  <data name="js.MensajeTicketNoExiste" xml:space="preserve">
+    <value>El ticket ingresado no existe.</value>
+  </data>
+  <data name="js.No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="js.Seleccione" xml:space="preserve">
+    <value>Seleccione</value>
+  </data>
+  <data name="js.Si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="js.Supervisado" xml:space="preserve">
+    <value>Supervisado</value>
+  </data>
+  <data name="lblAgregarProducto.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="lblAgregarTicket.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="lblBuscarProducto.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lblBuscarTicket.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lblBusquedaProductos.Text" xml:space="preserve">
+    <value>Búsqueda de Productos</value>
+  </data>
+  <data name="lblBusquedaTicket.Text" xml:space="preserve">
+    <value>Búsqueda de Ticket</value>
+  </data>
+  <data name="lblCancelarProducto.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCancelarSupervision.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCancelarTicket.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblEstatus.Text" xml:space="preserve">
+    <value>No Supervisado</value>
+  </data>
+  <data name="lblFiltrosProducto.Text" xml:space="preserve">
+    <value>Filtros</value>
+  </data>
+  <data name="lblFiltrosTicket.Text" xml:space="preserve">
+    <value>Filtros</value>
+  </data>
+  <data name="lblGuardarSupervision.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblObservacionesSupervisor.Text" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="lblProductoBusqueda.Text" xml:space="preserve">
+    <value>Producto:</value>
+  </data>
+  <data name="lblSupervision.Text" xml:space="preserve">
+    <value>Supervisión</value>
+  </data>
+  <data name="lblSupervisorUsuario.Text" xml:space="preserve">
+    <value>Usuario:</value>
+  </data>
+  <data name="lblTicketBusqueda.Text" xml:space="preserve">
+    <value>Ticket:</value>
+  </data>
+  <data name="lblTituloSupervisor.Text" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="js.ErrorGuardar" xml:space="preserve">
+    <value>Ocurrio un error al guardar la información.</value>
+  </data>
+  <data name="js.MensajeCancelarPantalla" xml:space="preserve">
+    <value>¿Seguro que desea cerrar la ventana?, todos los cambios no guardados se perderán.</value>
+  </data>
+  <data name="js.MensajeCausaRequerida" xml:space="preserve">
+    <value>Debe seleccionar una causa.</value>
+  </data>
+  <data name="js.MensajeHorometroFinal" xml:space="preserve">
+    <value>El horómetro final no debe ser menor que el horómetro inicial. Favor de verificar.</value>
+  </data>
+  <data name="js.MensajeLitrosFinalMenor" xml:space="preserve">
+    <value>Los litros de agua/grasa final no deben ser menor a los litros de agua/grasa inicial. Favor de verificar.</value>
+  </data>
+  <data name="js.MensajeProductoRequerido" xml:space="preserve">
+    <value>Debe seleccionar un producto para realizar la búsqueda de los tickets.</value>
+  </data>
+  <data name="js.MensajeSesionRequerido" xml:space="preserve">
+    <value>Es necesario ingresar usuario y/o contraseña para continuar.</value>
+  </data>
+  <data name="js.MensajeSinDatosSupervisar" xml:space="preserve">
+    <value>No hay datos para supervisar. Favor de verificar.</value>
+  </data>
+  <data name="js.NoSupervisado" xml:space="preserve">
+    <value>Sin Supervisar</value>
+  </data>
+  <data name="js.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="js.MensajeCapturarHoraTicketFinal" xml:space="preserve">
+    <value>Debe capturar la hora final del ticket.</value>
+  </data>
+  <data name="js.MensajeCapturarHorometroFinal" xml:space="preserve">
+    <value>Debe capturar el horómetro final.</value>
+  </data>
+  <data name="js.MensajeCapturarLitrosFinal" xml:space="preserve">
+    <value>Debe capturar los litros finales.</value>
+  </data>
+</root>

@@ -1,0 +1,166 @@
+﻿input[type='number'] .soloNumeros
+{
+    text-align: right !important;
+}
+
+.textBoxDerecha
+{
+    text-align: right !important;
+}
+
+.modal.large
+{
+    width: 60%;
+    margin-left: -30%;
+}
+
+.modal.extraLarge
+{
+    width: 80%;
+    margin-left: -40%;
+}
+
+.close
+{
+    width: 60px !important;
+    height: 40px !important;
+}
+.margenTopdiv {
+    margin-top: 1%;
+}
+
+#modalBusquedaFolio
+{
+    margin-top: -150px;
+}
+
+#divGridAyudaSolicitudProducto, #divGridProductos
+{
+    height: 300px;
+    overflow: auto;
+}
+
+#divGridProductos
+{
+    height: 200px;
+    overflow: auto;
+}
+
+.sinMargen
+{
+    margin-left: 0px !important;
+}
+
+#GridAyudaSolicitudProducto
+{
+    max-height: 200px;
+}
+
+.highlight > td
+{
+    background-color: #FFC8C8 !important;
+}
+
+
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+
+@media only screen and (max-width: 900px), (min-device-width: 760px) and (max-device-width: 1024px)
+{
+
+    /* Force table to not be like tables anymore */
+    #divGridProductos table, #divGridProductos thead, #divGridProductos tbody, #divGridProductos th, #divGridProductos td, #divGridProductos tr
+    {
+        display: block !important;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        #divGridProductos thead tr
+        {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+        }
+
+    #divGridProductos tr
+    {
+        border: 1px solid #ccc !important;
+    }
+
+    #divGridProductos td
+    {
+        /* Behave  like a "row" */
+        border: none !important;
+        border-bottom: 1px solid #eee !important;
+        position: relative !important;
+        padding-left: 50% !important;
+    }
+
+        #divGridProductos td:before
+        {
+            /* Now like a table header */
+            position: absolute !important;
+            /* Top/left values mimic padding */
+            top: 6px !important;
+            left: 6px !important;
+            width: 45% !important;
+            padding-right: 10px !important;
+            white-space: nowrap !important;
+        }
+
+        /*
+	Label the data
+	*/
+        #divGridProductos td:nth-of-type(1):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Código";
+        }
+
+        #divGridProductos td:nth-of-type(2):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Artículo";
+        }
+
+        #divGridProductos td:nth-of-type(3):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Cantidad";
+        }
+
+        #divGridProductos td:nth-of-type(4):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Unidad de Medición";
+        }
+
+        #divGridProductos td:nth-of-type(5):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Descripción";
+        }
+
+        #divGridProductos td:nth-of-type(6):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Clase de Costo";
+        }
+
+        #divGridProductos td:nth-of-type(7):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Centro de Costo";
+        }
+
+        #divGridProductos td:nth-of-type(8):before
+        {
+            background-color: #D8D8D8 !important;
+            content: "Autorizar";
+        }
+        
+}

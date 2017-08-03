@@ -1,0 +1,66 @@
+﻿<Window x:Class="SIE.WinForm.Manejo.TrazabilidadAnimalCostosAbasto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        Height="310"
+        Width="500"
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Background="Black" Margin="2"
+        x:Name="TrazabilidadAnimalCostosAbastoWindow"
+        >
+    <Grid Margin="2,2,2,2" Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <controles:Titulo
+                TextoTitulo="{x:Static resx:Resources.TrazabilidadAnimalCostos_TituloCostosAnimal}"  
+                Grid.Row="0"
+                VisibleCerrar="Visible"
+                x:Name="ucTitulo" Height="Auto" Margin="10,10,10,10" />
+        <DataGrid  
+                      Grid.Row="1"
+                      CanUserResizeColumns="False" 
+                      Height="190" 
+                      VerticalScrollBarVisibility="Auto"
+                      x:Name="DgCostosAnimal" 
+                      HorizontalContentAlignment="Center" 
+                      Margin="10,10,10,20" 
+                      IsTabStop="true"
+                      ItemsSource="{Binding AnimalCostoInfo}"
+                      SelectionMode="Single" >
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="{x:Static resx:Resources.TrazabilidadAnimalCostos_gridCostos}" 
+                                        Width="150*"  
+                                        Binding="{Binding Costo.Descripcion}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.TrazabilidadAnimalCostos_gridImporte}" 
+                                        Width="200" 
+                                        Binding="{Binding Importe, StringFormat=C }">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button
+            Grid.Row="2"
+            HorizontalAlignment="Right"
+            Margin="0,0,20,25"
+            Content="{x:Static resx:Resources.TrazabilidadAnimal_btnCerrar}"
+            Click="BtnCerrar_OnClick">
+        </Button>
+    </Grid>
+</Window>

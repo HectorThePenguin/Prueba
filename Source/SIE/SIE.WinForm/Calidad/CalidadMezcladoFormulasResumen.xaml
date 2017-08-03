@@ -1,0 +1,191 @@
+﻿<Window x:Class="SIE.WinForm.Calidad.CalidadMezcladoFormulasResumen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:SIE.WinForm.Properties"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Black" Margin="2"
+        HorizontalAlignment="Center"
+        Title="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_Titulo_EficienciaMezclado}" Height="340" Width="680">
+
+    <Grid Margin="2" Background="White" ScrollViewer.CanContentScroll="false">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+                <ColumnDefinition Width="665"></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <controles:Titulo
+               x:Name="ucTitulo"                
+                Grid.Column="1"
+                 Grid.Row="0"
+                  Padding="2, 10"
+                   Margin="0"
+                    VisibleCerrar="Hidden"
+                     TextoTitulo="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_Titulo_EficienciaMezclado}"
+                      Height="Auto"></controles:Titulo>
+
+        <DataGrid Name="GridUno"
+                Grid.Column="1"
+                 Grid.Row="1"
+                  AutoGenerateColumns="False"
+                   CanUserResizeColumns="False" 
+                    HorizontalContentAlignment="Center" 
+                     FlowDirection="LeftToRight" 
+                      HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                        VerticalContentAlignment="Top"  
+                         IsSynchronizedWithCurrentItem="True" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                           Margin="5,0" Height="100" Width="665">
+            <DataGrid.Columns>
+                <DataGridTextColumn 
+                            Header="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_TablaResumen_AnalisisMuestra}"  
+                            CanUserSort="False"
+                            Width="110*"
+                            Binding="{Binding TipoAnalisis}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                            Header="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_TablaResumen_ParticulasEsperadas}"  
+                            CanUserSort="False"
+                            Width="130*"  
+                            Binding="{Binding ParticulasEsperadas,StringFormat={}{0:#.00}}" FontWeight="Medium">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                            Header="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_TablaResumen_PromedioParticulas}"  
+                            CanUserSort="False"
+                            Width="220*"  
+                            Binding="{Binding PromParticulasEsperadas,StringFormat=N0}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="center"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                            Header="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_TablaResumen_PorcentajeEficiencia}"  
+                            CanUserSort="False"
+                            Width="185*"  
+                            Binding="{Binding PorEficiencia,StringFormat=N0}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Grid Name="GridDos" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>        
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+    
+            <Label Name="lblPromedio"
+                Grid.Column="0"
+                Grid.Row="0" 
+                Content="Promedio" 
+                FontWeight="Bold" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"/>
+    
+            <TextBox Name="Promedio"
+                Grid.Column="1"
+                Grid.Row="0"
+                IsEnabled="False"
+                Width="80"
+                Height="30"
+                HorizontalContentAlignment="Center"
+                ></TextBox>
+    
+            <Label Name="lblDesvEstandar"
+                Grid.Column="0"
+                Grid.Row="1" 
+                Content="Desv. Estándar" 
+                FontWeight="Bold" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"/>
+
+            <TextBox Name="DesvEstandar"
+                Grid.Column="1"
+                Grid.Row="1"
+                IsEnabled="False"
+                Width="80"
+                Height="30"
+                HorizontalContentAlignment="Center" VerticalAlignment="Top"
+                    ></TextBox>
+
+            <Label Name="lblCoefVariacion"
+                Grid.Column="0"
+                Grid.Row="2" 
+                Content="Coef. variación" 
+                FontWeight="Bold" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"/>
+    
+            <TextBox Name="CoefVariacion"
+                Grid.Column="1"
+                Grid.Row="2"
+                IsEnabled="False"
+                Width="80"
+                Height="30"
+                HorizontalContentAlignment="Center"
+                ></TextBox>
+
+            <Label Name="lblEficMexclado"
+                Grid.Column="0"
+                Grid.Row="3" 
+                Content="Efic. de Mezclado" 
+                FontWeight="Bold" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"/>
+
+            <TextBox Name="EficMezclado"
+                Grid.Column="1"
+                Grid.Row="3"
+                IsEnabled="False"
+                Width="80"
+                Height="30"
+                HorizontalContentAlignment="Center">
+                </TextBox>
+        </Grid>
+        
+        <Button x:Name="btnCancelar" 
+            Content="{x:Static properties:Resources.CalidadMezcladoFormulasAlimento_btnCancelar}"  
+             Grid.Column="1"
+              Grid.Row="3"                        
+               HorizontalAlignment="Right"
+                Width="120"
+                 Height="auto"                            
+                  Margin="5,5" 
+                   Click="btnCancelar_Click"/>
+        </Grid>
+    </Window>
+

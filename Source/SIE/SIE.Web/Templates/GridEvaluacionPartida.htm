@@ -1,0 +1,59 @@
+﻿
+<table id="CorralesEvaluados" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroFolio}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroCorral}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroLote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroCabezas}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroKilosLlegada}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroFechaRecepcion}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroFechaEvaluacion}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroOrigen}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroSalida}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroOpcion}</th>
+
+    </thead>
+    <tbody>
+        {#foreach $T.Corrales as item}
+        <tr data-EvaluacionID={$T.item.EvaluacionID}
+            data-CorralCodigo={$T.item.Corral.Codigo}
+            data-Cabezas={$T.item.Cabezas}
+            data-PartidasAgrupadas={$T.item.PartidasAgrupadas}
+            data-HoraEvaluacion={$T.item.HoraEvaluacion}
+            data-FechaRecepcion={$T.item.FechaRecepcionString}
+            data-OrganizacionOrigenAgrupadas={$T.item.OrganizacionOrigenAgrupadas}
+            data-FechaEvaluacion={$T.item.FechaEvaluacionString}
+            data-OperadorOperadorID={$T.item.Operador.OperadorID}
+            data-NivelGarrapata={$T.item.NivelGarrapata}
+            data-EsMetafilaxia={$T.item.EsMetafilaxia}
+            data-MetafilaxiaAutorizada={$T.item.MetafilaxiaAutorizada}
+            data-Justificacion={$T.item.Justificacion}
+            >
+            
+            <!--<td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.EvaluacionID}
+            </td>-->
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.FolioEvaluacion}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.Corral.Codigo}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.Lote.Lote}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.Cabezas}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.PesoLlegada}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.FechaRecepcionString}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.FechaEvaluacionString}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.OrganizacionOrigen.Descripcion}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.FolioOrigen}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">
+                <input type="button" value="Imprimir" class="btn SuKarne btnImprimirEva" />
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

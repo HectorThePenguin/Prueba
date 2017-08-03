@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ProgramacionEmbarque_Home.Text" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="lblOrganizacion.Text" xml:space="preserve">
+    <value>Organización:</value>
+  </data>
+  <data name="msgCancelarBuscar.Text" xml:space="preserve">
+    <value>¿Está seguro que desea salir?</value>
+  </data>
+  <data name="msgDialogoNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="msgDialogoSi.Text" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="msgErrorPrecondiciones.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar las precondiciones.</value>
+  </data>
+  <data name="msgSeleccionarOrganizacion.Text" xml:space="preserve">
+    <value>Debe seleccionar una organización.</value>
+  </data>
+  <data name="msgSinOrganizacionValida.Text" xml:space="preserve">
+    <value>El código de la organización no es válido. Favor de verificar.</value>
+  </data>
+  <data name="msgSinTipoGanadera.Text" xml:space="preserve">
+    <value>No existen organización de tipo ganadera registradas. Favor de verificar.</value>
+  </data>
+  <data name="ProgramacionEmbarque_Title.Text" xml:space="preserve">
+    <value>Programación Embarque</value>
+  </data>
+  <data name="BusquedaGanadera_Title.Text" xml:space="preserve">
+    <value>Búsqueda de Organización</value>
+  </data>
+  <data name="lblBuscar.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lblCancelar.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblFecha.Text" xml:space="preserve">
+    <value>Semana:</value>
+  </data>
+  <data name="lblGuardar.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblId.Text" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="lblJustificacion.Text" xml:space="preserve">
+    <value>Justificación</value>
+  </data>
+  <data name="lblLimpiar.Text" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="lblTipoEmbarque.Text" xml:space="preserve">
+    <value>Tipo Embarque:</value>
+  </data>
+  <data name="lblTituloProgramacionEmbarque.Text" xml:space="preserve">
+    <value>Programación Embarque</value>
+  </data>
+  <data name="msgCancelar.Text" xml:space="preserve">
+    <value>¿Está seguro que desea cancelar sin guardar la información capturada?</value>
+  </data>
+  <data name="msgErrorMovimientos.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar los movimientos.</value>
+  </data>
+  <data name="msgSeleccionarMovimiento.Text" xml:space="preserve">
+    <value>Debe ingresar un movimiento para continuar.</value>
+  </data>
+  <data name="msgSinCambioEstatus.Text" xml:space="preserve">
+    <value>Es necesario autorizar/rechazar por lo menos un folio.</value>
+  </data>
+  <data name="msgSinMovimientosPendientes.Text" xml:space="preserve">
+    <value>No existen folios pendientes de autorización. Favor de verificar.</value>
+  </data>
+  <data name="msgSinMovimientosPendientesSeleccionado.Text" xml:space="preserve">
+    <value>No existen folios pendientes de autorización para el movimiento seleccionado. Favor de verificar.</value>
+  </data>
+  <data name="msgSinObservacionesCapturadas.Text" xml:space="preserve">
+    <value>Es necesario ingresar las observaciones para los movimientos rechazados.</value>
+  </data>
+  <data name="msgSinTipoAutorizacion.Text" xml:space="preserve">
+    <value>No existen tipos de autorización registrados. Favor de verificar.</value>
+  </data>
+  <data name="txtId.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtId.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDestino.Text" xml:space="preserve">
+    <value>Destino:</value>
+  </data>
+  <data name="lblObservaciones.Text" xml:space="preserve">
+    <value>Observaciones:</value>
+  </data>
+  <data name="lblOrigen.Text" xml:space="preserve">
+    <value>Origen:</value>
+  </data>
+  <data name="lblResponsableEmbarque.Text" xml:space="preserve">
+    <value>Responsable de Embarque:</value>
+  </data>
+  <data name="lblCitaCarga.Text" xml:space="preserve">
+    <value>Cita Carga:</value>
+  </data>
+  <data name="lblCitaDescarga.Text" xml:space="preserve">
+    <value>Cita Descarga:</value>
+  </data>
+  <data name="lblHorasTransito.Text" xml:space="preserve">
+    <value>Horas Tránsito:</value>
+  </data>
+  <data name="lblJaulasProgramadas.Text" xml:space="preserve">
+    <value>Jaulas Programadas:</value>
+  </data>
+  <data name="lblJaulasSolicitadas.Text" xml:space="preserve">
+    <value>Jaulas Solicitadas:</value>
+  </data>
+  <data name="msgErrorProgramaciones.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar las programaciones de embarque.</value>
+  </data>
+  <data name="cabeceroCitaCarga" xml:space="preserve">
+    <value>Cita Carga</value>
+  </data>
+  <data name="cabeceroDestino" xml:space="preserve">
+    <value>Destino</value>
+  </data>
+  <data name="cabeceroFolioEmbarque" xml:space="preserve">
+    <value>Folio Embarque</value>
+  </data>
+  <data name="cabeceroId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="cabeceroObservaciones" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="cabeceroOrigen" xml:space="preserve">
+    <value>Origen</value>
+  </data>
+  <data name="cabeceroResponsableEmbarque" xml:space="preserve">
+    <value>Responsable de Embarque</value>
+  </data>
+  <data name="cabeceroTipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="datatable.anterior" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="datatable.buscar" xml:space="preserve">
+    <value>Buscar:</value>
+  </data>
+  <data name="datatable.cargando" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="datatable.filtrando" xml:space="preserve">
+    <value>- Filtrando de _MAX_ registros</value>
+  </data>
+  <data name="datatable.mostrando" xml:space="preserve">
+    <value>Mostrando (_START_ a _END_) registros de _TOTAL_</value>
+  </data>
+  <data name="datatable.mostrar" xml:space="preserve">
+    <value>Mostrar _MENU_ registros</value>
+  </data>
+  <data name="datatable.primeraPagina" xml:space="preserve">
+    <value>Primera Página</value>
+  </data>
+  <data name="datatable.procesando" xml:space="preserve">
+    <value>Procesando la información</value>
+  </data>
+  <data name="datatable.siguiente" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="datatable.sinDatos" xml:space="preserve">
+    <value>No hay información en la tabla</value>
+  </data>
+  <data name="datatable.sinInformacion" xml:space="preserve">
+    <value>No hay información para mostrar</value>
+  </data>
+  <data name="datatable.sinRegistros" xml:space="preserve">
+    <value>No hay información para mostrar</value>
+  </data>
+  <data name="datatable.ultimaPagina" xml:space="preserve">
+    <value>Ultima Página</value>
+  </data>
+  <data name="msgErrorTiposEmbarque.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar los tipos de embarque.</value>
+  </data>
+  <data name="SeleccionarRuta_Titulo.Text" xml:space="preserve">
+    <value>Selección de ruta</value>
+  </data>
+  <data name="msgErrorBusquedaRuteo.Text" xml:space="preserve">
+    <value>Ha ocurrido un error durante la búsqueda de ruteo.</value>
+  </data>
+  <data name="msgSinRuteoConfigurado.Text" xml:space="preserve">
+    <value>El Origen-Destino no cuenta con ruteo configurado.</value>
+  </data>
+  <data name="msgValidaRuteoSeleccionado.Text" xml:space="preserve">
+    <value>Debe seleccionar un ruteo para continuar.</value>
+  </data>
+  <data name="SeleccionarRuta_Subtitulo.Text" xml:space="preserve">
+    <value>Seleccione una Ruta</value>
+  </data>
+  <data name="msgSinOrganizacionOrigenValida.Text" xml:space="preserve">
+    <value>El código de origen no es válido. Favor de verificar.</value>
+  </data>
+  <data name="lblAyudaGrid.Text" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="lblAyudaGridIdentificador.Text" xml:space="preserve">
+    <value>Identificador</value>
+  </data>
+  <data name="btnBuscar.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="msgSinOrganizacionDestinoValida.Text" xml:space="preserve">
+    <value>El código del destino no es válido, o no está configurado para esa organización origen. Favor de verificar.</value>
+  </data>
+  <data name="msgErrorConsultar.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar los datos.</value>
+  </data>
+  <data name="msgErrorValidarCitaCarga.Text" xml:space="preserve">
+    <value>Debe seleccionar la Cita de Carga para continuar.</value>
+  </data>
+  <data name="msgErrorValidarDestino.Text" xml:space="preserve">
+    <value>Debe ingresar el Destino para continuar.</value>
+  </data>
+  <data name="msgErrorValidarHorasTransito.Text" xml:space="preserve">
+    <value>Debe ingresar las Horas Tránsito para continuar.</value>
+  </data>
+  <data name="msgErrorValidarOrigen.Text" xml:space="preserve">
+    <value>Debe ingresar el Origen para continuar.</value>
+  </data>
+  <data name="msgErrorValidarResponsableCarga.Text" xml:space="preserve">
+    <value>Debe ingresar el  Responsable de Carga para continuar.</value>
+  </data>
+  <data name="msgErrorValidarTiposEmbarque.Text" xml:space="preserve">
+    <value>Debe ingresar el Tipo de Embarque para continuar.</value>
+  </data>
+  <data name="msgErrorBusquedaDetallesRuteo.Text" xml:space="preserve">
+    <value>Ha ocurrido el error durante a búsqueda de los detalles del ruteo.</value>
+  </data>
+  <data name="msgNoRuteosActivos.Text" xml:space="preserve">
+    <value>No se cuentan con Ruteos Activos y/o Registrados. Favor de verificar.</value>
+  </data>
+  <data name="msgNoTieneTarifa.Text" xml:space="preserve">
+    <value>El Origen-destino no cuenta con Importe Tarifa configuradas o activas. Favor de verificar</value>
+  </data>
+  <data name="descripcionEstatusCancelado.Text" xml:space="preserve">
+    <value>Cancelado</value>
+  </data>
+  <data name="descripcionEstatusRecibido.Text" xml:space="preserve">
+    <value>Recibido</value>
+  </data>
+  <data name="tipoRuteo.Text" xml:space="preserve">
+    <value>Ruteo</value>
+  </data>
+  <data name="cabeceroCitaDescarga" xml:space="preserve">
+    <value>Cita Descarga</value>
+  </data>
+  <data name="cabeceroDemora" xml:space="preserve">
+    <value>Demora</value>
+  </data>
+  <data name="cabeceroFlete" xml:space="preserve">
+    <value>Flete</value>
+  </data>
+  <data name="cabeceroGastoFijo" xml:space="preserve">
+    <value>Gasto Fijo</value>
+  </data>
+  <data name="cabeceroGastoVariable" xml:space="preserve">
+    <value>Gasto Variable</value>
+  </data>
+  <data name="cabeceroKilometros" xml:space="preserve">
+    <value>Kilometros</value>
+  </data>
+  <data name="cabeceroRuta" xml:space="preserve">
+    <value>Ruta</value>
+  </data>
+  <data name="cabeceroTransportista" xml:space="preserve">
+    <value>Transportista</value>
+  </data>
+  <data name="cabeceroEcoJaula" xml:space="preserve">
+    <value># Eco Jaula</value>
+  </data>
+  <data name="cabeceroEcoTracto" xml:space="preserve">
+    <value># Eco Tracto</value>
+  </data>
+  <data name="cabeceroOperador" xml:space="preserve">
+    <value>Operador</value>
+  </data>
+  <data name="cabeceroPlacaJaula" xml:space="preserve">
+    <value>Placa Jaula</value>
+  </data>
+  <data name="cabeceroPlacaTracto" xml:space="preserve">
+    <value>Placa Tracto</value>
+  </data>
+  <data name="lblDemora.Text" xml:space="preserve">
+    <value>Demora:</value>
+  </data>
+  <data name="lblEcoJaula.Text" xml:space="preserve">
+    <value># Eco Jaula:</value>
+  </data>
+  <data name="lblEcoTracto.Text" xml:space="preserve">
+    <value># Eco Tracto:</value>
+  </data>
+  <data name="lblFlete.Text" xml:space="preserve">
+    <value>Flete:</value>
+  </data>
+  <data name="lblGastoFijo.Text" xml:space="preserve">
+    <value>Gasto Fijo:</value>
+  </data>
+  <data name="lblGastoVariable.Text" xml:space="preserve">
+    <value>Gasto Variable:</value>
+  </data>
+  <data name="lblKms.Text" xml:space="preserve">
+    <value>Kms:</value>
+  </data>
+  <data name="lblOperador1.Text" xml:space="preserve">
+    <value>Operador 1:</value>
+  </data>
+  <data name="lblOperador2.Text" xml:space="preserve">
+    <value>Operador 2:</value>
+  </data>
+  <data name="lblPlacasJaula.Text" xml:space="preserve">
+    <value>Placas Jaula:</value>
+  </data>
+  <data name="lblPlacasTracto.Text" xml:space="preserve">
+    <value>Placas Tracto:</value>
+  </data>
+  <data name="lblRuta.Text" xml:space="preserve">
+    <value>Ruta:</value>
+  </data>
+  <data name="lblCodigoSAP.Text" xml:space="preserve">
+    <value>Codigo SAP:</value>
+  </data>
+  <data name="lblDobleTransportista.Text" xml:space="preserve">
+    <value>Doble Transportista</value>
+  </data>
+  <data name="lblBusquedaRuta_Titulo.Text" xml:space="preserve">
+    <value>Búsqueda de Ruta</value>
+  </data>
+  <data name="lblBusquedaTransportista_Titulo.Text" xml:space="preserve">
+    <value>Búsqueda de Transportista</value>
+  </data>
+  <data name="lblTransportista.Text" xml:space="preserve">
+    <value>Transportista:</value>
+  </data>
+  <data name="msgSinTransporteValido.Text" xml:space="preserve">
+    <value>El código del Transportista no es válido, favor de verificar.</value>
+  </data>
+  <data name="msgValidaCorreoProveedor.Text" xml:space="preserve">
+    <value>El Transportista no cuenta con correo electrónico registrado. Favor de verificar.</value>
+  </data>
+  <data name="msgValidaChoferProveedor.Text" xml:space="preserve">
+    <value>El Transportista no tiene asignado choferes.</value>
+  </data>
+  <data name="msgValidaJaulaTractoProveedor.Text" xml:space="preserve">
+    <value>El transportista no tiene asignado jaulas y/o tractos.</value>
+  </data>
+  <data name="msgValidaConfiguracionOrigenDestinoProveedor.Text" xml:space="preserve">
+    <value>El Transportista no tiene rutas configuradas. Favor de verificar.</value>
+  </data>
+  <data name="msgValidaOrigenDestinoTieneVariasRutasProveedor.Text" xml:space="preserve">
+    <value>El origen – destino tiene más de una ruta para el Transportista seleccionado, favor de seleccionar la ruta:</value>
+  </data>
+  <data name="lblApellidoMaterno.Text" xml:space="preserve">
+    <value>Apellido Materno</value>
+  </data>
+  <data name="lblApellidoPaterno.Text" xml:space="preserve">
+    <value>Apellido Paterno</value>
+  </data>
+  <data name="lblBusquedaOperador1.Text" xml:space="preserve">
+    <value>Búsqueda de Operador 1</value>
+  </data>
+  <data name="lblNombre.Text" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="lblNombreOperador.Text" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="lblBusquedaTracto_Titulo.Text" xml:space="preserve">
+    <value>Búsqueda de Tractos</value>
+  </data>
+  <data name="lblCamionID.Text" xml:space="preserve">
+    <value>Placa tracto: </value>
+  </data>
+  <data name="lblPlacaTracto.Text" xml:space="preserve">
+    <value>Placa</value>
+  </data>
+  <data name="msgSeleccionarCamion.Text" xml:space="preserve">
+    <value>Debe seleccionar un tracto para continuar.</value>
+  </data>
+  <data name="msgSinTractos.Text" xml:space="preserve">
+    <value>No se han encontrado tractos para el transportista configurado.</value>
+  </data>
+  <data name="msgTractoInvalido.Text" xml:space="preserve">
+    <value>El código del tracto no es válido. Favor de verificar.</value>
+  </data>
+  <data name="msgTractoNoPerteneceProveedor.Text" xml:space="preserve">
+    <value>El código ingresado no pertece al transportista configurado.</value>
+  </data>
+  <data name="lblBusquedaJaula_Titulo.Text" xml:space="preserve">
+    <value>Búsqueda de Jaula</value>
+  </data>
+  <data name="lblPlacaJaula.Text" xml:space="preserve">
+    <value>Placa jaula: </value>
+  </data>
+  <data name="msgJaulaInvalido.Text" xml:space="preserve">
+    <value>El código de la Jaula no es válido o no pertenece al Transportista. Favor de verificar.</value>
+  </data>
+  <data name="msgJaulaNoPerteneceProveedor.Text" xml:space="preserve">
+    <value>El código ingresado no pertece al transportista configurado.</value>
+  </data>
+  <data name="msgNoTieneTransportista.Text" xml:space="preserve">
+    <value>Existen datos en Null de las pestañas Programación y/o Transporte. Favor de verificar.</value>
+  </data>
+  <data name="msgSeleccionaJaula.Text" xml:space="preserve">
+    <value>Debe seleccionar una jaula para continuar.</value>
+  </data>
+  <data name="msgSinJaulas.Text" xml:space="preserve">
+    <value>No se han encontrado tractos para el transportista configurado.</value>
+  </data>
+  <data name="msgSinOperadorValido.Text" xml:space="preserve">
+    <value>El código del chofer no es válido. Favor de verificar.</value>
+  </data>
+  <data name="lblBusquedaOperador2.Text" xml:space="preserve">
+    <value>Búsqueda de Operador 2</value>
+  </data>
+  <data name="msgSeleccionaCitaDescarga.Text" xml:space="preserve">
+    <value>Debe tener  Cita de Descarga para continuar.</value>
+  </data>
+  <data name="msgSeleccionaKms.Text" xml:space="preserve">
+    <value>Debe ingresar los Kilómetros para continuar.</value>
+  </data>
+  <data name="msgSeleccionaOperador1.Text" xml:space="preserve">
+    <value>Debe ingresar/seleccionar Operador 1.</value>
+  </data>
+  <data name="msgSeleccionaOperador2.Text" xml:space="preserve">
+    <value>Debe ingresar/seleccionar Operador 2.</value>
+  </data>
+  <data name="msgSeleccionaRuta.Text" xml:space="preserve">
+    <value>Debe seleccionar la Ruta para continuar.</value>
+  </data>
+  <data name="msgSeleccionaTracto.Text" xml:space="preserve">
+    <value>Debe ingresar/seleccionar Placas Tracto.</value>
+  </data>
+  <data name="msgSeleccionaTransportista.Text" xml:space="preserve">
+    <value>Debe seleccionar el Transportista para continuar.</value>
+  </data>
+  <data name="msgValidaFlete.Text" xml:space="preserve">
+    <value>Debe tener  Flete para continuar.</value>
+  </data>
+  <data name="msgValidaGastoFijo.Text" xml:space="preserve">
+    <value>Debe tener Gasto Fijo para continuar.</value>
+  </data>
+  <data name="msgValidaJaula.Text" xml:space="preserve">
+    <value>Debe ingresar/seleccionar Placas Jaula.</value>
+  </data>
+  <data name="msgValidaProgramacionDatosCapturados.Text" xml:space="preserve">
+    <value>Existe información en la Sección de Datos, desea modificar la solicitud.</value>
+  </data>
+  <data name="msgSinRuta.Text" xml:space="preserve">
+    <value>El código de la Ruta no es válido. Favor de verificar.</value>
+  </data>
+  <data name="msgSinRutaProveedor.Text" xml:space="preserve">
+    <value>El proveedor no tiene rutas configuradas. Favor de verificar.</value>
+  </data>
+  <data name="msgAsuntoCorreo.Text" xml:space="preserve">
+    <value>Tiene un embarque pendiente por confirmar.</value>
+  </data>
+  <data name="msgExitoFolioEmbarque.Text" xml:space="preserve">
+    <value>Folio: # Datos guardados con éxito.</value>
+  </data>
+  <data name="msgErrorEliminar.text" xml:space="preserve">
+    <value>Ocurrió un error al eliminar.</value>
+  </data>
+  <data name="msgErrorGuardar.text" xml:space="preserve">
+    <value>Ocurrió un error al guardar.</value>
+  </data>
+  <data name="msgExitoGuardar.text" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="rolEmbarqueProgramacion.Text" xml:space="preserve">
+    <value>EMBARQUE PROGRAMACION</value>
+  </data>
+  <data name="rolEmbarqueTransporteDatos.Text" xml:space="preserve">
+    <value>EMBARQUE TRANSPORTE Y DATOS</value>
+  </data>
+  <data name="lblPendientes.Text" xml:space="preserve">
+    <value>Pendientes:</value>
+  </data>
+  <data name="formatoCorreoNuevo.Text" xml:space="preserve">
+    <value>Buenos días, me confirman por favor.&lt;br&gt;&lt;br&gt;&lt;table border='1'&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;ORIGEN&lt;/td&gt;&lt;td&gt;DESTINO&lt;/td&gt;&lt;td&gt;COMPRADOR&lt;/td&gt;&lt;td&gt;TIPO&lt;/td&gt;&lt;td&gt;CITA CARGA&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;{0}&lt;/td&gt;&lt;td&gt;{1}&lt;/td&gt;&lt;td&gt;{2}&lt;/td&gt;&lt;td&gt;{3}&lt;/td&gt;&lt;td&gt;{4}&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;Presentarse con jaula limpia.&lt;br&gt;Enviar datos en caso de confirmar la solicitud.&lt;br&gt;&lt;br&gt;Notificar a personal de tráfico en caso de posible incumplimiento a citas de carga/descarga.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Favor de revisar funcionamiento de GPS antes de enviar el equipo, de lo contrario no procederá la carga.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt; Saludos.</value>
+  </data>
+  <data name="msgProveedoresSinRuta.Text" xml:space="preserve">
+    <value>No existen proveedores para la ruta seleccionada. Favor de verificar.</value>
+  </data>
+  <data name="msgValidaOperador1Igual.Text" xml:space="preserve">
+    <value>El operador seleccionado no puede ser el mismo que el operador 2.</value>
+  </data>
+  <data name="msgValidaOperador2Igual.Text" xml:space="preserve">
+    <value>El operador seleccionado no puede ser el mismo que el operador 1.</value>
+  </data>
+  <data name="msgErrorCargarGridTransporte.Text" xml:space="preserve">
+    <value>Ocurrió un error al cargar el grid de transporte.</value>
+  </data>
+  <data name="msgErrorEnviarCorreo.Text" xml:space="preserve">
+    <value>Error al enviar correo.</value>
+  </data>
+  <data name="msgErrorObtenerJaulasProgramadas.Text" xml:space="preserve">
+    <value>Ocurrió un error al obtener las jaulas programadas.</value>
+  </data>
+  <data name="msgExitoCorreoEnviado.Text" xml:space="preserve">
+    <value>Correo enviado.</value>
+  </data>
+  <data name="msgPeticionEliminar.Text" xml:space="preserve">
+    <value>¿Está seguro que desea eliminar el registro?</value>
+  </data>
+  <data name="msgTransportistaNoValido.Text" xml:space="preserve">
+    <value>El código del Transportista no es válido. Favor de verificar.</value>
+  </data>
+  <data name="msgDialogoCancelarTransporte.Text" xml:space="preserve">
+    <value>¿Seguro que desea cerrar la ventana?, todos los cambios no guardados se perderán.</value>
+  </data>
+  <data name="msgErrorCargarGridDatos.Text" xml:space="preserve">
+    <value>Ocurrió un error al cargar el grid de datos</value>
+  </data>
+  <data name="msgErrorGastosFijos.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar los gastos fijos.</value>
+  </data>
+  <data name="msgSeleccionaPlacaJaula.Text" xml:space="preserve">
+    <value>Debe ingresar/seleccionar Placas Jaula.</value>
+  </data>
+  <data name="Aceptar.Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="msgEstatusActualizar.Text" xml:space="preserve">
+    <value>El registro seleccionado ya cuenta con estatus de Recibido y/o Cancelado, por lo cual no se puede editar.</value>
+  </data>
+  <data name="EmbarqueCancelado.Text" xml:space="preserve">
+    <value>Cancelado</value>
+  </data>
+  <data name="EmbarqueRecibido.Text" xml:space="preserve">
+    <value>Recibido</value>
+  </data>
+</root>

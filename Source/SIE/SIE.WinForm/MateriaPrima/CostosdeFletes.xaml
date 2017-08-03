@@ -1,0 +1,201 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.MateriaPrima.CostosdeFletes"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   WindowStyle="None"
+                   ResizeMode="NoResize"
+                   Height="375"
+                   Background="Black"
+                   Width="650.035"
+                 Loaded="CostosdeFletes_OnLoaded">
+
+    <Vista:VistaBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:VistaBase.Resources>
+
+    <Grid Margin="2"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="122"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.CostosdeFlete_Titulo}"
+                          x:Name="ucTitulo" Height="Auto" Margin="0,12"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20,0,20,0" Height="112" VerticalAlignment="Top">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CostosdeFlete_lblFiltros}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="79" />
+                    <ColumnDefinition Width="347" />
+                    <ColumnDefinition Width="87" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Content="{x:Static resx:Resources.CostosdeFlete_lblCostos}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Center" Height="28" >
+                </Label>
+                <StackPanel x:Name="stpCosto"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Height="23"
+                    VerticalAlignment="Center" 
+                        />
+                <Button Name="btnAgregar" 
+                        Grid.ColumnSpan="2" 
+                        Content="{x:Static resx:Resources.CostosdeFlete_btnAgregar}" 
+                        Grid.Column="3" 
+                        HorizontalAlignment="Left"  
+                        VerticalAlignment="Center" 
+                        Width="75" 
+                        Click="BtnAgregar_OnClick"
+                        TabIndex="3"/>
+                <Label Content="{x:Static resx:Resources.CostosdeFlete_lblTarifas}" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top"/>
+                <xctk:DecimalUpDown Name="txtTarifa" 
+                        NumeroDecimal="True"
+                        AllowSpin="False"
+                        ShowButtonSpinner="False"
+                         Grid.Column="2" 
+                         HorizontalAlignment="Left" 
+                         Height="23" 
+                         Grid.Row="1" 
+                         VerticalAlignment="Top" 
+                         Width="87"
+                         TextAlignment="Right"
+                         RenderTransformOrigin="0.161,0.199" 
+                         Margin="0,0,0,0"
+                         GotFocus="TxtTarifa_OnGotFocus"
+                         TabIndex="2"
+                         PreviewTextInput="TxtTarifa_OnPreviewTextInput"
+                                    FormatString="N2"/>
+                <Label Name="lblTipoTarifa" Content="{x:Static resx:Resources.CostosdeFlete_lblPorToneladas}" Grid.Column="2" HorizontalAlignment="Left" Margin="86,0,0,0" Grid.Row="1" VerticalAlignment="Top"/>                <Button Name="btnSalir" 
+                        Grid.ColumnSpan="2" 
+                        Content="{x:Static resx:Resources.CostosdeFlete_btnSalir}" 
+                        Grid.Column="3" 
+                        HorizontalAlignment="Left" 
+                        Grid.Row="1" 
+                        VerticalAlignment="Top" 
+                        Width="75"
+                        Click="BtnSalir_OnClick"
+                        TabIndex="4"/>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatosCostos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=CostoInfo}"
+                  SelectionMode="Single" Margin="20,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=CostoID}"
+                                    Header="{x:Static resx:Resources.CostosdeFlete_gridIdCostos}" >
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFADAE"/>
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Costo}"
+                                    Header="{x:Static resx:Resources.CostosdeFlete_gridCostos}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Tarifa, StringFormat=N2}"
+                                    Header="{x:Static resx:Resources.CostosdeFlete_gridTarifas}" >
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFADAE"/>
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnEditar" Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_OnClick"
+                                    >
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Grupo_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEliminar_Click">
+                                <Image Source="{StaticResource borrarIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.ProgramaciondeFletes_Grid_Eliminar}" />
+                            </Button>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+</Vista:VistaBase>

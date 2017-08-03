@@ -1,0 +1,19 @@
+﻿<table id="Otros" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderProblemasEnfermeria}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderSeleccione}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Problemas as item}
+        <tr data-IdProblema ={$T.item.ProblemaId}>
+            <td class="align-left tabs-right">{$T.item.Descripcion}
+            </td>
+            <td class="alineacionCentro tabs-right">
+                <span class="problema">
+                    <input id="chkProblema{$T.item.ProblemaID}" value="{$T.item.ProblemaID}"  type="checkbox"/>
+                </span>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

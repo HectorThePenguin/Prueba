@@ -1,0 +1,6 @@
+INSERT INTO GrupoCorral (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Recepción', 1, getdate(), 1) 
+INSERT INTO GrupoCorral (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Producción', 1, getdate(), 1) 
+INSERT INTO GrupoCorral (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Enfermería', 1, getdate(), 1) 
+INSERT INTO GrupoCorral (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Corraleta', 1, getdate(), 1) 
+INSERT INTO GrupoCorral (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Intensivo', 1, getdate(), 1)
+INSERT INTO GrupoCorral (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Maquila', 1, getdate(), 1)

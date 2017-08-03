@@ -1,0 +1,192 @@
+﻿<Window x:Class="SIE.WinForm.PlantaAlimentos.AjustesPendientesDiferenciasDeInventario"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+      xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        Height="450"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="900"
+        WindowStartupLocation="CenterScreen" 
+        Background="Black" Margin="2"
+        WindowStyle="None" HorizontalAlignment="Center"
+        Loaded="AjustesPendientesDiferenciasDeInventario_OnLoaded"
+        >
+    <Grid Margin="2" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="350"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="20 10 20 10"
+                          Margin="0,0,0,5"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.AjustesPendientesDiferenciasDeInventario_Titulo}"
+                          x:Name="ucTitulo" Height="50" Grid.ColumnSpan="3"></controles:Titulo>
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.AjustesPendientesDiferenciasDeInventario_GboFiltros}"
+                  Margin="0,0,0,0" 
+                  Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="160"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="160"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{x:Static resx:Resources.DiferenciasDeInventario_LblAjuste}"  
+                       HorizontalAlignment="Left" 
+                       Margin="0,10,0,10"/>
+                <ComboBox Name="CboAjuste" 
+                          HorizontalAlignment="Left" 
+                          Margin="0,10,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="160"
+                          Grid.Column="1"
+                />
+                <Label Grid.Column="2"
+                       Content="{x:Static resx:Resources.AjustesPendientesDiferenciasDeInventario_LblEstatus}"  
+                       HorizontalAlignment="Left" 
+                       Margin="0,10,0,10"/>
+                <ComboBox Name="CboEstatus" 
+                          HorizontalAlignment="Left" 
+                          Margin="0,10,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="160"
+                          Grid.Column="3"
+                          SelectedValuePath="EstatusID"
+                          DisplayMemberPath="Descripcion"
+                          ItemsSource="{Binding}"
+                />
+                <Button x:Name="BtnBuscar"
+                        Content="{x:Static resx:Resources.AjustesPendientesDiferenciasDeInventario_BtnBuscar}" Grid.Column="4"
+                        HorizontalAlignment="Center"
+                        Margin="0,-4,0,0"
+                        VerticalAlignment="Center"
+                        Width="100" TabIndex="3"
+                        Click="BtnBuscar_OnClick"
+                        />
+                <Button x:Name="BtnAgregar"
+                        Content="{x:Static resx:Resources.DiferenciasDeInventario_BtnAgregar}" Grid.Column="5"
+                        HorizontalAlignment="Center"
+                        Margin="0,-4,0,0"
+                        VerticalAlignment="Center"
+                        Width="100" TabIndex="3"
+                        Click="BtnAgregar_OnClick"
+                        />
+                <Button x:Name="BtnCancelar"
+                        Content="{x:Static resx:Resources.DiferenciasDeInventario_BtnCancelar}" Grid.Column="6"
+                        HorizontalAlignment="Center"
+                        Margin="0,-4,0,0"
+                        VerticalAlignment="Center"
+                        Width="100" TabIndex="3"
+                        Click="BtnCancelar_OnClick"
+                        />
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="GridDiferenciasDeInventarios" Grid.Column="1" Grid.Row="2"
+                      IsTabStop="False"
+                      SelectionMode="Single"
+                      ItemsSource="{Binding Path=DiferenciaDeInventarioInfo}" Margin="0,17,00,43" CanUserResizeColumns="False" CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox x:Name="chkTodos" Click="ChkTodos_OnClick"/>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="chkSelect"
+                                      IsChecked="{Binding Seleccionado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn 
+                                    Width="70"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=DescripcionAjuste}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderDatosAjuste}"
+                                    KeyboardNavigation.TabNavigation="None"/>
+                <DataGridTextColumn Width="150"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=AlmacenMovimiento.FolioMovimiento}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderFolioMovimiento}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTextColumn Width="160"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Almacen.Descripcion}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderDatosAlmacen}"
+                                    KeyboardNavigation.TabNavigation="None"/>
+                <DataGridTextColumn Width="250"
+                                    Binding="{Binding Path=Producto.Descripcion}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderDatosProducto}" 
+                                    KeyboardNavigation.TabNavigation="None"/>
+                <DataGridTextColumn Width="60"
+                                    Binding="{Binding Path=AlmacenInventarioLote.Lote}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderDatosLote}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFADAE"/>
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="140"
+                                    Binding="{Binding Path=PorcentajeAjuste, StringFormat={}{0:0.00}}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderPorcentajeAjuste}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFADAE"/>
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Estatus.Descripcion}"
+                                    Header="{x:Static resx:Resources.AjustesPendientesDiferenciasDeInventario_GridHeaderEstatus}" 
+                                    KeyboardNavigation.TabNavigation="None"/>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    IsEnabled="{Binding Eliminable}"
+                                    Click="BtnEliminar_OnClick"
+                                    >
+                                <Image Source="{StaticResource deleteIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.deleteIcon}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

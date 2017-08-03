@@ -1,0 +1,589 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.MateriaPrima.EntradaMateriaPrima"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   Loaded="EntradaMateriaPrima_OnLoaded"
+                   xmlns:info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"> 
+    <Grid Margin="15"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="160"></RowDefinition>
+            <RowDefinition Height="31"></RowDefinition>
+            <RowDefinition Height="209"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="0 10 0 10"
+                          Margin="0,0,0,1"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.EntradaMateriaPrima_Titulo}"
+                          x:Name="ucTitulo"
+                          Height="Auto"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Header="{x:Static resx:Resources.EntradaMateriaPrima_GbDatosEntrada}"
+                  Grid.Row="1"
+                  Name="grpDatos">
+            <Grid Margin="0"
+                  Background="White"
+                  ScrollViewer.CanContentScroll="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"></RowDefinition>
+                    <RowDefinition Height="26"></RowDefinition>
+                    <RowDefinition Height="26"></RowDefinition>
+                    <RowDefinition Height="26"></RowDefinition>
+                    <RowDefinition Height="26"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="122*"></ColumnDefinition>
+                    <ColumnDefinition Width="254*"></ColumnDefinition>
+                    <ColumnDefinition Width="170*"></ColumnDefinition>
+                    <ColumnDefinition Width="215*"></ColumnDefinition>
+                    <ColumnDefinition Width="121*"></ColumnDefinition>
+                    <ColumnDefinition Width="172*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="*"
+                       x:Name="lblFolioRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="-5,-1,0,0" />
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblFolio}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="0,0,0,0"
+                       Width="44" />
+                <Label Grid.Column="0"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblFechaEntrada}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="0,0,0,0"
+                       Width="106" />
+                <Label Grid.Column="0"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblProveedor}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="0,0,0,0"
+                       Width="78" />
+                <Label Content="*"
+                       x:Name="lblTipoEntrada"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="-5,26,0,0"
+                       Grid.RowSpan="2" />
+                <Label Grid.Column="0"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblTipoEntrada}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="0,0,0,0"
+                       Width="94" />
+                <Label Grid.Column="0"
+                       Grid.Row="4"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblMerma}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="0,0,0,0"
+                       Width="57" />
+                <StackPanel Name="SplAyudaFolioMateriaPrima"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="1" />
+                <TextBox Name="txtFechaEntrada"
+                         MaxLength="50"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Margin="0,2,1,2"
+                         Width="Auto"
+                         HorizontalAlignment="Stretch"
+                         Height="Auto"
+                         IsEnabled="False" />
+                <Grid Margin="0"
+                      Grid.Row="2"
+                      Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="txtNumeroProveedor"
+                             MaxLength="10"
+                             Grid.Column="0"
+                             Margin="0,2,0,0"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             IsEnabled="False" />
+                    <TextBox Name="txtNombreProveedor"
+                             MaxLength="10"
+                             Grid.Column="1"
+                             Margin="20,2,1,0"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             IsEnabled="False" />
+                </Grid>
+                <ComboBox Name="CboTipoEntrada"
+                          HorizontalAlignment="Stretch"
+                          Margin="0,2,0,0"
+                          VerticalAlignment="Top"
+                          Width="Auto"
+                          Grid.Column="1"
+                          Grid.Row="3" />
+                <xctk:DecimalUpDown AllowSpin="False"
+                                    FormatString="N2"
+                                    CultureInfo="en-US"
+                                    ShowButtonSpinner="False"
+                                    NumeroDecimal="True"
+                                    Name="txtMerma"
+                                    MaxLength="10"
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Width="Auto"
+                                    HorizontalAlignment="Stretch"
+                                    Height="Auto"
+                                    Margin="0,2,150,2"
+                                    IsEnabled="False" />
+                <xctk:DecimalUpDown AllowSpin="False"
+                                    FormatString="N2"
+                                    CultureInfo="en-US"
+                                    ShowButtonSpinner="False"
+                                    NumeroDecimal="True"
+                                    Name="txtMermaDecimales"
+                                    MaxLength="10"
+                                    Grid.Row="4"
+                                    Padding="0,0,15,0"
+                                    Grid.Column="1"
+                                    Width="Auto"
+                                    HorizontalAlignment="Stretch"
+                                    Height="Auto"
+                                    IsEnabled="False"
+                                    Margin="150,2,0,2" />
+
+                <Label Grid.Column="1"
+                       Grid.Row="4"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblPorcentaje}"
+                       Height="Auto"
+                       Margin="0,0,1,0"
+                       HorizontalAlignment="Right"
+                       Width="19" />
+                <Label Grid.Column="2"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblProducto}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="1,0,0,0"
+                       Width="70" />
+                <Label Grid.Column="2"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblKilosOrigenBonificacion}"
+                       Height="Auto"
+                       Margin="1,0,174,0"
+                       Grid.ColumnSpan="2" />
+                <Label Grid.Column="2"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblKilosOrigen}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="1,0,0,0"
+                       Width="90" />
+                <Label Grid.Column="2"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblPrecio}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="1,0,0,0"
+                       Width="54" />
+                <Label Grid.Column="2"
+                       Grid.Row="4"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblCompra}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="1,0,0,0"
+                       Width="64" />
+                <Grid Margin="0"
+                      Grid.Row="0"
+                      Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="txtProducto"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="0"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             IsEnabled="False"
+                             Grid.ColumnSpan="2" />
+                    <Button x:Name="btnVer"
+                            Content="{x:Static resx:Resources.EntradaMateriaPrima_BtnVer}"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,0,0"
+                            Width="30"
+                            Visibility="Hidden"
+                            Click="btnVer_Click"
+                            VerticalAlignment="Top" />
+                </Grid>
+                <xctk:DecimalUpDown AllowSpin="False"
+                                    FormatString="N0"
+                                    CultureInfo="en-US"
+                                    ShowButtonSpinner="False"
+                                    NumeroDecimal="True"
+                                    Name="txtKilosOrigenBonificacion"
+                                    MaxLength="10"
+                                    Grid.Row="1"
+                                    Grid.Column="3"
+                                    Margin="0,2,1,2"
+                                    Width="Auto"
+                                    HorizontalAlignment="Stretch"
+                                    Height="Auto"
+                                    IsEnabled="False" />
+                <xctk:DecimalUpDown AllowSpin="False"
+                                    FormatString="N0"
+                                    CultureInfo="en-US"
+                                    ShowButtonSpinner="False"
+                                    NumeroDecimal="True"
+                                    Name="txtKilosOrigen"
+                                    MaxLength="10"
+                                    Grid.Row="2"
+                                    Grid.Column="3"
+                                    Margin="0,2,1,2"
+                                    Width="Auto"
+                                    HorizontalAlignment="Stretch"
+                                    Height="Auto"
+                                    IsEnabled="False" />
+                <TextBox Name="txtPrecio"
+                         MaxLength="10"
+                         TabIndex="5"
+                         Grid.Row="3"
+                         Grid.Column="3"
+                         Margin="0,2,1,2"
+                         IsEnabled="False"
+                         Width="Auto"
+                         TextAlignment="Right"
+                         HorizontalAlignment="Stretch"
+                         Height="Auto" />
+                <TextBox Name="txtCompra"
+                         MaxLength="10"
+                         TabIndex="5"
+                         Grid.Row="4"
+                         Grid.Column="3"
+                         Margin="0,2,100,2"
+                         IsEnabled="False"
+                         Width="Auto"
+                         HorizontalAlignment="Stretch"
+                         Height="Auto" />
+                <Button x:Name="btnVerEntradas"
+                        Grid.Row="4"
+                        Grid.Column="3"
+                        Content="{x:Static resx:Resources.EntradaMateriaPrima_BtnVer}"
+                        HorizontalAlignment="Right"
+                        Margin="0,2,5,2"
+                        VerticalAlignment="Center"
+                        Width="90"
+                        IsEnabled="False"
+                        Click="BtnVerEntradas_OnClick" />
+                <Label Grid.Column="4"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblDescripcion}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="20,0,0,0"
+                       Width="87" />
+                <Label Grid.Column="4"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblKilosEntrada}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="20,0,0,0"
+                       Width="97" />
+                <Label Grid.Column="4"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblTipoTarifa}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="20,0,0,0"
+                       Width="97" />
+                <Label Grid.Column="4"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.EntradaMateriaPrima_LblLote}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Margin="20,0,0,0"
+                       Width="41" />
+                <TextBox Name="txtDescripcionProducto"
+                         MaxLength="10"
+                         Grid.Row="0"
+                         Grid.Column="5"
+                         Margin="0,2,1,2"
+                         Width="Auto"
+                         HorizontalAlignment="Stretch"
+                         Height="Auto"
+                         IsEnabled="False" />
+                <xctk:DecimalUpDown AllowSpin="False"
+                                    FormatString="N0"
+                                    CultureInfo="en-US"
+                                    ShowButtonSpinner="False"
+                                    NumeroDecimal="True"
+                                    Name="txtKilosEntrada"
+                                    MaxLength="10"
+                                    Grid.Row="1"
+                                    Grid.Column="5"
+                                    Margin="0,2,1,2"
+                                    Width="Auto"
+                                    HorizontalAlignment="Stretch"
+                                    Height="Auto"
+                                    IsEnabled="False" />
+                <TextBox Name="txtTipoTarifa"
+                         MaxLength="10"
+                         Grid.Row="2"
+                         Grid.Column="5"
+                         Margin="0,2,1,2"
+                         Width="Auto"
+                         HorizontalAlignment="Stretch"
+                         Height="Auto"
+                         IsEnabled="False" />
+                <TextBox Name="txtLote"
+                         MaxLength="10"
+                         Grid.Row="3"
+                         Grid.Column="5"
+                         Margin="0,2,1,2"
+                         Width="Auto"
+                         HorizontalAlignment="Stretch"
+                         Height="Auto"
+                         IsEnabled="False" />
+                <Button x:Name="btnLimpiar"
+                        Grid.Row="4"
+                        Grid.Column="5"
+                        Content="{x:Static resx:Resources.EntradaMateriaPrima_BtnLimpiar}"
+                        HorizontalAlignment="Right"
+                        Margin="0,2,5,2"
+                        VerticalAlignment="Center"
+                        Width="90"
+                        Click="BtnLimpiar_OnClick" />
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnAgregarLinea"
+                Content="{x:Static resx:Resources.EntradaMateriaPrima_BtnAgregarLinea}"
+                Grid.Column="1"
+                Grid.Row="2"
+                HorizontalAlignment="Right"
+                Margin="0,0,11,0"
+                Width="90"
+                TabIndex="6"
+                Click="btnAgregarLinea_Click"
+                VerticalAlignment="Top" />
+
+        <GroupBox Grid.Column="1"
+                  Header="{x:Static resx:Resources.EntradaMateriaPrima_GbCostos}"
+                  Margin="0,0,0,10"
+                  Grid.Row="3">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                          Height="170">
+
+                <DataGrid Name="gridCostos"
+                          IsTabStop="true"
+                          SelectionMode="Single"
+                          Margin="0,8,0,0"
+                          Width="Auto"
+                          ItemsSource="{Binding}"
+                          IsSynchronizedWithCurrentItem="true"
+                          DataContextChanged="GridCostos_OnDataContextChanged"
+                          HorizontalScrollBarVisibility="Auto"
+                          Loaded="GridCostos_OnLoaded"
+                          PreviewKeyDown="gridCostos_PreviewKeyDown"
+                          CanUserResizeColumns="False"
+                          CurrentCellChanged="GridCostos_OnCurrentCellChanged">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="370"
+                                                Header="{x:Static resx:Resources.OtrosCostos_GridHeaderCosto}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <StackPanel Orientation="Horizontal"
+                                                Name="splCosto"
+                                                DataContext="{Binding UpdateSourceTrigger=PropertyChanged}"
+                                                Loaded="stpAyudaCostos_Loaded">
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="Auto"
+                                                Header="{x:Static resx:Resources.EntradaMateriaPrima_GridHeaderCuenta}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <CheckBox Name="chkCuenta"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Checked="chkCuenta_OnChecked"
+                                              Unchecked="chkCuenta_Checked"
+                                              CommandParameter="{Binding}"
+                                              IsEnabled="{Binding Path=CheckearCuenta}"
+                                              IsChecked="{Binding Path=TieneCuenta, 
+                                                Mode=TwoWay, 
+                                                UpdateSourceTrigger=PropertyChanged}">
+                                    </CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="390"
+                                                Header="{x:Static resx:Resources.EntradaMateriaPrima_GridHeaderCuentaProveedor}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <StackPanel Orientation="Horizontal"
+                                                Name="SplAyudaCuentaProvedor"
+                                                DataContext="{Binding UpdateSourceTrigger=PropertyChanged}"
+                                                Loaded="stpAyudaCuentaProveedor_Loaded">
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="150"
+                                                Header="{x:Static resx:Resources.EntradaMateriaPrima_GridHeaderImporte}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <xctk:DecimalUpDown Name="txtImporte"
+                                                        Value="{Binding Path=Importe, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                        AllowSpin="False"
+                                                        ShowButtonSpinner="False"
+                                                        CultureInfo="en-US"
+                                                        NumeroDecimal="True"
+                                                        FormatString="N2"
+                                                        MaxLength="8">
+                                    </xctk:DecimalUpDown>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="50"
+                                                Header="{x:Static resx:Resources.EntradaMateriaPrima_GridHeaderIVA}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <CheckBox Name="chkIva"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              IsEnabled="{Binding Path=EditarIvaRetencion}"
+                                              IsChecked="{Binding Path=Iva, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                    </CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Width="Auto"
+                                                Header="{x:Static resx:Resources.EntradaMateriaPrima_GridHeaderRetencion}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <CheckBox Name="chkRetencion"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              IsEnabled="{Binding Path=EditarIvaRetencion}"
+                                              IsChecked="{Binding Path=Retencion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                    </CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="50"
+                                                CanUserSort="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                                    <Button Style="{StaticResource iconButton}"
+                                            CommandParameter="{Binding}"
+                                            Click="BtnEliminar_Click">
+                                        <Image Source="{StaticResource borrarIcon}"
+                                               Style="{StaticResource iconImage}"
+                                               ToolTip="{x:Static resx:Resources.Operador_Grid_Eliminar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </GroupBox>
+        <Grid Margin="2"
+              Background="White"
+              ScrollViewer.CanContentScroll="False"
+              Grid.Row="4"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"></ColumnDefinition>
+                <ColumnDefinition Width="430"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   Content="{x:Static resx:Resources.EntradaMateriaPrima_LblObservaciones}"
+                   HorizontalAlignment="Left"
+                   Height="Auto"
+                   Margin="0,10,0,0" />
+            <TextBox Name="txtObservaciones"
+                     AcceptsReturn="True"
+                     MaxLength="255"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Width="420"
+                     Height="70"
+                     IsEnabled="True"
+                     VerticalAlignment="Bottom"
+                     TextWrapping="Wrap"
+                     PreviewTextInput="TxtObservaciones_OnPreviewTextInput" />
+        </Grid>
+        <Button x:Name="btnGuardar"
+                Content="{x:Static resx:Resources.EntradaMateriaPrima_BtnGuardar}"
+                Grid.Column="1"
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                Margin="0,30,105,0"
+                VerticalAlignment="Center"
+                Width="90"
+                Click="btnGuardar_Click" />
+        <Button x:Name="btnCancelar"
+                Content="{x:Static resx:Resources.EntradaMateriaPrima_BtnCancelar}"
+                Grid.Column="1"
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                Margin="0,30,7,0"
+                VerticalAlignment="Center"
+                Width="90"
+                Click="btnCancelar_Click" />
+    </Grid>
+</Vista:ControlBase>

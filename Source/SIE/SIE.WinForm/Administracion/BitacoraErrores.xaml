@@ -1,0 +1,94 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Administracion.BitacoraErrores"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   Height="Auto"
+                   Width="Auto"
+                   mc:Ignorable="d"
+                   d:DesignHeight="600"
+                   d:DesignWidth="1200">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="300*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.ColumnSpan="3"
+                          Grid.Row="0"
+                          Padding="20,0,20,0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.BitacoraErrores_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <Label Content="{x:Static resx:Resources.BitacoraErrores_LblNota}"
+               Grid.Column="1"
+               Style="{StaticResource labelRequerido}"
+               Grid.ColumnSpan="4"
+               Grid.Row="1"
+               VerticalAlignment="Center">
+        </Label>
+
+        <Label Content="{x:Static resx:Resources.BitacoraErrores_lblDestinatarios}"
+               Grid.Row="2"
+               Grid.Column="1"
+               VerticalAlignment="Top">
+        </Label>
+
+        <TextBox Name="txtDestinatarios"
+                 VerticalAlignment="Center"
+                 Grid.Row="2"
+                 Grid.Column="2"
+                 Height="100"
+                 MaxLength="255"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 Width="350">
+        </TextBox>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="3"
+                    HorizontalAlignment="Left"
+                    Margin="20 0 20 0"
+                    Orientation="Horizontal">
+            <Button  x:Uid="btnDescargar"
+                     x:Name="btnDescargar"
+                     Click="BtnDescargar_OnClick"
+                     Content="{x:Static resx:Resources.btnDescargar}"
+                     Margin="15 0 0 0"
+                     TabIndex="10">
+            </Button>
+
+            <Button x:Uid="btnEnviar"
+                    x:Name="btnEnviar"
+                    Click="BtnEnviar_OnClick"
+                    Content="{x:Static resx:Resources.btnEnviar}"
+                    Margin="15 0 0 0"
+                    TabIndex="11" />
+        </StackPanel>
+
+    </Grid>
+</Vista:ControlBase>

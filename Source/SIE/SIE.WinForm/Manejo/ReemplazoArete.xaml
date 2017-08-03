@@ -1,0 +1,220 @@
+﻿<vista:ControlBase x:Class="SIE.WinForm.Manejo.ReemplazoArete"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   mc:Ignorable="d"
+                   Height="Auto"
+                   Width="Auto"
+                   d:DesignHeight="600"
+                   Loaded="ReemplazoArete_OnLoaded"
+                   d:DesignWidth="1600">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="400"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="350*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ReemplazoArete_LblTitulo}"
+                          x:Name="ucTitulo" />
+
+        <Label Content="{x:Static resx:Resources.ReemplazoArete_FolioEntrada}"
+               Grid.Row="1"
+               Grid.Column="0"
+               Margin="20 0 20 0"
+               VerticalAlignment="Top">
+        </Label>
+
+        <Controles:ControlAyuda x:Name="skAyudaFolioEntrada"
+                                AnchoDescripcion="0"
+                                AnchoClave="100"
+                                DataContext="{Binding Path=EntradaGanado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Left"
+                                AceptaSoloNumeros="True"
+                                ControlIndex="0"
+                                EsBindeable="True"
+                                MaximoCaracteres="8"
+                                EsAyudaSimple="False"
+                                MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.FolioEntrada_Inexistente}"
+                                ConceptoBusqueda="{x:Static resx:Resources.LeyehdaAyudaBusquedaFolio}"
+                                TituloBusqueda="{x:Static resx:Resources.BusquedaEntradaGanado_Titulo}"
+                                MensajeAgregarBusqueda="{x:Static resx:Resources.Folio_Seleccionar }"
+                                MensajeCerrarBusqueda="{x:Static resx:Resources.Folio_SalirSinSeleccionar}"
+                                EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaFolioEntrada_Grid_Clave}"
+                                EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaFolioEntrada_Grid_Descripcion}"
+                                MetodoInvocacion="ObtenerPorFolioEntradaCortadaIncompleta"
+                                MetodoInvocacionBusqueda="ObtenerEntradaGanadoPaginaCortadasIncompletas"
+                                CampoDescripcion="OrganizacionOrigen"
+                                CampoClave="FolioEntrada"
+                                CampoLlaveOcultaClave="EntradaGanadoID" />
+
+        <GroupBox Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="2"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ReemplazoArete_DatosPartida}"></Label>
+            </GroupBox.Header>
+
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.ReemplazoArete_CabezasOrigen}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="20 0 20 0"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ReemplazoArete_CabezasRecibidas}"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       Margin="20 0 20 0"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ReemplazoArete_CabezasCortadas}"
+                       Grid.Row="0"
+                       Grid.Column="4"
+                       Margin="20 0 20 0"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <TextBox Name="txtCabezasOrigen"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=CabezasOrigen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         IsEnabled="False"
+                         Width="100">
+                </TextBox>
+
+                <TextBox Name="txtCabezasRecibidas"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=CabezasRecibidas, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="0"
+                         Grid.Column="3"
+                         IsEnabled="False"
+                         Width="100">
+                </TextBox>
+
+                <TextBox Name="txtCabezasCortadas"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=CabezasCortadas, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Row="0"
+                         Grid.Column="5"
+                         IsEnabled="False"
+                         Width="100">
+                </TextBox>
+
+                <DataGrid x:Name="dgAretes"
+                          AutoGenerateColumns="False"
+                          CanUserSortColumns="False"
+                          Grid.Row="3"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="6"
+                          Width="Auto"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Stretch"
+                          IsReadOnly="True"
+                          ColumnWidth="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=AreteCentro}"
+                                            Header="{x:Static resx:Resources.ReemplazoArete_ColumnaGridArete}" />
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=PesoOrigen}"
+                                            Header="{x:Static resx:Resources.ReemplazoArete_ColumnaGridPesoOrigen}" />
+
+                        <DataGridTemplateColumn Width="150"
+                                                Header="{x:Static resx:Resources.ReemplazoArete_ColumnaGridAreteNuevo}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Name="txtAreteNuevo"
+                                             PreviewTextInput="TxtAreteNuevo_OnPreviewTextInput"
+                                             LostFocus="TxtAreteNuevo_OnLostFocus"
+                                             Width="130"
+                                             MaxLength="15"
+                                             IsEnabled="{Binding Path=PermiteEditar}"
+                                             Text="{Binding Path=AreteCorte, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=AreteMetalicoCentro}"
+                                            Header="{x:Static resx:Resources.ReemplazoArete_ColumnaGridAreteMetalicoCentro}" />
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=AreteMetalicoCorte}"
+                                            Header="{x:Static resx:Resources.ReemplazoArete_ColumnaGridAreteMetalicoCorte}" />
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=FolioEntradaCorte}"
+                                            Header="{x:Static resx:Resources.ReemplazoArete_ColumnaGridFolioCorte}" />
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    Grid.Column="1"
+                    Margin="0 0 28 0"
+                    HorizontalAlignment="Right">
+            <Button Name="btnGuardar"
+                    Margin="0 5 0 0"
+                    Content="{x:Static resx:Resources.btnGuardar}"
+                    Click="BtnGuardarClick"></Button>
+            <Button Name="btnCancelar"
+                    Margin="10 5 0 0"
+                    Click="BtnCancelarClick"
+                    Content="{x:Static resx:Resources.btnCancelar}"></Button>
+        </StackPanel>
+
+    </Grid>
+</vista:ControlBase>

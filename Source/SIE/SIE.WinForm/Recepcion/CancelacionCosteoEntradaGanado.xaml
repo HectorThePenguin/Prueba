@@ -1,0 +1,418 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Recepcion.CancelacionCosteoEntradaGanado"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   xmlns:Info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   mc:Ignorable="d"
+                   Height="Auto"
+                   Loaded="UserControl_Loaded"
+                   Width="1320">
+    <Grid Margin="0,20,0,20"
+          Width="1310"
+          HorizontalAlignment="Center"
+          Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          Margin="0,10,0,0"
+                          TextoTitulo="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblTitulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Row="1"
+                  Width="1280"
+                  HorizontalContentAlignment="Stretch"
+                  Margin="10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblInformacionGeneral}"></Label>
+            </GroupBox.Header>
+
+            <Grid Height="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Asignacion de la Primera Columna-->
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblFolio}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <Label Grid.Column="1"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblTipoOrigen}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <Label Grid.Column="1"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblOrigen}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <Label Grid.Column="1"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblFechaSalida}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <Label Grid.Column="1"
+                       Grid.Row="4"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblSalida}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <!-- Fin de Asignacion de la Primera Columna-->
+
+                <!-- Asignacion de la Segunda Columna-->
+                <StackPanel Grid.Column="2"
+                            Name="StpAyudaFolio"
+                            Grid.Row="0">
+                </StackPanel>
+                <ComboBox Grid.Column="2"
+                          Grid.Row="1"
+                          Name="cmbTipoOrigen"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          Margin="2"
+                          SelectedValuePath="TipoOrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=EntradaGanado.TipoOrigen}"
+                          IsEnabled="False"></ComboBox>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="2"
+                            Name="StpAyudaOrigen"
+                            Grid.Row="2">
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="2"
+                            Grid.Row="3">
+                    <DatePicker Name="dpFechaSalida"
+                                Grid.Column="4"
+                                Grid.Row="1"
+                                Height="27"
+                                IsEnabled="False"></DatePicker>
+                    <xctk:DateTimeUpDown Name="dtuHoraSalida"
+                                         Height="25"
+                                         Format="Custom"
+                                         Margin="6,0,0,0"
+                                         FormatString="HH:mm"
+                                         IsEnabled="False"></xctk:DateTimeUpDown>
+                </StackPanel>
+                <TextBox Grid.Column="2"
+                         Grid.Row="4"
+                         Name="txtSalida"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Text="{Binding Path=EntradaGanado.FolioOrigen}"
+                         IsEnabled="False"></TextBox>
+                <!-- Fin de Asignacion de la Segunda Columna-->
+
+                <!-- Asignacion de la Tercera Columna-->
+                <Label Grid.Column="3"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblFechaRecepcion}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="2"></Label>
+                <Label Grid.Column="3"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblCorral}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="2"></Label>
+                <Label Grid.Column="3"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblCabezas}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="2"></Label>
+                <Label Grid.Column="3"
+                       Grid.Row="4"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblPesoLlegada}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="2"></Label>
+                <!-- Fin de Asignacion de la Tercera Columna-->
+
+                <!-- Asignacion de la Cuarta Columna-->
+                <StackPanel Orientation="Horizontal"
+                            Height="33"
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            Grid.ColumnSpan="2">
+                    <DatePicker Name="dpFechaRecepcion"
+                                Grid.Column="4"
+                                Grid.Row="1"
+                                Height="27"
+                                IsEnabled="False"></DatePicker>
+                    <xctk:DateTimeUpDown Name="dtuHoraRecepcion"
+                                         Height="25"
+                                         Format="Custom"
+                                         Margin="6,0,0,0"
+                                         FormatString="HH:mm"
+                                         IsEnabled="False"></xctk:DateTimeUpDown>
+                </StackPanel>
+                <TextBox Grid.Column="4"
+                         Grid.Row="2"
+                         Name="txtCorral"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="2"
+                         Text="{Binding Path=EntradaGanado.CodigoCorral}"
+                         IsEnabled="False"></TextBox>
+                <TextBox Grid.Column="4"
+                         Grid.Row="3"
+                         Name="txtCabezas"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="2"
+                         Width="50"
+                         Text="{Binding Path=EntradaGanado.CabezasRecibidas}"
+                         IsEnabled="False"></TextBox>
+                <TextBox Grid.Column="4"
+                         Grid.Row="4"
+                         Name="txtPesoLlegada"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="2"
+                         IsEnabled="False"></TextBox>
+                <!-- Fin de Asignacion de la Cuarta Columna-->
+
+                <!-- Asignacion de la Quinta Columna-->
+                <Label Grid.Column="5"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblLote}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <!--<Label Grid.Column="5"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblDiasEstancia}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>-->
+                <Label Grid.Column="5"
+                       Grid.Row="3"
+                       Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblPorcentajeMerma}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <!--Fin de Asignacion de Quinta Columna-->
+
+                <!-- Asignacion de Sexta Columna-->
+                <TextBox Grid.Column="6"
+                         Grid.Row="2"
+                         Name="txtLote"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="2"
+                         Text="{Binding Path=EntradaGanado.CodigoLote}"
+                         IsEnabled="False"></TextBox>
+                <!--<TextBox Grid.Column="6"
+                         Grid.Row="3"
+                         Name="txtDiasEstancia"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="2"
+                         Width="50"
+                         IsEnabled="False"></TextBox>-->
+                <TextBox Grid.Column="6"
+                         Grid.Row="3"
+                         Name="txtMerma"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Margin="2"
+                         IsEnabled="False"></TextBox>
+                <!-- Fin de Sextas Columnas-->
+
+
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2"
+                  Margin="10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_lblCostoEntrada}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer Grid.Row="0"
+                              Grid.Column="0"
+                              HorizontalScrollBarVisibility="Visible"
+                              Height="170">
+                    <DataGrid Grid.Row="1"
+                              Grid.Column="0"
+                              x:Name="DgCostoGanado"
+                              HorizontalAlignment="Left"
+                              AutoGenerateColumns="False"
+                              Width="1200"
+                              ColumnWidth="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCosto_ColumnaCosto}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <StackPanel Name="stpAyudaCosto"
+                                                    IsEnabled="{Binding Path=CostoEmbarque}"
+                                                    Loaded="stpAyudaCosto_Loaded">
+
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCosto_ColumnaCuenta}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <CheckBox Name="chkCuenta"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  Checked="chkCuenta_Checked"
+                                                  Unchecked="chkCuenta_Checked"
+                                                  CommandParameter="{Binding}"
+                                                  IsEnabled="{Binding Path=EditarTieneCuenta}"
+                                                  IsChecked="{Binding Path=TieneCuenta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCostos_ColumnaProveedorCuenta}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <StackPanel Name="stpAyudaProveedorCuenta"
+                                                    DataContext="{Binding}"
+                                                    IsEnabled="{Binding Path=EditarCuentaProveedor}"
+                                                    Loaded="stpAyudaProveedorCuenta_Loaded">
+
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCostos_ColumnaNumeroDocumento}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <TextBox Name="txtNumeroDocumento"
+                                                 IsEnabled="{Binding Path=EditarNumeroDocumento}"
+                                                 Text="{Binding Path=NumeroDocumento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCostos_ColumnaImporte}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <xctk:DecimalUpDown Name="dudImporteCosto"
+                                                            FormatString="C2"
+                                                            ShowButtonSpinner="False"
+                                                            IsEnabled="{Binding Path=CostoEmbarque}"
+                                                            AllowSpin="False"
+                                                            Value="{Binding Path=Importe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                            Watermark="Capture Importe" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCostos_ColumnaIva}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <CheckBox Name="chkIva"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  IsEnabled="{Binding Path=EditarIvaRetencion}"
+                                                  IsChecked="{Binding Path=Iva, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="Auto"
+                                                    Header="{x:Static resx:Resources.CancelacionCosteoEntradaGanado_GridCostos_ColumnaRetencion}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                        <CheckBox Name="chkRetencion"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  IsEnabled="{Binding Path=EditarIvaRetencion}"
+                                                  IsChecked="{Binding Path=Retencion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                        </CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </ScrollViewer>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="3"
+                    Margin="0,5,0,0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+
+            <Button Content="{x:Static resx:Resources.btnCancelar}"
+                    Name="btnCancelar"
+                    Click="btnCancelar_Click"
+                    Margin="10,0,0,0"
+                    IsEnabled="False"
+                    HorizontalAlignment="Right"
+                    Width="75" VerticalAlignment="Top" />
+
+            <Button Content="{x:Static resx:Resources.btnLimpiar}"
+                    Grid.Column="7"
+                    Grid.Row="2"
+                    Name="btnLimpiar"
+                    Click="btnLimpiar_Click"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Right"
+                    Width="75" />
+        </StackPanel>
+    </Grid>
+</Vista:ControlBase>

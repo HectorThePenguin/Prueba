@@ -1,0 +1,337 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Alertas.ConfiguracionAlertasEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:Auxiliar="clr-namespace:SIE.WinForm.Auxiliar" Title="Camion Edicion"
+                 Height="685"
+                 Width="780"
+                 Loaded="ConfiguracionAlertasEdicion_OnLoaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white" Margin="2,2,2,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="322*"></RowDefinition>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="320*"/>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Row="0"
+                          Margin="20,12,20,2"
+                          VisibleCerrar="Visible"/>
+
+        <GroupBox
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Left"
+                  Margin="13,10,0,10" Grid.RowSpan="3" RenderTransformOrigin="0.498,0.508" Width="743">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_DatosTitulo}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="612" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_ID}"
+                       Grid.Column="0"
+                       Margin="10,10,348,35" Grid.ColumnSpan="2" Grid.RowSpan="2" Height="Auto" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,12,0,2" Height="24" />
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_Alerta}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="10,10,348,60" Grid.ColumnSpan="2" Grid.RowSpan="2" Height="Auto" />
+
+                <ComboBox x:Name="cmbAlerta"
+                          Grid.Row="1"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="AlertaID"
+                          SelectedItem="{Binding Path=AlertaInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=AlertaInfo.AlertaID}"
+                          SelectedIndex="0"
+                          Width="602"
+                          HorizontalAlignment="Left"
+                          TabIndex="3" Margin="0,10,0,3" Grid.Column="1" Height="Auto" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,21,3,19" Height="22" />
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_Datos}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="10,19,348,15" Grid.ColumnSpan="2" Height="Auto" />
+
+                <TextBox x:Uid="txtDatos"
+                         x:Name="txtDatos"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         HorizontalAlignment="Stretch"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0" Margin="1,8,10,43" Width="Auto"
+                         TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                         AcceptsReturn="True" Height="Auto" Grid.RowSpan="2">
+                    <TextBox.Text>
+                        <Binding Path="ConfiguracionAlertas.Datos"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,39,0,56" Grid.RowSpan="2" Height="24" />
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_Fuentes}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="10,39,348,55" Grid.ColumnSpan="2" Grid.RowSpan="2" Height="Auto" />
+
+                <TextBox x:Uid="txtFuentes"
+                         x:Name="txtFuentes"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0" Margin="2,30,0,18" Width="600"
+                         VerticalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True" Height="Auto" Grid.RowSpan="2">
+                    <TextBox.Text>
+                        <Binding Path="ConfiguracionAlertas.Fuentes"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Grid.Row="5"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,11,0,24" Height="24" />
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_Condiciones}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Margin="10,10,348,24" Grid.ColumnSpan="2" Height="Auto" />
+
+                <TextBox x:Uid="txtCondiciones"
+                         x:Name="txtCondiciones"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0" Margin="1,55,0,4" Width="601"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         AcceptsReturn="True" Height="Auto" Grid.RowSpan="2">
+                    <TextBox.Text>
+                        <Binding Path="ConfiguracionAlertas.Condiciones"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_Agrupador}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="10,30,348,81" Grid.ColumnSpan="2" Height="Auto" />
+
+                <TextBox x:Uid="txtAgrupador"
+                         x:Name="txtAgrupador"
+                         Grid.Row="6"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0" Margin="1,9,0,128" Width="601"
+                         TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                         AcceptsReturn="True" Height="Auto" Grid.Column="1">
+                    <TextBox.Text>
+                        <Binding Path="ConfiguracionAlertas.Agrupador"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Grid.Row="6"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,94,348,83" Grid.ColumnSpan="2" Height="26" />
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Edicion_Acciones}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="10,92,348,81" Grid.ColumnSpan="2" Height="Auto" />
+
+                <ComboBox x:Name="cmbAcciones"
+                          Grid.Row="6"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="AccionID"
+                          SelectedItem="{Binding Path=AccionInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=AccionInfo.AccionID}"
+                          SelectedIndex="0"
+                          Width="182"
+                          HorizontalAlignment="Left"
+                          TabIndex="3" Margin="0,92,0,85" Grid.Column="1" Height="Auto" />
+
+                <Button Content="{x:Static resx:Resources.btnAsignarAccion}"
+                		x:Name="GuardarAcciones"
+                		Click="AgregarAlDataGrid"
+                		Margin="190,91,0,87"
+                		TabIndex="6" Grid.Column="1" Grid.Row="6" Width="48" RenderTransformOrigin="0.377,-1.174" Height="Auto" HorizontalAlignment="Left" />
+
+                <Label Grid.Row="6"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,133,348,47" Grid.ColumnSpan="2" Height="22" />
+                <Label Content="{x:Static resx:Resources.CuentasGasto_lblEstatus}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="10,131,348,22" Height="Auto" Grid.ColumnSpan="2" />
+
+                <TextBox x:Uid="txtConfiguracionID"
+                         x:Name="txtConfiguracionID"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         IsEnabled="False"
+                         TabIndex="0" Margin="0,10,0,4" Width="110" Height="Auto">
+                    <TextBox.Text>
+                        <Binding Path="ConfiguracionAlertas.AlertaConfiguracionID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Label Grid.Row="6"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="0,166,348,11" Grid.ColumnSpan="2" Height="18" />
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlerta_NivelDeRol}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="10,168,347,-15" Height="Auto" Grid.ColumnSpan="2" />
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="6"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=ConfiguracionAlertas.Activo, Mode=TwoWay}"
+                          Width="182"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" Margin="0,131,0,47" Grid.Column="1" Height="Auto" />
+
+                <ComboBox x:Name="cmbNivelAlerta"
+                          Grid.Row="6"
+                          Grid.Column="1"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="NivelAlertaId"
+                          SelectedItem="{Binding Path=ConfiguracionAlertas.NivelAlerta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=ConfiguracionAlertas.NivelAlerta.NivelAlertaId}"
+                          SelectedIndex="0"
+                          Width="182"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" Margin="0,168,0,10" Height="Auto" />
+
+                <DataGrid Name="gridDatos"
+                      SelectionMode="Single" Grid.Column="1" Margin="243,89,10,-51" Grid.Row="6" VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="40"
+                                        Binding="{Binding Path=AccionId}"
+                                        Header="{x:Static resx:Resources.ConfiguracionAlertas_ID}" />
+                        <DataGridTemplateColumn Width="*"
+                                            Header="{x:Static resx:Resources.ConfiguraconAlertas_DescripcionAlerta}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  HorizontalAlignment="Left"
+                                            Text="{Binding Path=Descripcion, StringFormat=N2}"></TextBlock >
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="30">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEliminarAccionDelGrid_Click">
+                                        <Image Source="{StaticResource borrarIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.ConfiguracionAlerta_Eliminar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Grid.Row="6"
+                            Orientation="Horizontal" Margin="2,214,162,-60" Grid.Column="1">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                		x:Name="Guardar"
+                		Click="Guardar_Click"
+                		Margin="0,6"
+                		TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                		Click="Cancelar_Click"
+                		Margin="15,6,0,6" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+
+

@@ -1,0 +1,215 @@
+﻿
+input[type='number'] .soloNumeros
+{
+    text-align: right !important;
+}
+
+.textBoxDerecha
+{
+    text-align: right !important;
+}
+
+.modal.large
+{
+    width: 60%;
+    margin-left: -30%;
+}
+
+.modal.extraLarge
+{
+    width: 80%;
+    margin-left: -40%;
+}
+
+.close
+{
+    width: 60px !important;
+    height: 40px !important;
+}
+
+#modalHorasMuertas, #modalSupervisor, #modalBusquedaProducto, #modalBusquedaTicket, #modalSupervisorCompleto
+{
+    margin-top: -150px;
+}
+
+#divGridProductos, #divGridTickets
+{
+    height: 300px;
+    overflow: auto;
+}
+
+.sinMargen
+{
+    margin-left: 0px !important;
+}
+
+#GridProductos, #GridTickets
+{
+    max-height: 200px;
+}
+
+.highlight > td
+{
+    background-color: #FFC8C8 !important;
+}
+
+#GridProductos tbody tr, #divGridTickets tbody tr, #GridProduccionDiariaMolino tbody tr
+{
+    cursor: pointer;
+}
+
+.claseRequerida
+{
+    background-color: #FFBABA !important;
+}
+
+.table thead tr th {
+       background-color: #D8D8D8 !important;
+       border: 1px groove #ddd !important;
+}
+
+#GridProduccionSupervisor thead tr th {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+
+
+@media only screen and (max-width: 600px), (min-device-width: 500px) and (max-device-width: 800px)
+{
+    /* Force table to not be like tables anymore */
+    #GridProduccionDiariaMolino table, #GridProduccionDiariaMolino thead, #GridProduccionDiariaMolino tbody, #GridProduccionDiariaMolino th, #GridProduccionDiariaMolino td, #GridProduccionDiariaMolino tr,
+    #GridProduccionSupervisor table, #GridProduccionSupervisor thead, #GridProduccionSupervisor tbody, #GridProduccionSupervisor th, #GridProduccionSupervisor td, #GridProduccionSupervisor tr
+    {
+        display: block !important;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        #GridProduccionDiariaMolino thead tr, #GridProduccionSupervisor thead tr
+        {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+        }
+
+    #GridProduccionDiariaMolino tr, #GridProduccionSupervisor tr
+    {
+        border: 1px solid #ccc !important;
+    }
+
+    #GridProduccionDiariaMolino td, #GridProduccionSupervisor td
+    {
+        /* Behave  like a "row" */
+        border: none !important;
+        border-bottom: 1px solid #eee !important;
+        position: relative !important;
+        padding-left: 50% !important;
+    }
+
+        #GridProduccionDiariaMolino td:before, #GridProduccionSupervisor td:before
+        {
+            /* Now like a table header */
+            position: absolute !important;
+            /* Top/left values mimic padding */
+            top: 6px !important;
+            left: 6px !important;
+            width: 45% !important;
+            padding-right: 10px !important;
+            white-space: nowrap !important;
+        }
+
+        /*
+	Label the data
+	*/
+        #GridProduccionDiariaMolino td:nth-of-type(1):before, #GridProduccionSupervisor td:nth-of-type(1):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Ticket";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(2):before, #GridProduccionSupervisor td:nth-of-type(2):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Hora Ticket";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(3):before, #GridProduccionSupervisor td:nth-of-type(3):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Producto";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(4):before, #GridProduccionSupervisor td:nth-of-type(4):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Horómetro Inicial";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(5):before, #GridProduccionSupervisor td:nth-of-type(5):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Horómetro Final";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(6):before, #GridProduccionSupervisor td:nth-of-type(6):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Especificación Forraje";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(7):before, #GridProduccionSupervisor td:nth-of-type(7):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Lote";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(8):before, #GridProduccionSupervisor td:nth-of-type(8):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Kilos Netos";
+        }
+
+        #GridProduccionDiariaMolino td:nth-of-type(9):before, #GridProduccionSupervisor td:nth-of-type(9):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Consumo Agua/Grasa";
+        }
+        #GridProduccionDiariaMolino td:nth-of-type(10):before, #GridProduccionSupervisor td:nth-of-type(10):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "% Humedad Forraje Molido";
+        }
+        #GridProduccionDiariaMolino td:nth-of-type(11):before, #GridProduccionSupervisor td:nth-of-type(11):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Horas Muertas";
+        }
+        #GridProduccionDiariaMolino td:nth-of-type(12):before, #GridProduccionSupervisor td:nth-of-type(12):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Conteo Pacas";
+        }
+        #GridProduccionSupervisor td:nth-of-type(13):before
+        {
+            background-color: #D8D8D8 !important;
+            text-align: center !important;
+            content: "Cancelar";
+        }
+}

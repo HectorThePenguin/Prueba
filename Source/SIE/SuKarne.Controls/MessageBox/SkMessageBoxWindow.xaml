@@ -1,0 +1,14 @@
+﻿<Window x:Class="SuKarne.Controls.MessageBox.SkMessageBoxWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:MessageBox="clr-namespace:SuKarne.Controls.MessageBox" mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="500" SizeToContent="WidthAndHeight"
+             ResizeMode="NoResize" FlowDirection="{Binding TitleFlowDirection}"
+             ShowInTaskbar="False" AllowsTransparency="true" Background="Transparent"  WindowStyle="None" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" MinWidth="250" Loaded="Window_Loaded"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid>
+        <MessageBox:SkMessageBoxControl />
+    </Grid>
+</Window>

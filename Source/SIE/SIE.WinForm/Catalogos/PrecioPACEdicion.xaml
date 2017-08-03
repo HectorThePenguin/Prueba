@@ -1,0 +1,259 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.PrecioPACEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Camion Edicion"
+                 Height="400"
+                 Width="600"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo" 
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="128*"/>
+                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+             <RowDefinition Height="35"/>
+             <RowDefinition Height="35"/>
+             <RowDefinition Height="35"/>
+             <RowDefinition Height="35"/>
+             <RowDefinition Height="35"/>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblPrecioPACID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblOrganizacionID}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblTipoPACID}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblPrecio}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblPrecioViscera}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="5"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblFechaInicio}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Content="{x:Static resx:Resources.PrecioPACEdicion_LblActivo}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <TextBox x:Uid="txtPrecioPACID"
+                         x:Name="txtPrecioPACID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         IsEnabled="False"
+                         TabIndex="0">
+                    <TextBox.Text> 
+                        <Binding Path="PrecioPACID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+             <ComboBox x:Name="cmbOrganizacion"  
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       SelectedValuePath="OrganizacionID"
+					     DisplayMemberPath="Descripcion"
+					     SelectedItem="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					     SelectedValue="{Binding Path=Organizacion.OrganizacionID, Mode=TwoWay}"
+                          Width="300"
+                          HorizontalAlignment="Left"
+					     TabIndex="1" />
+
+             <ComboBox x:Name="cmbTipoPAC"  
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       SelectedValuePath="TipoPACID"
+					     DisplayMemberPath="Descripcion"
+					     SelectedItem="{Binding Path=TipoPAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					     SelectedValue="{Binding Path=TipoPAC.TipoPACID, Mode=TwoWay}"
+					     Width="150"
+					     HorizontalAlignment="Left"
+					     TabIndex="2" />
+
+              <xctk:DecimalUpDown Name="dtuPrecio"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    ShowButtonSpinner="False"
+                                    MaxLength="8"
+                                    Height="25"
+                                    DefaultValue="0"
+                                    BorderThickness="1"
+                                    PreviewTextInput="TxtPrecioPreviewTextInput"
+                                    HorizontalAlignment="Left"                                    
+                                    MinWidth="10"
+                                    TabIndex="3">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="Precio"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+                <xctk:DecimalUpDown Name="dtuPrecioViscera"
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    ShowButtonSpinner="False"
+                                    MaxLength="8"
+                                    Height="25"
+                                    DefaultValue="0"
+                                    BorderThickness="1"
+                                    PreviewTextInput="TxtPrecioPreviewTextInput"
+                                    HorizontalAlignment="Left"
+                                    MinWidth="10"
+                                    TabIndex="4">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="PrecioViscera"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+
+                <DatePicker Name="dtpFechaInicio"
+          Grid.Row="5"
+          Grid.Column="1"
+          Height="25"
+          Width="150"
+          HorizontalAlignment="Left"
+          IsManipulationEnabled="False"
+          Keyboard.PreviewKeyDown="DtpControlPreviewKeyDown"
+          SelectedDate="{Binding Path=FechaInicio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+          TabIndex="5">
+      </DatePicker>
+
+             <ComboBox x:Name="cmbActivo"  
+                       Grid.Row="6"
+                       Grid.Column="1"
+                       ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+					     SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+					     Width="150"
+					     HorizontalAlignment="Left"
+					     TabIndex="6" />
+
+                      <StackPanel Grid.Row="8"     
+                              Grid.Column="1"
+                              Orientation="Horizontal">
+                          <Button Content="{x:Static resx:Resources.btnGuardar}"
+                              Click="Guardar_Click"
+                              Margin="0 0 0 0"
+                              TabIndex="7" />
+                          <Button Content="{x:Static resx:Resources.btnCancelar}"
+                              Click="Cancelar_Click"
+                              Margin="15 0 0 0"/>
+                      </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>

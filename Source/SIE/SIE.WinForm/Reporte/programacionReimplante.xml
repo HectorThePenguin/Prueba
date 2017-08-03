@@ -1,0 +1,75 @@
+<?xml version="1.0" standalone="yes"?>
+<programacionReimplante>
+  <xs:schema id="programacionReimplante" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="programacionReimplante" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="tablaTotales">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="idOrden" type="xs:string" minOccurs="0" />
+                <xs:element name="TotalHembras" type="xs:string" minOccurs="0" />
+                <xs:element name="TotalMachos" type="xs:string" minOccurs="0" />
+                <xs:element name="TotalReimplantar" type="xs:string" minOccurs="0" />
+				<xs:element name="Organizacion" type="xs:string" minOccurs="0" />
+                <xs:element name="Fecha" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="tablaMachos">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="idOrden" type="xs:string" minOccurs="0" />
+                <xs:element name="M_id" type="xs:string" minOccurs="0" />
+                <xs:element name="M_Reimplante" type="xs:string" minOccurs="0" />
+                <xs:element name="M_Corral" type="xs:string" minOccurs="0" />
+				<xs:element name="M_CorralDestino" type="xs:string" minOccurs="0" />
+                <xs:element name="M_Kilogramos" type="xs:string" minOccurs="0" />
+                <xs:element name="M_Cabezas" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="tablaHembras">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="idOrden" type="xs:string" minOccurs="0" />
+                <xs:element name="H_id" type="xs:string" minOccurs="0" />
+                <xs:element name="H_Reimplante" type="xs:string" minOccurs="0" />
+                <xs:element name="H_Corral" type="xs:string" minOccurs="0" />
+				<xs:element name="H_CorralDestino" type="xs:string" minOccurs="0" />
+                <xs:element name="H_Kilogramos" type="xs:string" minOccurs="0" />
+                <xs:element name="H_Cabezas" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <tablaTotales>
+    <idOrden>ordenProgramacion</idOrden>
+    <TotalHembras>1</TotalHembras>
+    <TotalMachos>1</TotalMachos>
+    <TotalReimplantar>2</TotalReimplantar>
+	<Organizacion>SuKarne</Organizacion>
+    <Fecha>30/07/2014</Fecha>
+  </tablaTotales>
+  <tablaMachos>
+    <idOrden>ordenProgramacion</idOrden>
+    <M_id>1</M_id>
+    <M_Reimplante>Arete cod. barra</M_Reimplante>
+    <M_Corral>008</M_Corral>
+	<M_CorralDestino>008</M_CorralDestino>
+    <M_Kilogramos>300</M_Kilogramos>
+    <M_Cabezas>1</M_Cabezas>
+  </tablaMachos>
+  <tablaHembras>
+    <idOrden>ordenProgramacion</idOrden>
+    <H_id>1</H_id>
+    <H_Reimplante>Component e-h con tylan</H_Reimplante>
+    <H_Corral>012</H_Corral>
+	<H_CorralDestino>008</H_CorralDestino>
+    <H_Kilogramos>200</H_Kilogramos>
+    <H_Cabezas>1</H_Cabezas>
+  </tablaHembras>
+</programacionReimplante>

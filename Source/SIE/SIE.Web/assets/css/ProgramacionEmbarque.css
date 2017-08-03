@@ -1,0 +1,314 @@
+﻿fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+#divCapturaDatosEmbarqueTransporte {
+    display: none;
+}
+
+#divCapturaDatosEmbarqueDatos {
+    display: none;
+}
+
+.campoRequerido {
+    color: red;
+    font-weight: bold;
+}
+
+.soloNumeros {
+     text-align: right !important;
+}
+
+.margenIzquierdaCapturaDatos {
+    margin-left: 10px !important;
+}
+
+.margenAbajoCapturaDatos {
+    margin-top: -20px !important;
+}
+
+.margenArribaObservaciones {
+    margin-top: 20px;
+}
+
+.alturaObservacion {
+    height: 80px;
+}
+
+legend.scheduler-border {
+    width: auto; /* Or auto */
+    padding: 0 10px; /* To give a bit of padding on the left and right */
+    border-bottom: none;
+    font-size: small;
+    font-weight: bold;
+}
+
+.columnaObservacionesProgramacion {
+    width: 200px;
+}
+
+img {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.alineacionCentro {
+    text-align: center !important;
+}
+
+
+.alineacionIzquierda {
+    float: left;
+}
+
+.alineacionDerecha {
+    float: right;
+}
+
+
+.textoDerecha {
+    text-align: right !important;
+}
+
+
+.margenTopdiv {
+    margin-top: 1%;
+}
+
+.subTitulo {
+    width: 100%;
+    display: table;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 7px;
+    font-weight: bold !important;
+    background-color: #B94A48 !important;
+    border: 1px solid #B94A48;
+    color: #fff;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.espacioIzquierda {
+    margin-left: 30%;
+}
+
+.espacioRadioButton {
+    margin-right: 3px !important;
+}
+
+.pantallaCompleta {
+    width: 100%;
+}
+
+.tablaCaptura {
+    width: 50%;
+}
+
+
+.thead tr th {
+    background-color: #D8D8D8 !important;
+    border: 0px groove #ddd !important;
+    border-top: 0;
+    padding: 2px 3px;
+}
+
+.table td {
+    border-top: 0;
+    padding: 2px 3px;
+}
+
+.table .etiqueta {
+    text-decoration: inherit;
+    background: white;
+    text-align: right;
+    font-weight: bold;
+    border-top: 0;
+    padding: 2px 3px;
+}
+
+.table .textBoxTablas
+{
+    margin-bottom: 0px !important;
+    outline: none;
+    height: 15px !important;
+}
+
+.columnaGridTitulo {
+    background-color: #B94A48 !important;
+    color: white !important;
+}
+
+
+.combosTablas {
+    height: 30px !important;
+    margin-bottom: 0px !important;
+}
+
+.circuloRetraso {
+    background: none repeat scroll 0 0 #c40202 !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 7px !important;
+    margin-left: 5px !important;
+}
+
+.circuloAbierto {
+    background: none repeat scroll 0 0 #0f8b00 !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 7px !important;
+    margin-left: 5px !important;
+}
+
+.circuloCerrado {
+    background: none repeat scroll 0 0 #3900ff !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 7px !important;
+    margin-left: 5px !important;
+}
+
+.margenEstatus {
+    margin-left: 25px !important;
+}
+.LockOff {
+    display: none;
+    visibility: hidden;
+}
+
+.LockOn {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    width: 105%;
+    height: 105%;
+    background: no-repeat center #FFFFFF;
+    font: normal 16px Tahoma, Geneva, sans-serif;
+    text-align: center;
+    color: #0000FF;
+    font-weight: bolder;
+    padding-top: 20%;
+    filter: alpha(opacity=80);
+    opacity: 0.75;
+    overflow: auto;
+}
+
+
+/*.bootbox-body {
+    font-weight: bold !important;
+}
+
+.modal-footer .btn-primary {
+    background-color: #B94A48 !important;
+    color: #FFFFFF !important;
+    text-shadow: none !important;
+}*/
+
+
+.sinBordes {
+    margin-top: 10px !important;
+    width: 90% !important;
+}
+.sinBordes.table th, .sinBordes.table td {
+    border-top: 0px !important;
+}
+
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+.table-container{
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+@media screen and (min-width: 900px){
+    .table-container {
+    	overflow: visible;
+    }
+}
+
+.inputGrid {
+    background-color: transparent !important;
+    border: 0px !important;
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    color:black !important;
+    text-align: center !important;
+    cursor:default !important;
+    font-size: 20px;
+}
+.titulosJaulas {
+    margin: 125px -10px 0px 0px;
+}
+.CeldaSemanal {
+    width: 133px;
+    height: 37px;
+}
+
+.tab-content {
+    overflow: auto !important;
+    padding: 15px !important;
+    border: 1px solid #ddd !important;
+    border-top: 0 !important;
+    margin-top: -21px !important;
+    margin-bottom: 10px !important;
+}
+
+.btn-disabled,
+.btn-disabled[disabled] {
+  opacity: .4;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.alinacionVertical {
+     vertical-align: middle;
+}
+
+.focus-ayuda img {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  border-radius: 26px !important;
+}
+
+.focus-ayuda.btn-disabled:focus img {
+    box-shadow: none;
+    border: none;
+}
+
+.focus-ayuda:focus img {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+    border-radius: 26px !important;
+}
+
+.ui-datepicker-trigger:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.margenCampoIdDerecha {
+    margin-right: 40px;
+}
+
+.btn-SuKarne {
+    background-color: #B94A48  !important;
+}

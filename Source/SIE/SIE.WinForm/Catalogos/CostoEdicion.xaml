@@ -1,0 +1,346 @@
+﻿<Window x:Class="SIE.WinForm.Catalogos.CostoEdicion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Enums="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+        Height="420"
+        Width="800"
+        KeyDown="Window_KeyDown"
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type Enums:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enums:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="dataFromEnumAbono"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type Enums:AbonoA}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enums:AbonoA" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20,10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Producto_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="145"></ColumnDefinition>
+                    <ColumnDefinition Width="155"></ColumnDefinition>
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="15*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.CostoEdicion_LblId}"
+                       Margin="8" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       x:Name="lblDescripcionRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />                
+                <Label Grid.Row="1"
+                       Content="{x:Static resx:Resources.CostoEdicion_LblClaveContable}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       x:Name="lblFamiliaRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />                
+                <Label Grid.Row="2"
+                       Content="{x:Static resx:Resources.CostoEdicion_LblDescripcion}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       x:Name="lblTipoCostoRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="3"
+                       Content="{x:Static resx:Resources.CostoEdicion_LblTipoCosto}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       x:Name="lblTipoProrrateoRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.CostoEdicion_LblTipoProrrateo}"
+                       Grid.Row="4"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Content="{x:Static resx:Resources.CostoEdicion_LblRetencion}"
+                       Grid.Row="5"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="6"
+                       Content="*"
+                       x:Name="lblAbonoARequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.CostoEdicion_LblAbonoA}"
+                       Grid.Row="6"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                
+                <Label Grid.Row="7"
+                       Content="*"
+                       x:Name="lblEstatusRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.CostoEdicion_LblEstatus}"
+                       Grid.Row="7"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="2"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.Costos_lblCompraIndividual}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                <Label Grid.Row="3"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.Costos_lblCompra}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                <Label Grid.Row="4"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.Costos_lblRecepcion}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                <Label Grid.Row="5"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.Costos_lblGasto}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                <Label Grid.Row="6"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.Costos_lblCosto}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                <Label Grid.Row="7"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.Costos_lblTipoCostoCentro}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <TextBox x:Name="txtCostoId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         TabIndex="0"
+                         IsEnabled="false">
+                    <TextBox.Text>
+                        <Binding Path="CostoID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Name="txtClaveContable"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="1"
+                         PreviewTextInput="TxtClaveContableAceptaNumerosPreviewTextInput"
+                         MaxLength="3"
+                         CharacterCasing="Upper">
+                    <TextBox.Text>
+                        <Binding Path="ClaveContable"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                
+                <TextBox x:Name="txtDescripcion"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="1"
+                         MaxLength="50"
+                         PreviewTextInput="TxtDescripcionAceptaNumerosLetrasPreviewTextInput"
+                         CharacterCasing="Upper">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cboTipoCosto"
+                          Grid.Row="3"
+                          Grid.Column="1"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="TipoCostoID"
+                          SelectedItem="{Binding Path=TipoCosto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoCosto.TipoCostoID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding Path=ListaTipoCostos}"
+                          TabIndex="2" />
+
+                <ComboBox x:Name="cboTipoProrrateo"
+                          Grid.Row="4"
+                          Grid.Column="1"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="TipoProrrateoID"
+                          SelectedItem="{Binding Path=TipoProrrateo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoProrrateo.TipoProrrateoID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding Path=ListaTipoProrrateo}"
+                          TabIndex="3" />
+
+                <ComboBox x:Name="cboRetencion"
+                          Grid.Row="5"
+                          Grid.Column="1"
+                          DisplayMemberPath="DescripcionRetencion"
+                          SelectedValuePath="RetencionID"
+                          SelectedItem="{Binding Path=Retencion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Retencion.RetencionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding Path=ListaRetencion}"
+                          Width="190"
+                          HorizontalAlignment="Left"
+                          TabIndex="4" />
+
+                <ComboBox x:Name="cboAbonoA"
+                          Grid.Row="6"
+                          Grid.Column="1"
+                          SelectedItem="{Binding Path=AbonoA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=AbonoA}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnumAbono}}"
+                          Width="150"
+                          SelectedIndex="1"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="7"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Width="150"
+                          SelectedIndex="1"
+                          HorizontalAlignment="Left"
+                          TabIndex="6" />
+                <CheckBox Name="chkCompraIndividual"
+                          Grid.Row="2"
+                          Grid.Column="3"
+                          TabIndex="8"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding Path=CompraIndividual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                <CheckBox Name="chkCompra"
+                          Grid.Row="3"
+                          Grid.Column="3"
+                          TabIndex="9"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding Path=Compra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+
+                <CheckBox Name="chkRecepcion"
+                          Grid.Row="4"
+                          Grid.Column="3"
+                          TabIndex="10"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding Path=Recepcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                <CheckBox Name="chkGasto"
+                          Grid.Row="5"
+                          Grid.Column="3"
+                          TabIndex="11"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding Path=Gasto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+
+                <CheckBox Name="chkCosto"
+                          Grid.Row="6"
+                          Grid.Column="3"
+                          TabIndex="12"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding Path=Costo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></CheckBox>
+                <ComboBox x:Name="cboTipoCostoCentro"
+                          Grid.Row="7"
+                          Grid.Column="3"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="TipoCostoCentroID"
+                          SelectedItem="{Binding Path=TipoCostoCentro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoCostoCentro.TipoCostoCentroID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding Path=ListaTipoCostoCentro}"
+                          TabIndex="13" />
+
+
+                <StackPanel Grid.Row="8"
+                            Grid.Column="2"
+                            Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,105,0">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Margin="0 0 0 0"
+                            Click="Guardar_OnClick"
+                            TabIndex="14" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Margin="15 0 0 0"
+                            Click="Cancelar_OnClick"
+                            TabIndex="15" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

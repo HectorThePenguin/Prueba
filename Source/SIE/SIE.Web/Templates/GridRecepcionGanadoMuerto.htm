@@ -1,0 +1,37 @@
+﻿
+<div class="portlet box">
+    <div class="portlet-title line">
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-hover table-full-width table-bordered" id="sample_1">
+            <thead>
+                <tr>
+                    <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderArete}</th>
+                    <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderAreteTestigo}</th>
+                    <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderFechaDeteccion}</th>
+                    <th class="alineacionCentro hidden-480" scope="col">{$T.Recursos.HeaderHoraDeteccion}</th>
+                    <th class="alineacionCentro hidden-480" scope="col">{$T.Recursos.HeaderFechaRecoleccion}</th>
+                    <th class="alineacionCentro hidden-480" scope="col">{$T.Recursos.HeaderHoraRecoleccion}</th>
+                    <th class="alineacionCentro hidden-480" scope="col">{$T.Recursos.HeaderRecibido}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {#foreach $T.Aretes as item}
+                <tr>
+                    <td class="alineacionCentro tabs-right">{$T.item.Arete}</td>
+                    <td class="alineacionCentro tabs-right">{$T.item.AreteMetalico}</td>
+                    <td class="alineacionCentro tabs-right">{$T.item.FechaDeteccionString}</td>
+                    <td class="alineacionCentro tabs-right hidden-480">{$T.item.HoraDeteccionString}</td>
+                    <td class="alineacionCentro tabs-right hidden-480">{$T.item.FechaRecoleccionString}</td>
+                    <td class="alineacionCentro tabs-right hidden-480">{$T.item.HoraRecoleccionString}</td>
+                    <td class= "alineacionCentro tabs-right hidden-480">
+                        <input type="checkbox" id="{$T.item.MotivoCancelacion}" value="" disabled data-arete="{$T.item.Arete}" data-aretet="{$T.item.AreteMetalico}" />
+                    </td>
+                </tr>
+                {#/for}
+            </tbody>
+        </table>
+    </div>
+     <div class="portlet-title line">
+    </div>
+</div>

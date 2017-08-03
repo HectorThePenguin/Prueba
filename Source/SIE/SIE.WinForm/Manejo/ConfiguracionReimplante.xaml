@@ -1,0 +1,365 @@
+﻿<vista:ControlBase  x:Class="SIE.WinForm.Manejo.ConfiguracionReimplante"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                    mc:Ignorable="d"
+                    xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                    xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    Height="Auto"
+                    Width="Auto"
+                    d:DesignHeight="600"
+                    Loaded="ConfiguracionReimplante_OnLoaded"
+                    d:DesignWidth="1600">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="350*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ConfiguracionReimplante_LblTitulo}"
+                          x:Name="ucTitulo" />
+
+        <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_Corral}"
+               Grid.Row="1"
+               Grid.Column="0"
+               Margin="20 0 20 0"
+               VerticalAlignment="Top">
+        </Label>
+
+        <TextBox Name="txtCorral"
+                 VerticalAlignment="Top"
+                 Text="{Binding Path=Corral.Codigo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 KeyDown="TxtCorral_OnKeyDown"
+                 Width="130">
+        </TextBox>
+
+        <GroupBox Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="2"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_DatosProyeccion}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_Lote}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_TipoGanado}"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_PesoOrigen}"
+                       Grid.Row="0"
+                       Grid.Column="4"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_FechaInicio}"
+                       Grid.Row="0"
+                       Grid.Column="6"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_DiasEngorda}"
+                       Grid.Row="0"
+                       Grid.Column="8"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_GananciaDiaria}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_PesoMaduro}"
+                       Grid.Row="1"
+                       Grid.Column="2"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_FechaDisponible}"
+                       Grid.Row="1"
+                       Grid.Column="4"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_FechaZilmax}"
+                       Grid.Row="1"
+                       Grid.Column="6"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_TotalDias}"
+                       Grid.Row="1"
+                       Grid.Column="8"
+                       VerticalAlignment="Top">
+                </Label>
+
+                <TextBox Name="txtLote"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=Lote.Lote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="False"
+                         Margin="11,0,0,0"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Width="130">
+                </TextBox>
+
+                <TextBox Name="txtTipoGanado"
+                         VerticalAlignment="Top"
+                         Margin="11,0,0,0"
+                         Text="{Binding Path=TipoGanado.Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="False"
+                         Grid.Row="0"
+                         Grid.Column="3"
+                         Width="130">
+                </TextBox>
+
+                <TextBox Name="txtPesoOrigen"
+                         VerticalAlignment="Top"
+                         Margin="11,0,0,0"
+                         Text="{Binding Path=PesoOrigen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="False"
+                         Grid.Row="0"
+                         Grid.Column="5"
+                         Width="130">
+                </TextBox>
+
+                <TextBox Name="txtFechaInicio"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=Lote.FechaInicio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=d, ConverterCulture=es-MX}"
+                         IsEnabled="False"
+                         Grid.Row="0"
+                         Grid.Column="7"
+                         Width="130">
+                </TextBox>
+
+                <TextBox Name="txtDiasEngorda"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=DiasEngorda}"
+                         IsEnabled="False"
+                         Grid.Row="0"
+                         Grid.Column="9"
+                         Width="130">
+                </TextBox>
+
+                <xctk:DecimalUpDown Name="dudGananciaDiaria"
+                                    FormatString="N2"
+                                    ShowButtonSpinner="False"
+                                    NumeroDecimal="True"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    MaxLength="5"
+                                    AllowSpin="False"
+                                    Width="130"
+                                    Height="25"
+                                    Value="{Binding Path=LoteProyeccion.GananciaDiaria, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <xctk:IntegerUpDown Name="iudPesoMaduro"
+                                    FormatString="N0"
+                                    ShowButtonSpinner="False"
+                                    NumeroInteger="True"
+                                    Grid.Row="1"
+                                    Grid.Column="3"
+                                    MaxLength="3"
+                                    AllowSpin="False"
+                                    Width="130"
+                                    Height="25"
+                                    Value="{Binding Path=LoteProyeccion.PesoMaduro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <DatePicker Name="dtpFechaDisponible"
+                            Grid.Row="1"
+                            Grid.Column="5"
+                            Height="25"
+                            Width="130"
+                            Margin="10,0,0,0"
+                            
+                            SelectedDateChanged="DtpFechaDisponible_OnSelectedDateChanged"
+                            HorizontalAlignment="Left"/>
+
+                <DatePicker Name="dtpFechaZilmax"
+                            Grid.Row="1"
+                            Grid.Column="7"
+                            IsEnabled="False"
+                            Height="25"
+                            Width="130"
+                            HorizontalAlignment="Left"
+                            SelectedDate="{Binding Path=LoteProyeccion.FechaEntradaZilmax, UpdateSourceTrigger=PropertyChanged, Mode= TwoWay}" />
+
+                <TextBox Name="txtTotalDias"
+                         VerticalAlignment="Top"
+                         Text="{Binding Path=TotalDias, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         IsEnabled="False"
+                         Grid.Row="1"
+                         Grid.Column="9"
+                         Width="130">
+                </TextBox>
+
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Grid.Row="3"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfiguracionReimplante_DatosReimplante}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="650"></ColumnDefinition>
+                   
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            Grid.Column="0"
+                            Margin="0 0 28 0"
+                            HorizontalAlignment="Right">
+                    <Button Name="btnAgregar"
+                            Margin="0 5 0 0"
+                            Width="120"
+                            Content="{x:Static resx:Resources.ConfiguracionReimplante_btnAgregarReimplante}"
+                            Click="BtnAgregarClick"></Button>
+                    <Button Name="btnCancelarAgregar"
+                            Margin="10 5 0 0"
+                            Click="BtnCancelarAgregar_OnClick"
+                            Content="{x:Static resx:Resources.btnCancelar}"></Button>
+                </StackPanel>
+
+
+                <DataGrid x:Name="dgReimplantes"
+                          AutoGenerateColumns="False"
+                          CanUserSortColumns="False"
+                          Grid.Row="3"
+                          Grid.Column="0"
+                          Width="Auto"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Stretch"
+                          IsReadOnly="True"
+                          ColumnWidth="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=NumeroReimplante}"
+                                            Header="{x:Static resx:Resources.ConfiguracionReimplante_ColumnaGridNumeroReimplante}" />
+
+                        <DataGridTemplateColumn Width="150"
+                                                Header="{x:Static resx:Resources.ConfiguracionReimplante_ColumnaGridFechaProyectada}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker Name="dtpFechaReimplante"
+                                                Height="25"
+                                                Width="130"
+                                                HorizontalAlignment="Left"
+                                                IsEnabled="{Binding Path=PermiteEditar}"
+                                                SelectedDate="{Binding Path=FechaProyectada, UpdateSourceTrigger=PropertyChanged, Mode= TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="150"
+                                                Header="{x:Static resx:Resources.ConfiguracionReimplante_ColumnaGridPesoProyectado}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <xctk:IntegerUpDown Name="iudPesoProyectado"
+                                                        FormatString="N0"
+                                                        ShowButtonSpinner="False"
+                                                        NumeroInteger="True"
+                                                        MaxLength="3"
+                                                        AllowSpin="False"
+                                                        IsEnabled="{Binding Path=PermiteEditar}"
+                                                        Value="{Binding Path=PesoProyectado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="150"
+                                            Binding="{Binding Path=FechaReal, StringFormat=d, ConverterCulture=es-MX}"
+                                            Header="{x:Static resx:Resources.ConfiguracionReimplante_ColumnaGridFechaReal}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="4"
+                    Orientation="Horizontal"
+                    Grid.Column="1"
+                    
+                    Margin="0 0 28 0"
+                    HorizontalAlignment="Right">
+            <Button Name="btnGuardar"
+                    Margin="0 5 0 0"
+                    Content="{x:Static resx:Resources.btnGuardar}"
+                    Click="BtnGuardarClick"></Button>
+            <Button Name="btnCancelar"
+                    Margin="10 5 0 0"
+                    Click="BtnCancelarClick"
+                    Content="{x:Static resx:Resources.btnCancelar}"></Button>
+        </StackPanel>
+
+    </Grid>
+</vista:ControlBase>

@@ -1,0 +1,382 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.MateriaPrima.AdministrarContrato"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="1300"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Loaded="AdministrarContrato_OnLoaded">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="240*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="1300*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="15 10 15 10"
+                          Margin="0,0,0,1"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.AdministrarContrato_Titulo}"
+                          x:Name="ucTitulo"
+                          Height="Auto"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Header="{x:Static resx:Resources.AdministrarContrato_GBBusqueda}"
+                  Width="auto"
+                  Margin="15,0,15,10"
+                  Grid.Row="1">
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.AdministrarContrato_LblOrganizacionID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       Margin="8,0,0,0"/>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        AnchoClave="60"
+                                        x:Name="skAyudaOrganizacion"
+                                        Grid.Column="1"
+                                        Grid.ColumnSpan="3"
+                                        DataContext="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="0"
+                                        Margin="8,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Organizacion_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaOrganizacion}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaOrganizacion_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Organizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.Organizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.Organizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.Organizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorIdFiltroTiposOrganizacion"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaPorFiltroTipoOrganizacion"
+                                        CampoDescripcion="Descripcion"
+                                        CampoLlaveOcultaClave="OrganizacionID"
+                                        CampoClave="OrganizacionID" />
+
+                <Label Grid.Column="0"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.AdministrarContrato_LblFolioContrato}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="100"
+                       Margin="8,0,0,0"
+                       Grid.ColumnSpan="2" />
+                <xctk:IntegerUpDown Name="TxtFolioContrato"
+                                    AllowSpin="False"
+                                    ShowButtonSpinner="False"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    TabIndex="0"
+                                    DefaultValue="0"
+                                    FormatString="N0"
+                                    Height="25"
+                                    NumeroInteger="True"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    Width="100"
+                                    Margin="8,0,0,0"
+                                    MaxLength="9" />
+                <!--<TextBox Grid.Column="1"
+                         MaxLength="9"
+                         Name="TxtFolioContrato"
+                         HorizontalAlignment="Left"
+                         Height="23"
+                         Margin="0,10,0,0"
+                         VerticalAlignment="Top"
+                         PreviewTextInput="txtFolioContrato_PreviewTextInput"
+                         TabIndex="0" />-->
+                <Label Grid.Column="4"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.AdministrarContrato_LblProveedor}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="80"
+                       Margin="8,0,0,0"/>
+                <StackPanel Name="SplAyudaProveedor"
+                            Grid.Column="5"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="0"
+                            Height="28"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Margin="8,0,0,0" />
+                <Label Grid.Column="2"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.AdministrarContrato_LblFlete}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="70"
+                       Margin="8,0,0,0"
+                       Grid.ColumnSpan="2" />
+                <ComboBox Name="CboFlete"
+                          HorizontalAlignment="Left"
+                          Margin="8,0,0,0"
+                          VerticalAlignment="Top"
+                          Width="130"
+                          TabIndex="2"
+                          SelectedValuePath="TipoFleteId"
+                          DisplayMemberPath="Descripcion"
+                          SelectedItem="{Binding Path=TipoFlete, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoFlete.TipoFleteId}"
+                          ItemsSource="{Binding Path=ListaTipoFlete}"
+                          Grid.Column="3"
+                          Grid.Row="1"/>
+                <Button x:Name="btnBuscar"
+                        Content="{x:Static resx:Resources.AdministrarContrato_BtnBuscar}"
+                        Grid.Column="6"
+                        HorizontalAlignment="Left"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="75"
+                        TabIndex="6"
+                        Click="btnBuscar_Click" />
+                <Button x:Name="btnLimpiar"
+                        Content="{x:Static resx:Resources.AdministrarContrato_BtnLimpiar}"
+                        Grid.Column="7"
+                        HorizontalAlignment="Left"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="75"
+                        Click="btnLimpiar_Click"
+                        TabIndex="8" />
+                <Label Grid.Column="4"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.AdministrarContrato_LblProducto}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="70"
+                       Margin="8,0,0,0"
+                       Grid.ColumnSpan="2" />
+
+                <Controles:ControlAyuda x:Name="skAyudaProducto"
+                                        AnchoDescripcion="240"
+                                        AnchoClave="60"
+                                        DataContext="{Binding Path=Producto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="1"
+                                        Grid.Column="5"
+                                        Margin="8,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="8"
+                                        EsAyudaSimple="False"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaProducto_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaProducto_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaProducto_Busqueda_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaProducto_Seleccionar }"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaProducto_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaProducto_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaProducto_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorProductoIDFamilias"
+                                        MetodoInvocacionBusqueda="ObtenerPorFamiliasPaginado"
+                                        CampoDescripcion="ProductoDescripcion"
+                                        CampoClave="ProductoId"
+                                        CampoLlaveOcultaClave="ProductoId"
+                                        Grid.ColumnSpan="3" />
+
+                <!--<ComboBox Name="CboProducto"
+                          HorizontalAlignment="Left"
+                          Margin="8,0,0,0"
+                          VerticalAlignment="Top"
+                          Width="130"
+                          TabIndex="3"
+                          DisplayMemberPath="ProductoDescripcion"
+                          SelectedValuePath="ProductoId"
+                          SelectedItem="{Binding Path=Producto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Producto.ProductoID}"
+                          ItemsSource="{Binding Path=ListaProductos}"
+                          Grid.Row="2"
+                          Grid.Column="1
+                          " />-->
+                
+                <Label Grid.Column="0"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.AdministrarContrato_LblTipoCompra}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="100"
+                       Margin="8,0,0,0"
+                       Grid.ColumnSpan="2" />
+                <ComboBox Name="CboTipoCompra"
+                          HorizontalAlignment="Left"
+                          Margin="8,0,0,0"
+                          VerticalAlignment="Top"
+                          Width="130"
+                          TabIndex="4"
+                          SelectedValuePath="TipoContratoId"
+                          DisplayMemberPath="Descripcion"
+                          SelectedItem="{Binding Path=TipoContrato, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoContrato.TipoContratoId}"
+                          ItemsSource="{Binding Path=ListaTipoContrato}"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          SelectionChanged="CboTipoCompra_OnSelectionChanged"/>
+                <Label Grid.Column="2"
+                       Grid.Row="2"
+                       Content="{x:Static resx:Resources.AdministrarContrato_LblEstatus}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="100"
+                       Margin="8,0,0,0"
+                       Grid.ColumnSpan="2" />
+                <ComboBox Name="CboEstatus"
+                          HorizontalAlignment="Left"
+                          Margin="8,0,0,0"
+                          VerticalAlignment="Top"
+                          Width="130"
+                          TabIndex="5"
+                          SelectedValuePath="EstatusId"
+                          DisplayMemberPath="Descripcion"
+                          SelectedItem="{Binding Path=Estatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Estatus.EstatusId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          ItemsSource="{Binding Path=ListaEstatusContrato}"
+                          Grid.Row="2"
+                          Grid.Column="3" />
+                <Button x:Name="btnNuevo"
+                        Content="{x:Static resx:Resources.AdministrarContrato_BtnNuevo}"
+                        Grid.Column="7"
+                        Grid.Row="1"
+                        HorizontalAlignment="Left"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="75"
+                        TabIndex="7"
+                        Click="btnNuevo_Click" />
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="gridContratos"
+                  IsTabStop="true"
+                  Width="Auto"
+                  SelectionMode="Single"
+                  Margin="10,10,10,8"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  ItemsSource="{Binding Path=ContratoInfo}"
+                  TabIndex="9">
+            <DataGrid.Columns>
+               
+                <DataGridTemplateColumn Width="100"
+                                        Header="{x:Static resx:Resources.AdministrarContrato_GridFolioContrato}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Right"
+                                       Text="{Binding Path=Folio, StringFormat=N0}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTextColumn Width="60*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Folio}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridFolioContrato}"
+                                    KeyboardNavigation.TabNavigation="None" />-->
+                <DataGridTextColumn Width="150"
+                                    Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridProducto}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTextColumn Width="300"
+                                    Binding="{Binding Path=Proveedor.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridProveedor}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=TipoContrato.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridTipoCompra}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=TipoFlete.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridFlete}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTemplateColumn Width="100"
+                                        Header="{x:Static resx:Resources.AdministrarContrato_GridToneladas}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Right"
+                                       Text="{Binding Path=CantidadToneladas, StringFormat=N3}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="130"
+                                        Header="{x:Static resx:Resources.AdministrarContrato_GridCantidadSurtida}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Right"
+                                       Text="{Binding Path=ToneladasSurtidas, StringFormat=N3}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTextColumn Width="60*"
+                                    Binding="{Binding Path=CantidadToneladas, StringFormat={}{0:0}}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridToneladas}" 
+                                    KeyboardNavigation.TabNavigation="None"/>-->
+                <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=Fecha, StringFormat={}{0:dd/MM/yyyy}}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridFecha}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=Estatus.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridEstatus}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.PrecioGanado_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="300"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Organizacion.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministrarContrato_GridDivision}"
+                                    KeyboardNavigation.TabNavigation="None" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

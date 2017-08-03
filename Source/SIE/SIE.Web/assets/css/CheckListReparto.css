@@ -1,0 +1,58 @@
+﻿.modal.large
+{
+    width: 60%;
+    margin-left: -30%;
+}
+
+.modal.extraLarge
+{
+    width: 80%;
+    margin-left: -40%;
+}
+
+.close
+{
+    width: 60px !important;
+    height: 40px !important;
+}
+
+#modalHorasMuertas, #modalBusquedaCamionReparto
+{
+    margin-top: -150px;
+}
+
+#divGridCamionReparto
+{
+    height: 300px;
+    overflow: auto;
+}
+
+.highlight > td
+{
+    background-color: #FFC8C8 !important;
+}
+
+#GridCamionReparto tbody tr
+{
+    cursor: pointer;
+}
+
+.claseRequerida
+{
+    background-color: #FFBABA !important;
+}
+
+#txtCamionReparto, #txtCamionRepartoBusqueda, .numeroTolva
+{
+    text-transform: uppercase !important;
+}
+
+.espacioLabelIzquierda
+{
+    margin-left: 2% !important;
+}
+
+.espacioLabelDerecha
+{
+    margin-right: 5% !important;
+}

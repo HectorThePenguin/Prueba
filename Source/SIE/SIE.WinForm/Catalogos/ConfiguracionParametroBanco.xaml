@@ -1,0 +1,179 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.ConfiguracionParametroBanco"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+        Height="Auto"
+        Width="Auto"
+        Loaded="Window_Loaded">
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="estatusFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+    <Grid Margin="20" Background="White" ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          TextoTitulo="{x:Static resx:Resources.ConfiguracionParametroBanco_Titulo}"
+                          Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                          Padding="20 0 20 0"
+                          Margin="58,12,2,12"
+                          VisibleCerrar="Hidden" Height="Auto"/>
+        <GroupBox
+            Grid.Column="1" Grid.Row="1"           
+            Style="{StaticResource groupBox}"
+            HorizontalAlignment="Stretch"
+            Height="100"
+            VerticalAlignment="Top"    
+            Margin="20,10,20,0" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfiguracionParametroBanco_grp_lbl_FiltroBusqueda}"></Label>
+            </GroupBox.Header>
+            <Grid                
+                VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="350"></ColumnDefinition>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="209*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Content="{x:Static resx:Resources.ConfiguracionParametroBanco_lblBanco}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center" Height="28" Margin="0,0" Width="54" ></Label>
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaBanco"
+                                        DataContext="{Binding Path=BancoID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="2"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_Leyenda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaConfiguracionParametroCheque_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="BancoID" VerticalAlignment="Center" Height="Auto" Grid.ColumnSpan="2" 
+                                        TabIndex="1"/>
+                <Button
+                    Name="btnBuscar"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    TabIndex="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="Buscar" Click="btnBuscar_Click"></Button>
+                
+            </Grid>            
+        </GroupBox>        
+        <DataGrid Name="gridConfiguracionParametros"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  VerticalAlignment="Top"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=CatParametrocConfiguracionBancoInfo}"
+                  SelectionMode="Single"> 
+            <DataGrid.Columns>
+                    <DataGridTextColumn 
+                    Binding="{Binding Path=ParametroID.Descripcion}"
+                    Header="{x:Static resx:Resources.ConfiguracionParametroBanco_GridDescripcion}" />
+
+                <DataGridTextColumn 
+                    Binding="{Binding Path=ParametroID.Valor}"
+                    Header="{x:Static resx:Resources.ConfiguracionParametroBanco_GridValor}" />
+
+                <DataGridTemplateColumn Header="{x:Static resx:Resources.ConfiguracionParametroBanco_GridX}" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="45" MaxLength="3" PreviewTextInput="ValidacionTextBox" DataObject.Pasting="TextBoxPaste" PreviewKeyDown="TextBox_PreviewKeyDown_1"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{x:Static resx:Resources.ConfiguracionParametroBanco_GridY}" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="45" MaxLength="4" PreviewTextInput="ValidacionTextBox" DataObject.Pasting="TextBoxPaste" PreviewKeyDown="TextBox_PreviewKeyDown_1"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="{x:Static resx:Resources.ConfiguracionParametroBanco_GridAncho}" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Width="45" MaxLength="3" PreviewTextInput="ValidacionTextBox" DataObject.Pasting="TextBoxPaste" PreviewKeyDown="TextBox_PreviewKeyDown_1"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTemplateColumn Header="{x:Static resx:Resources.ConfiguracionParametroBanco_GridEstatus}"  Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox x:Name="cmbActivo"  
+                                   ItemsSource="{Binding Source={StaticResource estatusFromEnum}}"
+					               SelectedValue="{Binding Path=Activo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					               Width="100"
+					               HorizontalAlignment="Left"
+					               TabIndex="4" Margin="0,7,0,5" Height="Auto" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <StackPanel Grid.Row="3"
+                            Grid.Column="1"
+                            Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,12,20,0"
+                    VerticalAlignment="Top" Height="23" Width="180">
+            <Button x:Name="btnGuardar"  
+                    Content="{x:Static resx:Resources.btnGuardar}"
+                    TabIndex="3" VerticalAlignment="Center" Click="btnGuardar_Click" />
+            <Button x:Name="btnCancelar" 
+                    TabIndex="4"
+                    Content="{x:Static resx:Resources.btnCancelar}"
+                     Margin="20 0 0 0" Click="btnCancelar_Click" 
+                    VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Vista:ControlBase>

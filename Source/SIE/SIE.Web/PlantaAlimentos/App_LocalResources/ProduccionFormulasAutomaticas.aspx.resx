@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnCargarImagenResource1.Text" xml:space="preserve">
+    <value>Cargar imágenes</value>
+  </data>
+  <data name="btnCargarImagenResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FileUploadControlResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image3Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Image3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="imgLogoResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="imgLogoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblArchivoProduccionResource1.Text" xml:space="preserve">
+    <value>Archivo Producción</value>
+  </data>
+  <data name="lblArchivoProduccionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDetalleporbachadaResource1.Text" xml:space="preserve">
+    <value>Detalle por Batchada</value>
+  </data>
+  <data name="lblDetalleporbachadaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaResource1.Text" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="lblFechaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMonitorResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMonitorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTituloResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTituloResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>SIAP - SuKarne </value>
+  </data>
+  <data name="txtArchivoProduccionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtArchivoProduccionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="batch" xml:space="preserve">
+    <value>batch</value>
+  </data>
+  <data name="CantidadProgramada" xml:space="preserve">
+    <value>Cantidad Programada</value>
+  </data>
+  <data name="CantidadReal" xml:space="preserve">
+    <value>Cantidad Real</value>
+  </data>
+  <data name="ColumnaCodigo" xml:space="preserve">
+    <value>ColumnaCodigo</value>
+  </data>
+  <data name="columnas" xml:space="preserve">
+    <value>columnas</value>
+  </data>
+  <data name="Formula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="formulas" xml:space="preserve">
+    <value>formulas</value>
+  </data>
+  <data name="msjArchivoTXT" xml:space="preserve">
+    <value>El archivo no tiene la extensión .txt. Favor de verificar.</value>
+  </data>
+  <data name="msjArchivoVacio" xml:space="preserve">
+    <value>El archivo se encuentra vacío. Favor de verificar.</value>
+  </data>
+  <data name="msjBatch" xml:space="preserve">
+    <value>Ya existe una batchada para el rotomix, para esa fecha. Favor de verificar</value>
+  </data>
+  <data name="msjFormulas" xml:space="preserve">
+    <value>Las fórmulas no existen en el catálogo</value>
+  </data>
+  <data name="msjInformacionRequerida" xml:space="preserve">
+    <value>El archivo no contiene la información requerida. Favor de verificar.</value>
+  </data>
+  <data name="msjNueve" xml:space="preserve">
+    <value>9999</value>
+  </data>
+  <data name="msjProductos" xml:space="preserve">
+    <value>Los productos no existen en el catálogo de productos.</value>
+  </data>
+  <data name="msjRotomix" xml:space="preserve">
+    <value>El rotomix no existe en el catálogo de rotomix. Favor de verificar</value>
+  </data>
+  <data name="msjSeis" xml:space="preserve">
+    <value>6666</value>
+  </data>
+  <data name="msjSeleccioneArchivo" xml:space="preserve">
+    <value>Seleccione el archivo a subir.</value>
+  </data>
+  <data name="msjSumaTotal" xml:space="preserve">
+    <value>El archivo no contiene la suma total por batchada. Favor de verificar</value>
+  </data>
+  <data name="msnInicioFin" xml:space="preserve">
+    <value>El archivo no especifica el inicio y fin por batchada. Favor de verificar.</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="producto" xml:space="preserve">
+    <value>producto</value>
+  </data>
+  <data name="rotomix" xml:space="preserve">
+    <value>rotomix</value>
+  </data>
+  <data name="sumatorias" xml:space="preserve">
+    <value>sumatorias</value>
+  </data>
+  <data name="vacio" xml:space="preserve">
+    <value>vacio</value>
+  </data>
+  <data name="VerDetalle" xml:space="preserve">
+    <value>Ver Detalle</value>
+  </data>
+  <data name="KilosProducidos" xml:space="preserve">
+    <value>Kilogramos Producidos</value>
+  </data>
+  <data name="NumeroBachada" xml:space="preserve">
+    <value>Numero de Batchada</value>
+  </data>
+  <data name="rotomix2" xml:space="preserve">
+    <value>Rotomix</value>
+  </data>
+  <data name="fecha" xml:space="preserve">
+    <value>fecha</value>
+  </data>
+  <data name="msjFechaYHora" xml:space="preserve">
+    <value>Archivo esta fuera de fecha. Favor de verificar.</value>
+  </data>
+  <data name="ingrediente" xml:space="preserve">
+    <value>ingrediente</value>
+  </data>
+  <data name="msjGuardadoExitoso" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="msjIngrediente" xml:space="preserve">
+    <value>La Formula No Tiene Configurado Ingredientes</value>
+  </data>
+  <data name="columnaBatch" xml:space="preserve">
+    <value>Batch</value>
+  </data>
+  <data name="columnaCodigo2" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="columnaFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="columnaFormula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="columnaHora" xml:space="preserve">
+    <value>Hora</value>
+  </data>
+  <data name="columnaMarca" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="columnaMeta" xml:space="preserve">
+    <value>Meta</value>
+  </data>
+  <data name="columnaNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="columnaReal" xml:space="preserve">
+    <value>Real</value>
+  </data>
+  <data name="msjConfirmacion" xml:space="preserve">
+    <value>¿Está seguro que desea salir sin guardar datos?</value>
+  </data>
+  <data name="msjSeleccionArchivo" xml:space="preserve">
+    <value>Debes Cargar un Archivo</value>
+  </data>
+  <data name="HeaderResumenCantidad.Text" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="HeaderResumenCantidadReparto.Text" xml:space="preserve">
+    <value>Cantidad Reparto</value>
+  </data>
+  <data name="HeaderResumenDescripcion.Text" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="btnAceptarResumen.Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="msgCancelar" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CodeBehind.ProduccionGenerada" xml:space="preserve">
+    <value>Ya se encuentra registrada la informacion para el número de Batch: {0}, Producto: {1}, Fecha: {2}, RotoMix: {3}.</value>
+  </data>
+  <data name="msgFechaInvalida.Text" xml:space="preserve">
+    <value>Es necesario ingresar una fecha válida. Favor de verificar.</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+</root>

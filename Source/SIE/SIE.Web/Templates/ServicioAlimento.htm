@@ -1,0 +1,42 @@
+﻿
+<div id="tableContainer" class="tableContainer">
+<table class="table table-striped table-advance table-hover ">
+    <thead class="fixedHeader">
+        <tr>
+            <th style="width:15%">{$T.Resources.Corral}
+            </th>
+            <th style="width:15%">{$T.Resources.KilosProgramados}
+            </th>
+            <th style="width:15%">{$T.Resources.DescripcionFormula}
+            </th>
+            <th style="width:30%">{$T.Resources.Comentarios}
+            </th>
+            <th style="width:20%">{$T.Resources.FechaRegistro}
+            </th>
+            <th style="width:10%">{$T.Resources.Opcion}
+            </th>
+
+        </tr>
+    </thead>
+    <tbody class="scrollContent">
+        {#foreach $T.Arreglo as Item}
+        <tr class="{#cycle values=['','odd']}" data-id="{$T.Item.CorralID}" data-formulaid="{$T.Item.FormulaID}" data-codigocorral="{$T.Item.CodigoCorral}" data-kilos="{$T.Item.KilosProgramados}" data-descripcion="{$T.Item.DescripcionFormula}" data-comentarios="{$T.Item.Comentarios}" data-fecharegistro="{$T.Item.FechaRegistro}" data-idservicio="{$T.Item.ServicioID}" data-editado="{$T.Item.Editado}">
+            <td style="width:15%">{$T.Item.CodigoCorral}
+            </td>
+            <td style="width:15%">{agregarformatoKilogramos($T.Item.KilosProgramados) }
+            </td>
+            <td style="width:15%">{$T.Item.DescripcionFormula}
+            </td>
+            <td style="width:30%">{$T.Item.Comentarios}
+            </td>
+            <td style="width:20%">{$T.Item.FechaRegistro}
+            </td>
+            <td style="width:10%">
+                <img id="iEditar" src="../Images/pencil.png" alt="Editar" title="Editar" aria-disabled="False" class="btn" onclick="SelecionaEditar({$T.Item.CorralID},{$T.Item.ServicioID},'{$T.Item.CodigoCorral.toString()}')" />
+            </td>
+
+        </tr>
+        {#/for}
+    </tbody>
+</table>
+</div>

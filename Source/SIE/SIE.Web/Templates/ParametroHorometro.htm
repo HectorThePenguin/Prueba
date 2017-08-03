@@ -1,0 +1,29 @@
+﻿<table id="Horometro" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col">Horómetro</th>
+        <th class="alineacionCentro" scope="col">Inicio</th>
+        <th class="alineacionCentro" scope="col">Final</th>
+		<th class="alineacionCentro" scope="col">Horas de operación</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Horometros as item}
+        <tr data-HorometroID={$T.item.RoladoraID}>
+            <td class="tabs-right">{$T.item.Roladora}
+            </td>
+            <td class="tabs-right anchoColumnaHorometro">
+                <input type="time" name="{$T.item.RoladoraID}" 
+                       id="txtInicio{$T.item.RoladoraID}" class="horometro anchoTextBoxHorometro textoDerecha" />
+            </td>
+            <td class="tabs-right anchoColumnaHorometro">
+                <input type="time" name="{$T.item.RoladoraID}" 
+                       id="txtFin{$T.item.RoladoraID}" class="horometro horometroFin anchoTextBoxHorometro textoDerecha" />
+            </td>
+			<td class="tabs-right anchoColumnaHorometro">
+			    <input type="time" id="txtResultadoHorometro{$T.item.RoladoraID}" name="{$T.item.RoladoraID}" 
+                       class="horometro anchoTextBoxHorometro textoDerecha" disabled="disabled" />
+                hrs
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

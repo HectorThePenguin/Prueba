@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls" x:Class="SIE.WinForm.MateriaPrima.AyudaContrato"
+        Height="426.158" Width="796.693" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" BorderBrush="DarkRed" Loaded="AyudaContrato_OnLoaded" BorderThickness="1" >
+    <Grid  Background="White" Margin="0,2,0,8" HorizontalAlignment="Left" Width="787" Loaded="FrameworkElement_OnLoaded">
+
+
+        <Grid Margin="6,50,-128,4" HorizontalAlignment="Left" Width="783">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <DataGrid 
+                          Height="281" 
+                          Margin="8,36,0,0" 
+                          VerticalAlignment="Top" Grid.RowSpan="2" x:Name="dgContrato"
+                          CanUserResizeColumns="False" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Width="765"  MouseDoubleClick="DgContrato_OnMouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding RowNum}" Width="20"/>
+                    <DataGridTextColumn Binding="{Binding Path=Folio}"  Width="140" Header="{x:Static resx:Resources.AyudaContrato_Folio}"/>
+                    <DataGridTextColumn Binding="{Binding Path=Producto.ProductoDescripcion}"  Width="470" Header="{x:Static resx:Resources.AyudaContrato_Producto}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Grid.Row="0" 
+                       x:Name="lblContrato" 
+                       Content="{x:Static resx:Resources.AyudaContrato_Contrato}" 
+                       HorizontalAlignment="Left" 
+                       Margin="10,4,0,0" 
+                       VerticalAlignment="Top"/>
+            <TextBox x:Name="txtFolio" MaxLength="9" HorizontalAlignment="Left" Height="23" Margin="97,8,0,0"  VerticalAlignment="Top" Width="229" RenderTransformOrigin="0.076,0.342" PreviewTextInput="TxtFolio_OnPreviewTextInput"/>
+            <Button Name="btnBuscar" Content="{x:Static resx:Resources.AyudaContrato_Buscar}" HorizontalAlignment="Left" Margin="374,8,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="btnBuscar_Click" />
+        </Grid>
+        <Button Name="btnCancelar" Content="{x:Static resx:Resources.AyudaContrato_Cancelar}"   HorizontalAlignment="Left" Margin="576,57,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" Click="btnCancelar_Click" />
+        <Button Name="btnAgregar" Content="{x:Static resx:Resources.AyudaContrato_Agregar}"   HorizontalAlignment="Left" Margin="475,57,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" Click="BtnAgregar_OnClick"/>
+        <controles:Titulo TextoTitulo="{x:Static resx:Resources.AyudaContrato_Titulo}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="767" Height="29"/>
+
+        <PaginControl:PaginacionControl HorizontalAlignment="Left" 
+    		Margin="6,375,0,0" 
+    		x:Name="PaginacionContrato" 
+    		VerticalAlignment="Top" 
+    		Width="771"  FontFamily="Arial Narrow" Height="35"/>
+
+    </Grid>
+</Window>

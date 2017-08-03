@@ -1,0 +1,140 @@
+﻿.textBoxTablas
+{
+    
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+}
+
+.textBoxChico
+{
+    min-height: 20px !important;
+    height: 25px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+}
+
+.pantallaCompleta
+{
+    width: 100%;
+}
+fieldset.scheduler-border
+{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+/*#GridCalidad {
+    width: 60%;
+    float: left;
+}*/
+
+/*.modal.fade {
+  top: 20%;
+  -webkit-transition: opacity 0.3s linear;
+     -moz-transition: opacity 0.3s linear;
+       -o-transition: opacity 0.3s linear;
+          transition: opacity 0.3s linear;
+}
+
+.modal.fade.in {
+  top: 50%;
+}*/
+
+.table th, .table td {
+    padding: 2px!important;
+}
+.espacioCortoDerecha {
+    margin-right: 10px;
+}
+
+/*.bootbox-body {
+    font-weight: bold !important;
+}*/
+/*.modal-footer .btn-default,.modal-footer .btn-primary {
+    background-color: #B94A48 !important;
+    color: #FFFFFF !important;
+    text-shadow: none !important;
+}*/
+
+legend.scheduler-border
+{
+    width: auto; /* Or auto */
+    padding: 0 10px; /* To give a bit of padding on the left and right */
+    border-bottom: none;
+    font-size: small;
+    font-weight: bold;
+}
+.negritas {
+    font-weight: bold;
+}
+.sinBordes {
+    margin-top: 10px !important;
+    width: 90% !important;
+}
+.sinBordes.table th, .sinBordes.table td {
+    border-top: 0px !important;
+}
+.textoDerecha {
+    text-align: right !important;
+}
+
+.alineacionCentro
+{
+    text-align: center !important;
+}
+.alineacionDerecha
+{
+    float: right;
+}
+
+.totales {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.table thead tr th {
+       background-color: #D8D8D8 !important;
+       border: 1px groove #ddd !important;
+}
+
+.cabecero {
+    background-color: #9a9a9a !important;
+       border: 1px groove #ddd !important;
+    font-weight: bold;
+}
+
+.LockOff
+{
+	display: none;
+	visibility: hidden;
+}
+.LockOn
+{
+	display: block;
+	visibility: visible;
+	position: absolute;
+	z-index: 999;
+	top: 0px;
+	left: 0px;
+	width: 105%;
+	height: 105%;
+	background: no-repeat center #FFFFFF;
+	font: normal 16px Tahoma, Geneva, sans-serif;
+	text-align: center;
+	color: #0000FF;
+	font-weight: bolder;
+	padding-top: 20%;
+	filter: alpha(opacity=80);
+	opacity: 0.75;
+	overflow: auto;
+}
+
+.imagen-deteccion {
+    max-width: 30%;
+    max-height: 50%;
+    float: left;
+}

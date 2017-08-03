@@ -1,0 +1,202 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Alertas.ConfiguracionAlertas"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:gif="http://wpfanimatedgif.codeplex.com"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="ControlBase_Loaded_1">
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="143*"></ColumnDefinition>
+            <ColumnDefinition Width="259*"/>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ConfiguracionAlertas_Titulo}"
+                          x:Name="ucTitulo" Grid.ColumnSpan="2" Margin="0,12"></Controles:Titulo>
+
+        <GroupBox Grid.Row="1"
+                  Grid.Column="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20,5,20,295" Grid.RowSpan="2" Grid.ColumnSpan="2">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfiguracionAlertas_Filtros}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="122"></ColumnDefinition>
+                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width="312"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.ConfiguracionAlertas_Alerta}"
+                       VerticalAlignment="Center"
+                       Height="28"
+                       Margin="5,4,34,4" />
+
+                <Controles:ControlAyuda AnchoClave="50"
+                                        AnchoDescripcion="340"
+                                        x:Name="skAyudaAlertas"
+                                        DataContext="{Binding Path=AlertaInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="2"
+                                        EsBindeable="True"
+                                        IsEnabled="True"
+                                        
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.ConfiguracionAlerta_LeyenaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.ConfiguracionAlerta_BusquedaTitulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.ConfiguracionAlerta_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.ConfiguracionAlertaAyuda_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.ConfiguracionAlerta_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.ConfiguracionAlerta_GridClave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.ConfiguracionAlerta_GridDescripcion}"
+                                        MetodoInvocacion="ObtenerAlertaPorId"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaAlertas"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="AlertaID" Width="435" Grid.ColumnSpan="2" Margin="66,1,0,0" />
+
+
+                <Label Grid.Column="3"
+                       Grid.Row="0"
+                       Margin="34,1,0,7"
+                       Content="{x:Static resx:Resources.ConfiguracionAlertas_Estatus}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Height="28" Width="80"></Label>
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Column="3"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=AlertaInfo.ConfiguracionAlerta.Activo, Mode=TwoWay}"
+                          Width="182"
+                          HorizontalAlignment="Left"
+                          TabIndex="2" Margin="110,3,0,10" Height="Auto" />
+
+
+
+                <StackPanel Grid.Column="4"
+                            Grid.Row="0"
+                            HorizontalAlignment="Right"
+                            Margin="0,-4,-7,4"
+                            Orientation="Horizontal" Width="308">
+                    <Button TabIndex="5"
+                		Click="btnConsultar_Click"
+                		HorizontalAlignment="Center"
+                		Content="{x:Static resx:Resources.btnBuscar}"
+                		Margin="5,6,0,6"/>
+                    <Button TabIndex="7"
+                		Click="btnNuevo_Click"
+                		HorizontalAlignment="Center"
+                		Content="{x:Static resx:Resources.btnNuevo}"
+                		Margin="10,6,0,6"/>
+                    <Image gif:ImageBehavior.AnimatedSource="../Recursos/Image/loading.gif"
+                		x:Name="imgloading"
+                		HorizontalAlignment="Left"
+                		Margin="10,0,0,0"
+                		Visibility="Hidden"
+                		ToolTip="{x:Static resx:Resources.Espere}" />
+                </StackPanel>
+
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox Grid.Row="2"
+                  Grid.Column="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Height="280"
+                  Margin="20,10" Grid.ColumnSpan="2">
+
+
+            <DataGrid Name="gridDatos"
+                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="50"
+                                        Binding="{Binding Path=AlertaInfo.ConfiguracionAlerta.AlertaConfiguracionID}"
+                                        Header="{x:Static resx:Resources.ConfiguracionAlertas_ID}" />
+                    <DataGridTemplateColumn Width="*"
+                                            Header="{x:Static resx:Resources.ConfiguraconAlertas_DescripcionAlerta}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  HorizontalAlignment="Left"
+                                            Text="{Binding Path=AlertaInfo.Descripcion, StringFormat=N2}"></TextBlock >
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Width="80"
+                                    Binding="{Binding Path=AlertaInfo.ConfiguracionAlerta.Activo}"
+                                    Header="{x:Static resx:Resources.ConfiguracionAlertas_EstatusDataGrid}" />
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click">
+                                    <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.CuentasGasto_Editar}" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </GroupBox>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0" Grid.ColumnSpan="2"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>
+

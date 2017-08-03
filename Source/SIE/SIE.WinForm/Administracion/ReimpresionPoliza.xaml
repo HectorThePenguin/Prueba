@@ -1,0 +1,131 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Administracion.ReimpresionPoliza"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+            Height="Auto"
+            Width="Auto"
+            Loaded="Window_Loaded"
+            xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:gif="http://wpfanimatedgif.codeplex.com">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ReimpresionPoliza_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Name="gbPrincipal"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Reimpresion_Filtro}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="180"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="160"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.Reimpresion_TipoPoliza}"></Label>
+                <ComboBox Grid.Column="1"
+                          Grid.Row="0"
+                          Name="cmbTipoPoliza"
+                          HorizontalAlignment="Left"
+                          Width="170"
+                          TabIndex="0"
+                          ItemsSource="{Binding Path=TiposPoliza}"
+                          SelectedValuePath="TipoPolizaID"
+                          DisplayMemberPath="Descripcion"
+                          SelectionChanged="cmbTipoPolizaSelectionChange"
+                          SelectedItem="{Binding Path=TipoPolizaInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoPolizaInfo.TipoPolizaID, Mode=TwoWay}">
+                </ComboBox>
+
+                <Label Grid.Column="2"
+                       Grid.Row="0"
+                       x:Name="lblAyuda"
+                       Content="{x:Static resx:Resources.Reimpresion_Folio}"></Label>
+                <StackPanel Grid.Column="3"
+                            Grid.Row="0"
+                            VerticalAlignment="Center"
+                            Name="stpAyuda">
+                    <Controles:ControlAyuda x:Name="skAyuda"></Controles:ControlAyuda>
+                </StackPanel>
+
+                <Label Grid.Column="4"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.Reimpresion_Fecha}"></Label>
+                <DatePicker Grid.Column="5"
+                            Grid.Row="0"
+                            Height="30"
+                            TabIndex="2"
+                            ToolTip="Fecha inicio DD/MM/YYYY"                            
+                            Name="dtpFecha">
+                    <DatePicker.SelectedDate>
+                        <Binding Path="Fecha"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+
+                <StackPanel Grid.Column="6"
+                            Grid.Row="0"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}"
+                            TabIndex="3"
+                            Name ="btnBuscar"
+                            Click="btnBuscarClick"
+                            Margin="10 0 0 0">
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.btnLimpiar}"
+                            TabIndex="4"
+                            Click="btnLimpiarClick"
+                            Margin="10 0 0 0">
+                    </Button>
+                    <Image gif:ImageBehavior.AnimatedSource="../Recursos/Image/loading.gif"
+                           Name="imgloading"
+                           HorizontalAlignment="Left"
+                           Height="32"
+                           Width="32"
+                           Margin="10,0,0,0"
+                           Visibility="Hidden"
+                           ToolTip="{x:Static resx:Resources.Espere}" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:ControlBase>

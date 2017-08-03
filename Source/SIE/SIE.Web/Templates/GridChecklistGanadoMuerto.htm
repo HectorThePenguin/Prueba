@@ -1,0 +1,36 @@
+﻿<div class="no-more-tables">
+    <table class="table table-condensed table-striped table-bordered cf" id="TablaAretesDetectados">
+        <thead class="cf">
+            <tr>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderCorral}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderArete}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderAreteTestigo}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderObservaciones}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderFechaDeteccion}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderHoraDeteccion}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderDetector}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderSeleccione}</th>
+                <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderHoraRecoleccion}</th>
+            </tr>
+        </thead>
+        <tbody class="scrollTablaAretes">
+            {#foreach $T.Aretes as item}
+            <tr>
+                <td data-title="{$T.Recursos.HeaderCorral}" class="alineacionCentro">{$T.item.CorralCodigo}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderArete}" class="alineacionCentro">{$T.item.Arete}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderAreteTestigo}" class="alineacionCentro">{$T.item.AreteMetalico}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderObservaciones}" class="alineacionCentro">{$T.item.Comentarios}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderFechaDeteccion}" class="alineacionCentro">{$T.item.FechaDeteccionString}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderHoraDeteccion}" class="alineacionCentro">{$T.item.HoraDeteccionString}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderDetector}" class="alineacionCentro">{$T.item.OperadorDeteccionInfo.NombreCompleto}&nbsp;</td>
+                <td data-title="{$T.Recursos.HeaderSeleccione}" class="alineacionCentro">
+                    <input type="checkbox" id="{$T.item.MotivoCancelacion}" value="" disabled data-arete="{$T.item.Arete}" data-aretem="{$T.item.AreteMetalico}" />
+                </td>
+                <td data-title="{$T.Recursos.HeaderHoraRecoleccion}" class="alineacionCentro">
+                    <div id="{$T.item.MotivoCancelacion}_hora">&nbsp;</div>
+                </td>
+            </tr>
+            {#/for}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿#divAretes {
+    height: 300px;
+    overflow: auto;
+}
+
+#GridAretes {
+    max-height: 200px;
+}
+
+    #GridAretes tbody tr {
+        cursor: pointer;
+    }
+
+.fancybox-overlay {
+    z-index: 8010;
+}
+
+.fancybox-opened {
+    z-index: 8030;
+}
+
+.ui-dialog {
+    z-index: 9020 !important;
+}
+
+textarea {
+    resize: none;
+}
+
+#txtCorral {
+    text-transform: uppercase;
+}
+
+.modal.large
+{
+    width: 60%;
+    margin-left: -30%;
+}
+
+.modal.extraLarge
+{
+    width: 80%;
+    margin-left: -40%;
+}
+.aretes {
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+
+.highlight > td
+{
+    background-color: #FFC8C8 !important;
+}

@@ -1,0 +1,109 @@
+﻿<table id="Corrales" class="table table-hover table-striped table-bordered">
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroCorral}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroLote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroTipo}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroCabezas}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroPesoOrigen}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroPesoProyectado}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroDiasEngorda}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroDiasProyectados}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero1FechaReimplante}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero1Peso}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero1GananciaDiaria}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero2FechaReimplante}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero2Peso}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero2GananciaDiaria}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero3FechaReimplante}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero3Peso}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Cabecero3GananciaDiaria}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroDiasF4}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroDiasZilmax}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroFechaDisponibilidad}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroFechaAsignada}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroCorral}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroSemanas}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabeceroDias}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Corrales as item}
+        <tr data-loteid="{$T.item.LoteId}" data-modificado="0" data-editandodias="false" data-editandosemanas="false" data-diasengorda="{$T.item.DiasEngorda}" data-fechainicio="{$T.item.FechaInicioLote}">
+            <td class="alineacionCentro">{$T.item.CodigoCorral}
+            </td>
+            <td class="alineacionCentro">{$T.item.Lote}
+            </td>
+            <td class="alineacionCentro">{$T.item.Tipo}
+            </td>
+            <td class="alineacionCentro">{$T.item.Cabezas}
+            </td>
+            <td class="alineacionCentro">{$T.item.PesoOrigen}
+            </td>
+            <td class="alineacionCentro">{$T.item.PesoProyectado}
+            </td>
+            <td class="alineacionCentro">{$T.item.DiasEngorda}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.DiasEngorda}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Fecha1Reimplante}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Peso1Reimplante}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Ganancia1Diaria}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Fecha2Reimplante}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Peso2Reimplante}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Ganancia2Diaria}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Fecha3Reimplante}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Peso3Reimplante}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.Ganancia3Diaria}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.DiasF4}
+            </td>
+            <td class="alineacionCentro">{$T.item.DatosProyector.DiasZilmax}
+            </td>
+            <td class="alineacionCentro ">{$T.item.FechaDisponibilidad}
+            </td>
+            <td class="alineacionCentro fechaDisponibilidad">{$T.item.FechaAsignada}
+            </td>
+            <td class="alineacionCentro">{$T.item.CodigoCorral}
+            </td>
+            <td class="alineacionCentro">
+                <div class="span2">
+                    <span>
+                        <img id="imgMenosSemana" class="semanasMenos imagenesGrid" src="../Images/round_minus24.png" />
+                        <!--<input type="button" class="semanasMenos" id="btnMenosSemana" value="-" />-->
+                    </span>
+                    <span>
+                        <input class="span1 textBoxTablas semanas alineacionCentro" value="0" readonly="readonly" type="number" />
+                    </span>
+                    <span>
+                        <img id="imgMasSemana" class="semanasMas imagenesGrid" src="../Images/round_plus24.png" />
+                        <!--<input type="button" class="semanasMas" id="btnMasSemana" value="+" />-->
+                    </span>
+                </div>
+
+                <td class="alineacionCentro">
+
+                    <div class="span2">
+                        <span>
+                            <img id="imgDiasMenos" class="diasMenos imagenesGrid" src="../Images/round_minus24.png" />
+                        </span>
+                        <span>
+                            <input class="span1 textBoxTablas dias alineacionCentro" data-sumardias="{$T.item.SumarDias}" value="0" readonly="readonly" type="number" />
+                        </span>
+                        <span>
+                            <img id="imgDiasMas" class="diasMas imagenesGrid" src="../Images/round_plus24.png" />
+                            <!--<input type="button" class="diasMas" id="btnMasDias" value="+" />-->
+                        </span>
+                    </div>
+
+                </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

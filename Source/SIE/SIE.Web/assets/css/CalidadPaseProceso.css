@@ -1,0 +1,36 @@
+﻿.modal.large
+{
+    width: 60%;
+    margin-left: -30%;
+}
+
+.close
+{
+    width: 60px !important;
+    height: 40px !important;
+}
+
+#modalBusquedaProducto, #modalBusquedaFormula, #modalBusquedaFolio
+{
+    margin-top: -150px;
+}
+
+#divGridProductos, #divGridFormula, #divGridFolio
+{
+    height: 300px;
+    overflow: auto;
+}
+
+#GridProductos, #GridFormula, #GridFolio
+{
+    max-height: 200px;
+}
+
+.highlight > td
+{
+    background-color:#FFC8C8 !important;
+}
+
+#GridProductos  tbody tr,  #divGridFormula tbody tr, #divGridFolio tbody tr{
+    cursor: pointer;
+}

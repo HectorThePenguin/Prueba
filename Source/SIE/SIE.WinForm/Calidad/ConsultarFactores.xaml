@@ -1,0 +1,151 @@
+﻿<Window x:Class="SIE.WinForm.Calidad.ConsultarFactores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+        Title="Medicamentos" 
+         
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        Background="Black"
+        ShowInTaskbar="False" 
+        WindowStyle="None" Width="733" Height="361">
+    <Grid  Background="White" Margin="2">
+        <controles:Titulo
+                          TextoTitulo="{x:Static resx:Resources.CalidadMezcladoFormulasAlimento_ConsultarFactoresBTN}"  
+                          Grid.Row="0"
+                          Margin="17,11,0,321"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo" HorizontalAlignment="Left" Width="693"/>
+
+        <Grid Margin="0,54,10,-54">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <DataGrid HorizontalAlignment="Left" 
+                      
+                          Height="219"
+                      Margin="8,36,-1,0" 
+                          VerticalAlignment="Top" 
+                          ColumnHeaderHeight="40"
+                          Width="712" Grid.RowSpan="2" Name="dgConsultarFactores"
+                          CanUserResizeColumns="False" HorizontalScrollBarVisibility="Disabled">
+                
+                <DataGrid.Columns >
+
+                    <DataGridTextColumn   Width="60*" Binding="{Binding Path=Muestra}" Header="{x:Static resx:Resources.ConsultarFactores_MuestraMicrot}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Muestra}" Value="Promedio">
+                                        <Setter Property="FontWeight" Value="Bold" ></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                        
+                    <DataGridTemplateColumn Width="60*" Header="{x:Static resx:Resources.ConsultarFactores_PesoBH}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="info:CalidadMezcladoFactorInfo">
+                                <TextBox  Name="txtPesoBH" Text="{Binding Path=PesoBH}"  IsEnabled="{Binding PesoBHHabilitado}" MaxLength="3" PreviewTextInput="TxtPesoBH_OnPreviewTextInput" KeyDown="TxtPesoBH_OnKeyDown"/>
+                                <DataTemplate.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Muestra}" Value="Promedio">
+                                                <Setter Property="IsReadOnly" Value="True"></Setter>
+                                                <Setter Property="FontWeight" Value="Bold" ></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataTemplate.Resources>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn   Width="60*" Header="{x:Static resx:Resources.ConsultarFactores_PesoBS}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="info:CalidadMezcladoFactorInfo">
+                                <TextBox   Name="txtPesoSH" Text="{Binding Path=PesoBS}" PreviewTextInput="TxtPesoSH_OnPreviewTextInput" MaxLength="3" KeyDown="TxtPesoSH_OnKeyDown" IsEnabled="{Binding PesoSHHabilitado}"  >
+                                   
+                                </TextBox>
+                                <DataTemplate.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Muestra}" Value="Promedio">
+                                                <Setter Property="IsReadOnly" Value="True"></Setter>
+                                                <Setter Property="FontWeight" Value="Bold" ></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataTemplate.Resources>
+                            </DataTemplate>
+                           </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ConsultarFactores_MateriaSeca}" 
+                                            Width="60*" Binding="{Binding Path=MateriaSeca,  StringFormat={}{0:#.00}}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Muestra}" Value="Promedio">
+                                        <Setter Property="FontWeight" Value="Bold" ></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.ConsultarFactores_Humedad}" 
+                                            Width="60*" Binding="{Binding Path=Humedad,  StringFormat={}{0:#.00}}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Muestra}" Value="Promedio">
+                                        <Setter Property="FontWeight" Value="Bold" ></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    
+                    <DataGridTemplateColumn Width="60*" Header="{x:Static resx:Resources.ConsultarFactores_Opcion}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="BtnEditar"  Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}" Click="BtnEditar_OnClick">
+                                    <Image Source="{StaticResource editIcon}" 
+                                    Style="{StaticResource iconImage}"
+                                    ToolTip="{x:Static resx:Resources.Moneda_Grid_Editar}"/>
+                                </Button>
+                                <DataTemplate.Resources>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Muestra}" Value="Promedio">
+                                                <Setter Property="IsEnabled" Value="False"></Setter>
+                                           </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataTemplate.Resources>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+               
+            </DataGrid>
+
+            
+            <Label Grid.Row="0"  
+                       Content="{x:Static resx:Resources.CalidadMezcladoFormulasAlimento_lblParticulasEsperadas1GramoAlimento}" 
+                       HorizontalAlignment="Left" 
+                       Margin="13,4,0,0" 
+                       VerticalAlignment="Top" Width="268"/>
+            <TextBox Name="txtParticulasEsperadas" KeyDown="TxtParticulasEsperadas_OnKeyDown" PreviewTextInput="TxtParticulasEsperadas_OnPreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="285,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+
+        <Button Content="{x:Static resx:Resources.ConsultarFactores_Actualizar}" Name="btnActualizar" Click="BtnActualizar_OnClick"  HorizontalAlignment="Left" Margin="439,321,0,0" VerticalAlignment="Top"  FontFamily="Arial Narrow"/>
+        <Button Content="{x:Static resx:Resources.ConsultarFactores_Cancelar}" Name="btnCanceñar" Click="BtnCanceñar_OnClick" HorizontalAlignment="Left" Margin="569,321,0,0" VerticalAlignment="Top"  FontFamily="Arial Narrow"/>
+
+    </Grid>
+</Window>
+

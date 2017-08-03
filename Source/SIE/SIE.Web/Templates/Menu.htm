@@ -1,0 +1,33 @@
+﻿<div class="page-container row-fluid">
+	<div class="page-sidebar nav-collapse collapse">
+	    <ul class="page-sidebar-menu" id="opcionesmenu">
+	        <li>
+                <div class="sidebar-toggler hidden-phone"></div>
+		    </li>
+	        {#foreach $T.Modulos as modulo}
+	        <li>
+	            <a href="javascript:;">
+	                <span class="title">
+	                    {$T.modulo}
+	                </span>
+	                <span class="arrow "></span>
+	            </a>                
+	            <ul class="sub-menu">
+	                {#foreach $T.Opciones as item}
+                    {#if $T.item.Modulo == $T.modulo}
+	                <li>
+                        <a  href="{$T.item.Control}/{$T.item.WinForm}.aspx" class="{$T.item.Clase}">
+	                        <i>
+	                            <img src="{$T.item.Imagen}" style="width:32px;height:32px;" />
+	                        </i>
+	                        {$T.item.Formulario}
+	                    </a>
+	                </li>
+                    {#/if}
+                    {#/for}
+	            </ul>	            
+	        </li>
+	        {#/for}
+	    </ul>
+	</div>
+</div>

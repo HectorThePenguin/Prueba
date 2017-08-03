@@ -1,0 +1,4125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E66939F8-DA09-4CBB-948D-8E8083B17EBA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIE.WinForm</RootNamespace>
+    <AssemblyName>SIAP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\srv-siapapp\SIAP_Productivo\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\srv-siapapp\SIAP_Productivo\</InstallUrl>
+    <ProductName>Sistema Integral de Abasto y Producción</ProductName>
+    <PublisherName>Grupo Viz S.A de C.V.</PublisherName>
+    <SuiteName>SIAP</SuiteName>
+    <MinimumRequiredVersion>1.0.0.332</MinimumRequiredVersion>
+    <ApplicationRevision>332</ApplicationRevision>
+    <ApplicationVersion>1.0.0.332</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>AF1F2112C0E9AB99F4D1D2F155D7E693BB726D09</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SIE.WinForm_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Imagenes\cabezaVaca.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="AvalonDock">
+      <HintPath>..\..\Lib\AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="BLToolkit.4, Version=4.1.21.0, Culture=neutral, PublicKeyToken=b1d3f6ab3aadaca3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\BLToolkit.4.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\CrystalDecisions.CrystalReports.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Excel">
+      <HintPath>..\..\Lib\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\Lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=3.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="RibbonControlsLibrary, Version=4.0.0.11019, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\RibbonControlsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>..\..\Lib\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\Lib\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Abasto\EnvioAlimentoAyudaLote.xaml.cs">
+      <DependentUpon>EnvioAlimentoAyudaLote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\EnvioDeAlimento.xaml.cs">
+      <DependentUpon>EnvioDeAlimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\InsertarSaldosSOFOM.xaml.cs">
+      <DependentUpon>InsertarSaldosSOFOM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\MesesPorVencer.xaml.cs">
+      <DependentUpon>MesesPorVencer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\MesesPorVencerEdicion.xaml.cs">
+      <DependentUpon>MesesPorVencerEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\RegistrarConfiguracionRetencion.xaml.cs">
+      <DependentUpon>RegistrarConfiguracionRetencion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\RegistrarConfiguracionRetencionEdicion.xaml.cs">
+      <DependentUpon>RegistrarConfiguracionRetencionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\RelacionClienteProveedor.xaml.cs">
+      <DependentUpon>RelacionClienteProveedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TipoCredito.xaml.cs">
+      <DependentUpon>TipoCredito.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TipoCreditoEdicion.xaml.cs">
+      <DependentUpon>TipoCreditoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TipoGanadoCentros.xaml.cs">
+      <DependentUpon>TipoGanadoCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TipoGanadoCentrosEdicion.xaml.cs">
+      <DependentUpon>TipoGanadoCentrosEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TratamientoCentros.xaml.cs">
+      <DependentUpon>TratamientoCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TratamientoCentrosEdicion.xaml.cs">
+      <DependentUpon>TratamientoCentrosEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Abasto\TratamientoCentrosEdicionProducto.xaml.cs">
+      <DependentUpon>TratamientoCentrosEdicionProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AdministrarChequera.xaml.cs">
+      <DependentUpon>AdministrarChequera.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AutoFacturacionDocumentos.xaml.cs">
+      <DependentUpon>AutoFacturacionDocumentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AutoFacturacionImagenes.xaml.cs">
+      <DependentUpon>AutoFacturacionImagenes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\BitacoraErrores.xaml.cs">
+      <DependentUpon>BitacoraErrores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\CancelacionMovimientoJustificacion.xaml.cs">
+      <DependentUpon>CancelacionMovimientoJustificacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\CancelarMovimiento.xaml.cs">
+      <DependentUpon>CancelarMovimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ConcialiacionPolizasSIAP_SAP.xaml.cs">
+      <DependentUpon>ConcialiacionPolizasSIAP_SAP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ConciliacionMovimientosSIAP.xaml.cs">
+      <DependentUpon>ConciliacionMovimientosSIAP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ConciliacionSAP.xaml.cs">
+      <DependentUpon>ConciliacionSAP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ConciliacionSIAP_SAP.xaml.cs">
+      <DependentUpon>ConciliacionSIAP_SAP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\EntregarProductoAlmacen.xaml.cs">
+      <DependentUpon>EntregarProductoAlmacen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\FacturacionSacrificio.xaml.cs">
+      <DependentUpon>FacturacionSacrificio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\GastosAlInventario.xaml.cs">
+      <DependentUpon>GastosAlInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\GastosMateriasPrimas.xaml.cs">
+      <DependentUpon>GastosMateriasPrimas.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Administracion\GastosMateriasPrimasAretes.xaml.cs">
+      <DependentUpon>GastosMateriasPrimasAretes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ImpresionCierreCorral.xaml.cs">
+      <DependentUpon>ImpresionCierreCorral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ImpresionCalidadGanado.xaml.cs">
+      <DependentUpon>ImpresionCalidadGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ImpresionCalidadMezclado.xaml.cs">
+      <DependentUpon>ImpresionCalidadMezclado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ImpresionCheckListRolado.xaml.cs">
+      <DependentUpon>ImpresionCheckListRolado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ImpresionDistribucionAlimento.xaml.cs">
+      <DependentUpon>ImpresionDistribucionAlimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Impresiones\rptCheckListdeRoladoCLN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCheckListdeRoladoCLN.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Administracion\Impresiones\rptCheckListDistribucion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCheckListDistribucion.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Administracion\Impresiones\rptImpresionRecepcionDeTarjeta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptImpresionRecepcionDeTarjeta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Administracion\Impresiones\rptPrueba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPrueba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Administracion\Impresiones\rptSupervisionTecnicadeDetecciondeCorrales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupervisionTecnicadeDetecciondeCorrales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Administracion\ImpresionSupervisionTecnicaDeteccion.xaml.cs">
+      <DependentUpon>ImpresionSupervisionTecnicaDeteccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ImpresionTarjetaRecepcion.xaml.cs">
+      <DependentUpon>ImpresionTarjetaRecepcion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ListaPreciosCentros.xaml.cs">
+      <DependentUpon>ListaPreciosCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ProcesarAutoFacturacionDeCompra.xaml.cs">
+      <DependentUpon>ProcesarAutoFacturacionDeCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecibirProductoAlmacenReplicaAretes.xaml.cs">
+      <DependentUpon>RecibirProductoAlmacenReplicaAretes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecibirProductoAlmacenReplicaRango.xaml.cs">
+      <DependentUpon>RecibirProductoAlmacenReplicaRango.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecibirProductoAlmacenReplicaSesion.xaml.cs">
+      <DependentUpon>RecibirProductoAlmacenReplicaSesion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RegistrarAutoFacturacionDeCompra.xaml.cs">
+      <DependentUpon>RegistrarAutoFacturacionDeCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RegistrarChequera.xaml.cs">
+      <DependentUpon>RegistrarChequera.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\AdministrarAcciones.xaml.cs">
+      <DependentUpon>AdministrarAcciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\AdministrarAccionesEdicion.xaml.cs">
+      <DependentUpon>AdministrarAccionesEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\AdministrarAlertas.xaml.cs">
+      <DependentUpon>AdministrarAlertas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\AlertaEdicion.xaml.cs">
+      <DependentUpon>AlertaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\ConfiguracionAlertas.xaml.cs">
+      <DependentUpon>ConfiguracionAlertas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\ConfiguracionAlertasEdicion.xaml.cs">
+      <DependentUpon>ConfiguracionAlertasEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionDeGastosFijos.xaml.cs">
+      <DependentUpon>AdministracionDeGastosFijos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionDeGastosFijosEdicion.xaml.cs">
+      <DependentUpon>AdministracionDeGastosFijosEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionParametroCheque.xaml.cs">
+      <DependentUpon>AdministracionParametroCheque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionParametroChequeEdicion.xaml.cs">
+      <DependentUpon>AdministracionParametroChequeEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionProductoTiempoEstandar.xaml.cs">
+      <DependentUpon>AdministracionProductoTiempoEstandar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionRuteo.xaml.cs">
+      <DependentUpon>AdministracionRuteo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministracionRuteoEdicion.xaml.cs">
+      <DependentUpon>AdministracionRuteoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AdministrarProductoTiempoEstandarEdicion.xaml.cs">
+      <DependentUpon>AdministrarProductoTiempoEstandarEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ClienteNuevo.xaml.cs">
+      <DependentUpon>ClienteNuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConfiguracionParametroBanco.xaml.cs">
+      <DependentUpon>ConfiguracionParametroBanco.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaGastos.xaml.cs">
+      <DependentUpon>CuentaGastos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaGastosEdicion.xaml.cs">
+      <DependentUpon>CuentaGastosEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaSAP.xaml.cs">
+      <DependentUpon>CuentaSAP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaSAPEdicion.xaml.cs">
+      <DependentUpon>CuentaSAPEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaSAPNuevo.xaml.cs">
+      <DependentUpon>CuentaSAPNuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Marcas.xaml.cs">
+      <DependentUpon>Marcas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\MarcasEdicion.xaml.cs">
+      <DependentUpon>MarcasEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\MermaEsperada.xaml.cs">
+      <DependentUpon>MermaEsperada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ProcesarPagosTransferencia.xaml.cs">
+      <DependentUpon>ProcesarPagosTransferencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecibirProductoAlmacen.xaml.cs">
+      <DependentUpon>RecibirProductoAlmacen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecibirProductoAlmacenReplica.xaml.cs">
+      <DependentUpon>RecibirProductoAlmacenReplica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RegistrarPagosTransferencia.xaml.cs">
+      <DependentUpon>RegistrarPagosTransferencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ReimpresionPoliza.xaml.cs">
+      <DependentUpon>ReimpresionPoliza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\SolicitudProductosAlmacen.xaml.cs">
+      <DependentUpon>SolicitudProductosAlmacen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecepcionProducto.xaml.cs">
+      <DependentUpon>RecepcionProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\TraspasoMPPAMED.xaml.cs">
+      <DependentUpon>TraspasoMPPAMED.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\TraspasoMPPAMEDBusquedaFolio.xaml.cs">
+      <DependentUpon>TraspasoMPPAMEDBusquedaFolio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Auxiliar\ConvertidorConteoLista2Visibility.cs" />
+    <Compile Include="Auxiliar\Excel.cs" />
+    <Compile Include="Auxiliar\ExportarExcelBase.cs" />
+    <Compile Include="Auxiliar\ExportarPoliza.cs" />
+    <Compile Include="Calidad\AnalisisGrasa.xaml.cs">
+      <DependentUpon>AnalisisGrasa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\CalidadMezcladoFormulasAlimento.xaml.cs">
+      <DependentUpon>CalidadMezcladoFormulasAlimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\CalidadMezcladoFormulasResumen.xaml.cs">
+      <DependentUpon>CalidadMezcladoFormulasResumen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\ChecklistAlmidonHeces.xaml.cs">
+      <DependentUpon>ChecklistAlmidonHeces.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\MonitoreoSilos.xaml.cs">
+      <DependentUpon>MonitoreoSilos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\ConsultarFactores.xaml.cs">
+      <DependentUpon>ConsultarFactores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\MuestreoTamanoFibra.xaml.cs">
+      <DependentUpon>MuestreoTamanoFibra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calidad\RegistrarChecklistAlmidonHeces.xaml.cs">
+      <DependentUpon>RegistrarChecklistAlmidonHeces.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CargaInicial\CargaMPPA.xaml.cs">
+      <DependentUpon>CargaMPPA.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CargaInicial\MigrarInventarioAnimales.xaml.cs">
+      <DependentUpon>MigrarInventarioAnimales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AlmacenUsuario.xaml.cs">
+      <DependentUpon>AlmacenUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AlmacenUsuarioEdicion.xaml.cs">
+      <DependentUpon>AlmacenUsuarioEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AlmacenUsuarioEdicionUsuario.xaml.cs">
+      <DependentUpon>AlmacenUsuarioEdicionUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Banco.xaml.cs">
+      <DependentUpon>Banco.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\BancoEdicion.xaml.cs">
+      <DependentUpon>BancoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CamionReparto.xaml.cs">
+      <DependentUpon>CamionReparto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CamionRepartoEdicion.xaml.cs">
+      <DependentUpon>CamionRepartoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CargaConfiguracionFormulas.xaml.cs">
+      <DependentUpon>CargaConfiguracionFormulas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Auxiliar\AuxAyuda.cs" />
+    <Compile Include="Auxiliar\AuxConfiguracion.cs" />
+    <Compile Include="Auxiliar\AuxDivision.cs" />
+    <Compile Include="Auxiliar\ConvertidorSiNo.cs" />
+    <Compile Include="Auxiliar\ConvertidorTipoTrampa.cs" />
+    <Compile Include="Auxiliar\EnumValueConverter.cs" />
+    <Compile Include="Auxiliar\ConvertidorActivo.cs" />
+    <Compile Include="Auxiliar\EnumValueConverterTendencia.cs" />
+    <Compile Include="Auxiliar\EscrituraValueConverter.cs" />
+    <Compile Include="Auxiliar\ExportarExcel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Auxiliar\ExportarPDF.cs" />
+    <Compile Include="Auxiliar\Extensor.cs" />
+    <Compile Include="Auxiliar\LecturaValueConverter.cs" />
+    <Compile Include="Catalogos\Almacen.xaml.cs">
+      <DependentUpon>Almacen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\AlmacenEdicion.xaml.cs">
+      <DependentUpon>AlmacenEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CalidadGanado.xaml.cs">
+      <DependentUpon>CalidadGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CalidadGanadoEdicion.xaml.cs">
+      <DependentUpon>CalidadGanadoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Camion.xaml.cs">
+      <DependentUpon>Camion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CamionEdicion.xaml.cs">
+      <DependentUpon>CamionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaPrecio.xaml.cs">
+      <DependentUpon>CausaPrecio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaPrecioEdicion.xaml.cs">
+      <DependentUpon>CausaPrecioEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaRechazo.xaml.cs">
+      <DependentUpon>CausaRechazo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaRechazoEdicion.xaml.cs">
+      <DependentUpon>CausaRechazoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaSalida.xaml.cs">
+      <DependentUpon>CausaSalida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaSalidaEdicion.xaml.cs">
+      <DependentUpon>CausaSalidaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaTiempoMuerto.xaml.cs">
+      <DependentUpon>CausaTiempoMuerto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CausaTiempoMuertoEdicion.xaml.cs">
+      <DependentUpon>CausaTiempoMuertoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CentroCosto.xaml.cs">
+      <DependentUpon>CentroCosto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CentroCostoEdicion.xaml.cs">
+      <DependentUpon>CentroCostoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CentroCostoEdicionUsuario.xaml.cs">
+      <DependentUpon>CentroCostoEdicionUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Chofer.xaml.cs">
+      <DependentUpon>Chofer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ChoferEdicion.xaml.cs">
+      <DependentUpon>ChoferEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ClaseCostoProducto.xaml.cs">
+      <DependentUpon>ClaseCostoProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ClaseCostoProductoEdicion.xaml.cs">
+      <DependentUpon>ClaseCostoProductoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Cliente.xaml.cs">
+      <DependentUpon>Cliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ClienteEdicion.xaml.cs">
+      <DependentUpon>ClienteEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConceptoDeteccion.xaml.cs">
+      <DependentUpon>ConceptoDeteccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConceptoDeteccionEdicion.xaml.cs">
+      <DependentUpon>ConceptoDeteccionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Condicion.xaml.cs">
+      <DependentUpon>Condicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CondicionEdicion.xaml.cs">
+      <DependentUpon>CondicionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CondicionJaula.xaml.cs">
+      <DependentUpon>CondicionJaula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CondicionJaulaEdicion.xaml.cs">
+      <DependentUpon>CondicionJaulaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConfiguracionEmbarque.xaml.cs">
+      <DependentUpon>ConfiguracionEmbarque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConfiguracionEmbarqueEdicion.xaml.cs">
+      <DependentUpon>ConfiguracionEmbarqueEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConfiguracionSemana.xaml.cs">
+      <DependentUpon>ConfiguracionSemana.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ConfiguracionSemanaEdicion.xaml.cs">
+      <DependentUpon>ConfiguracionSemanaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Corral.xaml.cs">
+      <DependentUpon>Corral.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CorralDetector.xaml.cs">
+      <DependentUpon>CorralDetector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CorralDetectorEdicion.xaml.cs">
+      <DependentUpon>CorralDetectorEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CorralEdicion.xaml.cs">
+      <DependentUpon>CorralEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Costo.xaml.cs">
+      <DependentUpon>Costo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CostoEdicion.xaml.cs">
+      <DependentUpon>CostoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CostoOrganizacion.xaml.cs">
+      <DependentUpon>CostoOrganizacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CostoOrganizacionEdicion.xaml.cs">
+      <DependentUpon>CostoOrganizacionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Cuenta.xaml.cs">
+      <DependentUpon>Cuenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaAlmacenSubFamilia.xaml.cs">
+      <DependentUpon>CuentaAlmacenSubFamilia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaAlmacenSubFamiliaEdicion.xaml.cs">
+      <DependentUpon>CuentaAlmacenSubFamiliaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaEdicion.xaml.cs">
+      <DependentUpon>CuentaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaValor.xaml.cs">
+      <DependentUpon>CuentaValor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CuentaValorEdicion.xaml.cs">
+      <DependentUpon>CuentaValorEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Enfermeria.xaml.cs">
+      <DependentUpon>Enfermeria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\EnfermeriaEdicion.xaml.cs">
+      <DependentUpon>EnfermeriaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\EstadoComedero.xaml.cs">
+      <DependentUpon>EstadoComedero.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\EstadoComederoEdicion.xaml.cs">
+      <DependentUpon>EstadoComederoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FleteMermaPermitida.xaml.cs">
+      <DependentUpon>FleteMermaPermitida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FleteMermaPermitidaEdicion.xaml.cs">
+      <DependentUpon>FleteMermaPermitidaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Formula.xaml.cs">
+      <DependentUpon>Formula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FormulaEdicion.xaml.cs">
+      <DependentUpon>FormulaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CostoPromedio.xaml.cs">
+      <DependentUpon>CostoPromedio.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CostoPromedioEdicion.xaml.cs">
+      <DependentUpon>CostoPromedioEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Familia.xaml.cs">
+      <DependentUpon>Familia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FamiliaEdicion.xaml.cs">
+      <DependentUpon>FamiliaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Grado.xaml.cs">
+      <DependentUpon>Grado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\GradoEdicion.xaml.cs">
+      <DependentUpon>GradoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\GrupoCorral.xaml.cs">
+      <DependentUpon>GrupoCorral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\GrupoCorralEdicion.xaml.cs">
+      <DependentUpon>GrupoCorralEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Indicador.xaml.cs">
+      <DependentUpon>Indicador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorEdicion.xaml.cs">
+      <DependentUpon>IndicadorEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorObjetivo.xaml.cs">
+      <DependentUpon>IndicadorObjetivo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorObjetivoEdicion.xaml.cs">
+      <DependentUpon>IndicadorObjetivoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorProducto.xaml.cs">
+      <DependentUpon>IndicadorProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorProductoBoleta.xaml.cs">
+      <DependentUpon>IndicadorProductoBoleta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorProductoBoletaEdicion.xaml.cs">
+      <DependentUpon>IndicadorProductoBoletaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorProductoCalidad.xaml.cs">
+      <DependentUpon>IndicadorProductoCalidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorProductoCalidadEdicion.xaml.cs">
+      <DependentUpon>IndicadorProductoCalidadEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IndicadorProductoEdicion.xaml.cs">
+      <DependentUpon>IndicadorProductoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Ingrediente.xaml.cs">
+      <DependentUpon>Ingrediente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IngredienteEdicion.xaml.cs">
+      <DependentUpon>IngredienteEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\IngredienteEdicionProducto.xaml.cs">
+      <DependentUpon>IngredienteEdicionProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Jaula.xaml.cs">
+      <DependentUpon>Jaula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\JaulaEdicion.xaml.cs">
+      <DependentUpon>JaulaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\MermaSuperavit.xaml.cs">
+      <DependentUpon>MermaSuperavit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\MermaSuperavitEdicion.xaml.cs">
+      <DependentUpon>MermaSuperavitEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Moneda.xaml.cs">
+      <DependentUpon>Moneda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\MonedaEdicion.xaml.cs">
+      <DependentUpon>MonedaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\NivelAlerta.xaml.cs">
+      <DependentUpon>NivelAlerta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\NivelAlertaNuevo.xaml.cs">
+      <DependentUpon>NivelAlertaNuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Observacion.xaml.cs">
+      <DependentUpon>Observacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ObservacionEdicion.xaml.cs">
+      <DependentUpon>ObservacionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Operador.xaml.cs">
+      <DependentUpon>Operador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\OperadorEdicion.xaml.cs">
+      <DependentUpon>OperadorEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Parametro.xaml.cs">
+      <DependentUpon>Parametro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ParametroEdicion.xaml.cs">
+      <DependentUpon>ParametroEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ParametroTrampa.xaml.cs">
+      <DependentUpon>ParametroTrampa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ParametroTrampaClonar.xaml.cs">
+      <DependentUpon>ParametroTrampaClonar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ParametroTrampaEdicion.xaml.cs">
+      <DependentUpon>ParametroTrampaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ParametroOrganizacion.xaml.cs">
+      <DependentUpon>ParametroOrganizacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ParametroOrganizacionEdicion.xaml.cs">
+      <DependentUpon>ParametroOrganizacionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\PrecioGanado.xaml.cs">
+      <DependentUpon>PrecioGanado.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\PrecioGanadoEdicion.xaml.cs">
+      <DependentUpon>PrecioGanadoEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\PrecioPAC.xaml.cs">
+      <DependentUpon>PrecioPAC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\PrecioPACEdicion.xaml.cs">
+      <DependentUpon>PrecioPACEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\PrecioProducto.xaml.cs">
+      <DependentUpon>PrecioProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\PrecioProductoEdicion.xaml.cs">
+      <DependentUpon>PrecioProductoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Pregunta.xaml.cs">
+      <DependentUpon>Pregunta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\PreguntaEdicion.xaml.cs">
+      <DependentUpon>PreguntaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Problema.xaml.cs">
+      <DependentUpon>Problema.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProblemaEdicion.xaml.cs">
+      <DependentUpon>ProblemaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProblemaSintoma.xaml.cs">
+      <DependentUpon>ProblemaSintoma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProblemaSintomaEdicion.xaml.cs">
+      <DependentUpon>ProblemaSintomaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProblemaSintomaEdicionSintoma.xaml.cs">
+      <DependentUpon>ProblemaSintomaEdicionSintoma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProblemaTratamiento.xaml.cs">
+      <DependentUpon>ProblemaTratamiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProblemaTratamientoEdicion.xaml.cs">
+      <DependentUpon>ProblemaTratamientoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Producto.xaml.cs">
+      <DependentUpon>Producto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProductoEdicion.xaml.cs">
+      <DependentUpon>ProductoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Organizacion.xaml.cs">
+      <DependentUpon>Organizacion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\OrganizacionEdicion.xaml.cs">
+      <DependentUpon>OrganizacionEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Proveedor.xaml.cs">
+      <DependentUpon>Proveedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProveedorEdicion.xaml.cs">
+      <DependentUpon>ProveedorEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProveedorNuevo.xaml.cs">
+      <DependentUpon>ProveedorNuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Roladora.xaml.cs">
+      <DependentUpon>Roladora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RoladoraEdicion.xaml.cs">
+      <DependentUpon>RoladoraEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Rotomix.xaml.cs">
+      <DependentUpon>Rotomix.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RotomixEdicion.xaml.cs">
+      <DependentUpon>RotomixEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Sintoma.xaml.cs">
+      <DependentUpon>Sintoma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\SintomaEdicion.xaml.cs">
+      <DependentUpon>SintomaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\SupervisorEnfermeria.xaml.cs">
+      <DependentUpon>SupervisorEnfermeria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\SupervisorEnfermeriaEdicion.xaml.cs">
+      <DependentUpon>SupervisorEnfermeriaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoAlmacen.xaml.cs">
+      <DependentUpon>TipoAlmacen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoAlmacenEdicion.xaml.cs">
+      <DependentUpon>TipoAlmacenEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Rol.xaml.cs">
+      <DependentUpon>Rol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RolEdicion.xaml.cs">
+      <DependentUpon>RolEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\SubFamilia.xaml.cs">
+      <DependentUpon>SubFamilia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\SubFamiliaEdicion.xaml.cs">
+      <DependentUpon>SubFamiliaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCambio.xaml.cs">
+      <DependentUpon>TipoCambio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCambioEdicion.xaml.cs">
+      <DependentUpon>TipoCambioEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCorral.xaml.cs">
+      <DependentUpon>TipoCorral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCorralEdicion.xaml.cs">
+      <DependentUpon>TipoCorralEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCosto.xaml.cs">
+      <DependentUpon>TipoCosto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCostoEdicion.xaml.cs">
+      <DependentUpon>TipoCostoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCuenta.xaml.cs">
+      <DependentUpon>TipoCuenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoCuentaEdicion.xaml.cs">
+      <DependentUpon>TipoCuentaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoEmbarque.xaml.cs">
+      <DependentUpon>TipoEmbarque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoEmbarqueEdicion.xaml.cs">
+      <DependentUpon>TipoEmbarqueEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoFormula.xaml.cs">
+      <DependentUpon>TipoFormula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoFormulaEdicion.xaml.cs">
+      <DependentUpon>TipoFormulaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoGanado.xaml.cs">
+      <DependentUpon>TipoGanado.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\TipoGanadoEdicion.xaml.cs">
+      <DependentUpon>TipoGanadoEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\TipoMovimiento.xaml.cs">
+      <DependentUpon>TipoMovimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoMovimientoEdicion.xaml.cs">
+      <DependentUpon>TipoMovimientoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoObjetivoCalidad.xaml.cs">
+      <DependentUpon>TipoObjetivoCalidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoObjetivoCalidadEdicion.xaml.cs">
+      <DependentUpon>TipoObjetivoCalidadEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoObservacion.xaml.cs">
+      <DependentUpon>TipoObservacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoObservacionEdicion.xaml.cs">
+      <DependentUpon>TipoObservacionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoOrganizacion.xaml.cs">
+      <DependentUpon>TipoOrganizacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoOrganizacionEdicion.xaml.cs">
+      <DependentUpon>TipoOrganizacionEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoParametro.xaml.cs">
+      <DependentUpon>TipoParametro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoParametroEdicion.xaml.cs">
+      <DependentUpon>TipoParametroEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoPoliza.xaml.cs">
+      <DependentUpon>TipoPoliza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoPolizaEdicion.xaml.cs">
+      <DependentUpon>TipoPolizaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoPregunta.xaml.cs">
+      <DependentUpon>TipoPregunta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoPreguntaEdicion.xaml.cs">
+      <DependentUpon>TipoPreguntaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoProblema.xaml.cs">
+      <DependentUpon>TipoProblema.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoProblemaEdicion.xaml.cs">
+      <DependentUpon>TipoProblemaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoProceso.xaml.cs">
+      <DependentUpon>TipoProceso.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\TipoProcesoEdicion.xaml.cs">
+      <DependentUpon>TipoProcesoEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogos\TipoServicio.xaml.cs">
+      <DependentUpon>TipoServicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TipoServicioEdicion.xaml.cs">
+      <DependentUpon>TipoServicioEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Trampa.xaml.cs">
+      <DependentUpon>Trampa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TrampaEdicion.xaml.cs">
+      <DependentUpon>TrampaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Tratamiento.xaml.cs">
+      <DependentUpon>Tratamiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TratamientoEdicion.xaml.cs">
+      <DependentUpon>TratamientoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TratamientoEdicionProducto.xaml.cs">
+      <DependentUpon>TratamientoEdicionProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Zona.xaml.cs">
+      <DependentUpon>Zona.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ZonaEdicion.xaml.cs">
+      <DependentUpon>ZonaEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ControlAyuda.xaml.cs">
+      <DependentUpon>ControlAyuda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ControlAyudaBusqueda.xaml.cs">
+      <DependentUpon>ControlAyudaBusqueda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\PantallaEspera.xaml.cs">
+      <DependentUpon>PantallaEspera.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ReportViewer.xaml.cs">
+      <DependentUpon>ReportViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AjusteDeInventario.xaml.cs">
+      <DependentUpon>AjusteDeInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AutorizarAjuste.xaml.cs">
+      <DependentUpon>AutorizarAjuste.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\CancelacionOrdenSacrificio.xaml.cs">
+      <DependentUpon>CancelacionOrdenSacrificio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\CierreDiaInventario.xaml.cs">
+      <DependentUpon>CierreDiaInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ConfiguracionReimplante.xaml.cs">
+      <DependentUpon>ConfiguracionReimplante.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\CorralDestino.xaml.cs">
+      <DependentUpon>CorralDestino.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\CorteTransferenciaGanado.xaml.cs">
+      <DependentUpon>CorteTransferenciaGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ReemplazoArete.xaml.cs">
+      <DependentUpon>ReemplazoArete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TransferenciaGanadoIndividual.xaml.cs">
+      <DependentUpon>TransferenciaGanadoIndividual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TraspasoGanadoGordo.xaml.cs">
+      <DependentUpon>TraspasoGanadoGordo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimal.xaml.cs">
+      <DependentUpon>TrazabilidadAnimal.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimalConsumo.xaml.cs">
+      <DependentUpon>TrazabilidadAnimalConsumo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimalConsumoAbasto.xaml.cs">
+      <DependentUpon>TrazabilidadAnimalConsumoAbasto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimalCostos.xaml.cs">
+      <DependentUpon>TrazabilidadAnimalCostos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimalCostosAbasto.xaml.cs">
+      <DependentUpon>TrazabilidadAnimalCostosAbasto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimalDuplicado.xaml.cs">
+      <DependentUpon>TrazabilidadAnimalDuplicado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\TrazabilidadAnimalProducto.xaml.cs">
+      <DependentUpon>TrazabilidadAnimalProducto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\BasculaMateriaPrima.xaml.cs">
+      <DependentUpon>BasculaMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\BusquedaFolioBoletaRecepcion.xaml.cs">
+      <DependentUpon>BusquedaFolioBoletaRecepcion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\CapturaHumedad.xaml.cs">
+      <DependentUpon>CapturaHumedad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\CapturaHumedadBusquedaFolio.xaml.cs">
+      <DependentUpon>CapturaHumedadBusquedaFolio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\CrearProgramacionMateriaPrimaDialogo.xaml.cs">
+      <DependentUpon>CrearProgramacionMateriaPrimaDialogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\DatosProgramacionBasculaMateriaPrima.xaml.cs">
+      <DependentUpon>DatosProgramacionBasculaMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\EdicionProgramacionMateriaPrimaDialogo.xaml.cs">
+      <DependentUpon>EdicionProgramacionMateriaPrimaDialogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\AyudaContrato.xaml.cs">
+      <DependentUpon>AyudaContrato.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\EntradaMateriaPrimaComprasParciales.xaml.cs">
+      <DependentUpon>EntradaMateriaPrimaComprasParciales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\Penalizaciones.xaml.cs">
+      <DependentUpon>Penalizaciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\PremezclaDetalle.xaml.cs">
+      <DependentUpon>PremezclaDetalle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\ProgramacionFletesInterna.xaml.cs">
+      <DependentUpon>ProgramacionFletesInterna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\ProgramacionMateriaPrima.xaml.cs">
+      <DependentUpon>ProgramacionMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\RecepcionDeMateriaPrima.xaml.cs">
+      <DependentUpon>RecepcionDeMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\RegistrarCompraParcial.xaml.cs">
+      <DependentUpon>RegistrarCompraParcial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\RegistrarHumedad.xaml.cs">
+      <DependentUpon>RegistrarHumedad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\RegistrarProgramacionFletesInterna.xaml.cs">
+      <DependentUpon>RegistrarProgramacionFletesInterna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\RegistrarProgramacionFletesInternaCostoDeFletes.xaml.cs">
+      <DependentUpon>RegistrarProgramacionFletesInternaCostoDeFletes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\SalidaVentaTraspaso.xaml.cs">
+      <DependentUpon>SalidaVentaTraspaso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\SalidaVentaTraspasoAutorizar.xaml.cs">
+      <DependentUpon>SalidaVentaTraspasoAutorizar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\SolicitarAutorizacionSalidaVenta.xaml.cs">
+      <DependentUpon>SolicitarAutorizacionSalidaVenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\SolicitudPremezclas.xaml.cs">
+      <DependentUpon>SolicitudPremezclas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\SolicitudProgramacionMateriaPrima.xaml.cs">
+      <DependentUpon>SolicitudProgramacionMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\AplicacionConsumoAlimento.xaml.cs">
+      <DependentUpon>AplicacionConsumoAlimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\CierreDiaInventarioPAMensajes.xaml.cs">
+      <DependentUpon>CierreDiaInventarioPAMensajes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\ConfiguracionPremezclas.xaml.cs">
+      <DependentUpon>ConfiguracionPremezclas.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlantaAlimentos\DiferenciasDeInventarioProductosRequierenAutorizacion.xaml.cs">
+      <DependentUpon>DiferenciasDeInventarioProductosRequierenAutorizacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\DiferenciasDeInventarioProductosSinConfiguracion.xaml.cs">
+      <DependentUpon>DiferenciasDeInventarioProductosSinConfiguracion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\PremezclasDistribucionIngredientes.xaml.cs">
+      <DependentUpon>PremezclasDistribucionIngredientes.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlantaAlimentos\SolicitudMateriaPrima.xaml.cs">
+      <DependentUpon>SolicitudMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\SeleccionInfoModelo.cs" />
+    <Compile Include="PlantaAlimentos\AjustesPendientesDiferenciasDeInventario.xaml.cs">
+      <DependentUpon>AjustesPendientesDiferenciasDeInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\CierreDiaInventarioPA.xaml.cs">
+      <DependentUpon>CierreDiaInventarioPA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlantaAlimentos\DiferenciasDeInventario.xaml.cs">
+      <DependentUpon>DiferenciasDeInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\Tarifario.xaml.cs">
+      <DependentUpon>Tarifario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\BasculaMultipesaje.xaml.cs">
+      <DependentUpon>BasculaMultipesaje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\MuertesEnTransitoVenta.xaml.cs">
+      <DependentUpon>MuertesEnTransitoVenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\RecepcionGanadoPesosUnificados.xaml.cs">
+      <DependentUpon>RecepcionGanadoPesosUnificados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\RecibirProductoAlmacenReplicaConfirmacion.xaml.cs">
+      <DependentUpon>RecibirProductoAlmacenReplicaConfirmacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\TarifarioGastosFijos.xaml.cs">
+      <DependentUpon>TarifarioGastosFijos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteEntradasSinCosteo.xaml.cs">
+      <DependentUpon>ReporteEntradasSinCosteo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RptReportePaseaProceso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReportePaseaProceso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\ReportePaseaProceso.xaml.cs">
+      <DependentUpon>ReportePaseaProceso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteLectorComederos.xaml.cs">
+      <DependentUpon>ReporteLectorComederos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteDetalleCorteTransferencia.xaml.cs">
+      <DependentUpon>ReporteDetalleCorteTransferencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteProduccionVsConsumo.xaml.cs">
+      <DependentUpon>ReporteProduccionVsConsumo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RptReporteBitacoraLlegada.cs">
+      <DependentUpon>RptReporteBitacoraLlegada.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporte\ReporteBitacoraLlegada.xaml.cs">
+      <DependentUpon>ReporteBitacoraLlegada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\DiaDiaCalidad.xaml.cs">
+      <DependentUpon>DiaDiaCalidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RecepcionReporteRecuperacionMerma.xaml.cs">
+      <DependentUpon>RecepcionReporteRecuperacionMerma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteDiarioInventariosAlCierre.xaml.cs">
+      <DependentUpon>ReporteDiarioInventariosAlCierre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteInventarioPorlotes.xaml.cs">
+      <DependentUpon>ReporteInventarioPorlotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteLlegadaLogistica.xaml.cs">
+      <DependentUpon>ReporteLlegadaLogistica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteMedicamentosAplicadosSanidad.xaml.cs">
+      <DependentUpon>ReporteMedicamentosAplicadosSanidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteResumenInventario.xaml.cs">
+      <DependentUpon>ReporteResumenInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteAuxiliarInventarioMateriaPrima.xaml.cs">
+      <DependentUpon>ReporteAuxiliarInventarioMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteConsumoProgramadovsServido.xaml.cs">
+      <DependentUpon>ReporteConsumoProgramadovsServido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteCorralesEnfermeria.xaml.cs">
+      <DependentUpon>ReporteCorralesEnfermeria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RecepcionReporteDiaDiaCr.xaml.cs">
+      <DependentUpon>RecepcionReporteDiaDiaCr.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteDetalleReimplante.xaml.cs">
+      <DependentUpon>ReporteDetalleReimplante.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\impresionProgramacionCorteGanado.cs">
+      <DependentUpon>impresionProgramacionCorteGanado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reporte\ReporteKardexDeGanado.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteKardexDeGanado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\ReporteKardexGanado.xaml.cs">
+      <DependentUpon>ReporteKardexGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteSalidaConCostos.xaml.cs">
+      <DependentUpon>ReporteSalidaConCostos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteSolicitudPaseProceso.xaml.cs">
+      <DependentUpon>ReporteSolicitudPaseProceso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteTabularDisponibilidadSemana.xaml.cs">
+      <DependentUpon>ReporteTabularDisponibilidadSemana.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RptProyector.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptProyector.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteAuxiliarDeInventarioPorCorral.cs">
+      <DependentUpon>RptReporteAuxiliarDeInventarioPorCorral.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\RptReporteConsumoProgramadovsServido.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteConsumoProgramadovsServido.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteCronicosEnRecuperacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteCronicosEnRecuperacion.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\RptReporteDiaaDia1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteDiaaDia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\RptReporteDiaDiaCalidad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteDiaDiaCalidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteDiarioInventarioAlCierre.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteDiarioInventarioAlCierre.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteEjecutivoCR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteEjecutivoCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteEstadoComedero.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteEstadoComedero.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reporte\rptReporteInventarioCorralesEnfermeria.cs">
+      <DependentUpon>rptReporteInventarioCorralesEnfermeria.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteInventarioMateriaPrimas.cs">
+      <DependentUpon>RptReporteInventarioMateriaPrimas.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteInventarioPorLotes.cs">
+      <DependentUpon>RptReporteInventarioPorLotes.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\rptReporteLectorComederos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReporteLectorComederos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteLlegadaLogisita.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteLlegadaLogisita.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteMedicamentosAplicados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteMedicamentosAplicados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteMedicamentosAplicadosSanidad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteMedicamentosAplicadosSanidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteMuertesDeGanado.cs">
+      <DependentUpon>RptReporteMuertesDeGanado.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteOperacionSanidad.cs">
+      <DependentUpon>RptReporteOperacionSanidad.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteRecuperacionMerma.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteRecuperacionMerma.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteResumenInventario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteResumenInventario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteResumenInventarioDeGanado.cs">
+      <DependentUpon>RptReporteResumenInventarioDeGanado.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\ReporteDetalleCorte.xaml.cs">
+      <DependentUpon>ReporteDetalleCorte.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporte\RptReporteSalidaConCostosDetallado.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteSalidaConCostosDetallado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteSolicitudPaseProceso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteSolicitudPaseProceso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteVentaGanado.cs">
+      <DependentUpon>RptReporteVentaGanado.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptReporteVentaMuerte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptReporteVentaMuerte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\RptTabularDisponibilidad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptTabularDisponibilidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\Rpt_AlimentacionConsumoCorral.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_AlimentacionConsumoCorral.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reporte\SolicitudProductosAlmacen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SolicitudProductosAlmacen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sanidad\EvaluacionPartida.xaml.cs">
+      <DependentUpon>EvaluacionPartida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\OrdenSacrificio.xaml.cs">
+      <DependentUpon>OrdenSacrificio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\AdministrarContrato.xaml.cs">
+      <DependentUpon>AdministrarContrato.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\BoletaVigilancia.xaml.cs">
+      <DependentUpon>BoletaVigilancia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\CostosdeFletes.xaml.cs">
+      <DependentUpon>CostosdeFletes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\CrearContrato.xaml.cs">
+      <DependentUpon>CrearContrato.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\EntradaMateriaPrima.xaml.cs">
+      <DependentUpon>EntradaMateriaPrima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\OtrosCostos.xaml.cs">
+      <DependentUpon>OtrosCostos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaPrima\ProgramaciondeFletes.xaml.cs">
+      <DependentUpon>ProgramaciondeFletes.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MateriaPrima\RegistrarProgramaciondeFletes.xaml.cs">
+      <DependentUpon>RegistrarProgramaciondeFletes.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modelos\AlimentacionConsumoCorralModel.cs" />
+    <Compile Include="Reporte\AlimentacionConsumoCorral.xaml.cs">
+      <DependentUpon>AlimentacionConsumoCorral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\AlimentacionReporteEstadoComederos.xaml.cs">
+      <DependentUpon>AlimentacionReporteEstadoComederos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RecepcionReporteAuxiliarInventario.xaml.cs">
+      <DependentUpon>RecepcionReporteAuxiliarInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RecepcionReporteEjecutivo.xaml.cs">
+      <DependentUpon>RecepcionReporteEjecutivo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\RecepcionReporteInventario.xaml.cs">
+      <DependentUpon>RecepcionReporteInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteMedicamentosAplicados.xaml.cs">
+      <DependentUpon>ReporteMedicamentosAplicados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteMuertesGanado.xaml.cs">
+      <DependentUpon>ReporteMuertesGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteVentasDeGanado.xaml.cs">
+      <DependentUpon>ReporteVentasDeGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteVentasMuertes.xaml.cs">
+      <DependentUpon>ReporteVentasMuertes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteCronicosRecuperacion.xaml.cs">
+      <DependentUpon>ReporteCronicosRecuperacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteIndicadoresOperacionSanidad.xaml.cs">
+      <DependentUpon>ReporteIndicadoresOperacionSanidad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ReporteProyector.xaml.cs">
+      <DependentUpon>ReporteProyector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\DetalleHistorialClinico.xaml.cs">
+      <DependentUpon>DetalleHistorialClinico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\DiagnosticoAnalista.xaml.cs">
+      <DependentUpon>DiagnosticoAnalista.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\EntradaGanadoEnfermeria.xaml.cs">
+      <DependentUpon>EntradaGanadoEnfermeria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\EntradaGanadoEnfermeriaBusqueda.xaml.cs">
+      <DependentUpon>EntradaGanadoEnfermeriaBusqueda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\MuerteGanadoIntensivo.xaml.cs">
+      <DependentUpon>MuerteGanadoIntensivo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\RecuperacionTransferencia.xaml.cs">
+      <DependentUpon>RecuperacionTransferencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\SalidaGanadoMuerto.xaml.cs">
+      <DependentUpon>SalidaGanadoMuerto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\SalidaGanado_BusquedaCliente.xaml.cs">
+      <DependentUpon>SalidaGanado_BusquedaCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\SalidaIndividualDeGanado.xaml.cs">
+      <DependentUpon>SalidaIndividualDeGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\SalidaPorMuerteEnTransito.xaml.cs">
+      <DependentUpon>SalidaPorMuerteEnTransito.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\SalidaRecuperacionCorral.xaml.cs">
+      <DependentUpon>SalidaRecuperacionCorral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sanidad\TraspasoGanadoCorrales.xaml.cs">
+      <DependentUpon>TraspasoGanadoCorrales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Grupo.xaml.cs">
+      <DependentUpon>Grupo.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Seguridad\GrupoEdicion.xaml.cs">
+      <DependentUpon>GrupoEdicion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Seguridad\GrupoFormulario.xaml.cs">
+      <DependentUpon>GrupoFormulario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\GrupoFormularioEdicion.xaml.cs">
+      <DependentUpon>GrupoFormularioEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Usuario.xaml.cs">
+      <DependentUpon>Usuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\Ayuda\SKAyuda.cs" />
+    <Compile Include="Controles\Ayuda\SKAyudaBusqueda.cs" />
+    <Compile Include="Controles\Titulo.xaml.cs">
+      <DependentUpon>Titulo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ConfigurarCorralesDisponibles.xaml.cs">
+      <DependentUpon>ConfigurarCorralesDisponibles.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manejo\CorteGanado.xaml.cs">
+      <DependentUpon>CorteGanado.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manejo\CorteGanadoBusqueda.xaml.cs">
+      <DependentUpon>CorteGanadoBusqueda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\Medicamentos.xaml.cs">
+      <DependentUpon>Medicamentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ProgramacionCorteGanado.xaml.cs">
+      <DependentUpon>ProgramacionCorteGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ProgramacionCorteGanadoDialogo.xaml.cs">
+      <DependentUpon>ProgramacionCorteGanadoDialogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ProgramacionReimplanteGanado.xaml.cs">
+      <DependentUpon>ProgramacionReimplanteGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ReasignarArete.xaml.cs">
+      <DependentUpon>ReasignarArete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Manejo\ReimplanteGanado.xaml.cs">
+      <DependentUpon>ReimplanteGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\CancelacionCosteoEntradaGanado.xaml.cs">
+      <DependentUpon>CancelacionCosteoEntradaGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\CosteoEntradaGanado.xaml.cs">
+      <DependentUpon>CosteoEntradaGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\ProgramacionEmbarques.xaml.cs">
+      <DependentUpon>ProgramacionEmbarques.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\RecepcionGanado.xaml.cs">
+      <DependentUpon>RecepcionGanado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\RecepcionGanadoBusqueda.xaml.cs">
+      <DependentUpon>RecepcionGanadoBusqueda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\RecepcionGanadoCondiciones.xaml.cs">
+      <DependentUpon>RecepcionGanadoCondiciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\RegistroProgramacionEmbarques.xaml.cs">
+      <DependentUpon>RegistroProgramacionEmbarques.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcion\RegistroProgramacionEmbarquesCostos.xaml.cs">
+      <DependentUpon>RegistroProgramacionEmbarquesCostos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\programacionReimplanteImpresion.cs">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>programacionReimplanteImpresion.rpt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Seguridad\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UsuarioEdicion.xaml.cs">
+      <DependentUpon>UsuarioEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UsuarioGrupo.xaml.cs">
+      <DependentUpon>UsuarioGrupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UsuarioGrupoEdicion.xaml.cs">
+      <DependentUpon>UsuarioGrupoEdicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Validacion\ValidacionesRegex.cs" />
+    <Page Include="Abasto\EnvioAlimentoAyudaLote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\EnvioDeAlimento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Abasto\InsertarSaldosSOFOM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Abasto\MesesPorVencer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Abasto\MesesPorVencerEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\RegistrarConfiguracionRetencion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\RegistrarConfiguracionRetencionEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\RelacionClienteProveedor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Abasto\TipoCredito.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\TipoCreditoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\TipoGanadoCentros.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Abasto\TipoGanadoCentrosEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Abasto\TratamientoCentros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\TratamientoCentrosEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Abasto\TratamientoCentrosEdicionProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\AdministrarChequera.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\AutoFacturacionDocumentos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\AutoFacturacionImagenes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\BitacoraErrores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\CancelacionMovimientoJustificacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\CancelarMovimiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\ConcialiacionPolizasSIAP_SAP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\ConciliacionMovimientosSIAP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ConciliacionSAP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ConciliacionSIAP_SAP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\EntregarProductoAlmacen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\FacturacionSacrificio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\GastosAlInventario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\GastosMateriasPrimas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\GastosMateriasPrimasAretes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ImpresionCierreCorral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ImpresionCalidadGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ImpresionCalidadMezclado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ImpresionCheckListRolado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\ImpresionDistribucionAlimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ImpresionSupervisionTecnicaDeteccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ImpresionTarjetaRecepcion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ListaPreciosCentros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ProcesarAutoFacturacionDeCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RecibirProductoAlmacenReplicaAretes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RecibirProductoAlmacenReplicaRango.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RecibirProductoAlmacenReplicaSesion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RegistrarAutoFacturacionDeCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RegistrarChequera.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alertas\AdministrarAcciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alertas\AdministrarAccionesEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alertas\AdministrarAlertas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alertas\AlertaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alertas\ConfiguracionAlertas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alertas\ConfiguracionAlertasEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AdministracionDeGastosFijos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\AdministracionDeGastosFijosEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\AdministracionParametroCheque.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AdministracionParametroChequeEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AdministracionProductoTiempoEstandar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\AdministracionRuteo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AdministracionRuteoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AdministrarProductoTiempoEstandarEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ClienteNuevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ConfiguracionParametroBanco.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaGastos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaGastosEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaSAP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CuentaSAPEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CuentaSAPNuevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Marcas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\MarcasEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\MermaEsperada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ProcesarPagosTransferencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RecibirProductoAlmacen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\RecibirProductoAlmacenReplica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RegistrarPagosTransferencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\ReimpresionPoliza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\SolicitudProductosAlmacen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\RecepcionProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\TraspasoMPPAMED.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\TraspasoMPPAMEDBusquedaFolio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Calidad\AnalisisGrasa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Calidad\CalidadMezcladoFormulasAlimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calidad\CalidadMezcladoFormulasResumen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calidad\ChecklistAlmidonHeces.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calidad\MonitoreoSilos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calidad\ConsultarFactores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calidad\MuestreoTamanoFibra.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Calidad\RegistrarChecklistAlmidonHeces.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CargaInicial\CargaMPPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CargaInicial\MigrarInventarioAnimales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\AlmacenUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AlmacenUsuarioEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\AlmacenUsuarioEdicionUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Banco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\BancoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CamionReparto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CamionRepartoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CargaConfiguracionFormulas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Almacen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\AlmacenEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CalidadGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CalidadGanadoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Camion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CamionEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CausaPrecio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CausaPrecioEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CausaRechazo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CausaRechazoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CausaSalida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CausaSalidaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CausaTiempoMuerto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CausaTiempoMuertoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CentroCosto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CentroCostoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CentroCostoEdicionUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Chofer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ChoferEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ClaseCostoProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ClaseCostoProductoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Cliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ClienteEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ConceptoDeteccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ConceptoDeteccionEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Condicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CondicionEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CondicionJaula.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CondicionJaulaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ConfiguracionEmbarque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ConfiguracionEmbarqueEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ConfiguracionSemana.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ConfiguracionSemanaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Corral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CorralDetector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CorralDetectorEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CorralEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Costo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CostoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CostoOrganizacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CostoOrganizacionEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Cuenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaAlmacenSubFamilia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaAlmacenSubFamiliaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaValor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\CuentaValorEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Enfermeria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\EnfermeriaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\EstadoComedero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\EstadoComederoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\FleteMermaPermitida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\FleteMermaPermitidaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Formula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\FormulaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CostoPromedio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\CostoPromedioEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Familia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\FamiliaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Grado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\GradoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\GrupoCorral.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\GrupoCorralEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Indicador.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorObjetivo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorObjetivoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorProductoBoleta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorProductoBoletaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorProductoCalidad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorProductoCalidadEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IndicadorProductoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Ingrediente.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IngredienteEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\IngredienteEdicionProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Jaula.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\JaulaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\MermaSuperavit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\MermaSuperavitEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Moneda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\MonedaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\NivelAlerta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\NivelAlertaNuevo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Observacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ObservacionEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Operador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\OperadorEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Parametro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ParametroEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ParametroTrampa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ParametroTrampaClonar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ParametroTrampaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ParametroOrganizacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ParametroOrganizacionEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\PrecioGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\PrecioGanadoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\PrecioPAC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\PrecioPACEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Administracion\PrecioProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\PrecioProductoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Pregunta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\PreguntaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Problema.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ProblemaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ProblemaSintoma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ProblemaSintomaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ProblemaSintomaEdicionSintoma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ProblemaTratamiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\ProblemaTratamientoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Producto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ProductoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Organizacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\OrganizacionEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Proveedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ProveedorEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ProveedorNuevo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Roladora.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\RoladoraEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Rotomix.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\RotomixEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Sintoma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\SintomaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\SupervisorEnfermeria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\SupervisorEnfermeriaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoAlmacen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoAlmacenEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Rol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\RolEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\SubFamilia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\SubFamiliaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoCambio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoCambioEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoCorral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoCorralEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoCosto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoCostoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoCuenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoCuentaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoEmbarque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoEmbarqueEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoFormula.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoFormulaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoGanadoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoMovimiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoMovimientoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoObjetivoCalidad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoObjetivoCalidadEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoObservacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoObservacionEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoOrganizacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoOrganizacionEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoPoliza.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoPolizaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoParametro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoParametroEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoPregunta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoPreguntaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoProblema.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoProblemaEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoProceso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoProcesoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TipoServicio.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TipoServicioEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\Trampa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\TrampaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Zona.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\ZonaEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\ControlAyuda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controles\ControlAyudaBusqueda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controles\PantallaEspera.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\ReportViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\AjusteDeInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\AutorizarAjuste.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\CancelacionOrdenSacrificio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\CierreDiaInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\ConfiguracionReimplante.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\CorralDestino.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\CorteTransferenciaGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\ReemplazoArete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\TransferenciaGanadoIndividual.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\TraspasoGanadoGordo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimalConsumo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimalConsumoAbasto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimalCostos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimalCostosAbasto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimalDuplicado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\TrazabilidadAnimalProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\BasculaMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\BusquedaFolioBoletaRecepcion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\CapturaHumedad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\CapturaHumedadBusquedaFolio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\CrearProgramacionMateriaPrimaDialogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\DatosProgramacionBasculaMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\EdicionProgramacionMateriaPrimaDialogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\AyudaContrato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\EntradaMateriaPrimaComprasParciales.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\Penalizaciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\PremezclaDetalle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\ProgramacionFletesInterna.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\ProgramacionMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\RecepcionDeMateriaPrima.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\RegistrarCompraParcial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\RegistrarHumedad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\RegistrarProgramacionFletesInterna.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\RegistrarProgramacionFletesInternaCostoDeFletes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\SalidaVentaTraspaso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\SalidaVentaTraspasoAutorizar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\SolicitarAutorizacionSalidaVenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\SolicitudPremezclas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\SolicitudProgramacionMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\AplicacionConsumoAlimento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PlantaAlimentos\CierreDiaInventarioPAMensajes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\ConfiguracionPremezclas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\DiferenciasDeInventarioProductosRequierenAutorizacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\DiferenciasDeInventarioProductosSinConfiguracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\PremezclasDistribucionIngredientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\SolicitudMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\AjustesPendientesDiferenciasDeInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\CierreDiaInventarioPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlantaAlimentos\DiferenciasDeInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recepcion\Tarifario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\BasculaMultipesaje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recepcion\MuertesEnTransitoVenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recepcion\RecepcionGanadoPesosUnificados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Administracion\RecibirProductoAlmacenReplicaConfirmacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recepcion\TarifarioGastosFijos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteDetalleCorteTransferencia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteBitacoraLlegada.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\DiaDiaCalidad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\RecepcionReporteRecuperacionMerma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteDiarioInventariosAlCierre.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteEntradasSinCosteo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteInventarioPorlotes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteLectorComederos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteLlegadaLogistica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteMedicamentosAplicadosSanidad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteProduccionVsConsumo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReportePaseaProceso.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteResumenInventario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteAuxiliarInventarioMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteConsumoProgramadovsServido.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteCorralesEnfermeria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\RecepcionReporteDiaDiaCr.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteDetalleReimplante.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteDetalleCorte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteKardexGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteSalidaConCostos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteSolicitudPaseProceso.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteTabularDisponibilidadSemana.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sanidad\EvaluacionPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\AdministrarContrato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\BoletaVigilancia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\CostosdeFletes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MateriaPrima\CrearContrato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\EntradaMateriaPrima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\OtrosCostos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\ProgramaciondeFletes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MateriaPrima\RegistrarProgramaciondeFletes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\AlimentacionConsumoCorral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\AlimentacionReporteEstadoComederos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\RecepcionReporteAuxiliarInventario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\OrdenSacrificio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\RecepcionReporteEjecutivo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\RecepcionReporteInventario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteMedicamentosAplicados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteMuertesGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reporte\ReporteVentasDeGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteVentasMuertes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteCronicosRecuperacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteIndicadoresOperacionSanidad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reporte\ReporteProyector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\DetalleHistorialClinico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\DiagnosticoAnalista.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\EntradaGanadoEnfermeria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\EntradaGanadoEnfermeriaBusqueda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\MuerteGanadoIntensivo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\RecuperacionTransferencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\SalidaGanadoMuerto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sanidad\SalidaGanado_BusquedaCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\SalidaIndividualDeGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sanidad\SalidaPorMuerteEnTransito.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sanidad\SalidaRecuperacionCorral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sanidad\TraspasoGanadoCorrales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\Grupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\GrupoEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\GrupoFormulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\GrupoFormularioEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\Usuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Catalogos\Tratamiento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TratamientoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Catalogos\TratamientoEdicionProducto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controles\Titulo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\ConfigurarCorralesDisponibles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\CorteGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manejo\CorteGanadoBusqueda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\Medicamentos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\ProgramacionCorteGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\ProgramacionCorteGanadoDialogo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\ProgramacionReimplanteGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\ReasignarArete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Manejo\ReimplanteGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\CancelacionCosteoEntradaGanado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recepcion\CosteoEntradaGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\ProgramacionEmbarques.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\RecepcionGanado.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\RecepcionGanadoBusqueda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Principal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Principal.xaml.cs">
+      <DependentUpon>Principal.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Recepcion\RecepcionGanadoCondiciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\RegistroProgramacionEmbarques.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recepcion\RegistroProgramacionEmbarquesCostos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Recursos\Diccionario\Estilos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Seguridad\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\UsuarioEdicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Seguridad\UsuarioGrupo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Seguridad\UsuarioGrupoEdicion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="Administracion\Impresiones\NO.jpg" />
+    <Resource Include="Administracion\Impresiones\OK.jpg" />
+    <Content Include="Administracion\Impresiones\rptImpresionCalidadDeGanado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptImpresionCalidadDeGanado.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Administracion\Impresiones\rptCheckListdeRoladoCLN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCheckListdeRoladoCLN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="Administracion\Impresiones\rptImpresionCheckListDistribucionDeAlimento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptImpresionCheckListDistribucionDeAlimento.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administracion\Impresiones\rptCheckListDistribucion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCheckListDistribucion.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administracion\Impresiones\rptImpresionRecepcionDeTarjeta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptImpresionRecepcionDeTarjeta.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administracion\Impresiones\rptPrueba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPrueba.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Administracion\Impresiones\rptSupervisionTecnicadeDetecciondeCorrales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupervisionTecnicadeDetecciondeCorrales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Imagenes\BankCheck.png" />
+    <Resource Include="Imagenes\configuracionParametroCheque.png" />
+    <Resource Include="Imagenes\Reloj.png" />
+    <Content Include="Reporte\RptReporteProduccionVsConsumo.rpt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteEntradasSinCosteo.rpt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Conciliacion SIAP-SAP.xlsx" />
+    <None Include="Resources\Conciliacion.xlsx" />
+    <Resource Include="Imagenes\updatered.ico" />
+    <Resource Include="Imagenes\AdmContrato.png" />
+    <Resource Include="Imagenes\Almacen32.png" />
+    <Resource Include="Imagenes\Almacen48.png" />
+    <Resource Include="Imagenes\Almacen64.png" />
+    <Resource Include="Imagenes\AnalisisGrasa128.png" />
+    <Resource Include="Imagenes\AnalisisGrasa32.png" />
+    <Resource Include="Imagenes\AnalisisGrasa48.png" />
+    <Resource Include="Imagenes\AsignarGrupos32.png" />
+    <Resource Include="Imagenes\AsignarGrupos48.png" />
+    <Resource Include="Imagenes\AsignarUsuarios.png" />
+    <Resource Include="Imagenes\AsignarUsuarios32.png" />
+    <Resource Include="Imagenes\AsignarUsuarios48.png" />
+    <Resource Include="Imagenes\AsignarUsuarios64.png" />
+    <Resource Include="Imagenes\BasculaMP32.png" />
+    <Resource Include="Imagenes\BasculaMP48.png" />
+    <Resource Include="Imagenes\CamionReparto.png" />
+    <Resource Include="Imagenes\CamionReparto1.png" />
+    <Resource Include="Imagenes\CatAdministracion.png" />
+    <Resource Include="Imagenes\CatAlimentacion.png" />
+    <Resource Include="Imagenes\CatalogoGrupoCorral.png" />
+    <Resource Include="Imagenes\CatCanalPielViscera.png" />
+    <Resource Include="Imagenes\CatCosto32.png" />
+    <Resource Include="Imagenes\CatCosto48.png" />
+    <Resource Include="Imagenes\CatCosto64.png" />
+    <Resource Include="Imagenes\CatGenerales.png" />
+    <Resource Include="Imagenes\CatGenerales32.png" />
+    <Resource Include="Imagenes\CatGenerales48.png" />
+    <Resource Include="Imagenes\CatManejo.png" />
+    <Resource Include="Imagenes\CatRecepcion.png" />
+    <Resource Include="Imagenes\CatSanidad.png" />
+    <Resource Include="Imagenes\CausaPrecio32.png" />
+    <Resource Include="Imagenes\CausaPrecio40.png" />
+    <Resource Include="Imagenes\CausaPrecio48.png" />
+    <Resource Include="Imagenes\CausaRechazo128.png" />
+    <Resource Include="Imagenes\CausaSalida32.png" />
+    <Resource Include="Imagenes\CausaSalida48.png" />
+    <Resource Include="Imagenes\CierreDiaPA.png" />
+    <Resource Include="Imagenes\Clientes32.png" />
+    <Resource Include="Imagenes\Clientes48.png" />
+    <Resource Include="Imagenes\Clientes64.png" />
+    <Resource Include="Imagenes\ConceptoDeteccion.png" />
+    <Resource Include="Imagenes\ConfiguracionPremezcla.png" />
+    <Resource Include="Imagenes\ConfiguracionSemana128.png" />
+    <Resource Include="Imagenes\ConfiguracionSemana32.png" />
+    <Resource Include="Imagenes\ConfiguracionSemana48.png" />
+    <Resource Include="Imagenes\CorralDetector.png" />
+    <Resource Include="Imagenes\CostoPromedio64.png" />
+    <Resource Include="Imagenes\DiferenciasInventarios.png" />
+    <Resource Include="Imagenes\Enfermeria.png" />
+    <Resource Include="Imagenes\Enfermeria1.png" />
+    <Resource Include="Imagenes\Enfermeria2.png" />
+    <Resource Include="Imagenes\EntradaEnfermeria128.png" />
+    <Resource Include="Imagenes\EntradaEnfermeria32.png" />
+    <Resource Include="Imagenes\EntradaEnfermeria48.png" />
+    <Resource Include="Imagenes\EntradaMP128.png" />
+    <Resource Include="Imagenes\EntregaProductosSolicitadosAlmacen32.png" />
+    <Resource Include="Imagenes\EntregaProductosSolicitadosAlmacen48.png" />
+    <Resource Include="Imagenes\EstadoComedero32.png" />
+    <Resource Include="Imagenes\EstadoComedero48.png" />
+    <Resource Include="Imagenes\Familia32.png" />
+    <Resource Include="Imagenes\Familia48.png" />
+    <Resource Include="Imagenes\GastosAlInventario128.png" />
+    <Resource Include="Imagenes\GastosMateriaPrima128.png" />
+    <Resource Include="Imagenes\Grado32.png" />
+    <Resource Include="Imagenes\Grado64.png" />
+    <Resource Include="Imagenes\Grupos32.png" />
+    <Resource Include="Imagenes\Grupos48.png" />
+    <Resource Include="Imagenes\Grupos68.png" />
+    <Resource Include="Imagenes\Observacion32.png" />
+    <Resource Include="Imagenes\Observacion48.png" />
+    <Resource Include="Imagenes\Observacion64.png" />
+    <Resource Include="Imagenes\OrdenSacrificio128.png" />
+    <Resource Include="Imagenes\OrdenSacrificio32.png" />
+    <Resource Include="Imagenes\OrdenSacrificio48.png" />
+    <Resource Include="Imagenes\ParametroOrganizacion128.png" />
+    <Resource Include="Imagenes\ParametroTrampa32.png" />
+    <Resource Include="Imagenes\ParametroTrampa48.png" />
+    <Resource Include="Imagenes\PrecioCanalPielViscera.png" />
+    <Resource Include="Imagenes\Pregunta128.png" />
+    <Resource Include="Imagenes\Pregunta32.png" />
+    <Resource Include="Imagenes\Pregunta48.png" />
+    <Resource Include="Imagenes\PremezclasDistribucionIngredientes.png" />
+    <Resource Include="Imagenes\Problema.png" />
+    <Resource Include="Imagenes\Problema32.png" />
+    <Resource Include="Imagenes\Problema48.png" />
+    <Resource Include="Imagenes\ProblemaSintoma24.png" />
+    <Resource Include="Imagenes\ProblemaSintoma32.png" />
+    <Resource Include="Imagenes\ProblemaSintoma48.png" />
+    <Resource Include="Imagenes\ProblemaTratamiento.png" />
+    <Resource Include="Imagenes\ProblemaTratamiento24.png" />
+    <Resource Include="Imagenes\ProblemaTratamiento32.png" />
+    <Resource Include="Imagenes\ProblemaTratamiento48.png" />
+    <Resource Include="Imagenes\ProgramacionFletes128.png" />
+    <Resource Include="Imagenes\ProgramacionFletes32.png" />
+    <Resource Include="Imagenes\ProgramacionFletes48.png" />
+    <Resource Include="Imagenes\ProgramacionFletesInterna.png" />
+    <Resource Include="Imagenes\ProgramacionMP128.png" />
+    <Resource Include="Imagenes\RecepcionMP32.png" />
+    <Resource Include="Imagenes\RecepcionMP48.png" />
+    <Resource Include="Imagenes\RecepcionProducto.png" />
+    <Resource Include="Imagenes\RecepcionProductosAlmacen32.png" />
+    <Resource Include="Imagenes\RecepcionProductosAlmacen48.png" />
+    <Resource Include="Imagenes\ReimpresionPoliza.png" />
+    <Resource Include="Imagenes\Roles32.png" />
+    <Resource Include="Imagenes\Roles48.png" />
+    <Resource Include="Imagenes\SalidaGanadoMuerto.png" />
+    <Resource Include="Imagenes\SolicitudPM128.png" />
+    <Resource Include="Imagenes\SolicitudPremezcla.jpg" />
+    <Resource Include="Imagenes\SolicitudProductoAlmacen32.png" />
+    <Resource Include="Imagenes\SolicitudProductoAlmacen48.png" />
+    <Resource Include="Imagenes\SubFamilia32.png" />
+    <Resource Include="Imagenes\SupervisorEnfermeria.png" />
+    <Resource Include="Imagenes\TipoAlmacen32.png" />
+    <Resource Include="Imagenes\TipoAlmacen48.png" />
+    <Resource Include="Imagenes\TipoAlmacen64.png" />
+    <Resource Include="Imagenes\TipoCambio48.png" />
+    <Resource Include="Imagenes\TipoCambio64.png" />
+    <Resource Include="Imagenes\TipoCorral32.png" />
+    <Resource Include="Imagenes\TipoCorral48.png" />
+    <Resource Include="Imagenes\TipoCosto128.png" />
+    <Resource Include="Imagenes\TipoCosto32.png" />
+    <Resource Include="Imagenes\TipoCosto48.png" />
+    <Resource Include="Imagenes\TipoCuenta32.png" />
+    <Resource Include="Imagenes\TipoCuenta48.png" />
+    <Resource Include="Imagenes\TipoEmbarque128.png" />
+    <Resource Include="Imagenes\TipoEmbarque32.png" />
+    <Resource Include="Imagenes\TIpoEmbarque48.png" />
+    <Resource Include="Imagenes\TipoObservacion32.png" />
+    <Resource Include="Imagenes\TipoObservacion48.png" />
+    <Resource Include="Imagenes\TipoOrganizacion.png" />
+    <Resource Include="Imagenes\TipoProblema24.png" />
+    <Resource Include="Imagenes\TipoProblema32.png" />
+    <Resource Include="Imagenes\TipoProblema40.png" />
+    <Resource Include="Imagenes\TipoProceso128.png" />
+    <Resource Include="Imagenes\TipoProceso48.png" />
+    <Resource Include="Imagenes\TipoProceso64.png" />
+    <Resource Include="Imagenes\TipoServicio32.png" />
+    <Resource Include="Imagenes\TipoServicio48.png" />
+    <Resource Include="Imagenes\TraspasoGanado32.png" />
+    <Resource Include="Imagenes\TraspasoGanado48.png" />
+    <Resource Include="Imagenes\TraspasoGanado64.png" />
+    <Resource Include="Imagenes\TraspasoGanadoGordo.png" />
+    <Resource Include="Imagenes\TraspasoGanadoGordo1.png" />
+    <Resource Include="Imagenes\TraspasoMP.png" />
+    <Resource Include="Imagenes\TraspasoMP1.png" />
+    <Resource Include="Imagenes\Usuarios32.png" />
+    <Resource Include="Imagenes\Usuarios48.png" />
+    <Resource Include="Imagenes\Vigilancia.png" />
+    <Resource Include="Imagenes\AuxiliarDeInventarioMP128.png" />
+    <Resource Include="Imagenes\AuxiliarInventario48.png" />
+    <Resource Include="Imagenes\ConsumoProgramadovsServido32.png" />
+    <Resource Include="Imagenes\ConsumoXCorral48.png" />
+    <Resource Include="Imagenes\CronicosEnRecuperacion.png" />
+    <Resource Include="Imagenes\DetalleCorteGanado.png" />
+    <Resource Include="Imagenes\DetalleReimplante.png" />
+    <Resource Include="Imagenes\DiaADia48.png" />
+    <Resource Include="Imagenes\DiaADiaSanidad.png" />
+    <Resource Include="Imagenes\Ejecutivo.png" />
+    <Resource Include="Imagenes\FacturacionSacrificio.png" />
+    <Resource Include="Imagenes\Inventario.png" />
+    <Resource Include="Imagenes\InventarioAlCierre48.png" />
+    <Resource Include="Imagenes\InventarioPorLotes48.png" />
+    <Resource Include="Imagenes\KardexGanado.png" />
+    <Resource Include="Imagenes\MedicamentosAplicados.png" />
+    <Resource Include="Imagenes\MedicamentosAplicadosSanidad.png" />
+    <Resource Include="Imagenes\Proveedor48.png" />
+    <Resource Include="Imagenes\ProyectoyComportamiento128.png" />
+    <Resource Include="Imagenes\RecuperacionMerma.png" />
+    <Resource Include="Imagenes\ReporteDiaADiaCalidad48.png" />
+    <Resource Include="Imagenes\ReportesCalidad.png" />
+    <Resource Include="Imagenes\ReportesEstadoComedero48.png" />
+    <Resource Include="Imagenes\ReporteVentaMuerte48.png" />
+    <Resource Include="Imagenes\ResumenInventario48.png" />
+    <Resource Include="Imagenes\SolicitudPaseProceso128.png" />
+    <Resource Include="Imagenes\TipoPregunta.png" />
+    <Resource Include="Imagenes\VentaDeGanado48.png" />
+    <Resource Include="Imagenes\PAYMP48.png" />
+    <Resource Include="Imagenes\CatalogoFormula48.png" />
+    <Resource Include="Imagenes\Disponibilidad.png" />
+    <Resource Include="Imagenes\ReporteInventarioCorralEnfermeria.png" />
+    <Resource Include="Imagenes\ReporteMuerteGanado.png" />
+    <Resource Include="Imagenes\ClaseCostoProducto32.png" />
+    <Resource Include="Imagenes\Cuenta32.png" />
+    <Resource Include="Imagenes\CuentaAlmacenSubfamilia.png" />
+    <Resource Include="Imagenes\CuentaValor32.png" />
+    <Resource Include="Imagenes\IndicadorObjetivo.png" />
+    <Resource Include="Imagenes\IndicadorProducto.png" />
+    <Resource Include="Imagenes\IndicadorProductoCalidad.png" />
+    <Resource Include="Imagenes\IngredienteFormula.png" />
+    <Resource Include="Imagenes\Moneda.png" />
+    <Resource Include="Imagenes\TipoCambio.png" />
+    <Resource Include="Imagenes\TipoObjetivoCalidad.png" />
+    <Resource Include="Imagenes\Trampa32.png" />
+    <Resource Include="Recursos\Image\loading.gif" />
+    <Resource Include="Imagenes\Banco.png" />
+    <Resource Include="Imagenes\Zona.png" />
+    <Resource Include="Imagenes\cow.png" />
+    <Content Include="Reporte\RptReporteAuxiliarDeInventarioPorCorral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteAuxiliarDeInventarioPorCorral.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteEjecutivoCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteEjecutivoCR.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\rptReporteInventarioCorralesEnfermeria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteInventarioCorralesEnfermeria.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteMedicamentosAplicados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteMedicamentosAplicados.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteMuertesDeGanado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteMuertesDeGanado.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteOperacionSanidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteOperacionSanidad.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteResumenInventarioDeGanado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteResumenInventarioDeGanado.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptProyector.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptProyector.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteVentaMuerte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteVentaMuerte.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteInventarioPorLotes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteInventarioPorLotes.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteRecuperacionMerma.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteRecuperacionMerma.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteCronicosEnRecuperacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteCronicosEnRecuperacion.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteMedicamentosAplicadosSanidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteMedicamentosAplicadosSanidad.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteVentaGanado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteVentaGanado.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptTabularDisponibilidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptTabularDisponibilidad.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteEstadoComedero.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteEstadoComedero.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\Rpt_AlimentacionConsumoCorral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_AlimentacionConsumoCorral.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteDiarioInventarioAlCierre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteDiarioInventarioAlCierre.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteDiaDiaCalidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteDiaDiaCalidad.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteBitacoraLlegada.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteBitacoraLlegada.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteLlegadaLogisita.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteLlegadaLogisita.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reporte\rptReporteLectorComederos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteLectorComederos.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Reporte\RptReporteSalidaConCostosDetallado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReporteLectorComederos.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReportePaseaProceso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReportePaseaProceso.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteSalidaConCostosDetallado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteSalidaConCostosDetallado.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reporte\SolicitudProductosAlmacen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SolicitudProductosAlmacen.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Reporte\RptReporteDetalleReimplante.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\ReporteDetalleCorte.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteConsumoProgramadovsServido.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteConsumoProgramadovsServido.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteSolicitudPaseProceso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteSolicitudPaseProceso.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteResumenInventario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteResumenInventario.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteDiaaDia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteDiaaDia1.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\ReporteKardexDeGanado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteKardexDeGanado.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reporte\RptReporteInventarioMateriaPrimas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptReporteInventarioMateriaPrimas.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Imagenes\icon_pills-5-icon2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\autorizarajuste.png" />
+    <Resource Include="Imagenes\cierreDiaDia.png" />
+    <Resource Include="Imagenes\configuracionformulas.png" />
+    <Resource Include="Imagenes\cofFormulas.png" />
+    <Resource Include="Imagenes\evapartida.png" />
+    <Resource Include="Imagenes\printer32.png" />
+    <Resource Include="Imagenes\bascula.png" />
+    <Resource Include="Imagenes\agregar.png" />
+    <Resource Include="Imagenes\SalidaventaTraspaso.png" />
+    <Resource Include="Imagenes\world_delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Reporte\impresionProgramacionCorteGanado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>impresionProgramacionCorteGanado.cs</LastGenOutput>
+    </Content>
+    <Content Include="Reporte\programacionReimplanteImpresion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>programacionReimplanteImpresion.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Administracion\Impresiones\rptCheckListdeRoladoCLN.rpt" />
+    <Content Include="Administracion\Impresiones\rptEf.MezRotomix 2.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Administracion\Impresiones\rptSupervisionTecnicadeDetecciondeCorrales.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.AuxiliarDeInventarioInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ContenedorReporteOperacionSanidadInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ContenedorReporteProyectorInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.CorralReporteAuxiliarInventarioInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.CostosReporteEjecutivoInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteAuxiliarInventarioInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCorralesEnfermeriaInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCorralesEnfermeriaTotalesInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCronicosRecuperacionDatos.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCronicosRecuperacionEnfermeria.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCronicosRecuperacionFolio.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCronicosRecuperacionInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCronicosRecuperacionProduccion.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteCronicosRecuperacionTratamiento.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteDiaDiaInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteEjecutivoInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteEjecutivoResultadoInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteInventarioInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteMedicamentosAplicadosDatos.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteMedicamentosAplicadosModel.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteMuertesGanadoInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteOperacionSanidadInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteProyectorInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteRecuperacionMermaInfo.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanado.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanadoAnimal.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanadoDatos.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanadoFolio.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanadoMovimientosProduccion.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanadoMovimientosSalida.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaGanadoTratamiento.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaMuerte.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaMuerteDatos.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaMuerteFolio.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaMuerteMovimientosEnfermeria.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaMuerteMovimientosProduccion.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.ReporteVentaMuerteTratamiento.datasource" />
+    <None Include="Properties\DataSources\SIE.Services.Info.Reportes.TipoGanadoReporteEjecutivoInfo.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Almacen\" />
+    <Folder Include="Login\" />
+    <Folder Include="Operacion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIE.BASE\SIE.Base.csproj">
+      <Project>{8E34D4B9-8352-4619-8724-A5634E750048}</Project>
+      <Name>SIE.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIE.Services.Info\SIE.Services.Info.csproj">
+      <Project>{17071ee5-ef5f-40f9-8579-cafe84f52d01}</Project>
+      <Name>SIE.Services.Info</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIE.SERVICES\SIE.Services.csproj">
+      <Project>{3078dc0f-38a0-427f-93d4-2ccdfe6c4c2a}</Project>
+      <Name>SIE.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuKarne.Controls\SuKarne.Controls.csproj">
+      <Project>{a087559c-16fe-4392-838c-3ebd34148aa3}</Project>
+      <Name>SuKarne.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\usericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Image\Icon\accept.png" />
+    <Resource Include="Recursos\Image\Icon\add.png" />
+    <Resource Include="Recursos\Image\Icon\cross.png" />
+    <Resource Include="Recursos\Image\Icon\delete.png" />
+    <Resource Include="Recursos\Image\Icon\exclamation.png" />
+    <Resource Include="Recursos\Image\Icon\installer.ico" />
+    <Resource Include="Recursos\Image\Icon\loader.gif" />
+    <Resource Include="Recursos\Image\Icon\pencil.png" />
+    <Resource Include="Recursos\Image\Icon\table_link.png" />
+    <Resource Include="Recursos\Image\Icon\tick.png" />
+    <Resource Include="Recursos\Image\Icon\warning.png" />
+    <Resource Include="Recursos\Image\loader.gif" />
+    <Resource Include="Recursos\Image\sukarne-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\SalidaIndividualDeGanado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\Corteportransferencia.png" />
+    <Content Include="Imagenes\skLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Imagenes\skLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\buscar.ico" />
+    <Resource Include="Imagenes\costIcon.png" />
+    <Resource Include="Imagenes\progIcon.png" />
+    <Resource Include="Imagenes\recepIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cabezaVaca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\Image\Icon\find.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\iconoprint.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\cabezaVaca.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\ConfiCorralesDis.png" />
+    <Resource Include="Imagenes\CorteGanado.png" />
+    <Resource Include="Imagenes\ReimplanteGanado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\ProgramacionReim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\ProgramacionCorte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\canIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Cerrar.png" />
+    <Resource Include="Imagenes\Camion.png" />
+    <Resource Include="Imagenes\Jaula.png" />
+    <Resource Include="Imagenes\Operador.png" />
+    <Resource Include="Imagenes\Proveedor.png" />
+    <Resource Include="Imagenes\Chofer.png" />
+    <Resource Include="Imagenes\CalidadGanado.png" />
+    <Resource Include="Imagenes\CondicionGanado.png" />
+    <Resource Include="Imagenes\ConfiguracionEmbarque.png" />
+    <Resource Include="Imagenes\Corral.png" />
+    <Resource Include="Imagenes\Costo.png" />
+    <Resource Include="Imagenes\CostoOrganizacion.png" />
+    <Resource Include="Imagenes\Organizacion.png" />
+    <Resource Include="Imagenes\PrecioGanado.png" />
+    <Resource Include="Imagenes\Producto.png" />
+    <Resource Include="Imagenes\TipoGanado.png" />
+    <Resource Include="Imagenes\Tratamiento.png" />
+    <Resource Include="Recursos\Image\Icon\adelanteUno.png" />
+    <Resource Include="Recursos\Image\Icon\adelanteTodos.png" />
+    <Resource Include="Recursos\Image\Icon\atrasTodos.png" />
+    <Resource Include="Recursos\Image\Icon\atrasUno.png" />
+    <Resource Include="Imagenes\EntradaganadoEnfermeria.png" />
+    <Resource Include="Imagenes\ReporteLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\SalidaRecuperacionCorte.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Image\Icon\subir.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\OrdenSacrificio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\Image\Icon\bajar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\TraspasodeGanado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="SIAP\Configuracion.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="CrystalDecisions.CrystalReports.Design">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.CrystalReports.Engine">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Shared">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SIAP\Configuracion.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="AutoSetMinimumRequiredVersion" BeforeTargets="GenerateDeploymentManifest">
+    <FormatVersion Version="$(ApplicationVersion)" Revision="$(ApplicationRevision)">
+      <Output PropertyName="MinimumRequiredVersion" TaskParameter="OutputVersion" />
+    </FormatVersion>
+    <FormatVersion Version="$(ApplicationVersion)" Revision="$(ApplicationRevision)">
+      <Output PropertyName="_DeploymentBuiltMinimumRequiredVersion" TaskParameter="OutputVersion" />
+    </FormatVersion>
+  </Target>
+</Project>

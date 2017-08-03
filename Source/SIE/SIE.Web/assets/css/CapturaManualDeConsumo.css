@@ -1,0 +1,150 @@
+﻿
+.caja {
+    border: 2px solid #c0c0c0;
+    padding: 10px;
+}
+
+fieldset.scheduler-border
+{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border
+{
+    width: auto; /* Or auto */
+    padding: 0 10px; /* To give a bit of padding on the left and right */
+    border-bottom: none;
+    font-size: small;
+    font-weight: bold;
+}
+
+.contenedor-lista {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -ms-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  position: relative;
+  height: 300px;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.contenedor-lista ul{
+  margin: 0;
+  list-style-type: none;
+  padding: 5px;
+  font-size: 14px;
+}
+.contenedor-lista ul li {
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.contenedor-lista ul li input[type="checkbox"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
+.contenedor-lista ul li:hover {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  background-color: #B94A48;
+  font-size: 14px;
+}
+
+.contenedor-lista:after{
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  clear: both;
+  min-height: 0;
+  visibility: hidden;
+}
+
+.seccionbotones {
+    padding: 10px;
+}
+
+.botones {
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+.botones button {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+@media screen and (min-width: 400px) and (max-width: 770px){
+    .botones {
+        width: 10% !important;
+        float: left !important;
+        margin: 5px !important;
+    }
+
+    .unTercioPantalla {
+        width: 40% !important;
+        float: left !important;
+        margin: 5px !important;
+    }
+
+    .caja {
+        overflow: hidden;
+    }
+}
+
+.seleccion-contenedor{
+  width: 370px;
+}
+
+.seleccion-contenedor ul{
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+.seleccion-contenedor .lista{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position: relative;
+  height: 300px;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.seleccion-contenedor .seleccion-seleccionable li:hover,
+.seleccion-contenedor .seleccion-seleccionado li:hover{
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  background-color: #B94A48;
+}

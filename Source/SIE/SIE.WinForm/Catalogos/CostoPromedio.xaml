@@ -1,0 +1,182 @@
+<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.CostoPromedio"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded">
+
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.CostoPromedio_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CostoPromedio_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="15" />
+                    <ColumnDefinition Width="190" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Content="{x:Static resx:Resources.CostoPromedio_LblOrganizacion}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.CostoPromedio_LblCosto}"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.CostoPromedio_LblActivo}"
+                       Grid.Row="0"
+                       Grid.Column="3"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <StackPanel Name="SplAyudaOrganizacion"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Height="23"
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <StackPanel Name="SplAyudaCosto"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Height="23"
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="0"
+                          Grid.Column="4"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="2" />
+                <StackPanel Grid.Column="6"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}"
+                            Click="BtnBuscar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.btnNuevo}"
+                            Click="BtnNuevo_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=CostoPromedioInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=CostoPromedioID}"
+                                    Header="Id" 
+                                    Visibility="Hidden"/>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Organizacion.Descripcion}"
+                                    Header="{x:Static resx:Resources.CostoPromedio_Grid_Organizacion}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Costo.ClaveContable}"
+                                    Header="{x:Static resx:Resources.CostoPromedio_Grid_ClaveContable}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Costo.Descripcion}"
+                                    Header="{x:Static resx:Resources.CostoPromedio_Grid_CostoPromedio}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Importe}"
+                                    Header="{x:Static resx:Resources.CostoPromedio_Grid_Importe}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Activo}"
+                                    Header="{x:Static resx:Resources.CostoPromedio_Grid_Estatus}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.CostoPromedio_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

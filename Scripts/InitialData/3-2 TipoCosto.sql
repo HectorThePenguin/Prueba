@@ -1,0 +1,8 @@
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Ganado', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Alimento', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Medicamento', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Flete', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Seguro', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Gasto', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('Operativo', 1, 1, GETDATE())
+INSERT INTO TipoCosto (Descripcion,Activo,UsuarioCreacionID, FechaCreacion) VALUES ('MateriaPrima', 1, 1, GETDATE())

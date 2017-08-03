@@ -1,0 +1,150 @@
+﻿<Window xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        x:Class="SIE.WinForm.Recepcion.RegistroProgramacionEmbarquesCostos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        Height="300"
+        Width="500"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing"
+        WindowStyle="None"
+        Loaded="Window_Loaded">
+    <Grid Background="white"
+          Margin="2"
+          Height="300">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="136"></ColumnDefinition>
+            <ColumnDefinition Width="35" />
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="0"
+                          Grid.Row="0"
+                          Margin="20 10 20 10"
+                          TextoTitulo="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_LblTitulo}"
+                          VisibleCerrar="Visible"
+                          Grid.ColumnSpan="5"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               FontWeight="Bold"
+               Content="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_LblCosto}"
+               Margin="0,1"></Label>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Name="SplAyudaCosto">
+
+        </StackPanel>
+
+        <Button Name="BtnAgregar"
+                Grid.Row="1"
+                Grid.Column="2"
+                HorizontalAlignment="Right"
+                Margin="0,2,16,3"
+                Content="{x:Static resx:Resources.btnAgregar}"
+                TabIndex="1"
+                Click="BtnAgregar_Click"
+                Grid.ColumnSpan="2"></Button>
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               FontWeight="Bold"
+               Content="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_LblImporte}"
+               Margin="0,1"></Label>
+
+
+        <xctk:DecimalUpDown Name="DudImporte"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            FormatString="C2"
+                            Increment=".5"
+                            Width="150"
+                            ShowButtonSpinner="false"
+                            MaxLength="10"
+                            BorderThickness="1"
+                            HorizontalAlignment="Left"
+                            Watermark="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_CaptureImporte}"
+                            KeyDown="DudImporte_KeyDown"
+                            IsTabStop="True"
+                            MinWidth="10" />
+
+        <Button Name="BtnCancelar"
+                Grid.Row="2"
+                Grid.Column="2"
+                HorizontalAlignment="Right"
+                Margin="0,3,16,2"
+                Click="BtnCancelar_Click"
+                Content="{x:Static resx:Resources.btnSalir}"
+                TabIndex="2"
+                Grid.ColumnSpan="2"></Button>
+
+        <Border Grid.Column="0"
+                Grid.Row="3"
+                Grid.ColumnSpan="4"
+                Style="{StaticResource groupBoxBorder}"
+                HorizontalAlignment="Stretch">
+
+            <DataGrid  x:Name="DgCostos"
+                       HorizontalAlignment="Center"
+                       VerticalScrollBarVisibility="Auto"
+                       AutoGenerateColumns="False"
+                       ColumnWidth="Auto"
+                       CanUserReorderColumns="False">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="200"
+                                        Binding="{Binding Path=Costo.Descripcion}"
+                                        Header="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_Grid_ColumnaCosto}" />
+                    <DataGridTextColumn Width="150"
+                                        Binding="{Binding Path=Importe, StringFormat={}{0:c2}}"
+                                        Header="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_Grid_ColumnaImporte}" />
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource iconButton}"
+                                        Click="BtnEditar_Click"
+                                        CommandParameter="{Binding}">
+                                    <Image Source="{StaticResource editIcon}"
+                                           Style="{StaticResource iconImage}"
+                                           ToolTip="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_Grid_ColumnaEditar}" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource iconButton}"
+                                        Click="BtnEliminar_Click"
+                                        CommandParameter="{Binding}">
+                                    <Image Source="{StaticResource borrarIcon}"
+                                           Style="{StaticResource iconImage}"
+                                           ToolTip="{x:Static resx:Resources.RegistroProgramacionEmbarquesCosto_Grid_ColumnaEliminar}" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Window>

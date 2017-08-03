@@ -1,0 +1,253 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" 
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles" 
+        x:Class="SIE.WinForm.Manejo.ConfigurarCorralesDisponibles"                
+        mc:Ignorable="d"
+        Height="Auto" 
+        Width="Auto"
+        Loaded="ConfigurarCorralesDisponibles_Loaded">
+    <Grid Margin="20"
+          Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="10"/>            
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="1" 
+                  Grid.Row="1" 
+                  BorderThickness="1" 
+                  Style="{StaticResource groupBox}"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfigurarCorralesDisponibles_GroupBoxTitulo}" />
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="146"/>
+                    <ColumnDefinition Width="146"/>
+                    <ColumnDefinition Width="146"/>
+                    <ColumnDefinition Width="146"/>
+                    <ColumnDefinition Width="146"/>
+                    <ColumnDefinition Width="146"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="49"/>
+                </Grid.RowDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="lblCorralRequerido"
+                       Style="{StaticResource labelRequerido}"/>
+                <Label x:Name="lblCorral" 
+                       Target="{Binding}"
+                       Margin="8,0,0,0"
+                       Content="{x:Static resx:Resources.ConfigurarCorralesDisponibles_lblCorral}" 
+                       Foreground="Black" />
+                <Label
+                       Content="*"
+                       x:Name="lblSexoRequerido"
+                       Grid.Column="1"
+                       Style="{StaticResource labelRequerido}"/>
+                <Label x:Name="lblSexo" 
+                       Content="{x:Static resx:Resources.ConfigurarCorralesDisponibles_lblSexo}"
+                       Margin="8,0,0,0"
+                       Foreground="Black" 
+                       Grid.Column="1" />
+                <Label
+                       Content="*"
+                       x:Name="lblRangoInicialRequerido"
+                       Style="{StaticResource labelRequerido}" Grid.Column="2"/>
+                <Label x:Name="lblRangoInicial" 
+                       Content="{x:Static resx:Resources.ConfigurarCorralesDisponibles_lblRangoInicial}"
+                       Margin="8,0,0,0"
+                       Foreground="Black" 
+                       Grid.Column="2" />
+                <ComboBox HorizontalAlignment="Left" 
+                          TabIndex="3" 
+                          x:Name="cboRangoInicial" 
+                          Width="126" 
+                          Margin="10,7,0,19" 
+                          DisplayMemberPath="PesoMinimoString" 
+                          SelectedItem="{Binding CorralID, Mode=TwoWay}"  
+                          KeyDown="cboRangoInicial_OnKeyDownHandler" 
+                          SelectionChanged="cboRangoInicial_SelectionChanged" 
+                          Grid.Row="1" 
+                          Grid.Column="2"  />
+                <Label x:Name="lblTipoGanado" 
+                       Content="{x:Static resx:Resources.ConfigurarCorralesDisponibles_lblTipoGanado}"
+                       Margin="8,0,0,0"
+                       Foreground="Black" 
+                       Grid.Column="4" />
+                <Label x:Name="RangoFinal" 
+                       Content="{x:Static resx:Resources.ConfigurarCorralesDisponibles_lblRangoFinal}"
+                       Margin="8,0,0,0"
+                       Foreground="Black" 
+                       Grid.Column="3" />
+                <ComboBox HorizontalAlignment="Left" 
+                          x:Name="cboCorral" 
+                          Width="127" 
+                          Margin="10,7,0,19" 
+                          DisplayMemberPath="Codigo" 
+                          TabIndex="1"
+                          SelectedValuePath="CorralID"
+                          KeyDown="cboCorral_OnKeyDownHandler"
+                          Grid.Row="1"  />
+                <ComboBox HorizontalAlignment="Left" 
+                          TabIndex="2" 
+                          x:Name="cboSexo" 
+                          KeyDown="cboSexo_OnKeyDownHandler" 
+                          Width="132" 
+                          Margin="5,7,0,0" 
+                          Height="23" 
+                          VerticalAlignment="Top" 
+                          SelectionChanged="cboSexo_SelectionChanged" 
+                          Grid.Row="1" 
+                          Grid.Column="1" />
+                <ComboBox HorizontalAlignment="Right" 
+                          x:Name="cboTipoGanado" 
+                          Width="125" 
+                          Margin="0,7,10,19" 
+                          Grid.Row="1" 
+                          Grid.Column="4" 
+                          IsEnabled="False"  />
+                <Button Content="{x:Static resx:Resources.btnAgregar}" 
+                        
+                        TabIndex="4" 
+                        HorizontalAlignment="Left" 
+                        Margin="35,7,0,0" 
+                        Name="btnAgregar" 
+                        VerticalAlignment="Top" 
+                         
+                        Click="btnAgregar_Click"
+                        Grid.Row="1" 
+                        Grid.Column="5" FontFamily="Arial Narrow" />
+                <!-- Height="40" Width="82" -->
+                <Label Content="Kg" 
+                       Visibility="Hidden" 
+                       Height="28" 
+                       HorizontalAlignment="Left" 
+                       Margin="78,2,0,0" 
+                       x:Name="lblKg" 
+                       VerticalAlignment="Top" 
+                       Width="66" 
+                       Foreground="Black" 
+                       BorderThickness="1" 
+                       Grid.Row="1" 
+                       Grid.Column="3" />
+                <TextBox Visibility="Hidden"  
+                         x:Name="txtCorralAnteriorID" 
+                         Margin="30,29,0,10" 
+                         Grid.Row="1" 
+                         Grid.Column="3" 
+                         Text="0" />
+                <TextBox Visibility="Hidden"  
+                         x:Name="txtRangoInicial" 
+                         Margin="30,29,0,10" 
+                         Grid.Row="1" 
+                         Grid.Column="3"  
+                         Text="0"  />
+                <ComboBox x:Name="cboRangoFinal" 
+                          Grid.Column="3" 
+                          HorizontalAlignment="Left" 
+                          Margin="16,8,0,0" 
+                          Grid.Row="1" 
+                          VerticalAlignment="Top" Width="120" 
+                          RenderTransformOrigin="0.275,0.262" 
+                          IsEnabled="False" 
+                          IsEditable="True"/>
+            </Grid>
+        </GroupBox>
+        <DataGrid AutoGenerateColumns="False"  
+                  Grid.Column="1" 
+                  Grid.Row="3" 
+                  HorizontalAlignment="Left" 
+                  Margin="20,0,20,0" 
+                  x:Name="dgCorralesRango" 
+                  VerticalAlignment="Top" 
+                  Width="Auto"
+                  ItemsSource="{Binding}" 
+                  CanUserResizeColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ConfigurarCorralesDisponibles_Grid_ColumnaCorral}" 
+                                    Width="120" 
+                                    Binding="{Binding Codigo}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ConfigurarCorralesDisponibles_Grid_ColumnaSexo}" 
+                                    Width="130" 
+                                    Binding="{Binding SexoDescripcion}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ConfigurarCorralesDisponibles_Grid_ColumnaRangoInicial}" 
+                                    Width="180" 
+                                    Binding="{Binding RangoInicial}" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.ConfigurarCorralesDisponibles_Grid_ColumnaRangoFinal}" 
+                                    Width="180" 
+                                    Binding="{Binding RangoFinal}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ConfigurarCorralesDisponibles_Grid_ColumnaTipoGanado}" 
+                                    Width="*" 
+                                    Binding="{Binding DescripcionTipoGanado}" />
+                <DataGridTemplateColumn Width="73" Header="{x:Static resx:Resources.ConfigurarCorralesDisponibles_Grid_ColumnaOpcion}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource iconButton}" 
+                                        CommandParameter="{Binding}" 
+                                        Click="BotonEditar_Click" >
+                                    <Image Source="{StaticResource editIcon}" 
+                                           Style="{StaticResource iconImage}"
+                                           ToolTip="{x:Static resx:Resources.Grupo_Grid_Editar}" />
+                                </Button>
+                                <Button Style="{StaticResource iconButton}" 
+                                        CommandParameter="{Binding}" 
+                                        Click="BotonEliminar_Click" >
+                                    <Image Source="{StaticResource borrarIcon}" 
+                                           Style="{StaticResource iconImage}"
+                                           ToolTip="{x:Static resx:Resources.Grupo_Grid_Eliminar}" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Grid.Column="1"
+                    Margin="20 0 20 0"
+                    Grid.Row="5">
+            <Button Content="{x:Static resx:Resources.btnGuardar}"
+                    TabIndex="4"
+                    x:Name="btnGuardar"
+                    Margin="0 0 10 0"
+                    Click="btnGuardar_Click" />
+            <Button Content="{x:Static resx:Resources.btnCancelar}"
+                    TabIndex="5"
+                    x:Name="btnCancelar"
+                    Margin="0 0 0 0"
+                    Click="btnCancelar_Click" />
+        </StackPanel>        
+        <Controles:Titulo
+    		Grid.Row="0"
+            Grid.Column="1"
+    		Padding="20 0 20 0"
+    		VisibleCerrar="Hidden"
+    		TextoTitulo="{x:Static resx:Resources.ConfigurarCorralesDisponibles_lblTitulo}"
+    		x:Name="ucTitulo"  />
+    </Grid>
+</UserControl>

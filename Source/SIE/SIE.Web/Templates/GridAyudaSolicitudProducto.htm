@@ -1,0 +1,21 @@
+﻿<table id="GridAyudaSolicitudProducto" class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Id}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Descripcion}</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {#foreach $T.Solicitudes as item}
+        <tr data-FolioID ="{$T.item.FolioID}">
+            <td class="columnaID alineacionCentro">
+                {$T.item.FolioSolicitud}
+            </td>
+            <td class="alineacionCentro">
+                {$T.item.Solicita}
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

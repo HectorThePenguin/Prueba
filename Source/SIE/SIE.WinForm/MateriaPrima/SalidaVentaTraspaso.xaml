@@ -1,0 +1,566 @@
+﻿<vista:ControlBase x:Class="SIE.WinForm.MateriaPrima.SalidaVentaTraspaso"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   xmlns:Info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+                   Loaded="SalidaVentaTraspaso_OnLoaded"
+                   Unloaded="SalidaVentaTraspaso_OnUnloaded">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="220"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="15 10 15 10"
+                          Margin="0,0,0,1"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.SalidaVentaTraspaso_Titulo}"
+                          x:Name="ucTitulo"
+                          Height="Auto"></controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Header="{x:Static resx:Resources.SalidaVentaTraspaso_GroupBusqueda}"
+                  Width="auto"
+                  Margin="0,0,0,0"
+                  Grid.Row="1">
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="100*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelFolioSalida}"
+                       HorizontalAlignment="Left"
+                       Height="Auto"
+                       Width="Auto"
+                       Margin="0,0,0,22" />
+                <StackPanel Name="SplAyudaFolioSalida"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="1,1,1,1">
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+
+        <Grid Margin="0,0,0,0"
+              Grid.Row="2"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*" />
+                <ColumnDefinition Width="100*" />
+                <ColumnDefinition Width="100*" />
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      Header="{x:Static resx:Resources.SalidaVentaTraspaso_labelDatosSalida}"
+                      Width="Auto"
+                      Height="Auto"
+                      Margin="0,0,0,0"
+                      Grid.Row="0">
+
+                <Grid Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70*" />
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="80*" />
+                        <ColumnDefinition Width="100*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="*"
+                           x:Name="LblSalida"
+                           VerticalAlignment="Center"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="-5,1,1,5" />
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelSalida}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <ComboBox Name="CboSalida"
+                              HorizontalAlignment="Stretch"
+                              Margin="0,2,0,2"
+                              VerticalAlignment="Top"
+                              Grid.Column="1"
+                              Grid.Row="0"
+                              SelectionChanged="CboSalida_OnSelectionChanged" />
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelProducto}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <TextBox Name="txtProducto"
+                             MaxLength="10"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             IsEnabled="False" />
+                    <Label Grid.Column="0"
+                           Grid.Row="2"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelLote}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <TextBox Name="txtLote"
+                             MaxLength="10"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             TextAlignment="Right"
+                             IsEnabled="False" />
+                    <Label Grid.Column="0"
+                           Grid.Row="3"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelTotalKilogramos}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <xctk:IntegerUpDown Name="txtTotalKilogramos"
+                                        AllowSpin="False"
+                                        ShowButtonSpinner="False"
+                                        FormatString="N0"
+                                        MaxLength="10"
+                                        NumeroInteger="True"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="0,2,1,2"
+                                        Width="Auto"
+                                        HorizontalAlignment="Stretch"
+                                        Height="Auto"
+                                        TextAlignment="Right"
+                                        IsEnabled="False" />
+                    <Label Grid.Column="0"
+                           Grid.Row="4"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelCostosProducto}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <TextBox Name="txtCostoProducto"
+                             MaxLength="10"
+                             Grid.Row="4"
+                             Grid.Column="1"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             TextAlignment="Right"
+                             IsEnabled="False" />
+                    <Label Content="*"
+                           x:Name="LblPlacasReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="0"
+                           Grid.Row="5"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="-5,1,1,5" />
+                    <Label Grid.Column="0"
+                           Grid.Row="5"
+                           Name="lblPlacas"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelPlacas}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <StackPanel x:Name="StpAyudaCamion"
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Focusable="False"
+                                Margin="0,0,0,0" />
+                    <Label Content="*"
+                           x:Name="LblClienterReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="2"
+                           Grid.Row="0"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="10,1,1,5" />
+                    <Label Grid.Column="2"
+                           Grid.Row="0"
+                           Name="lblCliente"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelCliente}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="20,0,0,0" />
+                    <StackPanel x:Name="StpAyudaCliente"
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                Focusable="False"
+                                Margin="0,0,0,0" />
+                    <StackPanel x:Name="StpAyudaDivision"
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                Focusable="False"
+                                Margin="0,0,0,0" />
+                    <Label Content="*"
+                           x:Name="LblCuentaReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="2"
+                           Grid.Row="1"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="10,1,1,5" />
+                    <Label Grid.Column="2"
+                           Grid.Row="1"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelCuenta}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="20,0,0,0" />
+                    <StackPanel x:Name="StpAyudaCuenta"
+                                Grid.Row="1"
+                                Grid.Column="3"
+                                Focusable="False"
+                                Margin="0,0,0,0" />
+
+                    <Label Grid.Column="2"
+                           Grid.Row="2"
+                           Name="lblKilogramosVenta"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelKilogramosVenta}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="20,0,0,0" />
+                    <TextBox Name="txtKilogramosVenta"
+                             MaxLength="10"
+                             Grid.Row="2"
+                             Grid.Column="3"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             TextAlignment="Right"
+                             IsEnabled="False" />
+                    <Label Content="*"
+                           x:Name="LblKilosVentaReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="2"
+                           Grid.Row="3"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="10,1,1,5" />
+                    <Label Grid.Column="2"
+                           Grid.Row="3"
+                           Name="lblCosto"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelCostoVenta}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="20,0,0,0" />
+                    <TextBox Name="txtPrecioVenta"
+                             MaxLength="10"
+                             Grid.Row="3"
+                             Grid.Column="3"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             TextAlignment="Right"
+                             IsEnabled="False"
+                             LostFocus="TxtCostoVenta_OnLostFocus"
+                             PreviewTextInput="TxtCostoVenta_OnPreviewTextInput" />
+                    <Label Grid.Column="2"
+                           Grid.Row="4"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelFecha}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="20,0,0,0" />
+                    <TextBox Name="txtFecha"
+                             MaxLength="10"
+                             Grid.Row="4"
+                             Grid.Column="3"
+                             Margin="0,2,1,2"
+                             Width="Auto"
+                             HorizontalAlignment="Stretch"
+                             Height="Auto"
+                             IsEnabled="False" />
+                    <Label Content="*"
+                           x:Name="LblChoferReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="2"
+                           Grid.Row="5"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="10,1,1,5" />
+                    <Label Grid.Column="2"
+                           Grid.Row="5"
+                           Name="lblChofer"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelChofer}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="20,0,0,0" />
+                    <StackPanel x:Name="StpAyudaChofer"
+                                Grid.Row="5"
+                                Grid.Column="3"
+                                Focusable="False"
+                                Margin="0,0,0,0"
+                                Height="Auto" />
+
+                </Grid>
+            </GroupBox>
+            <Grid Margin="0,0,0,0"
+                  Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*" />
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0"
+                          Header="{x:Static resx:Resources.SalidaVentaTraspaso_labelBascula}"
+                          Width="auto"
+                          Margin="0,0,0,0"
+                          Grid.Row="0">
+
+                    <StackPanel  Margin="5,10,0,0">
+                        <TextBox Name="TxtDisplayPeso"
+                                 IsReadOnly="false"
+                                 Margin="0,5,0,0"
+                                 Height="53"
+                                 Panel.ZIndex="-1"
+                                 FontSize="36"
+                                 Background="Black"
+                                 Foreground="Red"
+                                 TextAlignment="Right"
+                                 IsTabStop="False"
+                                 Focusable="False"
+                                 Width="135"
+                                 HorizontalAlignment="Center" />
+                        <Label x:Name="LblKg"
+                               Margin="140,-25,-46,0"
+                               Content="{x:Static resx:Resources.BasculaDeMateriaPrima_LblKG}"
+                               FontWeight="Normal"
+                               FontSize="16"
+                               Height="26"
+                               HorizontalAlignment="Center" />
+                    </StackPanel>
+                </GroupBox>
+                <Grid Margin="0,0,0,0"
+                      Grid.Column="0"
+                      Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100*"></RowDefinition>
+                        <RowDefinition Height="100*"></RowDefinition>
+                        <RowDefinition Height="100*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="100*" />
+                        <ColumnDefinition Width="42" />
+                        <ColumnDefinition Width="100*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="*"
+                           x:Name="LblPesoBrutoReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="2,0,0,9" />
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelPesoBruto}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="10,0,0,0" />
+                    <xctk:IntegerUpDown Name="txtPesoBruto"
+                                        AllowSpin="False"
+                                        ShowButtonSpinner="False"
+                                        FormatString="N0"
+                                        CultureInfo="en-US"
+                                        MaxLength="10"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Margin="0,6,1,6"
+                                        Width="Auto"
+                                        HorizontalAlignment="Stretch"
+                                        IsEnabled="True"
+                                        TextAlignment="Right"
+                                        ValueChanged="TxtPesoBruto_OnValueChanged"
+                                        PreviewTextInput="TxtPesoBruto_OnPreviewTextInput"
+                                        PreviewKeyDown="TxtPesos_OnPreviewKeyDown" />
+
+                    <Label Grid.Column="2"
+                           Grid.Row="0"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelKGs}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <Button x:Name="BtnCapturarPesoBruto"
+                            Grid.Column="3"
+                            Content="{x:Static resx:Resources.SalidaVentaTraspaso_btnCapturar}"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Left"
+                            IsEnabled="False"
+                            Click="BtnCapturarPesoBruto_OnClick" />
+                    <Label Content="*"
+                           x:Name="LblPesoTaraReq"
+                           VerticalAlignment="Center"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Style="{StaticResource labelRequerido}"
+                           Margin="2,0,0,9" />
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelPesoTara}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="10,0,0,0" />
+                    <xctk:IntegerUpDown Name="txtPesoTara"
+                                        AllowSpin="False"
+                                        ShowButtonSpinner="False"
+                                        FormatString="N0"
+                                        CultureInfo="en-US"
+                                        MaxLength="10"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Margin="0,6,1,6"
+                                        Width="Auto"
+                                        HorizontalAlignment="Stretch"
+                                        TextAlignment="Right"
+                                        IsEnabled="True"
+                                        PreviewTextInput="TxtPesoTara_OnPreviewTextInput"
+                                        PreviewKeyDown="TxtPesos_OnPreviewKeyDown" />
+                    <Label Grid.Column="2"
+                           Grid.Row="1"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelKGs}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <Button x:Name="BtnCapturarPesoTara"
+                            Grid.Column="3"
+                            Grid.Row="1"
+                            Content="{x:Static resx:Resources.SalidaVentaTraspaso_btnCapturar}"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Left"
+                            IsEnabled="False"
+                            Click="BtnCapturarPesoTara_OnClick" >
+                    </Button>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="2"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelPesoNeto}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="10,0,0,0" />
+                    <xctk:IntegerUpDown Name="txtPesoNeto"
+                                        AllowSpin="False"
+                                        ShowButtonSpinner="False"
+                                        FormatString="N0"
+                                        CultureInfo="en-US"
+                                        MaxLength="10"
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Margin="0,6,1,6"
+                                        Width="Auto"
+                                        HorizontalAlignment="Stretch"
+                                        TextAlignment="Right"
+                                        IsEnabled="False" />
+                    <Label Grid.Column="2"
+                           Grid.Row="2"
+                           Content="{x:Static resx:Resources.SalidaVentaTraspaso_labelKGs}"
+                           HorizontalAlignment="Left"
+                           Height="Auto"
+                           Width="Auto"
+                           Margin="0,0,0,0" />
+                    <CheckBox Name="chkGeneraFactura"  Content="{x:Static resx:Resources.SalidaVentaTraspaso_ChkGeneraFactura}"  IsEnabled="false" IsChecked="true"  Grid.Column="3" HorizontalAlignment="Left" Margin="0,6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80"/>
+                </Grid>
+
+            </Grid>
+
+
+        </Grid>
+        <Grid Margin="0,0,0,0"
+              Grid.Row="3"
+              Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150*" />
+
+                <ColumnDefinition Width="150*" />
+                <ColumnDefinition Width="150*" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BtnImprimirTicket"
+                    Grid.Column="3"
+                    Content="{x:Static resx:Resources.SalidaVentaTraspaso_btnImprimir}"
+                    Margin="0,0,0,0"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    Click="BtnImprimirTicket_OnClick" />
+            <Button x:Name="BtnGuardar"
+                    Grid.Column="4"
+                    Content="{x:Static resx:Resources.SalidaVentaTraspaso_btnGuardar}"
+                    Margin="0,0,0,0"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    IsEnabled="False"
+                    Click="BtnGuardar_OnClick" />
+            <Button x:Name="BtnCancelar"
+                    Grid.Column="5"
+                    Content="{x:Static resx:Resources.SalidaVentaTraspaso_btnCancelar}"
+                    Margin="0,0,0,0"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    IsEnabled="False"
+                    Click="BtnCancelar_OnClick" />
+            
+        </Grid>
+        <Canvas x:Name="cvLoading" Visibility="Visible" Grid.ColumnSpan="2" Grid.RowSpan="4">
+            <controles:PantallaEspera x:Name="ucCargando" Visibility="Hidden"/>
+        </Canvas>
+    </Grid>
+</vista:ControlBase>

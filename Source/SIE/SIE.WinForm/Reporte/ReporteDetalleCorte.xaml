@@ -1,0 +1,168 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Reporte.ReporteDetalleCorte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="150*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ReporteDetalleCorte_TituloVentana}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Height="Auto"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.RecepcionReporteVentaMuerte_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="150*" />
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="100*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0"
+                       Content="{x:Static resx:Resources.ReporteDetalledelCortelblOrganizacion}"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" />
+                <ComboBox x:Name="cmbOrganizacion"
+                          Grid.Row="0"
+                          Grid.Column="1"
+                          SelectedValuePath="OrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          Width="200"
+                          HorizontalAlignment="Left"
+                          TabIndex="1" SelectionChanged="CmbOrganizacion_OnSelectionChanged"/>
+                
+                <Label Grid.Column="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Grid.Column="2"
+                       Content="{x:Static resx:Resources.ReporteDetalledelCortelblFechaInicial}"
+                       VerticalAlignment="Center"
+                       Margin="8,0,0,0" />
+                <StackPanel Grid.Column="3"
+                            Width="Auto"
+                            KeyboardNavigation.IsTabStop="False"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+
+                    <DatePicker x:Name="DtpFechaInicial"
+                                ToolTip="Fecha inicio DD/MM/YYYY"
+                                KeyDown="Fechas_KeyDown"
+                                KeyUp="Fechas_KeyDown"
+                                Width="150"
+                                HorizontalAlignment="Left"
+                                KeyboardNavigation.TabIndex="0"
+                                LostFocus="DtpFechaInicial_LostFocus">
+                        <DatePicker.SelectedDate>
+                            <Binding Path="FechaInicial"
+                                     Mode="TwoWay"
+                                     UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </DatePicker.SelectedDate>
+                    </DatePicker>
+                </StackPanel>
+                
+
+                <Label Grid.Column="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Grid.Column="4"
+                       Content="{x:Static resx:Resources.ReporteDetalledelCortelblFechaFinal}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="8,0,0,0" />
+
+                <StackPanel Grid.Column="5"
+                            Width="Auto"
+                            KeyboardNavigation.IsTabStop="False"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+
+                    <DatePicker x:Name="DtpFechaFinal"
+                                ToolTip="Fecha Final DD/MM/YYYY"
+                                KeyDown="Fechas_KeyDown"
+                                KeyUp="Fechas_KeyDown"
+                                Width="150"
+                                HorizontalAlignment="Left"
+                                KeyboardNavigation.TabIndex="1"
+                                LostFocus="DtpFechaFinal_LostFocus">
+                        <DatePicker.SelectedDate>
+                            <Binding Path="FechaFinal"
+                                     Mode="TwoWay"
+                                     UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </DatePicker.SelectedDate>
+                    </DatePicker>
+                </StackPanel>
+                
+
+
+                <StackPanel  Name="spConsultar"
+                             Focusable="False"
+                             Grid.Row="1"
+                             Grid.Column="4" Grid.ColumnSpan="2"
+                             HorizontalAlignment="Right"
+                             Orientation="Horizontal"
+                             Margin="20,0,20,0">
+                    <Button Content="{x:Static resx:Resources.ReporteDetalleCorte_BtnImprimir}"
+                            Click="btnGenerar_Click"
+                            Margin="10 0 0 0">
+                        <Button.IsEnabled>
+                            <Binding Path="Valido"
+                                     Mode="TwoWay"
+                                     UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </Button.IsEnabled>
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.ReporteDetalleCorte_BtnCancelar}"
+                            Click="btnCancelar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:ControlBase>

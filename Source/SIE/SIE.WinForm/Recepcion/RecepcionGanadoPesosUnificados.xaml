@@ -1,0 +1,97 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Recepcion.RecepcionGanadoPesosUnificados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        Height="350"
+        Width="600"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Loaded="RecepcionGanadoPesosUnificadosLoaded"
+        Background="Black">
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>            
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"                          
+                          Margin="20 10 20 0"
+                          TextoTitulo="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Titulo}"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+        <GroupBox Grid.Column="0"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid Name="gridDatos"
+                          Height="150"
+                          ColumnWidth="*"
+                          ItemsSource="{Binding Path=PesoUnificadoInfo}"
+                          SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=EntradaGanado.FolioEntrada}"
+                                            Header="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Grid_FolioEntrada}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=EntradaGanado.OrganizacionOrigen}"
+                                            Header="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Grid_OrganizacionOrigen}" />
+                        <DataGridTemplateColumn Width="100"
+                                                Header="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Grid_PesoOrigen}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <xctk:DecimalUpDown Name="txtPesoBruto"
+                                                        LostFocus="txtPesoBruto_LostFocus"
+                                                        ValueChanged="dudPesoOrigenValueChanged"
+                                                        FormatString="N0"
+                                                        KeyDown="DecimalKeyDown"
+                                                        MaxLength="8"
+                                                        ShowButtonSpinner="False"
+                                                        AllowSpin="False"
+                                                        IsEnabled="{Binding Path=EntradaGanado.HabilitarOrigen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                        Value="{Binding Path=PesoOrigen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=EntradaGanado.PesoBruto}"
+                                            Header="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Grid_PesoBruto}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=EntradaGanado.PesoTara}"
+                                            Header="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Grid_PesoTara}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=EntradaGanado.PesoLlegada}"
+                                            Header="{x:Static resx:Resources.RecepcionGanadoPesosUnificados_Grid_PesoLlegada}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button Content="{x:Static resx:Resources.btnGuardar}" 
+                    Click="GuardarClick"/>
+            <Button Content="{x:Static resx:Resources.btnCancelar}"
+                    Click="CancelarClick"
+                    Margin="20 0 20 0" />
+        </StackPanel>
+    </Grid>
+</Vista:VistaBase>
+ 

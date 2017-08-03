@@ -1,0 +1,20 @@
+﻿<table id="Granos" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col"></th>
+        <th class="alineacionCentro" scope="col"></th>
+    </thead>
+    <tbody>
+        {#foreach $T.Granos as item}
+        <tr data-granoid="{$T.item.GranoID}">
+            <td class="tabs-right anchoColumnaBoxGrano">{$T.item.Grano}
+            </td>
+            <td class="tabs-right anchoColumnaTemplate">
+                <input type="number" min="0" max="9999999" id="txtGrano{$T.item.GranoID}" 
+                       class="alfanumerico grano anchoTextBoxGrano textoDerecha {$T.item.Clase}" 
+                       name="{$T.item.GranoID}" />
+                kgs
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

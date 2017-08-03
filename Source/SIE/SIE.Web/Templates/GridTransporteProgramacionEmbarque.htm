@@ -1,0 +1,64 @@
+﻿<table id="TransporteEmbarque" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroId}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroFolioEmbarque}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroTransportista}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroRuta}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroKilometros}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroCitaDescarga}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroFlete}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroGastoFijo}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroGastoVariable}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroDemora}</th>
+        <th class="alineacionCentro columnaGridTitulo columnaObservacionesProgramacion" scope="col">{$T.Recursos.cabeceroObservaciones}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroOpcion}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroOpcion}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.ListadoProgramacionTransporte as item}
+        <tr data-EmbarqueID={$T.item.EmbarqueID}
+            data-FolioEmbarque={$T.item.FolioEmbarque}
+            data-Transportista={$T.item.Proveedor.Descripcion}
+            data-Ruta={$T.item.ConfiguracionEmbarque.ConfiguracionEmbarqueDetalle.Descripcion}
+            data-Kilometros={$T.item.ConfiguracionEmbarque.ConfiguracionEmbarqueDetalle.Kilometros}
+            data-CitaDescarga={$T.item.FechaCitaDescargaString}
+            data-Flete={$T.item.Costos[0].Importe}
+            data-GastoFijo={$T.item.GastosFijos[0].Importe}
+            data-GastoVariable={$T.item.Costos[1].Importe}
+            data-Demora={$T.item.Costos[2].Importe}
+            data-Observacion={$T.item.Observaciones}
+            >
+            
+            <td class="alineacionCentro">{$T.item.EmbarqueID}
+            </td>
+            <td class="alineacionCentro">{$T.item.FolioEmbarque}
+            </td>
+            <td class="alineacionCentro">{$T.item.Proveedor.Descripcion}
+            </td>
+            <td class="alineacionCentro">{$T.item.ConfiguracionEmbarque.ConfiguracionEmbarqueDetalle.Descripcion}
+            </td>
+            <td class="alineacionCentro">{$T.item.ConfiguracionEmbarque.ConfiguracionEmbarqueDetalle.Kilometros}
+            </td>
+            <td class="alineacionCentro">{$T.item.FechaCitaDescargaString}
+            </td>
+            <td class="alineacionCentro">{$T.item.Costos[0].Importe}
+            </td>
+            <td class="alineacionCentro">{$T.item.GastosFijos[0].Importe}
+            </td>
+            <td class="alineacionCentro">{$T.item.Costos[1].Importe}
+            </td>
+            <td class="alineacionCentro">{$T.item.Costos[2].Importe}
+            </td>
+            <td class="alineacionCentro">{$T.item.Observaciones}
+            </td>
+            
+            <td class="alineacionCentro">
+                <a onClick="BtnEditarTransportes_OnClick('{$T.item.EmbarqueID}');" class="{$T.rolTransporteDatos ? '' : 'btn-disabled'}"><img src="../Images/pencil.png" class="imagen" /></a>
+            </td>
+            <td class="alineacionCentro">
+                <a onClick="Eliminar('{$T.item.EmbarqueID}',2)" class="{$T.rolTransporteDatos ? '' : 'btn-disabled'}"><img src="../Images/EmptyTrash.png" class="imagen" /></a>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

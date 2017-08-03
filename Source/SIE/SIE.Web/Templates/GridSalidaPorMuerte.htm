@@ -1,0 +1,31 @@
+﻿
+<table id="AretesMuertos" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderArete}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderAreteMetalico}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderCorral}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderFecha}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HeaderOpcion}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Aretes as item}
+        <tr data-Arete ={$T.item.Arete}>
+            <td class="alineacionCentro tabs-right columnaGridSalidaPorMuerte">{$T.item.Arete}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridSalidaPorMuerte">{$T.item.AreteMetalico}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridSalidaPorMuerte">{$T.item.CorralCodigo}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridSalidaPorMuerte">{$T.item.FechaRecoleccionString}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridSalidaPorMuerte">
+                 {#if $T.item.Arete == ''}
+                    <a href="SalidaPorMuerteSeleccion.aspx?muerteId={$T.item.MuerteId}&arete={$T.item.AreteMetalico}&corral={$T.item.CorralCodigo}"><img src="../Images/salidanecropsia.png"></a>
+                {#else} 
+                    <a href="SalidaPorMuerteSeleccion.aspx?muerteId={$T.item.MuerteId}&arete={$T.item.Arete}&corral={$T.item.CorralCodigo}"><img src="../Images/salidanecropsia.png"></a>
+                {#/if}
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

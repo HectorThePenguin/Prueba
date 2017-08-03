@@ -1,0 +1,472 @@
+﻿<Window x:Class="SIE.WinForm.Calidad.RegistrarChecklistAlmidonHeces"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+      xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      Height="700"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="1300"
+        WindowStartupLocation="CenterScreen" 
+        Background="Black" Margin="2"
+        WindowStyle="None" HorizontalAlignment="Center"
+      >
+    <Grid Margin="2"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="380"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="20 5 20 5"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_Titulo}"
+                          x:Name="UcTitulo" Height="Auto" Grid.ColumnSpan="3" Margin="0,0,0,5"/>
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.RegistrarProgramacionFletesInterna_GboDatosGenerales}"
+                  Width="auto"
+                  Margin="0,0,0,0"
+                  Grid.Row="1" >
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="330"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="0" Margin="-5,8,0,0" />
+                <Label Grid.Column="0" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblOrganizacion}"  
+                       HorizontalAlignment="Left" 
+                       Margin="0,10,0,10"/>
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido2"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="2" Margin="-5,8,0,0" />
+                <Label Grid.Column="2" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblOperadorCalidad}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Width="121"  
+                       Margin="0,10,0,10"/>
+                <StackPanel Name="SplAyudaAlmacenSalida"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Height="28"
+                            VerticalAlignment="Center"
+                            Margin="0,10,0,0"/>
+                <ComboBox Name="CboTipoMovimiento" 
+                          HorizontalAlignment="Left" 
+                          Margin="0,10,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="200"
+                          Grid.Column="3" Grid.Row="0"
+                          />
+                <Label Grid.Column="4" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblLaboratorista}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <TextBox Name="TxtLaboratorista"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="5"
+                             Width="120"
+                         />
+                <Label Grid.Column="6" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblFecha}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <TextBox Name="TxtFecha"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="7"
+                             Width="120"
+                         />
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GbFormulaMuestrear}"
+                  Width="auto"
+                  Margin="0,0,0,0"
+                  Grid.Row="2" >
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido3"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="0" Margin="-5,8,0,0" />
+                <Label Grid.Column="0" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblFechaRecepcion}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <ComboBox Name="CboFormula" 
+                          HorizontalAlignment="Left" 
+                          Margin="0,10,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="200"
+                          Grid.Column="1" Grid.Row="1"
+                          />
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido4"
+                       Style="{StaticResource labelRequerido}" Grid.Row="1"
+                           Grid.Column="0" Margin="-5,8,0,0" />
+                <Label Grid.Column="0" Grid.Row="1"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblFormula}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido5"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="2" Margin="-5,8,0,0" />
+                <Label Grid.Column="2" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblFechaMuestreo}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido6"
+                       Style="{StaticResource labelRequerido}" Grid.Row="1"
+                           Grid.Column="2" Margin="-5,8,0,0" />
+                <Label Grid.Column="2" Grid.Row="1"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblTipoGrano}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <ComboBox Name="CboTipoGrano"
+                          HorizontalAlignment="Left" 
+                          Margin="0,10,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="200"
+                          Grid.Column="3" Grid.Row="1"
+                          />
+                <Label
+                       Content="*"
+                       x:Name="lblDivisionRequerido7"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="4" Margin="-5,8,0,0" />
+                <Label Grid.Column="4" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblFechasAnalisis}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                <Button x:Name="BtnConsultarFactor"
+                        Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_BtnConsultarFactor}" Grid.Column="5" Grid.Row="1"
+                        HorizontalAlignment="Left" 
+                        Margin="0,10,0,0" 
+                        VerticalAlignment="Top"
+                        Width="150"
+                        />
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GbAnalisisMuestreo}"
+                  Width="auto"
+                  Margin="0,0,0,0"
+                  Grid.Row="3" >
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="200"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="45"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblCorral}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                        <StackPanel Name="SplAyudaCorral"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Height="28"
+                            VerticalAlignment="Center"
+                            Margin="0,10,0,0"/>
+                        <Label Grid.Column="2" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblPeso}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                        <TextBox Name="TxtPeso"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="3"
+                             Width="120"
+                         />
+                        <Label Grid.Column="4" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblLectura1}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                        <TextBox Name="TxtLectura1"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="5"
+                             Width="120"
+                         />
+                        <Label Grid.Column="6" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblLectura2}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                        <TextBox Name="TxtLectura2"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="7"
+                             Width="120"
+                         />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="900"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblObservaciones}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                        <TextBox Name="TxtObservaciones"
+                             MaxLength="255"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Width="800"
+                        />
+                        <Button x:Name="BtnAgregar"
+                        Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_BtnAgregar}" Grid.Column="2"
+                        HorizontalAlignment="Left" 
+                        Margin="0,10,0,0" 
+                        VerticalAlignment="Top"
+                        Width="100"
+                        />
+                    </Grid>
+                </Grid>
+                <DataGrid Name="GridFleteInternoDetalle"
+                  CanUserResizeColumns="False"
+                      IsTabStop="true"
+                      SelectionMode="Single"
+                      Margin="10,10,10,8" 
+                      Grid.Row="1"
+                      ItemsSource="{Binding Path=FleteInternoDetalleInfo}"
+                      >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=Proveedor.Descripcion}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderMuestraCorral}" 
+                                    KeyboardNavigation.TabNavigation="None"/>
+                        <DataGridTextColumn Width="140"
+                                    Binding="{Binding Path=MermaPermitidaDescripcion, StringFormat={}{0:n3}}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderPesoMuestraGR}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFADAE"/>
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                            <Setter Property="BorderThickness" Value="0"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=MermaPermitidaDescripcion, StringFormat={}{0:n3}}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderLectura1}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFADAE"/>
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                            <Setter Property="BorderThickness" Value="0"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=MermaPermitidaDescripcion, StringFormat={}{0:n3}}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderLectura2}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFADAE"/>
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                            <Setter Property="BorderThickness" Value="0"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=MermaPermitidaDescripcion, StringFormat={}{0:n3}}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderAlmidon1}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFADAE"/>
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                            <Setter Property="BorderThickness" Value="0"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="120"
+                                    Binding="{Binding Path=MermaPermitidaDescripcion, StringFormat={}{0:n3}}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderAlmidon2}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFADAE"/>
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                            <Setter Property="BorderThickness" Value="0"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="140"
+                                    Binding="{Binding Path=MermaPermitidaDescripcion, StringFormat={}{0:n2}}"
+                                    Header="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_GridHeaderAlmidonPromedio}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFADAE"/>
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                            <Setter Property="BorderThickness" Value="0"></Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="340"
+                                    Binding="{Binding Path=Observaciones}"
+                                    Header="{x:Static resx:Resources.RegistrarProgramacionFletesInterna_GridHeaderObservaciones}" 
+                                    KeyboardNavigation.TabNavigation="None"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="596"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_LblPromedioAlmidon}"  
+                       HorizontalAlignment="Right"
+                       Height="Auto" 
+                       Margin="0,10,0,10"/>
+                    <TextBox Name="TxtAlmidonPromedio"
+                             Grid.Row="0"
+                             Grid.Column="2"
+                             Width="140"
+                        />
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="900"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Name="CkbCerrado" Grid.Column="1"
+                Grid.Row="0"
+                Margin="15,0,0,5"
+                VerticalAlignment="Center"/>
+            <Label Name="ChkSalida" Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_ChkCerrado}" Grid.Column="1" Grid.Row="0"
+             Height="Auto" Margin="30,0,0,5" VerticalAlignment="Center"
+            />
+            <Button x:Name="BtnGuardar"
+                        Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_BtnGuardar}" Grid.Column="2"
+                        HorizontalAlignment="Left" 
+                        Margin="0,0,0,0" 
+                        VerticalAlignment="Center"
+                        Width="100"
+                        />
+            <Button x:Name="BtnCancelar"
+                        Content="{x:Static resx:Resources.RegistrarChecklistAlmidonHeces_BtnCancelar}" Grid.Column="3"
+                        HorizontalAlignment="Left" 
+                        Margin="0,0,0,0" 
+                        VerticalAlignment="Center"
+                        Width="100"
+                        />
+        </Grid>
+    </Grid>
+</Window>

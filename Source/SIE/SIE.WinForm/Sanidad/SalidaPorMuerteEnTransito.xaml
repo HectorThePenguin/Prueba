@@ -1,0 +1,254 @@
+﻿<Vista:ControlBase
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SIE.WinForm.Sanidad.SalidaPorMuerteEnTransito"
+                   Height="Auto" Loaded="SalidaPorMuerteEnTransito_OnLoaded" 
+                   Width="Auto">
+
+    <Vista:ControlBase.Resources>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20,20,20,10"
+          Background="White"
+          ScrollViewer.CanContentScroll="True" Height="Auto">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="349"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="2000*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20, 0, 20, 0"  
+                          TextoTitulo="{x:Static resx:Resources.SalidaGanadoTransito_Titulo}"
+                          VisibleCerrar="Hidden"
+                          x:Name="ucTitulo" Margin="2,25,0,341" Grid.RowSpan="2" Width="Auto">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  Margin="21,14,20,-73" 
+                  Width="Auto" Height="Auto">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_GbHeader}"/>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="41"/>
+                    <RowDefinition Height="54"/>
+                    <RowDefinition Height="67*"/>
+                    <RowDefinition Height="185*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*" />
+                    <ColumnDefinition Width="130*" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="202*" />
+                    <ColumnDefinition Width="181*" />
+                    <ColumnDefinition Width="188*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblCorral}" Grid.Row="0" Grid.Column="1" Height="Auto" Width="Auto" Margin="10,0,123,5" Padding="40,0,0,0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblLote}" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Height="Auto" Margin="0,17,0,0" HorizontalAlignment="Left" Width="Auto"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblTotalCabezas}"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" Height="Auto" Margin="0,13,0,0" HorizontalAlignment="Left" Width="Auto"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblPesoPromedio}"  Grid.Row="0" Grid.Column="5" VerticalAlignment="Center" Height="Auto" Margin="0,13,0,0" HorizontalAlignment="Left" Width="Auto"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_RbMuerte}"   Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="23" Width="Auto" Margin="50,0,0,8" Padding="0,4,0,0" Grid.Row="1"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_RbVenta}"  Grid.Column="2" Height="23" Width="Auto" Margin="-5,0,0,8" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblFecha}"  Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Height="Auto" Width="Auto" Margin="5,20,0,0" Padding="0,0,0,0" Grid.Row="1"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblNumCabezas}"  Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="23" Width="Auto" Margin="0,0,5,10" Grid.Row="1"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblImporte}"  Grid.Column="1" VerticalAlignment="Top" Height="28" Margin="30,16,0,0" Padding="20,4,0,0" Grid.Row="2" RenderTransformOrigin="0.343,0.464" HorizontalAlignment="Left" Width="61"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblProveedor}" Grid.Row="2" Grid.Column="3" VerticalAlignment="Top" Height="Auto" Margin="0,17,0,0" HorizontalAlignment="Left" Width="Auto"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblObservaciones}"  Grid.Column="1" Height="Auto" Grid.Row="3" RenderTransformOrigin="0.342,1.321" HorizontalAlignment="Left" Width="Auto" VerticalAlignment="Top" Margin="35,10,0,0" Padding="15,4,0,0"/>
+                <Label Content="{x:Static resx:Resources.SalidaGanadoTransito_LblCostoCorral}"  Grid.Column="4" Height="28" Grid.Row="3" RenderTransformOrigin="0.342,1.321" HorizontalAlignment="Left" Width="111" VerticalAlignment="Top" Margin="0,10,0,0"/>
+
+                <Label Content="*" Style="{StaticResource labelRequerido}" VerticalAlignment="Center" Margin="20,18,79,3" Padding="20,1,0,0" HorizontalAlignment="Left" Width="Auto" Grid.Column="1" Grid.Row="0" Height="Auto" />
+                <Label Content="*" Style="{StaticResource labelRequerido}" VerticalAlignment="Center" Margin="20,0,0,15" Padding="20,1,0,0" HorizontalAlignment="Left" Width="Auto" Grid.Column="1"  Grid.Row="2" Height="Auto" />
+                <Label Content="*" Style="{StaticResource labelRequerido}" VerticalAlignment="Center" Margin="-2,25,0,0" Padding="0,0,0,0" HorizontalAlignment="Left" Width="Auto" Grid.Column="3" Grid.Row="1" Height="19"  />
+                <Label Content="*" Style="{StaticResource labelRequerido}" VerticalAlignment="Center" Margin="18,13,0,167" Padding="20,1,0,0" HorizontalAlignment="Left" Width="Auto" Grid.Column="1" Grid.Row="3" Height="Auto" />
+
+                <ComboBox x:Name="cbCorrales"
+                         Grid.Row="0"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="4"
+                         HorizontalAlignment="Left"
+                         Width="145" SelectionChanged="CbCorrales_OnSelectionChanged"
+                         DisplayMemberPath = "Descripcion"
+                         SelectedValuePath = "CorralID"
+                         TabIndex="0" Margin="0,14,0,0" Height="Auto"/>
+                <TextBox x:Name="txtLote"
+                          Grid.Row="0"
+                          Grid.Column="3"
+                          Width="73"
+                          HorizontalAlignment="Left"
+                          TabIndex="0" Margin="75,15,0,0" Height="Auto" IsEnabled="False">
+                   
+                </TextBox>
+
+                <TextBox x:Name="txtTotalCabezas"
+                          Grid.Row="0"
+                          Grid.Column="4"
+                          Width="74"
+                          HorizontalAlignment="Left"
+                          TabIndex="0" Margin="100,14,0,1" Height="Auto" IsEnabled="False">
+
+
+                </TextBox>
+                <TextBox x:Name="txtPesoPromedio"
+                          Grid.Row="0"
+                          Grid.Column="5"
+                          Width="76"
+                          HorizontalAlignment="Left"
+                          TabIndex="0" Margin="112,14,0,1" Height="Auto" IsEnabled="False"/>
+                <RadioButton x:Name="RbMuerte"
+                         Grid.Row="1"
+                         Grid.Column="1" Checked="RbMuerte_OnChecked"
+                         TabIndex="0" Margin="100,0,10,9" Height="14" RenderTransformOrigin="3.438,0.471" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                    <RadioButton.IsChecked>
+                        <Binding Path="Muerte"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </RadioButton.IsChecked>
+                </RadioButton>
+                <RadioButton x:Name="RbVenta"
+                         Grid.Row="1"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="4"
+                         Checked="RbVenta_OnChecked"
+                         TabIndex="0" Margin="50,0,52,10" Height="14" RenderTransformOrigin="0.583,0.429" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="12">
+                    <RadioButton.IsChecked>
+                        <Binding Path="Venta"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </RadioButton.IsChecked>
+                </RadioButton>
+                <DatePicker x:Name="dtpFecha"
+                          Grid.Row="1"
+                          Grid.Column="3"
+                          Width="120"
+                          HorizontalAlignment="Left" IsEnabled="False"
+                          TabIndex="0" Margin="75,0,0,0" Height="29" VerticalAlignment="Bottom">
+                    <DatePicker.DisplayDate>
+                        <Binding Path="Fecha"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </DatePicker.DisplayDate>
+                </DatePicker>
+                <TextBox x:Name="txtNumCabezas"
+                          Grid.Row="1" 
+                          Grid.Column="4"
+                          Width="74"
+                          MaxLength="4"
+                          HorizontalAlignment="Left"
+                          PreviewKeyDown="TxtNumCabezas_OnPreviewKeyDown"
+                          PreviewTextInput="TxtNumCabezas_OnPreviewTextInput"
+                          TabIndex="0" Margin="100,0,0,6" Height="25" VerticalAlignment="Bottom" >
+                    <TextBox.Text>
+                        <Binding Path="NumCabezas"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Name="txtImporte"
+                          Grid.Row="2"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="4"
+                          MaxLength="7"
+                          Width="84"
+                          PreviewKeyDown="TxtImporte_OnPreviewKeyDown"
+                          PreviewTextInput="TxtImporte_OnPreviewTextInput"
+                          HorizontalAlignment="Left" IsEnabled="False"
+                          TabIndex="0" Margin="0,17,0,0" Height="25" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+              
+                </TextBox>
+                <TextBox x:Name="TxtObservacionesTextBox"
+                         Grid.Row="3"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="4"
+                         Width="350"
+                         HorizontalAlignment="Left" 
+                         BorderBrush="DarkGray"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         TabIndex="0" Margin="0,0,0,0" Height="143" VerticalAlignment="Top" >
+                    <TextBox.Text>
+                        <Binding Path="Observaciones"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <DataGrid x:Name="dgCostos"
+                          Grid.Row="3"
+                          Grid.Column="4"
+                          HorizontalAlignment="Left"
+                          HorizontalScrollBarVisibility="Disabled"
+                          ItemsSource="{Binding Path=SalidaPorMuerteEnTransitoInfo.Costos}"
+                          TabIndex="0" Margin="100,0,0,0" Height="143" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="335">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="220" Header="{x:Static resx:Resources.SalidaGanadoTransito_dgCosto}"  Binding="{Binding Path=Descripcion}" />
+                        <DataGridTextColumn Width="*" Header="{x:Static resx:Resources.SalidaGanadoTransito_dgImporte}" Binding="{Binding Path=Importe, StringFormat=N2}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="btnCancelar" Click="BtnCancelar_OnClick" Content="{x:Static resx:Resources.btnCancelar}" Margin="100,157,0,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="5" HorizontalAlignment="Left"/>
+                <Button x:Name="btnGuardar" Click="BtnGuardar_OnClick" Content="{x:Static resx:Resources.btnGuardar}" HorizontalAlignment="Left" Margin="0,157,95,0" Grid.Row="3" VerticalAlignment="Top" Width="80" Grid.Column="5"/>
+
+                <Controles:ControlAyuda x:Name="skAyudaClientes"
+						                    AnchoClave="60"
+						                    AnchoDescripcion="200" IsEnabled="False"
+						                    Grid.Column="3" AyudaConDatos="SkAyudaClientes_OnAyudaConDatos"
+						                    Grid.Row="2"
+                                            DataContext="{Binding Path=Cliente, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            TabIndex="1"
+                                            HorizontalAlignment="Left"
+                                            AceptaSoloNumeros="True"
+                                            ControlIndex="0"
+                                            Margin="75,16,0,21"
+                                            EsBindeable="True"
+                                            MaximoCaracteres="10"
+                                            EsAyudaSimple="False"
+                                            MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.SalidaGanadoTransito_SkAyudaClientes_MsgProveedorNoEncontrado}"
+                                            ConceptoBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_LeyendaBusqueda}"
+                                            TituloBusqueda="{x:Static resx:Resources.SalidaGanadoTransito_SkAyudaClientes_TituloBusqueda}"
+                                            MensajeAgregarBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Seleccionar }"
+                                            MensajeCerrarBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_SalirSinSeleccionar}"
+                                            EncabezadoClaveBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Grid_Clave}"
+                                            EncabezadoDescripcionBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Grid_Descripcion}"
+                                            MetodoInvocacion="Obtener_ActivoPorCodigoSAP"
+                                            MetodoInvocacionBusqueda="ObtenerActivosPorDescripcion"
+                                            CampoDescripcion="Descripcion"
+                                            CampoClave="CodigoSAP"
+                                            Grid.ColumnSpan="2" Width="308"
+                                            />
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Vista:ControlBase>

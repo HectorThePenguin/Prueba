@@ -1,0 +1,167 @@
+﻿<Window x:Class="SIE.WinForm.MateriaPrima.RegistrarHumedad"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Height="460"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        Background="Black"
+        Margin="2"
+        WindowStyle="None"
+        HorizontalAlignment="Center"
+        Loaded="RegistrarHumedad_OnLoaded"
+        KeyDown="RegistrarHumedad_OnKeyDown"
+        >
+    <Grid Margin="2"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="20 10 20 10"
+                          Margin="0,0,-85,0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.RegistrarHumedad_Titulo}"
+                          x:Name="UcTitulo"
+                          Height="Auto" />
+        <GroupBox Header="{x:Static resx:Resources.RegistrarHumedad_GbDatosHumedad}"
+                  Margin="10,0,-85,0"
+                  Grid.Row="1">
+            <Grid Margin="2,2,-2,2"
+                  Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="*"
+                                   x:Name="LblDivisionRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="-5,0,0,0" />
+                <Label Name="LblToneladas"
+                       Content="{x:Static resx:Resources.RegistrarHumedad_LblHumedad}"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+                <Label Content="*"
+                                   x:Name="LblDivisionRequerido2"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Margin="-5,0,0,0" />
+                <Label Name="LblImporte"
+                       Content="{x:Static resx:Resources.RegistrarHumedad_LblFecha}"
+                       Grid.Row="1"
+                       Grid.Column="0" />
+                <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <xctk:DecimalUpDown Name="TxtPorcentajeHumedad"
+                                                    AllowSpin="False"
+                                                    ShowButtonSpinner="False"
+                                                    Grid.Column="0"
+                                                    DefaultValue="0"
+                                                    FormatString="N2"
+                                                    Height="25"
+                                                    NumeroDecimal="True"
+                                                    HorizontalAlignment="Left"
+                                                    Width="148"
+                                                    MaxLength="4"
+                                                    CultureInfo="en-US"
+                                                    TabIndex="6"/>
+                    <Label Name="LblPorcentajeMerma"
+                                       Content="{x:Static resx:Resources.RegistrarHumedad_LblPorcentaje}"
+                                       Grid.Column="1" />
+                </Grid>
+                <DatePicker Name="DpFechaInicio"
+                            HorizontalAlignment="Left" 
+                            Grid.Column="1" 
+                            Grid.Row="1" 
+                            SelectedDateFormat="Short" 		            
+                            VerticalAlignment="Top"
+                            IsTodayHighlighted="True"
+		                    Margin="0,0,0,0"
+		                    SelectedDateChanged="DpFechaInicio_OnSelectedDateChanged"
+                            Focusable="False"
+                            DisplayDateStart="{x:Static sys:DateTime.Now}"
+                            />
+                <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="BtnAgregar"
+                        Content="{x:Static resx:Resources.RegistrarHumedad_BtnAgregar}"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="110"
+                        Click="BtnAgregar_OnClick"
+                        />
+                    <Button x:Name="BtnSalir"
+                        Content="{x:Static resx:Resources.RegistrarHumedad_BtnSalir}"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="110"
+                        Click="BtnSalir_OnClick"
+                        />
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="GridContratoHumedad"
+                  IsTabStop="true"
+                  SelectionMode="Single"
+                  Margin="10,10,-85,-126"
+                  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding PorcentajeHumedad, StringFormat=N2}"
+                                    Header="{x:Static resx:Resources.RegistrarHumedad_GridHeaderHumedad}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding FechaInicio, StringFormat='dd/MM/yyyy'}"
+                                    Header="{x:Static resx:Resources.RegistrarHumedad_GridHeaderFecha}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

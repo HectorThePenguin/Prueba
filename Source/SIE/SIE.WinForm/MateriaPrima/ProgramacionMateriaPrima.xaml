@@ -1,0 +1,97 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.MateriaPrima.ProgramacionMateriaPrima"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="Auto"
+        Width="Auto"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info" Loaded="ProgramacionMateriaPrima_OnLoaded">
+    
+    <Grid Margin="2"
+          Background="White"
+          ScrollViewer.CanContentScroll="True" Height="Auto" Width="Auto">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="48"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="71"></RowDefinition>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="34"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="34"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox  Grid.Column="1" Header="{x:Static resx:Resources.ProgramacionMateriaPrima_DatosGenerales}" Margin="10,2,0,-2" Grid.Row="1" Grid.RowSpan="4"/>
+
+        <Controles:Titulo Grid.Column="1"
+    		Grid.Row="0"
+    		Padding="20 0 20 0"
+    		VisibleCerrar="Hidden"
+    		TextoTitulo="{x:Static resx:Resources.ProgramacionMateriaPrima_Titulo}"
+    		x:Name="UcTitulo" Height="27" Margin="0,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static resx:Resources.BasculaMateriaPrima_Folio}" Grid.Column="1" HorizontalAlignment="Left" Margin="18,21,0,0" Grid.Row="1" VerticalAlignment="Top" Width="44"/>
+        <DataGrid Grid.Column="1" Margin="20,20,11,5" Grid.Row="2" x:Name="dgProductos" 
+    		SelectionMode="Single"
+    		ItemsSource="{Binding PedidoDetalleInfo}"
+    		IsSynchronizedWithCurrentItem="True" RenderTransformOrigin="0.829,0.815" Height="Auto">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Width="200*" Binding="{Binding Producto.ProductoDescripcion}" Header="{x:Static resx:Resources.ProgramacionMateriaPrima_dgProducto}"/>
+                <DataGridTextColumn Width="200*" Binding="{Binding CantidadSolicitada, StringFormat={}{0:n0} }" Header="{x:Static resx:Resources.ProgramacionMateriaPrima_dgCantidadSolicitada}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right"></Setter>
+                            <Setter Property="Padding" Value="3"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="200*" Binding="{Binding TotalCantidadProgramada, StringFormat={}{0:n0}}" Header="{x:Static resx:Resources.ProgramacionMateriaPrima_dgCantidadProgramada}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right"></Setter>
+                            <Setter Property="Padding" Value="3"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+    							CommandParameter="{Binding}"
+    							Click="BtnEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+    								Style="{StaticResource iconImage}"
+    								ToolTip="{x:Static resx:Resources.Grupo_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtObservaciones" Grid.Column="1" HorizontalAlignment="Stretch" MaxLength="255" Height="60" Margin="126,10,10,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" TabIndex="2"/>
+        <Label Content="{x:Static resx:Resources.ProgramacionMateriaPrima_lblObservaciones}" Grid.Column="1" HorizontalAlignment="Left" Margin="16,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="105" Height="28"/>
+        <Button x:Name="btnGuardar" Content="{x:Static resx:Resources.ProgramacionMateriaPrima_btnGuardar}" Grid.Column="1" Margin="0,9.75,101,0" Grid.Row="4" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" Click="btnGuardar_Click" TabIndex="3"/>
+        <StackPanel x:Name="SplAyudaPedidos"
+    		Grid.Column="1"
+    		Height="23"
+    		VerticalAlignment="Center" Margin="62,23,237,2" Grid.Row="1"/>
+        <Button x:Name="btnCancelar" Content="{x:Static resx:Resources.ProgramacionMateriaPrima_btnCancelar}" Grid.Column="1" Margin="0,9.75,11,0" Grid.Row="4" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" Click="btnCancelar_Click" TabIndex="4"/>
+        <!--<TextBox x:Name="txtFolio" MaxLength="9" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="61,24,0,0" Grid.Row="1" TextWrapping="Wrap" Width="29" PreviewTextInput="txtFolio_PreviewTextInput" VerticalAlignment="Top" KeyDown="txtFolio_KeyDown" TextChanged="TxtFolio_OnTextChanged"/>-->
+        <Label Content="*" HorizontalAlignment="Left" Margin="11,21,0,10" Grid.Row="1" Foreground="Red" RenderTransformOrigin="2,0.63" Grid.Column="1" Height="Auto" Width="14"/>
+        <Label Content="*" HorizontalAlignment="Left" Margin="3,9.75,0,31" Grid.Row="4" Foreground="Red" RenderTransformOrigin="2,0.63" Height="Auto" Grid.Column="1" Width="14"/>
+        <Label Content="*" HorizontalAlignment="Left" Margin="10,10,0,43" Grid.Row="3" Foreground="Red" RenderTransformOrigin="2,0.63" Grid.Column="1" Height="Auto" Width="14"/>
+    </Grid>
+</Vista:ControlBase>

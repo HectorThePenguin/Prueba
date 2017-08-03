@@ -1,0 +1,907 @@
+﻿<vista:ControlBase xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   mc:Ignorable="d"
+                   x:Class="SIE.WinForm.Manejo.CorteTransferenciaGanado"
+                   Height="890"
+                   Unloaded="Window_Closing"
+                   
+                   Width="Auto">
+    <Grid Margin="20,19,20,336"
+          Background="White"
+          x:Name="frmCorteTransferenciaGanado"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="386*" />
+            <ColumnDefinition Width="404*" />
+            <ColumnDefinition Width="386*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*" />
+            <RowDefinition Height="466*" />
+            <RowDefinition Height="17*" />
+
+        </Grid.RowDefinitions>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <StackPanel HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Height="0"
+                    Width="0" />
+        <controles:Titulo Grid.Row="0"
+                          Padding="80 0 80 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.CorteTransferenciaGanado_Titulo}"
+                          x:Name="ucTitulo"
+                          Grid.ColumnSpan="3"
+                          Grid.Column="0"
+                          Loaded="ucTitulo_Loaded" />
+
+        <GroupBox  Grid.Row="1"
+                   Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdDatosCorralGanado}"
+                   Height="383"
+                   HorizontalAlignment="Left"
+                   Margin="80,6,0,0"
+                   x:Name="gpbDatosCorralGanadoTransferencia"
+                   VerticalAlignment="Top"
+                   Width="300"
+                   FontFamily="Arial Narrow"
+                   Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="28" />
+                    <RowDefinition Height="27*" />
+                    <RowDefinition Height="28*" />
+                    <RowDefinition Height="26*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="74*" />
+                    <ColumnDefinition Width="36*" />
+                    <ColumnDefinition Width="17*" />
+                    <ColumnDefinition Width="109*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Content="*"
+                       x:Name="LblIndividualRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.ColumnSpan="2"
+                       Margin="-6,0,27,0" />
+                <Label x:Name="lblNoIndividual"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblNoIndividual}"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalAlignment="Right"
+                       Width="111"
+                       Margin="0,0,23,0" />
+                <TextBox x:Name="txtNoIndividual"
+                         MaxLength="15"
+                         TabIndex="1"
+                         ContextMenu="{x:Null}"
+                         Width="126"
+                         Grid.Column="2"
+                         Grid.Row="0"
+                         Grid.ColumnSpan="2"
+                         Margin="0,3"
+                         KeyDown="txtNoIndividual_KeyDown"
+                         PreviewTextInput="txtNoIndividual_PreviewTextInput"
+                         TextChanged="txtNoIndividual_TextChanged"
+                         KeyUp="txtNoIndividual_KeyUp" />
+                <Label Grid.Row="1"
+                       Content="*"
+                       x:Name="LblMetalicoRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.ColumnSpan="2"
+                       Margin="-6,0,27,0" />
+                <Label x:Name="lblAreteMetalico"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblAreteTestigo}"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Grid.ColumnSpan="2" />
+                <TextBox x:Name="txtAreteMetalico"
+                         MaxLength="15"
+                         TabIndex="2"
+                         Grid.Column="2"
+                         Grid.Row="1"
+                         Width="126"
+                         Grid.ColumnSpan="2"
+                         Margin="0,3"
+                         IsEnabled="false"
+                         KeyDown="txtAreteMetalico_KeyDown"
+                         PreviewTextInput="txtNoIndividual_PreviewTextInput"
+                         TextChanged="txtNoIndividual_TextChanged"
+                         KeyUp="txtNoIndividual_KeyUp" />
+                <Label Grid.Row="2"
+                       Content="*"
+                       x:Name="LblSexoRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Margin="-6,2,6,29"
+                       RenderTransformOrigin="0.477,1.396"
+                       Grid.RowSpan="2" />
+                <Label  x:Name="lblSexo"
+                        Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblSexo}"
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2" />
+                <ComboBox x:Name="cboSexo"
+                          TabIndex="3"
+                          ItemsSource="{Binding}"
+                          Grid.Column="2"
+                          Grid.Row="2"
+                          Grid.ColumnSpan="2"
+                          Margin="0,2"
+                          SelectionChanged="cboSexo_SelectionChanged" />
+                <Label Content="*"
+                       x:Name="lblCalidadRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="3"
+                       Margin="-6,1,6,30"
+                       Grid.RowSpan="2" />
+                <Label x:Name="lblCalidad"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblCalidad}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="0,1"
+                       Grid.ColumnSpan="2" />
+                <ComboBox x:Name="cboCalidad"
+                          TabIndex="4"
+                          Grid.Column="2"
+                          Grid.Row="3"
+                          SelectedValuePath="CalidadGanadoID"
+                          DisplayMemberPath="Descripcion"
+                          ItemsSource="{Binding}"
+                          SelectedIndex="0"
+                          IsSynchronizedWithCurrentItem="True"
+                          Grid.ColumnSpan="2"
+                          Margin="0,3,0,1" />
+                <Label x:Name="lblCausaRechazo"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblCausaRechazo}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="0,3,0,24"
+                       Grid.ColumnSpan="2"
+                       Grid.RowSpan="2" />
+                <ComboBox x:Name="cboCausaRechazo"
+                          TabIndex="5"
+                          Grid.Column="2"
+                          Grid.Row="4"
+                          SelectedValuePath="CausaRechazoID"
+                          DisplayMemberPath="Descripcion"
+                          ItemsSource="{Binding}"
+                          Grid.ColumnSpan="2"
+                          Margin="0,5,0,26"
+                          Grid.RowSpan="2" />
+                <Label Content="*"
+                       x:Name="LblPesoCorteRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="6"
+                       Margin="-6,1,6,30"
+                       Grid.RowSpan="2" />
+                <Label x:Name="lblPesoCorte"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblPesoCorte}"
+                       Grid.Column="0"
+                       Grid.Row="6"
+                       Grid.ColumnSpan="2" />
+                <TextBox x:Name="txtPesoCorte"
+                         TabIndex="6"
+                         Width="126"
+                         MaxLength="4"
+                         Grid.Column="2"
+                         Grid.Row="6"
+                         Margin="0,3"
+                         Grid.ColumnSpan="2"
+                         PreviewTextInput="txtPesoCorte_PreviewTextInput"
+                         GotFocus="txtPesoCorte_GotFocus"
+                         KeyDown="txtPesoCorte_KeyDown" />
+                <Label Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblTipoGanado}"
+                       Grid.Row="7"
+                       Grid.Column="0"
+                       Margin="0,1"
+                       Grid.ColumnSpan="2" />
+                <ComboBox x:Name="cboTipoGanado"
+                          TabIndex="7"
+                          Grid.Column="2"
+                          Grid.Row="7"
+                          SelectedValuePath="TipoGanadoID"
+                          DisplayMemberPath="Descripcion"
+                          ItemsSource="{Binding}"
+                          Grid.ColumnSpan="2"
+                          Margin="0,3" />
+                <Label Content="*"
+                       x:Name="lblClasificacionRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="8"
+                       Margin="-6,2,6,29"
+                       Grid.RowSpan="2" />
+                <Label x:Name="lblClasificacion"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblClasificacion}"
+                       Grid.Row="8"
+                       Grid.Column="0"
+                       Margin="0,1,0,0"
+                       Grid.ColumnSpan="2" />
+                <ComboBox x:Name="cboClasificacion"
+                          TabIndex="8"
+                          Grid.Column="2"
+                          Grid.Row="8"
+                          SelectedValuePath="ClasificacionGanadoID"
+                          DisplayMemberPath="Descripcion"
+                          ItemsSource="{Binding}"
+                          Grid.ColumnSpan="2"
+                          Margin="0,3,0,2" />
+                <Label x:Name="lblCorralOrigen"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblCorralOrigen}"
+                       Grid.Column="0"
+                       Grid.Row="9"
+                       Margin="0,1"
+                       Grid.ColumnSpan="2" />
+                <TextBox x:Name="txtCorralOrigen"
+                         TabIndex="9"
+                         Width="126"
+                         Grid.Column="2"
+                         Grid.Row="9"
+                         Grid.ColumnSpan="2"
+                         Margin="0,4,0,3"
+                         Height="Auto"
+                         MaxLength="10" />
+                <Label Content="*"
+                       x:Name="lblCorralDestinoRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="10"
+                       Margin="-6,2,6,29"
+                       Grid.RowSpan="2" />
+                <Label x:Name="lblCorralDestino"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblCorralDestino}"
+                       Grid.Column="0"
+                       Grid.Row="10"
+                       Grid.ColumnSpan="2" />
+                <TextBox Name="txtCorralDestino"
+                         MaxLength="10"
+                         TabIndex="10"
+                         Width="126"
+                         Grid.Column="2"
+                         Grid.Row="10"
+                         Grid.ColumnSpan="2"
+                         Margin="0,3,0,1"
+                         Height="Auto"
+                         Visibility="Hidden"
+                         KeyDown="txtCorralDestino_KeyDown"
+                         PreviewTextInput="txtCorralDestino_PreviewTextInput" />
+                <ComboBox x:Name="cboCorralDestino"
+                          TabIndex="13"
+                          Grid.Column="2"
+                          Grid.Row="10"
+                          Grid.ColumnSpan="2"
+                          ItemsSource="{Binding}"
+                          DisplayMemberPath="Codigo"
+                          SelectedValuePath="CorralID"
+                          Width="155"
+                          HorizontalAlignment="Left"
+                          Margin="0,3,0,2"
+                          Height="Auto" />
+                <Label Content="*"
+                       x:Name="lblTemperaturaRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.Row="11"
+                       Margin="-6,2,6,-3" />
+                <Label x:Name="lblTemperatura"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblTemperatura}"
+                       Grid.Column="0"
+                       Grid.Row="11"
+                       Margin="0,1"
+                       Grid.ColumnSpan="2" />
+                <TextBox x:Name="txtTemperatura"
+                         MaxLength="4"
+                         TabIndex="11"
+                         Grid.Column="2"
+                         Grid.Row="11"
+                         Margin="0,0,0,4"
+                         Width="100"
+                         Grid.ColumnSpan="2"
+                         Height="21"
+                         VerticalAlignment="Bottom"
+                         PreviewTextInput="txtTemperatura_PreviewTextInput"
+                         PreviewKeyDown="txtTemperatura_PreviewKeyDown" />
+                <Label x:Name="lblC"
+                       Content="{x:Static resx:Resources.CorteGanado_lblC}"
+                       Grid.Column="3"
+                       Grid.Row="11"
+                       HorizontalAlignment="Right"
+                       Margin="0,2,-2,0"
+                       RenderTransformOrigin="1.628,0.42" />
+
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1"
+                  Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdOtrosDatosGando}"
+                  Height="69"
+                  HorizontalAlignment="Left"
+                  Margin="80,392,0,0"
+                  x:Name="gpbOtrosDatosGanado"
+                  VerticalAlignment="Top"
+                  Width="300"
+                  FontFamily="Arial Narrow"
+                  Grid.ColumnSpan="2">
+            <Grid Margin="0,0,10,1"
+                  RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="0.543" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="121" />
+                </Grid.ColumnDefinitions>
+                <Label Content="*"
+                       x:Name="lblPaletasRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Margin="-6,10,6,-19" />
+                <Label x:Name="lblPaletas"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblPaletas}"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <ComboBox x:Name="cboPaletas"
+                          Grid.Row="0"
+                          TabIndex="12"
+                          ItemsSource="{Binding}"
+                          SelectedValuePath="Key"
+                          DisplayMemberPath="Value"
+                          Margin="136,12,-9,12"
+                          FontFamily="Arial Narrow"
+                          Grid.ColumnSpan="2" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1"
+                  Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdImplantacion}"
+                  Height="276"
+                  HorizontalAlignment="Left"
+                  Margin="14,6,0,0"
+                  x:Name="gpbImplementacion"
+                  VerticalAlignment="Top"
+                  Width="372"
+                  Grid.Column="1"
+                  FontFamily="Arial Narrow">
+            <Grid ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                  Margin="0,0,0,8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="90*" />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140*" />
+                    <ColumnDefinition Width="160*" />
+                </Grid.ColumnDefinitions>
+                <Label Content="*"
+                       x:Name="lblImplantadorRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       Margin="-6,6,6,239"
+                       Grid.RowSpan="2" />
+                <Label x:Name="lblImplantador"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblImplantador}"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+                <ComboBox x:Name="cboImplantador"
+                          TabIndex="13"
+                          Grid.Row="0"
+                          ItemsSource="{Binding}"
+                          DisplayMemberPath="NombreCompleto"
+                          SelectedValuePath="OperadorID"
+                          Grid.ColumnSpan="2"
+                          Margin="92,7,11,4"
+                          Height="Auto" />
+                <Button x:Name="btnMedicamentoEnfermeria"
+                        Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblMedicamentoEnfermeria}"
+                        TabIndex="17"
+                        Width="Auto"
+                        Grid.Column="0"
+                        Margin="10,118,40,55"
+                        RenderTransformOrigin="0.928,0.461"
+                        Height="Auto"
+                        Grid.Row="1"
+                        Click="btnMedicamentoEnfermeria_Click" />
+                <DataGrid x:Name="dgTratamientos"
+                          CanUserResizeColumns="False"
+                          Width="191"
+                          Grid.Row="1"
+                          IsTabStop="true"
+                          HorizontalAlignment="Center"
+                          Margin="123,2,11,11"
+                          Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static resx:Resources.CorteGanado_Grid_ColumnaIdTratamiento}"
+                                            Binding="{Binding Descripcion}"
+                                            Width="115" />
+
+
+                        <DataGridTemplateColumn  Header="{x:Static resx:Resources.CorteGanado_Grid_ColumnaOpcion}"
+                                                 Width="65">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <CheckBox x:Name="checkTratamiento"
+                                              IsChecked="{Binding Seleccionado}"
+                                              IsEnabled="{Binding Habilitado}"
+                                              HorizontalAlignment="Center"
+                                              Checked="checkTratamiento_checked"
+                                              Unchecked="checkTratamiento_unchecked" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label x:Name="lblTratamientoInicial"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_TratamientoInicialAplicado}"
+                       HorizontalAlignment="Left"
+                       Margin="11,58,0,0"
+                       Grid.Row="1"
+                       VerticalAlignment="Top"
+                       Foreground="Red"
+                       Width="112"
+                       Height="44"
+                       VerticalContentAlignment="Center"
+                       FontSize="13">
+                    <Label.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextWrapping"
+                                    Value="Wrap" />
+                        </Style>
+                    </Label.Resources>
+                </Label>
+                <Image x:Name="imgTratamientoInicial"
+                       Margin="36,15,77,142"
+                       Grid.Row="1"
+                       Stretch="Fill"
+                       Source="../Imagenes/icon_pills-5-icon2.png" />
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdDatosCorte}"
+                  Height="175"
+                  HorizontalAlignment="Left"
+                  Margin="20,285,0,0"
+                  x:Name="gpbDatosCorte"
+                  VerticalAlignment="Top"
+                  Width="372"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  FontFamily="Arial Narrow"
+                  RenderTransformOrigin="0.497,0.561">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45*" />
+
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140*" />
+                        <ColumnDefinition Width="160*" />
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblFechaCorte"
+                           Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblFechaCorte}"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Margin="2,0,172,18" />
+                    <DatePicker x:Name="dtpFechaCorte"
+                                Style="{StaticResource ResourceKey=dtp}"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Height="Auto"
+                                Margin="7,-3,12,18" />
+                </Grid>
+                <Grid Grid.Column="0"
+                      Margin="0,25,0,20"
+                      Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*" />
+                        <ColumnDefinition Width="123*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="31*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+
+                    <GroupBox Height="117"
+                              HorizontalAlignment="Left"
+                              Margin="8,6,0,-14"
+                              x:Name="gbTotales"
+                              VerticalAlignment="Top"
+                              Width="315"
+                              Grid.RowSpan="2"
+                              Grid.ColumnSpan="2">
+                        <Grid Margin="-4,8,-11,7">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="167*" />
+                                <ColumnDefinition Width="143*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*" />
+                                <RowDefinition Height="30*" />
+                                <RowDefinition Height="30*" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="lblTotal"
+                                   Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblPorRecepcionar}"
+                                   HorizontalAlignment="Left"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   Height="Auto"
+                                   Width="165"
+                                   Margin="0,2,0,-2" />
+
+                            <Label x:Name="lblProgramadasCorte"
+                                   Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblTotalEnviados}"
+                                   HorizontalAlignment="Left"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   Height="Auto"
+                                   Width="168"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0,2,0,30"
+                                   Grid.RowSpan="2" />
+
+                            <Label x:Name="lblTotalCortados"
+                                   Content=""
+                                   HorizontalAlignment="Center"
+                                   Background="Brown"
+                                   Width="100"
+                                   HorizontalContentAlignment="Center"
+                                   Foreground="White"
+                                   Grid.Row="1"
+                                   RenderTransformOrigin="1.01,0.444"
+                                   Height="Auto"
+                                   Grid.Column="2"
+                                   Margin="19,0,24,8" />
+
+                            <Label x:Name="lblTotalCabezas"
+                                   Content=""
+                                   HorizontalAlignment="Center"
+                                   Background="Brown"
+                                   Width="100"
+                                   HorizontalContentAlignment="Center"
+                                   Foreground="White"
+                                   Height="Auto"
+                                   Grid.Column="2"
+                                   Margin="19,0,24,8" />
+
+
+                            <Label x:Name="lblTotalCortadas"
+                                   Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblRecepcionados}"
+                                   HorizontalAlignment="Left"
+                                   Grid.Column="1"
+                                   Grid.Row="1"
+                                   Height="Auto"
+                                   Width="120"
+                                   Margin="0,2,0,30"
+                                   Grid.RowSpan="2" />
+                            <Label x:Name="lblTotalPorCortar"
+                                   Content=""
+                                   HorizontalAlignment="Center"
+                                   Background="Brown"
+                                   Width="100"
+                                   Grid.Row="2"
+                                   HorizontalContentAlignment="Center"
+                                   Foreground="White"
+                                   Height="Auto"
+                                   Grid.Column="2"
+                                   Margin="19,0,24,8" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+
+
+        </GroupBox>
+
+
+        <GroupBox Grid.Row="1"
+                  Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdGenerales}"
+                  Height="222"
+                  HorizontalAlignment="Left"
+                  Margin="0,6,0,0"
+                  x:Name="gpbGenerales"
+                  VerticalAlignment="Top"
+                  Width="310"
+                  Grid.Column="2"
+                  FontFamily="Arial Narrow"
+                  RenderTransformOrigin="0.481,0.584">
+            <Grid Margin="0,0,0,78">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="47*" />
+                    <RowDefinition Height="75*" />
+                    <RowDefinition Height="63*" />
+                    <RowDefinition Height="38*" />
+                    <RowDefinition Height="7*" />
+                    <RowDefinition Height="94*" />
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="69*" />
+                    <ColumnDefinition Width="17*" />
+                    <ColumnDefinition Width="55*" />
+                    <ColumnDefinition Width="161*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblFechaRecepcion"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblFechaRecepcion}"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Height="Auto"
+                       Margin="0,6,0,14"
+                       Grid.ColumnSpan="3"
+                       Grid.RowSpan="2" />
+                <DatePicker x:Name="dtpFechaRecepcion"
+                            Style="{StaticResource ResourceKey=dtp}"
+                            Grid.Column="3"
+                            Grid.Row="0"
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="0,7,6,12"
+                            Grid.RowSpan="2" />
+                <Label x:Name="lblOrigen"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblOrigen}"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       Height="Auto"
+                       Margin="0,20,0,6"
+                       Grid.ColumnSpan="3"
+                       Grid.RowSpan="2" />
+                <TextBox x:Name="txtOrigen"
+                         AcceptsReturn="True"
+                         Height="Auto"
+                         Width="212"
+                         Grid.Row="1"
+                         Margin="15,24,0,6"
+                         Grid.ColumnSpan="3"
+                         MaxLength="255"
+                         Grid.Column="1"
+                         Grid.RowSpan="2" />
+                <Label x:Name="lblProveedor"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblProveedor}"
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       Height="Auto"
+                       Margin="0,3,0,27"
+                       Grid.ColumnSpan="3"
+                       Grid.RowSpan="3" />
+                <TextBox x:Name="txtProveedor"
+                         Width="212"
+                         Grid.Row="3"
+                         Height="Auto"
+                         Margin="15,5,0,25"
+                         Grid.ColumnSpan="3"
+                         Grid.Column="1"
+                         Grid.RowSpan="3" />
+                <Separator x:Name="sprSeparador"
+                           Style="{StaticResource ResourceKey=spt}"
+                           Grid.Column="0"
+                           Grid.Row="5"
+                           Grid.ColumnSpan="4"
+                           Margin="-1,47,1,-23" />
+
+                <Label x:Name="lblPartidasMetafilaxia"
+                       Content=""
+                       Style="{StaticResource ResourceKey=informacionEtiquetaRojo}"
+                       HorizontalAlignment="Right"
+                       Grid.Row="5"
+                       Height="28"
+                       Margin="0,0.037,8,22.963"
+                       Width="290"
+                       Grid.ColumnSpan="4" />
+                <Label x:Name="lblObservaciones"
+                       Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblObservaciones}"
+                       Grid.Column="0"
+                       Grid.Row="5"
+                       Height="Auto"
+                       Margin="-1,51,1,-38"
+                       Grid.ColumnSpan="3" />
+                <TextBox x:Name="txtObservaciones"
+                         Height="Auto"
+                         MaxLength="255"
+                         TabIndex="14"
+                         Width="291"
+                         Grid.Row="5"
+                         Margin="5,74,0,-77"
+                         Grid.ColumnSpan="4"
+                         TextWrapping="Wrap" />
+                <Label Content="{x:Static resx:Resources.CorteTransferenciaGanado_lblNoPartida}"
+                       HorizontalAlignment="Left"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       VerticalAlignment="Top"
+                       Width="107"
+                       Grid.ColumnSpan="3"
+                       Height="32"
+                       Margin="0,18,0,-14" />
+                <TextBox x:Name="txtNoPartida"
+                         HorizontalAlignment="Left"
+                         Height="23"
+                         Margin="15,22,0,-9"
+                         Grid.Row="5"
+                         TextWrapping="Wrap"
+                         VerticalAlignment="Top"
+                         Width="157"
+                         Grid.ColumnSpan="3"
+                         Grid.Column="1" />
+
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox Grid.Row="1"
+                  Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdDisplayBascula}"
+                  Height="95"
+                  HorizontalAlignment="Left"
+                  Margin="1,228,0,0"
+                  x:Name="gpbDisplayBascula"
+                  VerticalAlignment="Top"
+                  Width="310"
+                  Grid.Column="2"
+                  FontFamily="Arial Narrow">
+            <Grid HorizontalAlignment="Left"
+                  Width="302">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*" />
+                    <ColumnDefinition Width="119*" />
+                    <ColumnDefinition Width="21*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="10,2,0,8"
+                            Grid.ColumnSpan="3">
+                    <TextBox x:Name="txtDisplayPeso"
+                             IsReadOnly="True"
+                             Margin="0,5,0,0"
+                             Height="53"
+                             Panel.ZIndex="-1"
+                             FontSize="36"
+                             Background="Black"
+                             Foreground="Red"
+                             TextAlignment="Right"
+                             IsTabStop="False"
+                             Focusable="False"
+                             Width="216" />
+                    <Button Name="BtnLeerPeso" ToolTip="{x:Static resx:Resources.CorteTransferenciaGanado_Tt_btnActualizarPeso}" Width="32" Height="32"  Click="BtnLeerPeso_Click_1" HorizontalAlignment="Left" Margin="252,-50,0,0" Background="White" IsEnabled="false">
+                        <Image
+                    	HorizontalAlignment="Left"
+                    	Width="25"
+                    	Height="25"
+                    	Source="../Imagenes/updatered.ico"/>
+                    </Button>
+                   
+
+
+                    <Label x:Name="lblKG"
+                           Margin="221,-26,34,0"
+                           Content="{x:Static resx:Resources.RecepcionGanado_DisplayKG}"
+                           FontWeight="Normal"
+                           FontSize="16"
+                           Height="26" />
+
+                </StackPanel>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1"
+                  Header="{x:Static resx:Resources.CorteTransferenciaGanado_grdDisplayTemperatura}"
+                  Height="95"
+                  HorizontalAlignment="Left"
+                  Margin="1,328,0,0"
+                  x:Name="DisplayTemperatura"
+                  VerticalAlignment="Top"
+                  Width="310"
+                  Grid.Column="2"
+                  FontFamily="Arial Narrow">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="39*" />
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="10,0,0,0">
+
+                    <TextBox x:Name="txtDisplayTemperatura"
+                             IsReadOnly="True"
+                             Margin="0,5,0,0"
+                             Height="56"
+                             Panel.ZIndex="-1"
+                             FontSize="36"
+                             Background="Black"
+                             Foreground="Red"
+                             TextAlignment="Right"
+                             IsTabStop="False"
+                             Focusable="False"
+                             Width="216" />
+
+                    <Label x:Name="lblTemperaturaDisplay"
+                           Margin="221,-26,0,0"
+                           Content="{x:Static resx:Resources.CorteGanado_lblCo}"
+                           FontWeight="Normal"
+                           FontSize="16"
+                           Height="26"
+                           HorizontalAlignment="Left"
+                           Width="62" />
+                    <Button Name="BtnLeerTemperatura" ToolTip="{x:Static resx:Resources.CorteTransferenciaGanado_Tt_btnActualizarTemperatura}" Width="32" Height="32"  Click="BtnLeerTempera_Click_1" HorizontalAlignment="Left" Margin="252,-50,0,0" Background="White" IsEnabled="False">
+                        <Image
+                    	HorizontalAlignment="Left"
+                    	Width="25"
+                    	Height="25"
+                    	Source="../Imagenes/updatered.ico"/>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1"
+                  Height="42"
+                  HorizontalAlignment="Right"
+                  Margin="0,421,138,3"
+                  x:Name="gbBotones"
+                  VerticalAlignment="Center"
+                  Width="309"
+                  Grid.Column="1"
+                  RenderTransformOrigin="0.498,0.465"
+                  BorderThickness="0"
+                  ClipToBounds="True"
+                  Grid.ColumnSpan="2" />
+        <Grid Margin="0,408,15,24"
+              HorizontalAlignment="Right"
+              Width="306"
+              Grid.Column="2"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*" />
+            </Grid.RowDefinitions>
+            <Button x:Name="btnGuardar"
+                    TabIndex="15"
+                    Content="{x:Static resx:Resources.btnGuardar}"
+                    Margin="0,26,182,-16"
+                    Width="80"
+                    HorizontalAlignment="Right"
+                    Click="btnGuardar_Click" />
+            <Button x:Name="btnCancelar"
+                    TabIndex="16"
+                    IsTabStop="true"
+                    Content="{x:Static resx:Resources.btnCancelar}"
+                    HorizontalAlignment="Right"
+                    Margin="0,26,86,-16"
+                    Click="btnCancelar_Click" />
+        </Grid>
+    </Grid>
+
+
+
+</vista:ControlBase>

@@ -1,0 +1,2 @@
+INSERT INTO TipoFlete (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Libre Abordo', 1, GETDATE(), 1)
+INSERT INTO TipoFlete (Descripcion, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Pago en Ganadera', 1, GETDATE(), 1)

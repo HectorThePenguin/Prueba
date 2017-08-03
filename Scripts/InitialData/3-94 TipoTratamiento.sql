@@ -1,0 +1,5 @@
+INSERT INTO TipoTratamiento (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Corte', 1, GETDATE(), 1)
+INSERT INTO TipoTratamiento (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Reimplante', 1, GETDATE(), 1)
+INSERT INTO TipoTratamiento (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Arete', 1, GETDATE(), 1)
+INSERT INTO TipoTratamiento (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Enfermeria', 1, GETDATE(), 1)
+INSERT INTO TipoTratamiento (Descripcion,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Enfermeria al corte', 1, GETDATE(), 1)

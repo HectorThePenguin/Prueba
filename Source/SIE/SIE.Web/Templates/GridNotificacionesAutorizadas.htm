@@ -1,0 +1,36 @@
+﻿<table id="GridNotificacionesAutorizadas" class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Ticket}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Fecha}</th>
+			<th class="alineacionCentro" scope="col">{$T.Recursos.Producto}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Proveedor}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.VerBoleta}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#foreach $T.Notifiaciones as item}
+        <tr>
+            <td class="alineacionCentro">
+                {$T.item.Folio}
+            </td>
+            <td class="alineacionCentro">
+                {$T.item.Fecha}
+            </td>
+			<td class="alineacionCentro">
+                {$T.item.Producto}
+            </td>
+            <td class="alineacionCentro">
+                {$T.item.Proveedor}
+            </td>
+            <td class="alineacionCentro">
+                <a  href="../Administracion/AutorizarBoletaRecepcion.aspx?folioEntrada={$T.item.Folio}">
+                    <i>
+                        <img src="{$T.item.Imagen}" style="width:32px;height:32px;" />
+                    </i>
+                </a>                
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

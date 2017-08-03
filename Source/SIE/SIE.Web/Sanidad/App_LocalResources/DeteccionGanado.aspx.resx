@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="chkNoResource1.Text" xml:space="preserve">
+    <value>No</value>
+    <comment>Texto para el check de No</comment>
+  </data>
+  <data name="chkSiResource1.Text" xml:space="preserve">
+    <value>Si</value>
+    <comment>Texto para el check de Si</comment>
+  </data>
+  <data name="DeteccionGanado_Home.Text" xml:space="preserve">
+    <value>Home</value>
+    <comment>Etiqueta para la direccion Home</comment>
+  </data>
+  <data name="DeteccionGanado_Title.Text" xml:space="preserve">
+    <value>Detección de ganado enfermo</value>
+    <comment>Titulo de la interfaz</comment>
+  </data>
+  <data name="lblCancelarEtiquetaResource1.Text" xml:space="preserve">
+    <value>Cancelar</value>
+    <comment>Texto para el boton Cancelar</comment>
+  </data>
+  <data name="lblEtiquetaAreteTestigoResource1.Text" xml:space="preserve">
+    <value>Arete testigo:</value>
+    <comment>Texto para la etiqueta Arete testigo</comment>
+  </data>
+  <data name="lblEtiquetaCorralResource1.Text" xml:space="preserve">
+    <value>Corral:</value>
+    <comment>Texto de la etiqueta corral</comment>
+  </data>
+  <data name="lblEtiquetaFechaResource1.Text" xml:space="preserve">
+    <value>Fecha:</value>
+    <comment>Texto para la etiqueta Fecha</comment>
+  </data>
+  <data name="lblEtiquetaHoraResource1.Text" xml:space="preserve">
+    <value>Hora:</value>
+    <comment>Texto para la etiqueta Hora</comment>
+  </data>
+  <data name="lblEtiquetaIsoResource1.Text" xml:space="preserve">
+    <value>FENVIZ-07-199</value>
+    <comment>Texto para la etitqueta Iso</comment>
+  </data>
+  <data name="lblEtiquetaMocoResource1.Text" xml:space="preserve">
+    <value>Moco:</value>
+    <comment>Texto para la etiqueta Moco</comment>
+  </data>
+  <data name="lblEtiquetaNoAreteResource1.Text" xml:space="preserve">
+    <value>No. arete:</value>
+    <comment>Texto para la etiqueta No. arete</comment>
+  </data>
+  <data name="lblEtiquetaNofierroResource1.Text" xml:space="preserve">
+    <value>No. de fierro:</value>
+    <comment>Texto para la etiqueta No. de fierro</comment>
+  </data>
+  <data name="lblEtiquetaNombreVaqueroResource1.Text" xml:space="preserve">
+    <value>Nombre vaquero:</value>
+    <comment>Texto para la etiqueta Nombre vaquero</comment>
+  </data>
+  <data name="lblEtiquetaNoPartidaResource1.Text" xml:space="preserve">
+    <value>No. de partida:</value>
+    <comment>Texto para la etiqueta No. partida</comment>
+  </data>
+  <data name="lblEtiquetaRevisionResource1.Text" xml:space="preserve">
+    <value>Revisión: 1</value>
+    <comment>Texto para la etiqueta Revision</comment>
+  </data>
+  <data name="lblEtiquetaTomarFotoResource1.Text" xml:space="preserve">
+    <value>Tomar foto</value>
+    <comment>Texto para el boton Tomar foto</comment>
+  </data>
+  <data name="lblGuardarEtiquetaBotonResource1.Text" xml:space="preserve">
+    <value>Guardar</value>
+    <comment>Texto para el  boton Guardar</comment>
+  </data>
+  <data name="lblPartidaAreteIndivitualResource1.Text" xml:space="preserve">
+    <value>Partida con arete individual:</value>
+    <comment>Texto para la etiqueta partida con arete individual</comment>
+  </data>
+  <data name="lblTituloResource1.Text" xml:space="preserve">
+    <value>Detección de ganado enfermo</value>
+    <comment>Titulo que se muestra en la ruta de direcciones</comment>
+  </data>
+  <data name="lblEtiquetaCabezaCaidaResource1.Text" xml:space="preserve">
+    <value>Cabeza caída:</value>
+    <comment>Texto para el check Cabeza caida</comment>
+  </data>
+  <data name="lblEtiquetaClaroResource1.Text" xml:space="preserve">
+    <value>Claro:</value>
+    <comment>Texto para el check de Claro</comment>
+  </data>
+  <data name="lblEtiquetaColorResource1.Text" xml:space="preserve">
+    <value>Color:</value>
+    <comment>Texto para el check de Color</comment>
+  </data>
+  <data name="lblEtiquetaDiarreaResource1.Text" xml:space="preserve">
+    <value>Diarrea:</value>
+    <comment>Texto para el check Diarrea</comment>
+  </data>
+  <data name="lblEtiquetaDificultadPRespirarResource1.Text" xml:space="preserve">
+    <value>Dificultad p/respirar:</value>
+    <comment>Texto para el check Dificultad p/respirar</comment>
+  </data>
+  <data name="lblEtiquetaEstragadoResource1.Text" xml:space="preserve">
+    <value>Estragado:</value>
+    <comment>Texto para el check Estragado</comment>
+  </data>
+  <data name="lblEtiquetaLagrimeoResource1.Text" xml:space="preserve">
+    <value>Lagrimeo:</value>
+    <comment>Texto para el ckeck de Lagrimeo</comment>
+  </data>
+  <data name="lblEtiquetaSangreHecesResource1.Text" xml:space="preserve">
+    <value>Sangre en heces:</value>
+    <comment>Texto para el check Sangre en heces</comment>
+  </data>
+  <data name="chkEtiquetaGanadoMuertoResource1.Text" xml:space="preserve">
+    <value>Ganado muerto</value>
+    <comment>Texto para la etiqueta Ganado muerto</comment>
+  </data>
+  <data name="lblEtiquetaColaManchadaResource1.Text" xml:space="preserve">
+    <value>Cola manchada:</value>
+    <comment>Texto para el check Cola Manchada</comment>
+  </data>
+  <data name="lblEtiquetaCRBResource1.Text" xml:space="preserve">
+    <value>CRB:</value>
+    <comment>Texto para el check de CRB</comment>
+  </data>
+  <data name="lblEtiquetaDescripcionGanadoResource1.TEXT" xml:space="preserve">
+    <value>Descripción:</value>
+    <comment>Texto para la etiqueta Descripcion</comment>
+  </data>
+  <data name="lblEtiquetaFechaISOResource1.Text" xml:space="preserve">
+    <value>29 de Noviembre del 2009</value>
+    <comment>Texto para la etiqueta de fecha iso</comment>
+  </data>
+  <data name="lblEtiquetaGolpeadoResource1.Text" xml:space="preserve">
+    <value>Golpeado:</value>
+    <comment>Texto para el check de Golpeado</comment>
+  </data>
+  <data name="lblEtiquetaGradoResource1.Text" xml:space="preserve">
+    <value>Grado</value>
+    <comment>Texto para la etiqueta Grado</comment>
+  </data>
+  <data name="lblEtiquetaGraveResource1.Text" xml:space="preserve">
+    <value>Grave</value>
+    <comment>Texto para la etiqueta Grave</comment>
+  </data>
+  <data name="lblEtiquetaInformacionAbdomenResource1.Text" xml:space="preserve">
+    <value>Inflamación del abdomen:</value>
+    <comment>Texto para el check de Informacion del abdomen</comment>
+  </data>
+  <data name="lblEtiquetaLeveResource1.Text" xml:space="preserve">
+    <value>Leve</value>
+    <comment>Texto para la etiqueta Leve</comment>
+  </data>
+  <data name="lblEtiquetaMovimientoExitadoResource1.Text" xml:space="preserve">
+    <value>Movimiento excitado:</value>
+    <comment>Texto para el check de Movimiento exitado</comment>
+  </data>
+  <data name="lblEtiquetaMovimientoLentoResource1.Text" xml:space="preserve">
+    <value>Movimiento lento:</value>
+    <comment>Texto para el check de Movimiento lento</comment>
+  </data>
+  <data name="lblEtiquetaNotificacionesResource1.Text" xml:space="preserve">
+    <value>Notificaciones(</value>
+    <comment>Texto para la etiqueta Notificaciones</comment>
+  </data>
+  <data name="lblEtiquetaObservacionesResource1.Text" xml:space="preserve">
+    <value>Observaciones:</value>
+    <comment>Texto para la etiqueta Observaciones</comment>
+  </data>
+  <data name="lblEtiquetaOtrosResource1.Text" xml:space="preserve">
+    <value>Otros:</value>
+    <comment>Texto para la etiqueta Otros</comment>
+  </data>
+  <data name="lblEtiquetaPDResource1.Text" xml:space="preserve">
+    <value>PD:</value>
+    <comment>Texto para el check de PD</comment>
+  </data>
+  <data name="lblEtiquetaProlapsoResource1.Text" xml:space="preserve">
+    <value>Prolapso:</value>
+    <comment>Texto para el check de Prolapso</comment>
+  </data>
+  <data name="lblEtiquetaRonqueraResource1.Text" xml:space="preserve">
+    <value>Ronquera:</value>
+    <comment>Texto para el check de Ronquera</comment>
+  </data>
+  <data name="lblEtiquetaSeparadoGrupoResource1.Text" xml:space="preserve">
+    <value>Separado del grupo:</value>
+    <comment>Texto para el check de Separado del grupo</comment>
+  </data>
+  <data name="lblEtiquetaTimpanismoResource1.Text" xml:space="preserve">
+    <value>Timpanismo:</value>
+    <comment>Texto para el check de Timpanismo</comment>
+  </data>
+  <data name="lblVerResource1.Text" xml:space="preserve">
+    <value>Ver</value>
+    <comment>Texto para el boton Ver</comment>
+  </data>
+  <data name="btnCancelar.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnDialogoAceptar.Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="btnDialogoCancelar.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnDialogoCerrar.Text" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="btnDialogoNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="btnDialogoSi.Text" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="lblMensajeDialogo.Text" xml:space="preserve">
+    <value>No se ha guardado la información, ¿Está seguro de salir sin guardar la información capturada?</value>
+  </data>
+  <data name="lblMensajeDialogoNotificaciones.Text" xml:space="preserve">
+    <value>Ganado sin detección</value>
+  </data>
+  <data name="msgIngresarCorral.Text" xml:space="preserve">
+    <value>Debe ingresar un corral para continuar.</value>
+  </data>
+  <data name="msgCorralNoExiste.Text" xml:space="preserve">
+    <value>El corral ingresado no existe. Favor de verificar.</value>
+  </data>
+  <data name="hIdProblema.Text" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="hProblema.Text" xml:space="preserve">
+    <value>Problemas de enfermería</value>
+  </data>
+  <data name="hSeleccione.Text" xml:space="preserve">
+    <value>Seleccione</value>
+  </data>
+  <data name="msgNoHayProblemasSecundarios.Text" xml:space="preserve">
+    <value>No hay problemas para mostrar.</value>
+  </data>
+  <data name="msgNoTieneLoteActivo.Text" xml:space="preserve">
+    <value>El código del corral no tiene un lote activo. Favor de verificar.</value>
+  </data>
+  <data name="msgNoTienePermiso.Text" xml:space="preserve">
+    <value>El usuario no tiene el rol de detector, supervisor de sanidad, jefe de sanidad.</value>
+  </data>
+  <data name="msgNoPerteneceCorral.Text" xml:space="preserve">
+    <value>El corral seleccionado no pertenece al operador.</value>
+  </data>
+  <data name="hAcuerdo.Text" xml:space="preserve">
+    <value>Acuerdo</value>
+  </data>
+  <data name="hConcepto.Text" xml:space="preserve">
+    <value>Concepto</value>
+  </data>
+  <data name="hCorral.Text" xml:space="preserve">
+    <value>Corral</value>
+  </data>
+  <data name="hNoArete.Text" xml:space="preserve">
+    <value>No. Arete</value>
+  </data>
+  <data name="hNoAreteTestigo.Text" xml:space="preserve">
+    <value>Arete testigo</value>
+  </data>
+  <data name="msgNoSeleccionoPartida" xml:space="preserve">
+    <value>Es necesario seleccionar una opción de partida con arete individual, para poder continuar.</value>
+  </data>
+  <data name="cmbItemSeleccione" xml:space="preserve">
+    <value>Seleccione parte golpeada</value>
+  </data>
+  <data name="msgNoHayNotificaciones.Text" xml:space="preserve">
+    <value>No existen alertas de notificaciones por el momento.</value>
+  </data>
+  <data name="msgAreteNoExiste.Text" xml:space="preserve">
+    <value>El No. de Arete no corresponde al corral ingresado. Favor de verificar.</value>
+  </data>
+  <data name="msgSeleccionarPartida.Text" xml:space="preserve">
+    <value>Es necesario seleccionar una opción de partida con arete individual, para poder continuar.</value>
+  </data>
+  <data name="msgDatosEnBlanco.Text" xml:space="preserve">
+    <value>Existen datos obligatorios en blanco, es necesario ingresarlos para continuar.</value>
+  </data>
+  <data name="msgDatosGuardados.Text" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="msgOcurrioErrorGrabar.Text" xml:space="preserve">
+    <value>Ocurrio un error al grabar.</value>
+  </data>
+  <data name="msgTomarFoto.Text" xml:space="preserve">
+    <value>Es necesario tomar la foto al ganado sin arete, para continuar.</value>
+  </data>
+  <data name="msgDatosBlanco.Text" xml:space="preserve">
+    <value>Existen datos obligatorios en blanco, es necesario ingresarlos para continuar.</value>
+  </data>
+  <data name="lblGanadoMuertoTitulo.Text" xml:space="preserve">
+    <value>Ganado Muerto</value>
+  </data>
+  <data name="msgAreteDetectado.Text" xml:space="preserve">
+    <value>El No. de Arete ingresado ya fue detectado como enfermo. Favor de verificar.</value>
+  </data>
+  <data name="msgAreteMuerto.Text" xml:space="preserve">
+    <value>El No. de Arete ingresado ya fue detectado como muerto. Favor de verificar.</value>
+  </data>
+  <data name="HeaderFoto.Text" xml:space="preserve">
+    <value>Foto</value>
+  </data>
+  <data name="msgCapturarArete.Text" xml:space="preserve">
+    <value>Es necesario capturar un arete. Favor de verificar.</value>
+  </data>
+  <data name="msgCorraletaNoSacrificio.Text" xml:space="preserve">
+    <value>El código del corral ingresado no corresponde al tipo de corraleta de “Manejo” o “Sacrificio”. Favor de verificar.</value>
+  </data>
+  <data name="Seleccione" xml:space="preserve">
+    <value>Selecccione</value>
+  </data>
+  <data name="msgGradoCorralRecepcion" xml:space="preserve">
+    <value>No se puede detectar ganado de grado "Leve", en un corral de Recepción.</value>
+  </data>
+  <data name="lblAretesTitulo.Text" xml:space="preserve">
+    <value>Aretes en Corral</value>
+  </data>
+  <data name="datatable.Anterior" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="datatable.Buscar" xml:space="preserve">
+    <value>Buscar:</value>
+  </data>
+  <data name="datatable.Cargando" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="datatable.Filtrando" xml:space="preserve">
+    <value>- Filtrando de _MAX_ registros</value>
+  </data>
+  <data name="datatable.Mostrando" xml:space="preserve">
+    <value>Mostrando (_START_ a _END_) registros de _TOTAL_</value>
+  </data>
+  <data name="datatable.Mostrar" xml:space="preserve">
+    <value>Mostrar _MENU_ registros</value>
+  </data>
+  <data name="datatable.PrimeraPagina" xml:space="preserve">
+    <value>Primera Página</value>
+  </data>
+  <data name="datatable.Procesando" xml:space="preserve">
+    <value>Procesando la información</value>
+  </data>
+  <data name="datatable.Siguiente" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="datatable.SinDatos" xml:space="preserve">
+    <value>No hay información en la tabla</value>
+  </data>
+  <data name="datatable.SinInformacion" xml:space="preserve">
+    <value>No hay información para mostrar</value>
+  </data>
+  <data name="datatable.SinRegistros" xml:space="preserve">
+    <value>No hay información para mostrar</value>
+  </data>
+  <data name="datatable.UltimaPagina" xml:space="preserve">
+    <value>Ultima Página</value>
+  </data>
+  <data name="lblBotonAgregar.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="msgSalirSinSeleccionar" xml:space="preserve">
+    <value>Esta seguro que desea salir sin seleccionar el arete.</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+</root>
