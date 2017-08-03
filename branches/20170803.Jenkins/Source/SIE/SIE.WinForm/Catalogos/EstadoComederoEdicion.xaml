@@ -1,0 +1,265 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.EstadoComederoEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 xmlns:Auxiliar="clr-namespace:SIE.WinForm.Auxiliar" Title="Camion Edicion"
+                 Height="415"
+                 Width="600"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        
+        <ObjectDataProvider x:Key="dataFromEnumTendencia"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:Tendencia}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:Tendencia" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Auxiliar:EnumValueConverterTendencia x:Key="EnumValueConverterTendencia" />
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="310" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblEstadoComederoID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblDescripcion}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblDescripcionCorta}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />                
+
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblNoServir}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblAjusteBase}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="5"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblTendencia}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Content="{x:Static resx:Resources.EstadoComederoEdicion_LblActivo}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtEstadoComederoID"
+                         x:Name="txtEstadoComederoID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         IsEnabled="False"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="EstadoComederoID"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         MaxLength="50"
+                         PreviewTextInput="TxtSoloLetrasPreviewTextInput"
+                         TabIndex="1"
+                         Width="300">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDescripcionCorta"
+                         x:Name="txtDescripcionCorta"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         MaxLength="50"
+                         PreviewTextInput="TxtSoloLetrasPreviewTextInput"
+                         TabIndex="2">
+                    <TextBox.Text>
+                        <Binding Path="DescripcionCorta"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <CheckBox x:Name="chkNoServir"
+                          Grid.Column="1"
+                          Grid.Row="3"
+                          TabIndex="3"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding Path=NoServir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <xctk:DecimalUpDown Name="dtuAjusteBase"
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    Height="22"
+                                    ShowButtonSpinner="False"
+                                    MaxLength="8"
+                                    DefaultValue="0"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Left"
+                                    KeyDown="DtuControl_KeyDown"
+                                    MinWidth="10"
+                                    NumeroDecimal="True"
+                                    TabIndex="4">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="AjusteBase"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+                <ComboBox x:Name="cmbTendencia"
+                          Grid.Row="5"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnumTendencia}}"
+                          SelectedValue="{Binding Path=Tendencia, Mode=TwoWay
+                                        , Converter={StaticResource EnumValueConverterTendencia}
+                                        , ConverterParameter=Igual}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="6"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="6" />
+
+                <StackPanel Grid.Row="8"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="7" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>

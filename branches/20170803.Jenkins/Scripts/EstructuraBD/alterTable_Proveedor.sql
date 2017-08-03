@@ -1,0 +1,1 @@
+alter table Proveedor add CorreoElectronico VARCHAR(50) default '';

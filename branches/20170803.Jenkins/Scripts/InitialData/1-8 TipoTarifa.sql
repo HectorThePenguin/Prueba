@@ -1,0 +1,2 @@
+INSERT INTO [SIEDB].[dbo].[TipoTarifa] ([Descripcion], [Activo], [FechaCreacion], [UsuarioCreacionID], [FechaModificacion], [UsuarioModificacionID]) VALUES ('Por Tonelada', '1', GETDATE(), '1', NULL, NULL);
+INSERT INTO [SIEDB].[dbo].[TipoTarifa] ([Descripcion], [Activo], [FechaCreacion], [UsuarioCreacionID], [FechaModificacion], [UsuarioModificacionID]) VALUES ('Por Viaje', '1', GETDATE(), '1', NULL, NULL);

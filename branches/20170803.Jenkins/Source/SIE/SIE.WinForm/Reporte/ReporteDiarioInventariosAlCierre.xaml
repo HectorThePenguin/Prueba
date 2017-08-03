@@ -1,0 +1,118 @@
+﻿<Vista:ControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    mc:Ignorable="d" 
+                    x:Class="SIE.WinForm.Reporte.ReporteDiarioInventariosAlCierre"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded">
+    <Grid Margin="26,14,24,60"
+		Background="White"
+		ScrollViewer.CanContentScroll="True" Width="Auto" Height="Auto">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+				Direction="-90"
+				RenderingBias="Quality"
+				ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+			Grid.Row="0"
+			Padding="20 0 20 0"
+			VisibleCerrar="Hidden"
+			TextoTitulo="{x:Static resx:Resources.ReporteDiarioInventarioCierre_TituloVentana}"
+			x:Name="ucTitulo"/>
+
+        <GroupBox Grid.Column="1"
+			Grid.Row="1"
+			Style="{StaticResource groupBox}"
+			HorizontalAlignment="Stretch"
+			Margin="20,0,20,10" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.RecepcionReporteVentaMuerte_Filtro}"/>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110*"></ColumnDefinition>
+                    <ColumnDefinition Width="320*"></ColumnDefinition>
+                    <ColumnDefinition Width="90*"></ColumnDefinition>
+                    <ColumnDefinition Width="180*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label
+					Content="Organización:"
+					VerticalAlignment="Center"
+					Margin="10,0,0,0" Height="Auto" />
+                
+                <ComboBox x:Name="cmbOrganizacion"
+					Grid.Row="0" Grid.Column="1"
+					SelectedValuePath="OrganizacionID"
+					DisplayMemberPath="Descripcion"
+					Width="310"
+					HorizontalAlignment="Left"
+					TabIndex="1" Margin="10,0,0,0" SelectionChanged="SelectionChaged" />
+
+
+                <Label
+					Content="{x:Static resx:Resources.ReporteDetalledelCortelblFechaInicial}"
+					VerticalAlignment="Center"
+					Grid.Column="2" Height="26" />
+
+
+                <StackPanel Grid.Column="3"
+					Width="170"
+					KeyboardNavigation.IsTabStop="False"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center" Height="30">
+
+                    <DatePicker x:Name="DtpFechaInicial"
+						ToolTip="Fecha inicio DD/MM/YYYY"
+						Width="170"
+						HorizontalAlignment="Right"
+						KeyboardNavigation.TabIndex="0"
+						SelectedDate="{x:Static sys:DateTime.Now}"/>
+                </StackPanel>
+
+                <StackPanel  x:Name="spConsultar" Grid.Column="3" Grid.Row="1"
+					Focusable="False"
+					HorizontalAlignment="Left"
+					Orientation="Horizontal"
+					Margin="20,0,0,0" Width="200">
+                    <Button x:Name="btnGenerar" Content="{x:Static resx:Resources.ReporteDiarioInventarioCierre_BtnGenerar}"
+						Click="btnGenerar_Click"
+						Margin="10,0,0,0"/>
+                    <Button Content="{x:Static resx:Resources.ReporteDiarioInventarioCierre_BtnLimpiar}"
+						Click="btnCancelar_Click"
+						Margin="10,0,0,0"/>
+                </StackPanel>
+                
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:ControlBase>

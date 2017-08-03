@@ -1,0 +1,142 @@
+@import url('normalize.css');
+
+/* General Demo Style */
+body{
+	font-family: Cambria, Georgia, serif!important;
+	/*background: #f9f9f9 url(../../Images/bg.jpg)!important;*/
+	font-weight: 300!important;
+	font-size: 15px!important;
+	color: #333!important;
+	-webkit-font-smoothing: antialiased!important;
+	overflow-y: scroll!important;
+	overflow-x: hidden!important;
+}
+a{
+	color: #555!important;
+	text-decoration: none!important;
+}
+.container{
+	width: 100%!important;
+	position: relative!important;
+}
+.clr{
+	clear: both!important;
+	padding: 0!important;
+	height: 0!important;
+	margin: 0!important;
+}
+.main{
+	width: 90%!important;
+	margin: 0 auto!important;
+	position: relative!important;
+}
+.container > header{
+	margin: 10px!important;
+	padding: 20px 10px 10px 10px!important;
+	position: relative!important;
+	display: block!important;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2)!important;
+    text-align: center!important;
+}
+.container > header h1{
+	font-size: 32px!important;
+	line-height: 32px!important;
+	margin: 0!important;
+	position: relative!important;
+	font-weight: 300!important;
+	color: #777!important;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.7)!important;
+}
+.container > header h2{
+	font-size: 14px!important;
+	font-weight: 300!important;
+	font-style: italic!important;
+	margin: 0!important;
+	padding: 15px 0 5px 0!important;
+	color: #888!important;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.9)!important;
+}
+/* Header Style */
+.codrops-top{
+	line-height: 24px!important;
+	font-size: 11px!important;
+	background: #fff!important;
+	background: rgba(255, 255, 255, 0.6)!important;
+	text-transform: uppercase!important;
+	z-index: 9999!important;
+	position: relative!important;
+	box-shadow: 1px 0px 2px rgba(0,0,0,0.1)!important;
+}
+.codrops-top a{
+	padding: 0px 10px!important;
+	letter-spacing: 1px!important;
+	color: #333!important;
+	display: inline-block!important;
+}
+.codrops-top a:hover{
+	background: rgba(255,255,255,0.3)!important;
+}
+.codrops-top span.right{
+	float: right!important;
+}
+.codrops-top span.right a{
+	float: left!important;
+	display: block!important;
+}
+/* Demo Buttons Style */
+.codrops-demos{
+    text-align:center!important;
+	display: block!important;
+	line-height: 30px!important;
+	padding: 5px 0px!important;
+}
+.codrops-demos a{
+    display: inline-block!important;
+	font-style: italic!important;
+	margin: 0px 4px!important;
+	padding: 0px 6px!important;
+	color: #aaa!important;
+	line-height: 20px!important;	
+	font-size: 13px!important;
+	text-shadow: 1px 1px 1px #fff!important;
+	border: 1px solid #fff!important;
+	background: #ffffff!important; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%)!important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed))!important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%)!important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%)!important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%)!important; /* IE10+ */
+	background: linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%) !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 )!important; /* IE6-9 */
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)!important;
+}
+.codrops-demos a:hover{
+	color: #333!important;
+	background: #fff!important;
+}
+.codrops-demos a:active{
+	background: #fff!important;
+}
+.codrops-demos a.current-demo,
+.codrops-demos a.current-demo:hover{
+	background: #f0f0f0!important;
+	border-color: #d9d9d9!important;
+	color: #aaa!important;
+	box-shadow: 0 1px 1px rgba(255,255,255,0.7)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#f6f6f6',GradientType=0 )!important; /* IE6-9 */
+}
+
+.support-note span{
+	color: #ac375d!important;
+	font-size: 16px!important;
+	display: none!important;
+	font-weight: bold!important;
+	text-align: center!important;
+	padding: 5px 0!important;
+}
+.no-cssanimations .support-note span.no-cssanimations,
+.no-csstransforms .support-note span.no-csstransforms,
+.no-csstransforms3d .support-note span.no-csstransforms3d,
+.no-csstransitions .support-note span.no-csstransitions{
+	display: block!important;
+}

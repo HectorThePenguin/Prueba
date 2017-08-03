@@ -1,0 +1,322 @@
+﻿<Vista:ControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" 
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" 
+        x:Class="SIE.WinForm.Abasto.RelacionClienteProveedor"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Loaded="Window_Loaded"
+        Height="570"
+        Width="1000">
+    <Grid Margin="20" Background="White"
+		ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+				Direction="-90"
+				RenderingBias="Quality"
+				ShadowDepth="2"/>
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="30 0 30 0"
+                    VisibleCerrar="Hidden"
+                    TextoTitulo="{x:Static resx:Resources.RCP_Titulo}"/>
+        <Grid Grid.Column="1" Margin="0,50,0,10" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="125"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450" />
+                <ColumnDefinition Width="460" />
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="1" 
+				Grid.Row="0"
+				Width="auto"
+				HorizontalAlignment="Stretch"
+				Header="{x:Static resx:Resources.RCP_Datos_Cliente}"
+				Margin="20 0 0 10">
+                <Grid Margin="0 0 0 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+						Grid.Row="0"
+						Content="{x:Static resx:Resources.RCP_Credito}"/>
+                    <controles:ControlAyuda x:Name="skAyudaClienteCreditoExcel"
+						                    AnchoClave="60"
+						                    AnchoDescripcion="200"
+						                    Grid.Column="1"
+						                    Grid.Row="0"
+                                            DataContext="{Binding Path=ClienteCreditoExcel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            TabIndex="1"
+                                            HorizontalAlignment="Left"
+                                            AceptaSoloNumeros="True"
+                                            ControlIndex="0"
+                                            EsBindeable="True"
+                                            MaximoCaracteres="8"
+                                            EsAyudaSimple="False"
+                                            MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_CodigoInvalido}"
+                                            ConceptoBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_LeyendaBusqueda}"
+                                            TituloBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Busqueda_Titulo}"
+                                            MensajeAgregarBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Seleccionar }"
+                                            MensajeCerrarBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_SalirSinSeleccionar}"
+                                            EncabezadoClaveBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Grid_Clave}"
+                                            EncabezadoDescripcionBusqueda="{x:Static resx:Resources.skAyudaClienteCreditoExcel_Grid_Descripcion}"
+                                            MetodoInvocacion="ObtenerPorID"
+                                            MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                            CampoDescripcion="Nombre"
+                                            CampoClave="CreditoID"
+                                            Grid.ColumnSpan="3"
+                                            /> 
+                </Grid>
+            </GroupBox>
+            <GroupBox Grid.Column="0"
+				Grid.Row="0"
+				Width="auto"
+				Header="{x:Static resx:Resources.RCP_DAtos_Proveedor}"
+				Margin="20 0 0 10">
+                <Grid Margin="0 5 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="350*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="70*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+						Grid.Row="0"
+						Content="{x:Static resx:Resources.RCP_Ganadera}"/>
+                    <ComboBox Grid.Column="1"
+						Grid.Row="0"
+						Width="Auto"
+                        Name="cboGadera"
+                        DisplayMemberPath="Descripcion"
+                        SelectedValuePath="OrganizacionID"
+                        SelectedItem="{Binding Path=listOrganizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                        SelectedValue="{Binding Path=listOrganizacion.OrganizacionID}"
+                        ItemsSource="{Binding Path=ListaOrganizacion}"
+						VerticalAlignment="Center"
+                        SelectionChanged="cboGadera_OnSelectionChanged"
+                        Grid.ColumnSpan="2" 
+                        Margin="0,2" />
+                    <Label Grid.Column="0"
+						Grid.Row="1"
+						Content="{x:Static resx:Resources.RCP_Centro}"
+                           Margin="0,2" />                    
+                    <controles:ControlAyuda x:Name="skAyudaCentroAcopio"
+                                            AnchoDescripcion="200"
+                                            AnchoClave="60"
+                                            DataContext="{Binding Path=CentroAcopio, Mode=TwoWay}"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Top"
+                                            HorizontalAlignment="Left"                                            
+                                            AceptaSoloNumeros="True"
+                                            ControlIndex="0"
+                                            EsBindeable="True"
+                                            MaximoCaracteres="8"
+                                            EsAyudaSimple="False"
+                                            MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.RCP_AyudaCentroAcopio_CodigoInvalido}"
+                                            ConceptoBusqueda="{x:Static resx:Resources.RCP_AyudaCentroAcopio_LeyendaBusqueda}"
+                                            TituloBusqueda="{x:Static resx:Resources.RCP_Ayuda_Titulo}"
+                                            MensajeAgregarBusqueda="{x:Static resx:Resources.RCP_AyudaCentroAcopio_Seleccionar}"
+                                            MensajeCerrarBusqueda="{x:Static resx:Resources.RCP_AyudaCentroAcopio_SalirSinSeleccionar}"
+                                            EncabezadoClaveBusqueda="{x:Static resx:Resources.RCP_AyudaCentroAcopio_GridClave}"
+                                            EncabezadoDescripcionBusqueda="{x:Static resx:Resources.RCP_AyudaCentroAcopio_GridDescripcion}"
+                                            MetodoInvocacion="ObtenerTipoCentrosCadisDescansos"
+                                            MetodoInvocacionBusqueda="ObtenerPorPaginaTipoOrganizacion"
+                                            CampoDescripcion="Descripcion"
+                                            CampoClave="OrganizacionID"
+                                            Grid.ColumnSpan="3"
+                                            Width="400"
+                                            Margin="0,3,0,0"
+                                            LostFocus="skAyudaCentroAcopio_LostFocus"
+                                            Grid.RowSpan="2" />
+                    <Label Grid.Column="0"
+						Grid.Row="2"
+						Content="{x:Static resx:Resources.RCP_Proveedor}" Margin="0,4"/>
+                    <controles:ControlAyuda x:Name="SplAyudaProveedor"
+						                    AnchoClave="60"
+                                            Margin=" 0 0 0 0"
+						                    AnchoDescripcion="200"
+						                    Grid.Column="1"
+						                    Grid.Row="2"
+                                            DataContext="{Binding Path=ContextoProveedor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            TabIndex="1"
+                                            HorizontalAlignment="Left"
+                                            AceptaSoloNumeros="True"
+                                            ControlIndex="0"
+                                            EsBindeable="True"
+                                            MaximoCaracteres="8"
+                                            EsAyudaSimple="False"
+                                           MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.skAyudaProveedor_CodigoInvalido}"
+                                            ConceptoBusqueda="{x:Static resx:Resources.skAyudaProveedor_LeyendaBusqueda}"
+                                            TituloBusqueda="{x:Static resx:Resources.skAyudaProveedor_Busqueda_Titulo}"
+                                            MensajeAgregarBusqueda="{x:Static resx:Resources.skAyudaProveedor_Seleccionar }"
+                                            MensajeCerrarBusqueda="{x:Static resx:Resources.skAyudaProveedor_SalirSinSeleccionar}"
+                                            EncabezadoClaveBusqueda="{x:Static resx:Resources.skAyudaProveedor_Grid_Clave}"
+                                            EncabezadoDescripcionBusqueda="{x:Static resx:Resources.skAyudaProveedor_Grid_Descripcion}"
+                                            MetodoInvocacion="ObtenerPorIDTipoGanadera"
+                                            MetodoInvocacionBusqueda="ObtenerPorPaginaTipoProveedorGanadera"
+                                            CampoDescripcion="Descripcion"
+                                            CampoClave="ProveedorID"
+                                            Grid.ColumnSpan="3"   
+                                            />                   
+                </Grid>
+            </GroupBox>
+            <Grid Grid.Row="1"
+				  Grid.Column="2"
+                  HorizontalAlignment="Right"
+                  Margin="0 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="290*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button x:Name="btnLimpiar" 
+					        TabIndex="10"
+					        IsTabStop="true"
+                            Margin="0 0 5 0"
+					        Content="{x:Static resx:Resources.RCP_btnLimpiar}" 
+					        HorizontalAlignment="Right"
+                            Click="btnLimpiar_Click"/>
+                    <Button x:Name="btnAgregar" 
+					        TabIndex="9" 
+                            HorizontalAlignment="Right"                      
+					        Content="{x:Static resx:Resources.RCP_btnAgregar}" 
+                            Click="btnAgregar_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <DataGrid Name="gridDatos3"
+                  AutoGenerateColumns="False"
+                  Width="890"                  
+                  CanUserResizeColumns="False"
+                  Margin="5,10,10,5"
+                  SelectionMode="Single">
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn Width="70" Header="{x:Static resx:Resources.RCP_Grid_Credito}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Credito.CreditoID}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Center"
+                                   Height="23"                                   
+                                   FontFamily="Tahoma">
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="185" Header="{x:Static resx:Resources.RCP_Grid_Proveedor}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Proveedor.Descripcion}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Left"
+                                   Height="23"                                   
+                                   FontFamily="Tahoma">
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="140" Header="{x:Static resx:Resources.RCP_Grid_TipoCredito}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Credito.TipoCredito.Descripcion}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Left"
+                                   Height="23"                                   
+                                   FontFamily="Tahoma">
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="85" Header="{x:Static resx:Resources.RCP_Grid_Saldo}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Credito.Saldo , StringFormat=N2}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Center"
+                                   Height="23"                                   
+                                   FontFamily="Tahoma">
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="185" Header="{x:Static resx:Resources.RCP_Grid_Centro}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Centro.Descripcion}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Left"
+                                   Height="23"                                   
+                                   FontFamily="Tahoma">
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="220" Header="{x:Static resx:Resources.RCP_Grid_Ganadera}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Ganadera.Descripcion}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Left"
+                                   Height="23"                                   
+                                   FontFamily="Tahoma">
+                                </Label>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>            
+        </Grid>    
+        <Grid Grid.Row="4"
+				Grid.Column="1"
+              HorizontalAlignment="Right"
+                  Margin="0 0 30 0">
+            <StackPanel Grid.Column="2"
+                            Orientation="Horizontal">
+                <Button x:Name="btnGuardar" 
+					        TabIndex="9" 
+                            Margin="0 0 5 0"
+                            HorizontalAlignment="Right"                      
+					        Content="{x:Static resx:Resources.RCP_btnGuardar}" 
+                            Click="btnGuardar_Click"/>
+                <Button x:Name="btnCancelar" 
+					        TabIndex="10"
+					        IsTabStop="true"
+					        Content="{x:Static resx:Resources.RCP_btnCancelar}" 
+					        HorizontalAlignment="Right"
+                            Click="btnCancelar_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Vista:ControlBase>

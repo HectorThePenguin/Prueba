@@ -1,0 +1,203 @@
+﻿<Window x:Class="SIE.WinForm.Manejo.ReasignarArete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        Title="Reasignar Arete" 
+        Height="309.3" 
+        Width="659" 
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Unloaded="Window_Closing"
+        Loaded="UserControl_Loaded"
+        Background="Black" Margin="2"
+        x:Name="ReasignarAreteWindow">
+    
+    <Grid Background="White" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37"/>
+            <RowDefinition Height="209"/>
+        </Grid.RowDefinitions>
+        <controles:Titulo
+                          TextoTitulo="{x:Static resx:Resources.ReasignarArete_lblTitulo}"  
+                          Grid.Row="0"
+                          Margin="20,0,20,3"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo" VerticalAlignment="Bottom"/>
+        <!--    <Label Name="lblTitulo" Style="{StaticResource tituloEtiqueta}" 
+               Grid.Row="0" 
+               Content="{x:Static resx:Resources.ReasignarArete_lblTitulo}"  
+               Height="32" Margin="0,6,0,0" />-->
+        <GroupBox Header="{x:Static resx:Resources.ReasignarArete_gpbDatosGenerales}" 
+                  HorizontalAlignment="Left" 
+                  Margin="7,10,0,0" 
+                  Grid.Row="1" 
+                  VerticalAlignment="Top" 
+                  Height="190" 
+                  Width="641" FontFamily="Arial Narrow">
+            <Grid x:Name="___Sin_nombre_">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="105"/>
+                    <ColumnDefinition Width="102"/>
+                    <ColumnDefinition Width="85"/>
+                    <ColumnDefinition Width="244"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="lblNumeroIndividualRequerido"
+                       Style="{StaticResource labelRequerido}" Margin="-6,10,6,-10"/>
+                <Label Content="{x:Static resx:Resources.ReasignarArete_lblNumeroIndividual}" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"  
+                       Margin="0,12,0,130" 
+                       Width="130" 
+                       Grid.ColumnSpan="2" 
+                       Height="26"  />
+                <Label
+                       Content="*"
+                       x:Name="lblAreteMetalicoRequerido"
+                       Style="{StaticResource labelRequerido}" Margin="-6,43,95,99"/>
+                <Label Grid.Column="0" Content="{x:Static resx:Resources.ReasignarArete_lblAreteMetalico}" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"  
+                       Margin="0,46,0,96" 
+                       Width="106" 
+                       Height="26" />
+                <Label Grid.Column="0" Content="{x:Static resx:Resources.ReasignarArete_lblCorralOrigen}" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"  
+                       Margin="0,77,0,65" 
+                       Width="106" 
+                       Height="26" />
+                <Label Grid.Column="0" Content="{x:Static resx:Resources.ReasignarArete_lblPesoAlCorte}" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"  
+                       Margin="0,112,0,30" 
+                       Width="106" 
+                       Height="26" />
+
+                <Button Content="{x:Static resx:Resources.btnGuardar}" 
+                        x:Name="btnGuardar" 
+                        HorizontalAlignment="Left"  
+                        Margin="170,180,-5,-34" Grid.Column="3" Click="btnGuardar_Click" TabIndex="4" />
+                <Button Content="{x:Static resx:Resources.btnCancelar}" 
+                        x:Name="btnCancelar"  
+                        HorizontalAlignment="Right"  
+                        Margin="0,180,-90,-34" Grid.Column="3" Click="btnCancelar_Click" TabIndex="5" />
+                <Button Content="{x:Static resx:Resources.btnReasignar}" 
+                        x:Name="btnReasignar"  
+                        Width="Auto" 
+                        Margin="48,50,208,0" 
+                        Grid.Column="2" Grid.ColumnSpan="2" Click="btnReasignar_Click" VerticalAlignment="Top" TabIndex="3" />
+                <GroupBox Header="{x:Static resx:Resources.ReasignarArete_gpbDatosCompra}" 
+                          HorizontalAlignment="Left" 
+                          Margin="42,-7,-84,0" 
+                          VerticalAlignment="Top" 
+                          Height="165" 
+                          Width="287" 
+                          Grid.Column="3">
+                    <Grid HorizontalAlignment="Left" 
+                          Height="148" 
+                          Margin="0,7,-2,-12" 
+                          VerticalAlignment="Top" 
+                          Width="277">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="42"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="277"/>
+                        </Grid.ColumnDefinitions>
+                        <Label  Content="{x:Static resx:Resources.ReasignarArete_lblFechaInicio}" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center"  
+                                Width="91" 
+                                Height="26" 
+                                Margin="0,0,0,5" />
+                        <Label  Content="{x:Static resx:Resources.ReasignarArete_lblOrigen}" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center"  
+                                Margin="0,0,0,14" 
+                                Height="26" 
+                                Grid.Row="1" 
+                                Grid.Column="0" Width="56" />
+                        <Label  Content="{x:Static resx:Resources.ReasignarArete_lblProveedor}" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center" 
+                                Margin="0,9,0,0" 
+                                RenderTransformOrigin="0.401,4.587" 
+                                Height="26" 
+                                Grid.Row="2" 
+                                Grid.Column="0" Width="78" />
+                        <Label  Content="{x:Static resx:Resources.ReasignarArete_lblTipoDeAnimal}" 
+                                VerticalAlignment="Center"  
+                                Margin="0,3,171,13"
+                                Height="26" 
+                                Grid.Row="3" 
+                                Grid.Column="0" />
+                        <DatePicker Height="26" 
+                                    HorizontalAlignment="Left"  
+                                    x:Name="dtpFechaInicio" 
+                                    VerticalAlignment="Top" 
+                                    Width="138" 
+                                    Margin="109,0,0,0" />
+                        <TextBox Height="41" 
+                        	HorizontalAlignment="Left" 
+                        	Margin="109,0,0,0" 
+                        	x:Name="txtOrigen" 
+                        	VerticalAlignment="Top" 
+                        	Width="139" Grid.Row="1" Grid.RowSpan="2" />
+                    </Grid>
+                </GroupBox>
+                <TextBox Height="23" 
+                	HorizontalAlignment="Left" 
+                	Margin="24,112,0,0" 
+                	x:Name="txtPesoCorte" 
+                	VerticalAlignment="Top" 
+                	Width="120" Grid.Column="1" Grid.ColumnSpan="2" />
+                <TextBox Height="23" 
+                	HorizontalAlignment="Left" 
+                	Margin="24,80,0,0" 
+                	x:Name="txtCorralOrigen" 
+                	VerticalAlignment="Top" 
+                	Width="120" Grid.Column="1" Grid.ColumnSpan="2" />
+                <TextBox Height="23" 
+                	HorizontalAlignment="Left" 
+                	Margin="24,46,0,0" 
+                	x:Name="txtAreteMetalico" 
+                	VerticalAlignment="Top" 
+                    MaxLength="15"
+                	Width="120" Grid.Column="1" Grid.ColumnSpan="2" KeyDown="txtAreteMetalico_KeyDown" TabIndex="2" PreviewKeyDown="txtAreteMetalico_PreviewKeyDown" TextChanged="txtAreteMetalico_TextChanged" PreviewTextInput="txtAreteMetalico_PreviewTextInput" />
+                <TextBox Height="23" 
+                	HorizontalAlignment="Left" 
+                	Margin="24,15,0,0" 
+                    MaxLength="15"
+                	x:Name="txtNumeroIndividual" 
+                	VerticalAlignment="Top" 
+                	Width="120" Grid.Column="1" Grid.ColumnSpan="2" KeyDown="txtNumeroIndividual_KeyDown" TabIndex="1" PreviewKeyDown="txtNumeroIndividual_PreviewKeyDown" TextChanged="txtNumeroIndividual_TextChanged" PreviewTextInput="txtNumeroIndividual_PreviewTextInput" />
+                <TextBox Height="23" 
+                	HorizontalAlignment="Stretch" 
+                	Margin="157,124,-51,0" 
+                	x:Name="txtTipoAnimal" 
+                	VerticalAlignment="Top" 
+                	Width="Auto" Grid.Column="3" />
+                <TextBox Height="23" 
+                	HorizontalAlignment="Stretch" 
+                	Margin="157,96,-51,0" 
+                	x:Name="txtProveedor" 
+                	VerticalAlignment="Top" 
+                	Width="Auto" Grid.Column="3" />
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+    
+</Window>

@@ -1,0 +1,45 @@
+﻿<table id="Corrales" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Corral}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Lote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.TotalCabezas}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabezasActuales}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CabezasRestantes}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.FechaInicio}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.FechaFin}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Estatus}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Opcion}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Corrales as item}
+        <tr data-LoteID ={$T.item.LoteID}>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.Corral}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.Lote}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.CapacidadCabezas}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.CabezasActuales}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.CabezasRestantes}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">{$T.item.FechaInicio}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales columnaFechaFin">{$T.item.FechaFin}
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">
+                <div class="{$T.item.Estatus}">
+                    <span class="margenEstatus">{$T.item.EstatusDescripcion}</span>
+                </div>
+            </td>
+            <td class="alineacionCentro tabs-right columnaGridCorrales">
+                {#if $T.item.AplicaCerrado}
+                <input type="button" value="Cerrar Corral" class="btn SuKarne botonCerrar" />
+                {#else} 
+                <input type="button" value="Reimprimir" class="btn SuKarne botonReimprimir" />
+                {#/if}
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

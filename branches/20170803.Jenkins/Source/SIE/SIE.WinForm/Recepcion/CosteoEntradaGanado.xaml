@@ -1,0 +1,920 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Recepcion.CosteoEntradaGanado"
+                   xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   mc:Ignorable="d"
+                   Width="1320"
+                   Height="Auto"
+                   Loaded="UserControl_Loaded">
+    <Grid Margin="0,20,0,20"
+          HorizontalAlignment="Center"
+          Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          Margin="0,10,0,0"
+                          TextoTitulo="{x:Static resx:Resources.CosteoEntradaGanado_lblTitulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <ScrollViewer Grid.Row="1"
+                      Grid.RowSpan="6"
+                      Name="scroll"
+                      Height="450"
+                      Width="1310"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalAlignment="Top">
+            <StackPanel Height="Auto">
+                <GroupBox Grid.Row="1"
+                          Margin="10,5,0,10">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static resx:Resources.CosteoEntradaGanado_lblInformacionGeneral}"></Label>
+                    </GroupBox.Header>
+                    <Grid Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Asignacion de la Primera Columna-->
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblFolio}"
+                               HorizontalAlignment="Left"></Label>
+                        <Label Grid.Column="1"
+                               Grid.Row="1"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblTipoOrigen}"
+                               HorizontalAlignment="Left"></Label>
+                        <Label Grid.Column="1"
+                               Grid.Row="2"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblOrigen}"
+                               HorizontalAlignment="Left"></Label>
+                        <Label Grid.Column="1"
+                               Grid.Row="3"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblFechaSalida}"
+                               HorizontalAlignment="Left"></Label>
+                        <Label Grid.Column="1"
+                               Grid.Row="4"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblSalida}"
+                               HorizontalAlignment="Left"></Label>
+                        <!-- Fin de Asignacion de la Primera Columna-->
+
+                        <!-- Asignacion de la Segunda Columna-->
+                        <StackPanel Grid.Column="2"
+                                    Name="StpAyudaFolio"
+                                    Grid.Row="0">
+                        </StackPanel>
+                        <ComboBox Grid.Column="2"
+                                  Grid.Row="1"
+                                  Name="cmbTipoOrigen"
+                                  Width="150"
+                                  HorizontalAlignment="Left"
+                                  Margin="2"
+                                  SelectedValuePath="TipoOrganizacionID"
+                                  DisplayMemberPath="Descripcion"
+                                  SelectedValue="{Binding Path=EntradaGanado.TipoOrigen}"
+                                  IsEnabled="False"></ComboBox>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="2"
+                                    Name="StpAyudaOrigen"
+                                    Grid.Row="2">
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="2"
+                                    Grid.Row="3">
+                            <DatePicker Name="dpFechaSalida"
+                                        Grid.Column="4"
+                                        Grid.Row="1"
+                                        Height="27"
+                                        IsEnabled="False"></DatePicker>
+                            <xctk:DateTimeUpDown Name="dtuHoraSalida"
+                                                 Height="25"
+                                                 MaxLength="5"
+                                                 Format="Custom"
+                                                 Margin="6,0,0,0"
+                                                 FormatString="HH:mm"
+                                                 IsEnabled="False"></xctk:DateTimeUpDown>
+                        </StackPanel>
+                        <TextBox Grid.Column="2"
+                                 Grid.Row="4"
+                                 Name="txtSalida"
+                                 HorizontalAlignment="Left"
+                                 Text="{Binding Path=EntradaGanado.FolioOrigen}"
+                                 IsEnabled="False"></TextBox>
+                        <!-- Fin de Asignacion de la Segunda Columna-->
+
+                        <!-- Asignacion de la Tercera Columna-->
+                        <Label Grid.Column="3"
+                               Grid.Row="1"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblFechaRecepcion}"
+                               HorizontalAlignment="Left"
+                               Margin="2"></Label>
+                        <Label Grid.Column="3"
+                               Grid.Row="2"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCorral}"
+                               HorizontalAlignment="Left"
+                               Margin="2"></Label>
+                        <Label Grid.Column="3"
+                               Grid.Row="3"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCabezas}"
+                               HorizontalAlignment="Left"
+                               Margin="2"></Label>
+                        <Label Grid.Column="3"
+                               Grid.Row="4"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblPesoLlegada}"
+                               HorizontalAlignment="Left"
+                               Margin="2"></Label>
+                        <!-- Fin de Asignacion de la Tercera Columna-->
+
+                        <!-- Asignacion de la Cuarta Columna-->
+                        <StackPanel Orientation="Horizontal"
+                                    Height="33"
+                                    Grid.Row="1"
+                                    Grid.Column="4"
+                                    Grid.ColumnSpan="2">
+                            <DatePicker Name="dpFechaRecepcion"
+                                        Grid.Column="4"
+                                        Grid.Row="1"
+                                        Height="27"
+                                        IsEnabled="False"></DatePicker>
+                            <xctk:DateTimeUpDown Name="dtuHoraRecepcion"
+                                                 Height="25"
+                                                 MaxLength="5"
+                                                 Format="Custom"
+                                                 Margin="6,0,0,0"
+                                                 FormatString="HH:mm"
+                                                 IsEnabled="False"></xctk:DateTimeUpDown>
+                        </StackPanel>
+                        <TextBox Grid.Column="4"
+                                 Grid.Row="2"
+                                 Name="txtCorral"
+                                 HorizontalAlignment="Left"
+                                 Margin="2"
+                                 Text="{Binding Path=EntradaGanado.CodigoCorral}"
+                                 IsEnabled="False"></TextBox>
+                        <TextBox Grid.Column="4"
+                                 Grid.Row="3"
+                                 Name="txtCabezas"
+                                 HorizontalAlignment="Left"
+                                 TextAlignment="Right"
+                                 Margin="2"
+                                 Width="50"
+                                 Text="{Binding Path=EntradaGanado.CabezasRecibidas,StringFormat='{}{0:#,#}'}"
+                                 IsEnabled="False"></TextBox>
+                        <TextBox Grid.Column="4"
+                                 Grid.Row="4"
+                                 Name="txtPesoLlegada"
+                                 HorizontalAlignment="Left"
+                                 TextAlignment="Right"
+                                 Margin="2"
+                                 IsEnabled="False"></TextBox>
+                        <!-- Fin de Asignacion de la Cuarta Columna-->
+
+                        <!-- Asignacion de la Quinta Columna-->
+                        <Label Grid.Column="5"
+                               Grid.Row="2"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblLote}"
+                               HorizontalAlignment="Left"></Label>
+                        <Label Grid.Column="5"
+                               Grid.Row="3"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblDiasEstancia}"
+                               HorizontalAlignment="Left"></Label>
+                        <Label Grid.Column="5"
+                               Grid.Row="4"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblPorcentajeMerma}"
+                               HorizontalAlignment="Left"></Label>
+                        <!--Fin de Asignacion de Quinta Columna-->
+
+                        <!-- Asignacion de Sexta Columna-->
+                        <TextBox Grid.Column="6"
+                                 Grid.Row="2"
+                                 Name="txtLote"
+                                 HorizontalAlignment="Left"
+                                 TextAlignment="Right"
+                                 Margin="2"
+                                 Text="{Binding Path=EntradaGanado.CodigoLote}"
+                                 IsEnabled="False"></TextBox>
+                        <TextBox Grid.Column="6"
+                                 Grid.Row="3"
+                                 Name="txtDiasEstancia"
+                                 HorizontalAlignment="Left"
+                                 TextAlignment="Right"
+                                 Margin="2"
+                                 IsEnabled="False">
+                            <TextBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="0.334" />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </TextBox.RenderTransform>
+                        </TextBox>
+                        <TextBox Grid.Column="6"
+                                 Grid.Row="4"
+                                 Name="txtMerma"
+                                 HorizontalAlignment="Left"
+                                 TextAlignment="Right"
+                                 Margin="2"
+                                 IsEnabled="False"></TextBox>
+                        <!-- Fin de Sextas Columnas-->
+
+                        <Button Content="{x:Static resx:Resources.btnLimpiar}"
+                                Grid.Column="7"
+                                Grid.Row="2"
+                                Name="btnLimpiar"
+                                Click="btnLimpiar_Click"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Right"
+                                Width="75" />
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="2"
+                          Margin="10,5,0,10">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidadGanado}"></Label>
+                    </GroupBox.Header>
+                    <Grid Height="140">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="42" />
+                            <RowDefinition Height="42" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Asignacion de la Primera y Segunda Columna-->
+                        <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblSexo}"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Margin="2"></Label>
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="2"></Label>
+                        <!-- Asignacion de la descripcion de la Primera Columna-->
+                        <Label Grid.Column="0"
+                               Grid.Row="1"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblMacho}"
+                               HorizontalAlignment="Left"
+                               Margin="0,24,0,0"></Label>
+                        <Label Grid.Column="0"
+                               Grid.Row="2"
+                               Content="{x:Static resx:Resources.CosteoEntradaGanado_lblHembra}"
+                               HorizontalAlignment="Left"
+                               Margin="0,18,0,0"></Label>
+                        <!-- Asignacion de la descripcion por Grid-->
+                        <Grid Grid.Row="1"
+                              Grid.Column="1"
+                              Grid.ColumnSpan="2"
+                              Grid.RowSpan="2"
+                              Height="100">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="35" />
+                                <RowDefinition Height="35" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <!--Asignacion de Titulos al Grid-->
+
+                            <StackPanel Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="14"
+                                        Orientation="Horizontal">
+
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad1}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad15}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad2}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad3}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad35}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad35L}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad35P}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="50"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad35VT2}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad35PR}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad4}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad5}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad6}"></Label>
+                                <Label Margin="0,0,10,0"
+                                       Width="45"
+                                       HorizontalContentAlignment="Center"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCalidad7}"></Label>
+                            </StackPanel>
+
+
+                            <!--Terminacion de Titulos de Grid-->
+
+                            <!--Asignacion de Textbox a Macho-->
+
+                            <StackPanel Grid.Row="1"
+                                        Name="stpCalidadMacho"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="14"
+                                        Orientation="Horizontal"></StackPanel>
+
+
+                            <!--Asignacion de Textbox a Hembra-->
+                            <StackPanel Grid.Row="2"
+                                        Name="stpCalidadHembra"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="14"
+                                        Orientation="Horizontal"></StackPanel>
+
+                            <StackPanel Grid.Row="1"
+                                        Grid.Column="15"
+                                        Grid.RowSpan="2"
+                                        HorizontalAlignment="Left"
+                                        Orientation="Horizontal">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Margin="0,0,10,0"
+                                           HorizontalContentAlignment="Center"
+                                           FontSize="16"
+                                           Grid.Row="0"
+                                           Grid.Column="0"
+                                           Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCabezasCalidad}"></Label>
+
+                                    <Label Margin="0,0,10,0"
+                                           HorizontalContentAlignment="Center"
+                                           FontSize="16"
+                                           Width="100"
+                                           Grid.Row="0"
+                                           Grid.Column="1"
+                                           Name="lblCabezasCalidad"
+                                           Content="0"></Label>
+
+                                    <Label Margin="0,0,10,0"
+                                           HorizontalContentAlignment="Center"
+                                           FontSize="16"
+                                           Grid.Row="1"
+                                           Grid.Column="0"
+                                           Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCabezasMuertas}"></Label>
+
+                                    <Label Margin="0,0,10,0"
+                                           HorizontalContentAlignment="Center"
+                                           FontSize="16"
+                                           Width="100"
+                                           Grid.Row="1"
+                                           Grid.Column="1"
+                                           Name="lblCabezasMuertas"
+                                           Content="0"></Label>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="3"
+                          Margin="10,5,0,10">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static resx:Resources.CosteoEntradaGanado_lblTipoGanado}"></Label>
+                    </GroupBox.Header>
+                    <Grid Height="270">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="200"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <GroupBox Grid.Row="0"
+                                  Grid.Column="0"
+                                  HorizontalAlignment="Left"
+                                  Width="550">
+                            <GroupBox.Header>
+                                <Label Content="{x:Static resx:Resources.CosteoEntradaGanado_lblTotalOrigen}"></Label>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Row="0"
+                                            Orientation="Horizontal"
+                                            Grid.Column="0"
+                                            HorizontalAlignment="Left">
+                                    <Label Margin="0,0,10,0"
+                                           Content="{x:Static resx:Resources.CosteoEntradaGanado_lblPesoOrigen}"></Label>
+                                    <Label Name="lblPesoOrigen"
+                                           HorizontalContentAlignment="Right"
+                                           Content="0"></Label>
+
+                                    <Label  Margin="50,0,10,0"
+                                            Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCabezas}"></Label>
+                                    <Label Name="lblCabezas"
+                                           HorizontalContentAlignment="Right"
+                                           Content="0"></Label>
+
+                                    <Label Margin="50,0,10,0"
+                                           Content="{x:Static resx:Resources.CosteoEntradaGanado_lblImporteTotal}"></Label>
+                                    <Label Name="lblImporteTotal"
+                                           HorizontalContentAlignment="Right"
+                                           Content="0"></Label>
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox Grid.Row="0"
+                                  Grid.Column="0"
+                                  Margin="600 0 0 0"
+                                  HorizontalAlignment="Left"
+                                  Name="grpFaltante"
+                                  Width="550">
+                            <GroupBox.Header>
+                                <Label Name="lblFaltanteSobrante"
+                                       Content="{x:Static resx:Resources.CosteoEntradaGanado_lblTotaFaltante}"></Label>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Row="0"
+                                            Orientation="Horizontal"
+                                            Grid.Column="0"
+                                            HorizontalAlignment="Left">
+                                    <Label Margin="0,0,10,0"
+                                           Content="{x:Static resx:Resources.CosteoEntradaGanado_lblPesoFaltante}"></Label>
+                                    <Label Name="lblPesoFaltante"
+                                           HorizontalContentAlignment="Right"
+                                           Content="0"></Label>
+
+                                    <Label  Margin="50,0,10,0"
+                                            Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCabezasFaltantes}"></Label>
+                                    <Label Name="lblCabezasFaltantes"
+                                           HorizontalContentAlignment="Right"
+                                           Content="0"></Label>
+
+                                    <Label Margin="50,0,10,0"
+                                           Content="{x:Static resx:Resources.CosteoEntradaGanado_lblImporteTotalFaltantes}"></Label>
+                                    <Label Name="lblImporteTotalFaltantes"
+                                           HorizontalContentAlignment="Right"
+                                           Content="0"></Label>
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+
+                        <StackPanel Grid.Row="0"
+                                    Orientation="Vertical"
+                                    Grid.Column="0"
+                                    Margin="0 0 30 0"
+                                    HorizontalAlignment="Right">
+                            <Button Name="btnCancelarTipoGanado"
+                                    Click="btnCancelarTipoGanado_Click"
+                                    Content="{x:Static resx:Resources.btnCancelar}"></Button>
+                            <Button Name="btnAgregar"
+                                    Margin="0 5 0 0"
+                                    Content="{x:Static resx:Resources.btnAgregarLinea}"
+                                    Click="btnAgregar_Click"></Button>
+                        </StackPanel>
+
+                        <ScrollViewer Grid.Row="1"
+                                      Grid.Column="0">
+                            <DataGrid Grid.Row="2"
+                                      Grid.Column="0"
+                                      x:Name="DgTipoGanado"
+                                      AutoGenerateColumns="False"
+                                      Width="1200"
+                                      HorizontalAlignment="Left"
+                                      HorizontalContentAlignment="Stretch"
+                                      IsReadOnly="True"
+                                      ColumnWidth="Auto">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="150"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridGanado_ColumnaPesoOrigen}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaDetalleInfo">
+                                                <xctk:DecimalUpDown Name="dudPesoOrigen"
+                                                                    ValueChanged="dudPesoOrigen_ValueChanged"
+                                                                    FormatString="N2"
+                                                                    KeyDown="Decimal_KeyDown"
+                                                                    MaxLength="8"
+                                                                    ShowButtonSpinner="False"
+                                                                    AllowSpin="False"
+                                                                    IsEnabled="{Binding Path=Editar}"
+                                                                    Value="{Binding Path=PesoOrigen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="150"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridGanado_ColumnaTipoGanado}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaDetalleInfo">
+                                                <ComboBox Name="cmbTipoGanado"
+                                                          ItemsSource="{Binding Path=ListaTiposGanado}"
+                                                          IsEnabled="{Binding Path=Editar}"
+                                                          SelectedItem="{Binding Path=TipoGanado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                          SelectedValue="{Binding Path=TipoGanado.TipoGanadoID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                          SelectedValuePath="TipoGanadoID"
+                                                          KeyDown="CambiarFocusSiguienteControl"
+                                                          SelectionChanged="cmbTipoGanado_SelectionChanged"
+                                                          DataContext="{Binding}"
+                                                          DisplayMemberPath="Descripcion"></ComboBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="150"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridGanado_ColumnaCabezas}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaDetalleInfo">
+                                                <xctk:IntegerUpDown Name="iudCabezas"
+                                                                    FormatString="N0"
+                                                                    ShowButtonSpinner="False"
+                                                                    KeyDown="Integer_KeyDown"
+                                                                    MaxLength="3"
+                                                                    LostFocus="iudCabezas_LostFocus"
+                                                                    IsEnabled="{Binding Path=Editar}"
+                                                                    AllowSpin="False"
+                                                                    Value="{Binding Path=Cabezas, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                    Watermark="Capture Cabezas" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="150"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridGanado_ColumnaPrecioKilo}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaDetalleInfo">
+                                                <xctk:DecimalUpDown Name="dudPrecioKilo"
+                                                                    FormatString="C2"
+                                                                    ShowButtonSpinner="False"
+                                                                    MaxLength="5"
+                                                                    ValueChanged="dudPrecioKilo_ValueChanged"
+                                                                    IsEnabled="{Binding Path=Editar}"
+                                                                    AllowSpin="False"
+                                                                    Value="{Binding Path=PrecioKilo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTextColumn Width="150"
+                                                        Binding="{Binding Path=Importe, StringFormat=C2}"
+                                                        Header="{x:Static resx:Resources.CosteoEntradaGanado_GridGanado_ColumnaImporte}">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style>
+                                                <Setter Property="FrameworkElement.HorizontalAlignment"
+                                                        Value="Right"></Setter>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn Width="Auto">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaDetalleInfo">
+                                                <Button Style="{StaticResource iconButton}"
+                                                        Click="btnEliminarTipoGanado_Click"
+                                                        IsEnabled="{Binding Path=Editar}"
+                                                        CommandParameter="{Binding}">
+                                                    <Image Source="{StaticResource borrarIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.CosteoEntradaGanado_GridGanado_ColumnaEliminar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="4"
+                          Margin="10,5,0,10">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static resx:Resources.CosteoEntradaGanado_lblCostoEntrada}"></Label>
+                    </GroupBox.Header>
+                    <Grid Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="200"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0"
+                                    Orientation="Horizontal"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Right">
+                            <Button Name="btnCancelarCostoGanado"
+                                    Margin="0,0,5,0"
+                                    Click="btnCancelarCostoGanado_Click"
+                                    Content="{x:Static resx:Resources.btnCancelar}"></Button>
+                            <Button Name="btnAgregarCostoGanado"
+                                    Content="{x:Static resx:Resources.btnAgregarLinea}"
+                                    Click="btnAgregarCostoGanado_Click"></Button>
+                        </StackPanel>
+
+                        <ScrollViewer Grid.Row="1"
+                                      Grid.Column="0">
+                            <DataGrid Grid.Row="2"
+                                      Grid.Column="0"
+                                      x:Name="DgCostoGanado"
+                                      HorizontalAlignment="Left"
+                                      AutoGenerateColumns="False"
+                                      Width="1200"
+                                      ColumnWidth="Auto"
+                                      RowHeaderWidth="0">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCosto_ColumnaCosto}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <StackPanel Name="stpAyudaCosto"
+                                                            IsEnabled="{Binding Path=CostoEmbarque}"
+                                                            Loaded="stpAyudaCosto_Loaded">
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCosto_ColumnaCuenta}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <CheckBox Name="chkCuenta"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          Checked="chkCuenta_Checked"
+                                                          Unchecked="chkCuenta_Checked"
+                                                          CommandParameter="{Binding}"
+                                                          IsEnabled="{Binding Path=EditarTieneCuenta}"
+                                                          IsChecked="{Binding Path=TieneCuenta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCostos_ColumnaProveedorCuenta}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <StackPanel Name="stpAyudaProveedorCuenta"
+                                                            DataContext="{Binding}"
+                                                            IsEnabled="{Binding Path=EditarCuentaProveedor}"
+                                                            Loaded="stpAyudaProveedorCuenta_Loaded"
+                                                            >
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCostos_ColumnaNumeroDocumento}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <TextBox Name="txtNumeroDocumento"
+                                                         IsEnabled="{Binding Path=EditarNumeroDocumento}"
+                                                         Text="{Binding Path=NumeroDocumento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCostos_ColumnaImporte}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <ComboBox Name="cmbComisiones"
+                                                  ItemStringFormat="C"
+					                              ItemsSource="{Binding}"
+                                                  Text="{Binding Path=Importe}"
+					                              IsEnabled="{Binding Path=EditarCuentaProveedor}"
+					                              SelectedItem="{Binding Path=Tarifa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=C}"
+					                              SelectedValue="{Binding Path=ProveedorComisionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					                              SelectedValuePath="ProveedorComisionID"
+                                                  SelectedIndex ="0"    
+                                                  SelectionChanged="cboComisiones_onSelectionChanged"
+                                                  KeyDown="cmbComisiones_KeyDown"
+                                                  KeyUp="cmbComisiones_KeyUp"
+                                                  LostFocus="cmbComisiones_onLostFocus"
+					                              DataContext="{Binding}"
+                                                  
+					                              DisplayMemberPath="Tarifa"></ComboBox>
+                                                
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCostos_ColumnaIva}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <CheckBox Name="chkIva"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          IsEnabled="{Binding Path=EditarIvaRetencion}"
+                                                          IsChecked="{Binding Path=Iva, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCostos_ColumnaRetencion}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <CheckBox Name="chkRetencion"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          IsEnabled="{Binding Path=EditarIvaRetencion}"
+                                                          IsChecked="{Binding Path=Retencion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.CosteoEntradaGanado_GridCostos_ColumnaOrigen}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <CheckBox Name="chkOrigen"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          IsEnabled="false"
+                                                          IsChecked="{Binding Path=Origen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="Info:EntradaGanadoCostoInfo">
+                                                <Button Style="{StaticResource iconButton}"
+                                                        Click="btnEliminarCostoGanado_Click"
+                                                        IsEnabled="{Binding Path=CostoEmbarque}"
+                                                        CommandParameter="{Binding}">
+                                                    <Image Source="{StaticResource borrarIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_Eliminar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="5"
+                          Margin="10,5,0,10">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static resx:Resources.CosteoEntradaGanado_lblObservacion}"></Label>
+                    </GroupBox.Header>
+                    <Grid Height="Auto"
+                          Width="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0"
+                                 Grid.Row="0"
+                                 Name="txtObservaciones"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Top"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 Text="{Binding Path=EntradaGanadoCosteo.Observacion}"
+                                 VerticalScrollBarVisibility="Visible"
+                                 Margin="20,0,0,0"
+                                 Width="1200"
+                                 Height="50"></TextBox>
+                    </Grid>
+                </GroupBox>
+
+                <StackPanel Grid.Row="6"
+                            Grid.Column="3"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <!--Botones de Header-->
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Name="btnGuardar"
+                            Click="btnGuardar_Click"
+                            VerticalAlignment="Center"
+                            Margin="70,0,0,0"
+                            HorizontalAlignment="Right"
+                            Width="75" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Name="btnCancelar"
+                            Click="btnCancelar_Click"
+                            Visibility="Hidden"
+                            Margin="10,0,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Width="75" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Vista:ControlBase>

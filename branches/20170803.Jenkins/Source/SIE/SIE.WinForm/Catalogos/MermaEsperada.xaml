@@ -1,0 +1,225 @@
+﻿<Vista:ControlBase xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base" 
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                   mc:Ignorable="d" x:Class="SIE.WinForm.Catalogos.MermaEsperada"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   Height="auto"
+                   Width="auto" Loaded="ControlBase_Loaded_1">
+    <Grid  Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo
+                          Grid.Row="0"
+                          Grid.Column="1"
+                          Padding="15 10 15 10"
+                          Margin="0,0,0,0"
+                          VisibleCerrar="Hidden"
+                          x:Name="ucTitulo"
+                          Height="Auto"
+                          Width="Auto"
+                          TextoTitulo="{x:Static resx:Resources.MermaEsperada_lblTitulo}"/>
+        <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaOrganizacion"
+                                        DataContext="{Binding Path=OrganizacionOrigen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Organizacion_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaOrganizacion}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaOrganizacion_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Organizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.Organizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.TipoObservacion_EncabezadoClaveGrid}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.TipoObservacion_EncabezadoDescripcionGrid}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                AyudaConDatos="skAyudaOrganizacion_AyudaConDatos_1"
+                                AyudaLimpia="skAyudaOrganizacion_AyudaLimpia"
+                                        CampoClave="OrganizacionID" Height="Auto" Margin="158,5,0,11" />
+        <Label Content="{x:Static resx:Resources.MermaEsperada_lblOrigen}" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="10,10,0,0" 
+               Grid.Row="1" 
+               VerticalAlignment="Top" Width="142"/>
+        <Label Content="{x:Static resx:Resources.MermaEsperada_lblDestino}" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="10,10,0,0" 
+               Grid.Row="2" 
+               VerticalAlignment="Top" Width="148"/>
+        <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaDestino"
+                                        DataContext="{Binding Path=OrganizacionDestino, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Organizacion_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaOrganizacion}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaOrganizacion_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Organizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.Organizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.TipoObservacion_EncabezadoClaveGrid}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.TipoObservacion_EncabezadoDescripcionGrid}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" Height="Auto" Margin="158,6,0,10" 
+                                AyudaConDatos="skAyudaDestino_AyudaConDatos_1"
+                                        />
+        <Label Content="{x:Static resx:Resources.MermaEsperada_lblMerma}" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="10,10,0,0" 
+               Grid.Row="3" 
+               VerticalAlignment="Top" Width="57"/>
+        <xctk:DecimalUpDown
+                 x:Uid="txtMerma"
+                 x:Name="txtMerma"
+                 Grid.Column="1" 
+                 MaxLength="15"
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="78,10,0,0" 
+                 Grid.Row="3"
+            AllowSpin="False"
+            TabIndex="2"
+            ShowButtonSpinner="False"
+                 VerticalAlignment="Top" Width="80" PreviewTextInput="txtMerma_PreviewTextInput" FormatString="N2" CultureInfo="es-MX">
+        </xctk:DecimalUpDown>
+        <DataGrid
+            Grid.Row="4"
+            Grid.Column="1"
+            Grid.RowSpan="5"
+            SelectionMode="Single" 
+            ItemsSource="{Binding Path=lsMermas}"
+            Name="dgMerma"
+            AutoGenerateColumns="False"
+            CanUserResizeColumns="False" Margin="10,17,10,0"  TabIndex="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=OrganizacionDestino.Descripcion}"
+                                        Header="{x:Static resx:Resources.MermaEsperada_hdDestino}" CanUserSort="False">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBox.TextAlignment" Value="Left"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100"
+                                        Binding="{Binding Path=Merma,StringFormat=N2}"
+                                        Header="{x:Static resx:Resources.MermaEsperada_hdMerma}" CanUserSort="False">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click_1">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.MermaEsperada_lblEditar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEliminar_Click_1">
+                                <Image Source="{StaticResource borrarIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.MermaEsperada_lblEliminar}" />
+                            </Button>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="9"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnGuardar"
+            Grid.Column="1"
+            Content="{x:Static resx:Resources.MermaEsperada_btnGuardar}" 
+            Margin="0,20,146,0" 
+            Width="100" 
+            Height="Auto" HorizontalAlignment="Right" IsEnabled="False" Click="btnGuardar_Click" TabIndex="6"/>
+            <Button x:Name="btnCancelar"
+            Grid.Column="1"
+            Content="{x:Static resx:Resources.MermaEsperada_btnCancelar}" 
+            Margin="0,20,10,0" 
+            Width="100" 
+            TabIndex="7"
+            Height="Auto" HorizontalAlignment="Right" Click="btnCancelar_Click" RenderTransformOrigin="0.524,-0.766" />
+
+        </Grid>
+        <Button x:Name="btnAgregar" 
+            Grid.Row="3"
+            Grid.Column="1"
+            Content="{x:Static resx:Resources.MermaEsperada_btnAgregar}" 
+            Margin="0,10,130,10" 
+            Width="100" 
+            Height="Auto" HorizontalAlignment="Right" Click="btnbtnAgregar_Click" TabIndex="3"/>
+        <Button x:Name="btnLimpiar" 
+                        	Grid.Column="1"
+                        	Content="{x:Static resx:Resources.MermaEsperada_btnLimpiar}" 
+                        	Margin="0,10,10,11" 
+                        	Width="100" 
+                        	Height="Auto" 
+                        	HorizontalAlignment="Right" Click="btnLimpiar_Click_1" Grid.Row="3" TabIndex="4"/>
+    </Grid>
+</Vista:ControlBase>

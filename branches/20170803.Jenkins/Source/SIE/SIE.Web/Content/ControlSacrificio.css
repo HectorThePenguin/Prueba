@@ -1,0 +1,45 @@
+﻿a {
+    color:white;
+}
+nav {
+    background-color: #be2828;
+}
+.header > *, .par > *, .impar > * {
+    display: table-cell;
+    min-width: 100px;
+    vertical-align: middle !important;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.header .x2, .par .x2, .impar .x2 {
+    min-width: 200px;
+}
+.par, .impar {
+    display: table-row;
+}
+.par {
+    background-color: rgba(44, 176, 234, 0.25);
+}
+.par:hover {
+    background-color: rgba(44, 176, 234, 0.65);
+}
+.impar:hover{
+    background-color: rgba(141, 139, 139, 0.65)
+}
+.par button, .impar button {
+    vertical-align: middle;
+}
+/*
+.floatingPin {
+    position: fixed;
+    top: 50px;
+    visibility: hidden;
+    background-color: white;
+    z-index:99;
+    width: 100%;
+}
+
+.pin-frame {
+    background-color: #fff;
+    border: 1px solid black;
+}*/

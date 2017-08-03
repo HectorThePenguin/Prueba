@@ -1,0 +1,158 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.AdministracionParametroCheque"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Height="Auto"
+      Width="Auto"
+      xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+      xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+      xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+      xmlns:paginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls" 
+      xmlns:Enums="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"             
+      Loaded="ControlBase_Loaded_1">
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="EstatusFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type Enums:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enums:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="TipoParametroFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type Enums:TipoParametroBancoEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enums:TipoParametroBancoEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20" Background="White" ScrollViewer.CanContentScroll="True" >
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Row="0" Padding="20 0 20 0" VisibleCerrar="Hidden" TextoTitulo="{x:Static resx:Resources.AdministracionParametroCheque_TituloPrincipal}" x:Name="ucTitulo" Margin="58,12,2,12" Grid.ColumnSpan="2"/>
+        <GroupBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource groupBox}" Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.AdministracionParametroCheque_TituloFiltro}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="74.821" />
+                    <ColumnDefinition Width="45.179"/>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"
+                       Content="{x:Static resx:Resources.AdministracionParametroCheque_LblDescripcion}" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center" 
+                       Height="26" Margin="0,12,0,13" />
+                <TextBox x:Uid="txtDescripcion" 
+                         x:Name="txtDescripcion" 
+                         Grid.Row="0" 
+                         Grid.Column="1"
+                         VerticalAlignment="Center" 
+                         Style="{StaticResource textBoxInError}" 
+                         CharacterCasing="Upper" 
+                         MaxLength="255" 
+                         Height="20"  
+                         TabIndex="0"
+                         Width="180"                         
+                         Margin="10,16,0,15">
+                        <TextBox.Text>
+                            <Binding Path="Descripcion"
+                                     Mode="TwoWay"
+                                     UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                <Label
+						Grid.Row="0"
+                        Grid.Column="2"
+						Content="{x:Static resx:Resources.AdministracionParametroCheque_LblTipo}" 
+                        VerticalAlignment="Center"
+                    HorizontalAlignment="Right" Margin="0,12"/>
+                <ComboBox
+                        x:Name="cmbTipoParametro"
+						Grid.Row="0"
+                        Grid.Column="3"
+                        ItemsSource="{Binding Source={StaticResource TipoParametroFromEnum}}"
+                        SelectedValue="{Binding Path=TipoParametroID, Mode=TwoWay}"
+                        Width="110"
+                        HorizontalAlignment="Left"
+                        TabIndex="1" Grid.ColumnSpan="2" Margin="0,14" />
+                <Label Grid.Column="5" 
+                       Grid.Row="0"  
+                       Content="Estatus"
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center" Margin="0,16,104,16" Grid.ColumnSpan="2" Height="28" Width="66"/>
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Column="6"
+                          ItemsSource="{Binding Source={StaticResource EstatusFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="110"
+                          HorizontalAlignment="Left"
+                          TabIndex="2" Margin="10,18,0,18" />
+                <StackPanel Grid.Column="8" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center"  Grid.ColumnSpan="2" Margin="0,14">
+                    <Button Content="{x:Static resx:Resources.AdministracionParametroCheque_BtnBuscar}" Margin="10 0 0 0" Name="btnBuscar" RenderTransformOrigin="0.5,1.826" Click="btnBuscar_Click" TabIndex="3" ></Button>
+                    <Button Content="{x:Static resx:Resources.AdministracionParametroCheque_BtnNuevo}" Margin="10 0 0 0" Name="btnNuevo" TabIndex="4" Click="btnNuevo_Click"></Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  CanUserResizeColumns="False"
+                  HorizontalAlignment="Center"
+                  ItemsSource="{Binding Path=ChequeraInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="50" Binding="{Binding Path=ParametroID}" Header="{x:Static resx:Resources.AdministracionParametroCheque_GridID}"/>
+                <DataGridTextColumn Width="250" Binding="{Binding Path=Descripcion}" Header="{x:Static resx:Resources.AdministracionParametroCheque_GridDescripcion}" />
+
+                <DataGridTextColumn Width="250" Binding="{Binding Path=Clave}" Header="{x:Static resx:Resources.AdministracionParametroCheque_GridClave}" />
+                <DataGridTextColumn Width="150" Binding="{Binding Path=TipoParametroID}" Header="{x:Static resx:Resources.AdministracionParametroCheque_GridTipo}" />
+                <DataGridTextColumn Width="200*" Binding="{Binding Path=Valor}" Header="{x:Static resx:Resources.AdministracionParametroCheque_GridValor}" />
+                <DataGridTextColumn Width="90" Binding="{Binding Path=Activo}" Header="{x:Static resx:Resources.AdministracionParametroCheque_GridEstatus}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}" CommandParameter="{Binding}" Click="BotonEditar_Click">
+                                <Image Source="{StaticResource editIcon}" Style="{StaticResource iconImage}" ToolTip="{x:Static resx:Resources.AdministrarChequera_GridEditar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <paginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></paginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

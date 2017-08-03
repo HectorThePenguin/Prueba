@@ -1,0 +1,277 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.MermaSuperavitEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 Title="Camion Edicion"
+                 Height="450"
+                 Width="600"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblMermaSuperavitID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblOrganizacion}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblAlmacenID}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblProductoID}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblMerma}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="5"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblSuperavit}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Content="{x:Static resx:Resources.MermaSuperavitEdicion_LblActivo}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtMermaSuperavitID"
+                         x:Name="txtMermaSuperavitID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         IsEnabled="False"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="MermaSuperavitId"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbOrganizacion"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          SelectedItem="{Binding Path=Almacen.Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Almacen.Organizacion.OrganizacionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="OrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          Width="280"
+                          HorizontalAlignment="Left"
+                          TabIndex="0" />
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaAlmacen"
+                                        DataContext="{Binding Path=Almacen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaAlmacen_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaAlmacen_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaAlmacen_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaAlmacen_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaAlmacen_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaAlmacen_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaAlmacen_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorIdFiltroTipoAlmacen"
+                                        MetodoInvocacionBusqueda="ObtenerPorOrganizacionTipoAlmacen"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="AlmacenID" />
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaProducto"
+                                        DataContext="{Binding Path=Producto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="2"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaProducto_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaProducto_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaProducto_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaProducto_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaProducto_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaProducto_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaProducto_Grid_Descripcion}"
+                                        MensajeNoPuedeBuscar="{x:Static resx:Resources.AyudaProducto_SeleccionarAlmacen}"
+                                        MetodoInvocacion="ObtenerPorProductoIdAlmacenId"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaFiltroAlmacen"
+                                        CampoDescripcion="ProductoDescripcion"
+                                        CampoClave="ProductoId" />
+
+                <xctk:DecimalUpDown Name="dtuMerma"
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    ShowButtonSpinner="False"
+                                    MaxLength="8"
+                                    DefaultValue="0"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Left"
+                                    PreviewTextInput="DecimalUpDownPreviewTextInput"
+                                    MinWidth="10"
+                                    Height="20"
+                                    TabIndex="3">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="Merma"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+                <xctk:DecimalUpDown Name="dtuSuperavit"
+                                    Grid.Row="5"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    ShowButtonSpinner="False"
+                                    MaxLength="8"
+                                    DefaultValue="0"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Left"
+                                    PreviewTextInput="DecimalUpDownPreviewTextInput"
+                                    MinWidth="10"
+                                    Height="20"
+                                    TabIndex="4">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="Superavit"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="6"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+
+                <StackPanel Grid.Row="8"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

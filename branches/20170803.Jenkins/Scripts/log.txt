@@ -1,0 +1,42 @@
+NAnt 0.85 (Build 0.85.2478.0; release; 14/10/2006)
+Copyright (C) 2001-2006 Gerry Shaw
+http://nant.sourceforge.net
+
+Buildfile: file:///D:/Versiones/SIAP/trunk/Scripts/SIE.build
+Target framework: Microsoft .NET Framework 2.0
+Target(s) specified: CrearSp 
+
+
+GlobalInit_Normal:
+
+
+InitDesarrollo_Normal:
+
+
+CreateSPs:
+
+    [mkdir] Creating directory 'D:\Versiones\SIAP\trunk\Scripts\temp'.
+     [copy] Copying 7 files to 'D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\'.
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\CuentaGastos_ObtenerTodos.sql
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\dbo.CuentaGastos_ObtenerPorPagina.StoredProcedure.sql
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\dbo.Producto_ObtenerPorPaginaFiltroFamiliaSubfamilias.StoredProcedure.sql
+      [sql] Changed database context to 'SIAP'.
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\dbo.Producto_ObtenerProductoVigilanciaPorProductoID.StoredProcedure.sql
+      [sql] Changed database context to 'SIAP'.
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\dbo.ReporteProduccionVsConsumo.StoredProcedure.sql
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\dbo.VigilanciaProducto_ObtenerPorID.StoredProcedure.sql
+      [sql] Changed database context to 'SIAP'.
+     [echo] D:\Versiones\SIAP\trunk\Scripts\temp\SPaejecutar\dbo.Vigilancia_Producto.StoredProcedure.sql
+      [sql] Changed database context to 'SIAP'.
+   [delete] Deleting directory 'D:\Versiones\SIAP\trunk\Scripts\temp'.
+
+CrearSp:
+
+
+RemoveTemp:
+
+
+BUILD SUCCEEDED
+
+Total time: 3.2 seconds.
+

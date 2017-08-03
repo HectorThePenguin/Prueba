@@ -1,0 +1,289 @@
+﻿<vista:ControlBase 
+    x:Class="SIE.WinForm.PlantaAlimentos.PremezclasDistribucionIngredientes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+    xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+    xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    xmlns:info="clr-namespace:SIE.Services.Info.Info;assembly=SIE.Services.Info"
+    mc:Ignorable="d"
+    Height="auto" Width="auto" Loaded="ControlBase_Loaded">
+
+    <Grid Margin="20,20,20,22"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="88"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Controles:Titulo
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Titulo}"
+                          x:Name="ucTitulo" Height="Auto" Margin="41,12,40,12" Grid.ColumnSpan="3"></Controles:Titulo>
+            
+        <ScrollViewer Grid.Row="1"
+                      Name="scroll"
+                      HorizontalContentAlignment="Stretch" Grid.RowSpan="2" Margin="0,0,0,15">
+            
+            <StackPanel Height="Auto">
+                <GroupBox Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GroupProductoDistribuir}" Height="66" Margin="20,12,20,0" VerticalAlignment="Top">
+                    <Grid HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="auto" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="85"></ColumnDefinition>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="105"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="*" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Style="{StaticResource labelRequerido}" Grid.Column="0"/>
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Producto}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="0"/>
+                        <StackPanel Name="SplAyudaPremezcla"
+                            Height="28"
+                            HorizontalAlignment="Left"
+                            Margin="0,9,0,0" Grid.Column="1"/>
+                        <Label Content="*" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Style="{StaticResource labelRequerido}" Grid.Column="2"/>
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_LblProveedor}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                        <StackPanel Name="SplAyudaProveedor"
+                            Height="28"
+                            VerticalAlignment="Center"
+                            Margin="0,9,0,0" Grid.Column="3"/>
+                        <CheckBox Name="ckbSalida" 
+                            Grid.Column="4" 
+                            Margin="15,3,0,5"
+                            VerticalAlignment="Center"
+                            IsEnabled="True"/>
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_LblIVA}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="5"/>
+                        <Label Content="*" HorizontalAlignment="Left" Margin="-10,10,0,0" VerticalAlignment="Top" Style="{StaticResource labelRequerido}" Grid.Column="6"/>
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_FechaEntrada}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="6"/>
+                        <TextBox x:Name="TxtFechaEntrada" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="110" Grid.Column="7"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_ExistenciaTotal}" Margin="20,5,20,0" VerticalAlignment="Top" Height="81">
+                    <Grid HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="730">
+                        <Label Content="*" HorizontalAlignment="Left" Margin="2,19,0,0" VerticalAlignment="Top"  Style="{StaticResource labelRequerido}" Height="26" Width="15"/>
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_CantidadExistente}" HorizontalAlignment="Left" Margin="17,19,0,0" VerticalAlignment="Top"/>
+                        <xctk:IntegerUpDown x:Name="TxtCantidadExistente" AllowSpin="False" FormatString="N0" CultureInfo="en-US" HorizontalAlignment="Left" Height="23" Margin="140,20,0,0" MaxLength="10" ShowButtonSpinner="False" NumeroInteger="True" Text="" VerticalAlignment="Top" Width="120" TabIndex="1" LostFocus="TxtCantidadExistente_OnLostFocus" />
+                        <xctk:IntegerUpDown x:Name="TxtCantidadExistenteAuxiliar" AllowSpin="False" FormatString="N0" CultureInfo="en-US" HorizontalAlignment="Left" Height="23" Margin="150,20,0,0" MaxLength="10" ShowButtonSpinner="False" NumeroInteger="True" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden" />
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_CostoUnitario}" HorizontalAlignment="Left" Margin="332,19,0,0" VerticalAlignment="Top"/>
+                        <xctk:DecimalUpDown x:Name="TxtCostoUnitario" AllowSpin="False" FormatString="N2" CultureInfo="en-US" HorizontalAlignment="Left" Height="23" Margin="440,20,0,0" MaxLength="10" ShowButtonSpinner="False"  NumeroDecimal="True" Text="" VerticalAlignment="Top" Width="120" LostFocus="TxtCostoUnitario_OnLostFocus" TabIndex="2"/>
+                        <Label Content="*" HorizontalAlignment="Left" Margin="323,19,0,0" VerticalAlignment="Top" Style="{StaticResource labelRequerido}"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_ExistenciaDeProductoOrganizacion}" Margin="20,5,20,0" VerticalAlignment="Top" Height="244">
+                    <Grid HorizontalAlignment="Left" Height="226" VerticalAlignment="Top">
+                        <DataGrid x:Name="DataGridOrganizaciones" ItemsSource="{Binding Path=null, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" CanUserResizeColumns="False" SelectionUnit="FullRow" Height="182" Margin="10,13,8,0" VerticalAlignment="Top" TabIndex="3" PreviewKeyDown="DataGridOrganizaciones_OnPreviewKeyDown">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                            Binding="{Binding Path=Organizacion.Descripcion}"
+                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Organizacion}" 
+                            KeyboardNavigation.TabNavigation="None"
+                            Width="300*"/>
+                                <DataGridTemplateColumn Width="130" Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_CantidadSurtir}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate DataType="info:DistribucionDeIngredientesOrganizacionInfo">
+                                            <TextBox Name="TxtCantidadSurtir" GotMouseCapture="TxtCantidadSurtir_OnGotMouseCapture" TextAlignment="Right" PreviewTextInput="TxtCantidadSurtir_OnPreviewTextInput" Width="120" IsEnabled="{Binding Habilitado, Mode=TwoWay}" MaxLength="9" LostFocus="TxtCantidadSurtir_OnLostFocus" Text="{Binding Path=CantidadSurtir, StringFormat=\{0:N0\}, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"></TextBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn
+                        Binding="{Binding Path=CostoTotal, Mode=TwoWay, StringFormat={}{0:N2}}"
+                        Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_CostoTotal}"
+                        KeyboardNavigation.TabNavigation="None"
+                        Width="130">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Width="100" Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Lote}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox SelectionChanged="Selector_OnSelectionChanged" ItemsSource="{Binding Path=LotesOrganizacion, Mode=TwoWay}" DisplayMemberPath="LoteCombo" SelectedValuePath="AlmacenInventarioLoteId" SelectedValue="{Binding Path=Lote.AlmacenInventarioLoteId, Mode=TwoWay}"></ComboBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="40">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="BtnAgregarLote"  Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    IsEnabled="{Binding Editable}" Click="BtnAgregarLote_OnClick">
+                                                <Image Source="{StaticResource addIcon}"
+                                       Style="{StaticResource iconImage}"
+                                        />
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <xctk:IntegerUpDown Name="TxtSumaCantidadSurtir" FormatString="N0" ShowButtonSpinner="False" NumeroInteger="True" CultureInfo="en-US" TextAlignment="Right" HorizontalAlignment="Right" Height="24" Margin="-1,195,281,0" Text="" IsEnabled="False" VerticalAlignment="Top" Width="130"/>
+                        <xctk:DecimalUpDown Name="TxtSumaCostoTotal" FormatString="N2" ShowButtonSpinner="False" CultureInfo="en-US" TextAlignment="Right" HorizontalAlignment="Right" Height="24" Margin="0,195,154,0" Text="" IsEnabled="False" VerticalAlignment="Top" Width="127"/>
+                        <Label Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Total}" HorizontalAlignment="Right" Margin="-55,195,419,0" VerticalAlignment="Top"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="20,0,20,0">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static resx:Resources.PremezclaDistribucion_Costos}"></Label>
+                    </GroupBox.Header>
+                    <Grid Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="200"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0"
+                                    Orientation="Horizontal"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Right">
+                            <Button Name="btnCancelarCostoGanado"
+                                    Margin="0,0,5,0"
+                                    Content="{x:Static resx:Resources.btnCancelar}"
+                                    Click="btnCancelarCostoGanado_Click"
+                                    IsEnabled="False"></Button>
+                            <Button Name="btnAgregarCostoDistribucionPremezcla"
+                                    Content="{x:Static resx:Resources.btnAgregarLinea}"
+                                    Click="btnAgregarCostoDistribucionPremezcla_Click" Margin="20,0,10,0"></Button>
+                        </StackPanel>
+                        <ScrollViewer Grid.Row="1" Margin="10,10,10,10 ">
+                            <DataGrid x:Name="DgCostoDistribucion"
+                                      HorizontalAlignment="Left"
+                                      AutoGenerateColumns="False"
+                                      Width="1200"
+                                      ColumnWidth="Auto"
+                                      RowHeaderWidth="0"
+                                      Margin="0,0,0,0">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GridCosto_ColumnaCosto}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo">
+                                                <StackPanel Name="stpAyudaCosto"
+                                                            DataContext="{Binding}"
+                                                            Loaded="stpAyudaCosto_Loaded">
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GridCosto_ColumnaCuenta}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo">
+                                                <CheckBox Name="chkCuenta"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          Checked="chkCuenta_Checked" 
+                                                          Unchecked="chkCuenta_Checked"
+                                                          CommandParameter="{Binding}"
+                                                          IsChecked="{Binding Path=TieneCuenta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GridCosto_ColumnaProveedorCuenta}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo">
+                                                <StackPanel Name="stpAyudaProveedorCuenta"
+                                                            DataContext="{Binding}"
+                                                            Loaded="stpAyudaProveedorCuenta_Loaded">
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="200"
+                                                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GridCosto_ColumnaImporte}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo">
+                                                <xctk:DecimalUpDown Name="TxtImporte" 
+                                                                    Value="{Binding Path=Importe, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                                    AllowSpin="False"
+                                                                    ShowButtonSpinner="False"
+                                                                    CultureInfo="en-US"
+                                                                    NumeroDecimal="True"
+                                                                    FormatString="N2"
+                                                                    MaxLength="8">
+                                                    
+                                                </xctk:DecimalUpDown>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GridCosto_ColumnaIva}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo"> 
+                                                <CheckBox Name="chkIva"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          IsChecked="{Binding Path=Iva, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto"
+                                                            Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_GridCosto_ColumnaRetencion}">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo"> 
+                                                <CheckBox Name="chkRetencion"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          IsChecked="{Binding Path=Retencion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="Auto">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="info:PremezclaDistribucionCostoInfo"> 
+                                                <Button Style="{StaticResource iconButton}"
+                                                        IsEnabled="{Binding Path=CostoEmbarque}"
+                                                        Click="btnEliminarCostoGanado_Click"
+                                                        CommandParameter="{Binding}">
+                                                    <Image Source="{StaticResource borrarIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_Eliminar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="2">
+
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+                <Grid Height="auto" Margin="60,0,40,0">
+                    <Button x:Name="btnGuardar" Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Guardar}" HorizontalAlignment="Right" Margin="20,20,-20,0" VerticalAlignment="Top" Width="75" TabIndex="4" Click="btnGuardar_OnClick"/>
+                    <Button x:Name="btnCancelar" Content="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Cancelar}" HorizontalAlignment="Right" Margin="20,20,80,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click" TabIndex="5"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer> 
+    </Grid>
+
+</vista:ControlBase>

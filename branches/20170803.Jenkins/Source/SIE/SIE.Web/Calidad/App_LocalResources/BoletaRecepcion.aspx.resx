@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BoletaRecepcion_Home.Text" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="BoletaRecepcion_Title.Text" xml:space="preserve">
+    <value>Boleta recepción</value>
+  </data>
+  <data name="btnAgregar.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="btnBuscar.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="btnCancelar.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnDialogoNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="btnDialogoSi.Text" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="btnGuardar.Caption" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="HeaderContrato.Text" xml:space="preserve">
+    <value>Contrato</value>
+  </data>
+  <data name="HeaderDescuento.Text" xml:space="preserve">
+    <value>Descuento</value>
+  </data>
+  <data name="HeaderEstatus.Text" xml:space="preserve">
+    <value>Estatus</value>
+  </data>
+  <data name="HeaderFolio.Text" xml:space="preserve">
+    <value>Folio</value>
+  </data>
+  <data name="HeaderId.Text" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="HeaderIndicadores.Text" xml:space="preserve">
+    <value>Indicadores Destino</value>
+  </data>
+  <data name="HeaderNormas.Text" xml:space="preserve">
+    <value>Normas de calidad %</value>
+  </data>
+  <data name="HeaderProducto.Text" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="HeaderProveedor.Text" xml:space="preserve">
+    <value>Proveedor</value>
+  </data>
+  <data name="lblChofer.Text" xml:space="preserve">
+    <value>Chofer:</value>
+  </data>
+  <data name="lblContrato.Text" xml:space="preserve">
+    <value>Contrato:</value>
+  </data>
+  <data name="lblDatosGenerales.Text" xml:space="preserve">
+    <value>Datos generales</value>
+  </data>
+  <data name="lblDestino.Text" xml:space="preserve">
+    <value>Destino:</value>
+  </data>
+  <data name="lblFecha.Text" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="lblFiltro.Text" xml:space="preserve">
+    <value>Filtro</value>
+  </data>
+  <data name="lblFolio.Text" xml:space="preserve">
+    <value>Folio:</value>
+  </data>
+  <data name="lblIndicadoresCalidad.Text" xml:space="preserve">
+    <value>Indicadores de calidad</value>
+  </data>
+  <data name="lblPlacas.Text" xml:space="preserve">
+    <value>Placas:</value>
+  </data>
+  <data name="lblProducto.Text" xml:space="preserve">
+    <value>Producto:</value>
+  </data>
+  <data name="lblProveedor.Text" xml:space="preserve">
+    <value>Proveedor:</value>
+  </data>
+  <data name="lblTicket.Text" xml:space="preserve">
+    <value>Ticket:</value>
+  </data>
+  <data name="lblTituloBoletaRecepcion.Text" xml:space="preserve">
+    <value>Boleta recepción</value>
+  </data>
+  <data name="msgCancelar.Text" xml:space="preserve">
+    <value>¿ Está seguro que desea cancelar la operación, todos los datos ingresados se perderán?</value>
+  </data>
+  <data name="msgCancelarBuscar.Text" xml:space="preserve">
+    <value>¿Esta seguro que desea salir de la pantalla, sin antes agregar el ticket?</value>
+  </data>
+  <data name="msgTicketNoEncuentra.Text" xml:space="preserve">
+    <value>El folio ingresado no se encuentra registrado. Favor de verificar.</value>
+  </data>
+  <data name="msgProveedorSinChofer.Text" xml:space="preserve">
+    <value>No existen choferes para el proveedor. Favor de verificar.</value>
+  </data>
+  <data name="msgProveedorSinPlacas.Text" xml:space="preserve">
+    <value>No existen camiones para el proveedor. Favor de verificar.</value>
+  </data>
+  <data name="msgProveedorSinProducto.Text" xml:space="preserve">
+    <value>No existen productos para el proveedor. Favor de verificar.</value>
+  </data>
+  <data name="msgProveedorSinContrato.Text" xml:space="preserve">
+    <value>No existen contratos para el proveedor. Favor de verificar.</value>
+  </data>
+  <data name="lblJustificacion.Text" xml:space="preserve">
+    <value>Justificación:</value>
+  </data>
+  <data name="msgContratoSinDetalle.Text" xml:space="preserve">
+    <value>No existen indicadores para el contrato actual. Favor de verificar.</value>
+  </data>
+  <data name="msgDatosBlanco.Text" xml:space="preserve">
+    <value>Existen datos obligatorios en blanco. Favor de verificar.</value>
+  </data>
+  <data name="msgDatosGuardados.Text" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="msgFolioInvalido.Text" xml:space="preserve">
+    <value>El ticket ingresado no se encuentra registrado. Favor de verificar.</value>
+  </data>
+  <data name="msgMayorPorcentaje.Text" xml:space="preserve">
+    <value>No es posible capturar un porcentaje mayor a 100. Favor de verificar.</value>
+  </data>
+  <data name="msgSeleccionarFolio.Text" xml:space="preserve">
+    <value>Es necesario seleccionar un ticket para agregar. Favor de verificar.</value>
+  </data>
+  <data name="msgSinFolios.Text" xml:space="preserve">
+    <value>No existen datos para mostrar. Favor de verificar.</value>
+  </data>
+  <data name="msgSinProveedores.Text" xml:space="preserve">
+    <value>No existen proveedores. Favor de verificar.</value>
+  </data>
+  <data name="msgSolicitaAutorizacion.Text" xml:space="preserve">
+    <value>Favor de solicitar autorización, para registrar descuento de los indicadores que se encuentran fuera de rango.</value>
+  </data>
+  <data name="msgEntradaProductoAprobado.Text" xml:space="preserve">
+    <value>El ticket ingresado ya cuenta con un producto aprobado. Favor de verificar.</value>
+  </data>
+  <data name="msgEntradaProductoPendiente.Text" xml:space="preserve">
+    <value>El ticket ingresado ya cuenta con un producto pendiente de autorizar. Favor de verificar.</value>
+  </data>
+  <data name="msgEntradaProductoRechazado.Text" xml:space="preserve">
+    <value>El ticket ingresado ya cuenta con un producto rechazado. Favor de verificar.</value>
+  </data>
+  <data name="msgFolioAprobado.Text" xml:space="preserve">
+    <value>El ticket se encuentra aprobado. Favor de verificar.</value>
+  </data>
+  <data name="msgFolioAutorizado.Text" xml:space="preserve">
+    <value>El ticket se encuentra autorizado. Favor de verificar.</value>
+  </data>
+  <data name="msgFolioRechazado.Text" xml:space="preserve">
+    <value>El ticket se encuentra rechazado. Favor de verificar.</value>
+  </data>
+  <data name="f" xml:space="preserve">
+    <value>Autorizado por: </value>
+  </data>
+  <data name="msgErrorGuardar.Text" xml:space="preserve">
+    <value>Ocurrió un error al guardar la entrada de producto.</value>
+  </data>
+  <data name="msgDatosGuardadosRechazado.Text" xml:space="preserve">
+    <value>No cumple con los parámetros de calidad. Estatus rechazado.</value>
+  </data>
+  <data name="msjFaltanDescuentosCapturarI.Text" xml:space="preserve">
+    <value>Tienes </value>
+  </data>
+  <data name="msjFaltanDescuentosCapturarII.Text" xml:space="preserve">
+    <value> Descuentos Sin Capturar.</value>
+  </data>
+  <data name="msgFolioPendientePorAprobar.Text" xml:space="preserve">
+    <value>Se debe de autorizar el ticket en la pantalla Autorizar Boleta Recepcion.</value>
+  </data>
+  <data name="btnCalidadOrigen.Text" xml:space="preserve">
+    <value>Calidad Origen</value>
+  </data>
+  <data name="lblTituloCalidadOrigen.Text" xml:space="preserve">
+    <value>Indicadores de Calidad Origen</value>
+  </data>
+  <data name="msgEstatus.Text" xml:space="preserve">
+    <value>Pendiente por Autorizar</value>
+  </data>
+  <data name="lblCalidadOrigenFecha.Text" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="lblCalidadOrigenFolio.Text" xml:space="preserve">
+    <value>Folio Origen:</value>
+  </data>
+  <data name="lblCalidadOrigenIndicadores.Text" xml:space="preserve">
+    <value>Indicadores</value>
+  </data>
+  <data name="lblCalidadOrigenPorcentaje.Text" xml:space="preserve">
+    <value>Calidad Origen %</value>
+  </data>
+  <data name="btnDialogoAgregar.Text" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="btnDialogoCerrar.Text" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="msgDialogoNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="msgDialogoSi.Text" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="msgPreguntaDialogoCalidadOrigen.Text" xml:space="preserve">
+    <value>¿Está seguro que desea salir de la pantalla, sin antes agregar la calidad origen de los indicadores?</value>
+  </data>
+  <data name="msjFaltaFechaOrigen.Text" xml:space="preserve">
+    <value>Es necesario ingresar la fecha origen.</value>
+  </data>
+  <data name="msjFaltaFolioOrigen.Text" xml:space="preserve">
+    <value>Es necesario ingresar el folio origen.</value>
+  </data>
+  <data name="msjFaltaPorcentajes.Text" xml:space="preserve">
+    <value>Es necesario ingresar los porcentajes de calidad origen de todos los indicadores.</value>
+  </data>
+  <data name="msgFechaIncorrecta.Text" xml:space="preserve">
+    <value>El formato de fecha no es válido.</value>
+  </data>
+  <data name="msgFaltanaIndicadorCalidadDestino.Text" xml:space="preserve">
+    <value>Existen indicadores de calidad destino en blanco, es necesario registrarlos para continuar.</value>
+  </data>
+  <data name="msgFaltanaIndicadorCalidadOrigen.Text" xml:space="preserve">
+    <value>Es necesario registrar los indicadores de calidad origen para continuar.</value>
+  </data>
+  <data name="msjSinConfiguracionRango.Text" xml:space="preserve">
+    <value>No existe configuracion de rango para el producto:</value>
+  </data>
+  <data name="msgConfiguracionProductos" xml:space="preserve">
+    <value>No se encontro la configuración de los productos de captura de humedad.</value>
+  </data>
+  <data name="msgSinHumedadCapturada" xml:space="preserve">
+    <value>Debe capturar la humedad del producto, antes de realizar la boleta.</value>
+  </data>
+  <data name="msjValidacionFechaSalida.Text" xml:space="preserve">
+    <value>El folio ingresado tiene fecha de salida registrada, favor de verificar.</value>
+  </data>
+</root>

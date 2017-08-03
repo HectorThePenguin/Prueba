@@ -1,0 +1,62 @@
+﻿<Window x:Class="SIE.WinForm.Sanidad.DetalleHistorialClinico"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+      xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+      mc:Ignorable="d" 
+      ResizeMode="NoResize" 
+      SizeToContent="WidthAndHeight"
+      Title="Detalle historila" 
+      ShowInTaskbar="False" 
+      Background="Black" 
+      Grid.IsSharedSizeScope="True" 
+      WindowStartupLocation="CenterScreen" 
+      WindowStyle="None" Loaded="Window_Loaded" Width="550">
+
+    <Grid Margin="2,2,2,2" Background="white">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="277*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
+        <controles:Titulo
+                          TextoTitulo="{x:Static resx:Resources.DetalleHistorial_Titulo}"  
+                          Grid.Row="0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo" Height="Auto" Margin="10,10,10,10" />
+
+
+        <DataGrid  
+                      Grid.Row="1"
+                      CanUserResizeColumns="False" 
+                      Height="249" 
+                      x:Name="GridDetalleHistorial" 
+                      HorizontalContentAlignment="Center" 
+                      Margin="10,10,10,20" 
+                      IsTabStop="true">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="{x:Static resx:Resources.DetalleHistorial_GridProblema}" 
+                                        Width="130"  
+                                        Binding="{Binding Problema}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.DetalleHistorial_GridTratamiento}" 
+                                        Width="130" 
+                                        Binding="{Binding Tratamiento}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.DetalleHistorial_GridProducto}" 
+                                        Width="130" 
+                                        Binding="{Binding DescripcionProducto}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.DetalleHistorial_GridCosto}" 
+                                        Width="130" 
+                                        Binding="{Binding Costo}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

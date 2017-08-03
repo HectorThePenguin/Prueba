@@ -1,0 +1,119 @@
+﻿.EstiloFlecha {
+    width: 38px;
+    height: 38px;
+    float: left;
+}
+.tablacapturaEstilo {
+    clear: none !important;
+    margin-left: 8px !important;
+}
+.inputGrid {
+    background-color: transparent !important;
+    border: 0px !important;
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    color:black !important;
+    text-align: center !important;
+    cursor:default !important;
+    font-size: 20px;
+}
+.inputGrid:disabled {
+    background-color: #B5B4B5 !important;
+}
+.celdaDeshabilitada {
+    background-color:#B5B4B5 !important;
+}
+ .cabecerosTabla {
+     background-color: #FFFFFF !important;
+     height:35px;
+ }
+ .spanLblGrid {
+    margin-top: 85px;
+    float: left;
+    width: 50px;
+ }
+ .spanLblGridCabezas {
+    margin-top: 20px; 
+ }
+  table {
+        table-layout: fixed;
+        empty-cells: show;
+    }
+  #GridComentarios, #tBodyContainer, #tHeadContainer,#tbSolicitudes,#tHeadContainer,#tBody {
+      width: 99%;   
+    }
+ #tHeadContainer {
+        color: black;
+        font-weight: bold;
+    }
+    #tBodyContainer {
+        height: 160px;
+        overflow-y: scroll;
+    }
+    #tBodyContainer::-webkit-scrollbar { 
+     width: 0 !important; 
+    }
+    #tBodyContainer::-moz-scrollbar { 
+     width: 0 !important; 
+    }
+        /* FINER LAYOUT MATTERS: */
+    tr:first-child td {
+        border-top: 0;
+    }
+    #tBody tr.lastRow td {
+        border-bottom: 0;
+    }
+    td:first-child {
+        /*min-width: 40px; Firefox needs min- and max-widths 
+        max-width: 108px;*/
+        width: 60%;
+        border-left: 0;
+        /*width: 30% !important;*/
+    }
+    td:first-child + td {
+        width: 20%;
+        /*min-width: 60px;
+        max-width: 305px;*/
+        /*width: 30% !important;*/
+    }
+    td:first-child + td + td {
+        width: 15%;
+        /*min-width: 20px;
+        max-width: 90px;*/
+        /*width: 30% !important;*/
+    }
+    
+    .img-gray {
+      filter: gray; /* IE6-9 */
+      -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+      filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    }
+    .imgComentarios {
+        width: 30px;
+        float:left; 
+        margin-left:5px;
+        padding:2px;
+    }
+    .imgIcono {
+        width: 20px;
+        float:left; 
+        padding:5px 5px 5px 5px;
+    }
+    .borderTabla {
+        border-left: 1px solid #ddd !important;
+    }
+    .cursorPointer {
+        cursor: pointer;
+    }
+    @media screen and (max-width: 767px) {
+    .separador {
+        width: 200px;
+        margin: 0;
+        padding: 0;
+    }
+    #txtFecha {
+        width: 300px;
+    }
+}

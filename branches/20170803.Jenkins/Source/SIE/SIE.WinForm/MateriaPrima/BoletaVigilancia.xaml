@@ -1,0 +1,276 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.MateriaPrima.BoletaVigilancia"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   Loaded="BoletaVigilancia_OnLoaded">
+    
+        <Grid Margin="20" Background="white" ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect
+                BlurRadius="15"
+                Direction="-90"
+                RenderingBias="Quality"
+                ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="231"/>
+            <RowDefinition Height="68"/>
+            <RowDefinition Height="81"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        
+        <Controles:Titulo
+            TextoTitulo="{x:Static resx:Resources.BoletaVigilancia_Titulo}"  
+            Grid.Column="1"
+            Grid.Row="0"
+			Padding="20 0 20 0"            
+            VisibleCerrar="Hidden"
+            x:Name="ucTitulo" Margin="0,10,0,15" Height="Auto"/>
+        <GroupBox Grid.Column="1" 
+            Grid.Row="1"
+            Header="{x:Static resx:Resources.BoletaVigilancia_Titulo}" 
+            HorizontalAlignment="Stretch" 
+            Margin="10" 
+            Name="BoletaVigilanciaGroupBox" 
+            VerticalAlignment="Center" Height="211">                   
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="145*"/>
+                        <ColumnDefinition Width="150*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="29"/>
+                        <RowDefinition Height="32"/>
+                    <RowDefinition Height="32"/>
+                    <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+                        <Label Content="*"
+                           x:Name="Requerido" Style="{StaticResource labelRequerido}"
+                             Grid.Column="0" Grid.Row="1" Margin="0,5"/>
+                               <Label Name="lblFolio" Content="{x:Static resx:Resources.BoletaVigilancia_lblFolio}" 
+                                 Grid.Column="0" Grid.Row="1" Height="auto" Margin="9,2,2,0"/>
+                        <Label Content="*"
+                           x:Name="Requerido1" Style="{StaticResource labelRequerido}" 
+                             Grid.Column="0" Grid.Row="2"/>
+                               <Label Name="lblProducto" Content="{x:Static resx:Resources.BoletaVigilancia_lblProducto}" 
+                                 Grid.Column="0" Grid.Row="2" Height="auto" Width="auto" Margin="9,2,2,2"/>
+                        <Label Content="*"
+                          x:Name="Requerido2" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="0" Grid.Row="3" Margin="0,0,0,2"/>
+                              <Label Name="lblProveedor" Content="{x:Static resx:Resources.BoletaVigilancia_lblProveedor}" 
+                                Grid.Column="0" Grid.Row="3" Height="auto" Width="auto" Margin="9,2,2,0"/>
+                        <Label Content="*"
+                                  x:Name="RequeridoContrato" Style="{StaticResource labelRequerido}" 
+                                    Grid.Column="0" Grid.Row="4" Margin="0,1,0,6"/>
+                        <Label Name="lblContrato" Content="{x:Static resx:Resources.BoletaVigilancia_lblContrato}" 
+                                        Grid.Column="0" Grid.Row="4" Height="auto" Width="auto" Margin="9,3,2,4"/>
+                    <ComboBox
+                        Name="cmbContrato"
+                        Grid.Column="1"
+                        Grid.Row="4" Margin="0,5,142,2" Height="Auto"
+                        SelectionChanged="CmbContrato_OnSelectionChanged"
+                        />
+                <Label Content="*"
+                           x:Name="Requerido3" Style="{StaticResource labelRequerido}" 
+                             Grid.Column="0" Grid.Row="5"/>
+                               <Label Name="lblTransportista" Content="{x:Static resx:Resources.BoletaVigilancia_lblTransportista}" 
+                                 Grid.Column="0" Grid.Row="5" Height="auto" Width="auto" Margin="9,2,2,2"/>
+                    
+                        <TextBox x:Name="TxtFolio"  
+                                 Grid.Column="1" 
+                                 Grid.Row="1" 
+                                 HorizontalAlignment="Left" 
+                                 Height="22"  
+                                 TextWrapping="NoWrap"  
+                                 VerticalAlignment="Center" 
+                                 HorizontalContentAlignment="Left" 
+                                 Width="275"
+                                 PreviewTextInput="TxtFolio_OnPreviewTextInput"
+                                 KeyDown="TxtFolio_OnKeyDown" Margin="0,5,0,3"/>
+                        <StackPanel Name="SplAyudaProducto"
+                            Grid.Column="1"
+                             Grid.Row="2"
+                               Height="28"
+                                 VerticalAlignment="Center" Margin="0,1,0,0"/>
+                        <StackPanel Name="SplAyudaProveedor"
+                            Grid.Column="1"
+                             Grid.Row="3"
+                              Height="28"
+                                VerticalAlignment="Center" Margin="0,0,0,4"/>
+                        <StackPanel Name="SplAyudaTransportista"
+                            Grid.Column="1"
+                             Grid.Row="5"
+                              Height="30"
+                                LostFocus="SplAyudaTransportista_OnLostFocus"
+                                 VerticalAlignment="Center" Margin="0,4,0,21"/>
+                    
+                        <Label Content="*"
+                          x:Name="Requerido4" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="2" Grid.Row="1" Margin="0,2,0,0"/>
+                              <Label Name="lblChofer" Content="{x:Static resx:Resources.BoletaVigilancia_lblChofer}" 
+                                Grid.Column="2" Grid.Row="1" Height="auto" Width="auto" Margin="9,2,2,2"/>
+                        <Label Content="*"
+                          x:Name="Requerido5" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="2" Grid.Row="2"/>
+                              <Label Name="lblPlacasCamion" Content="{x:Static resx:Resources.BoletaVigilancia_lblPlacasCamion}" 
+                                Grid.Column="2" Grid.Row="2" Height="auto" Width="auto" Margin="9,2,2,2"/>
+                        <Label Content="*"
+                         x:Name="Requerido6" Style="{StaticResource labelRequerido}"
+                          Grid.Column="2" Grid.Row="3" Grid.RowSpan="2"/>
+                           <Label Name="lblMarcaCamion" Content="{x:Static resx:Resources.BoletaVigilancia_lblMarcaCamion}" 
+                             Grid.Column="2" Grid.Row="3" Height="auto" Width="auto" Margin="9,2,2,2" Grid.RowSpan="2"/>
+                        <Label Content="*"
+                          x:Name="Requerido7" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="2" Grid.Row="4"/>
+                              <Label Name="lblColorCamion" Content="{x:Static resx:Resources.BoletaVigilancia_lblColorCamion}" 
+                                Grid.Column="2" Grid.Row="4" Height="auto" Width="auto" Margin="9,2,2,2"/>
+
+                <StackPanel Name="SplAyudaChofer"
+                            Grid.Column="3"
+                            Grid.Row="1"
+                            Height="28"
+                            VerticalAlignment="Center" Margin="0,1"/>
+                <StackPanel Name="SplAyudaCamion"
+                            Grid.Column="3"
+                            Grid.Row="2"
+                            Height="28"
+                            VerticalAlignment="Center" Margin="0,1,0,0"/>
+                <TextBox x:Name="TxtMarcaCamion"  
+                         Grid.Column="3" 
+                         Grid.Row="3" 
+                         HorizontalAlignment="Left" 
+                         Height="24"  
+                         TextWrapping="NoWrap" 
+                         VerticalAlignment="Center" 
+                         HorizontalContentAlignment="Left" 
+                         Width="250" 
+                         MaxLength="50" 
+                         Margin="0,4" 
+                         PreviewTextInput="TxtMarcaCamion_OnPreviewTextInput"
+                         />
+                <TextBox x:Name="TxtColorCamion" 
+                         Grid.Column="3" 
+                         Grid.Row="4" 
+                         HorizontalAlignment="Left" 
+                         Height="24"  
+                         TextWrapping="NoWrap" 
+                         VerticalAlignment="Center" 
+                         HorizontalContentAlignment="Left" 
+                         Width="250" 
+                         MaxLength="50"
+                         Margin="0,2,0,6" 
+                         PreviewTextInput="TxtColorCamion_OnPreviewTextInput"
+                         />
+                    
+                        <Label Content="*"
+                          x:Name="Requerido8" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="4" Grid.Row="1"/>
+                              <Label Name="lblFechaHoraEntrada" Content="{x:Static resx:Resources.BoletaVigilancia_lblFechaHoraEntrada}" 
+                                Grid.Column="4" Grid.Row="1" Height="auto" Width="auto" Margin="9,2,2,2"/>
+                        <Label Content="*"
+                          x:Name="Requerido9" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="4" Grid.Row="2"/>
+                              <Label Name="lblAccede" Content="{x:Static resx:Resources.BoletaVigilancia_lblAccede}" 
+                                Grid.Column="4" Grid.Row="2" Height="auto" Width="auto" Margin="9,2,2,2" />
+                        <Label Content="*"
+                          x:Name="Requerido10" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="4" Grid.Row="3" Grid.RowSpan="2"/>
+                              <Label Name="lblFechaHoraSalida" Content="{x:Static resx:Resources.BoletaVigilancia_lblFechaHoraSalida}" 
+                                Grid.Column="4" Grid.Row="3" Height="auto" Width="auto" Margin="9,2,2,2" Grid.RowSpan="2"/>
+                        <Label Content="*"
+                          x:Name="Requerido11" Style="{StaticResource labelRequerido}" 
+                            Grid.Column="2" Grid.Row="5" Margin="0,2,0,8"/>
+                        <CheckBox Name="ckbSalida" 
+                          TabIndex="18"  
+                            Grid.Column="2" 
+                              Grid.Row="5"
+                                Margin="15,9,0,30"
+                                  VerticalAlignment="Center"
+                                    Checked="ckbSalida_Checked" 
+                                      IsEnabled="False" Height="16"/>
+                        <Label Name="ChkSalida" Content="{x:Static resx:Resources.BoletaVigilancia_ChkSalida}" 
+                          Grid.Column="2"
+                            Grid.Row="5"
+                              Height="24" 
+                                Margin="30,5,0,26"
+                                  VerticalAlignment="Center"
+                                    IsEnabled="False"/>
+                        <TextBox
+                          x:Name="DtpFechaEntrada"
+                            Grid.Column="5"
+                              Grid.Row="1"
+                                HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                    Width="170"
+                                      IsEnabled="False"
+                                        Margin="0,5,0,1"
+                                          Height="24"/>
+                <TextBox Grid.Column="5" 
+                          Grid.Row="2"
+                            Name="txtLaboratorio"
+                              Height="22"
+                                HorizontalAlignment="Left" VerticalAlignment="Center"
+                                  Text="{x:Static resx:Resources.BoletaVigilancia_Laboratorio}"
+                                    HorizontalContentAlignment="Left" Width="170" IsEnabled="False" Margin="0,1,0,6"/>
+                        <TextBox
+                            x:Name="DtpFechaSalida"
+                              Grid.Column="5"
+                                Grid.Row="3"
+                                    HorizontalAlignment="Left"
+                                     VerticalAlignment="Center"
+                                       Width="170"
+                                          IsEnabled="False"
+                                            Margin="0,4"
+                                              Height="24"/>
+            </Grid> 
+        </GroupBox>
+        <Grid Grid.Row="2" 
+              Grid.Column="1"
+              HorizontalAlignment="Right" VerticalAlignment="Top" Width="300" Margin="0,5,20,0" Height="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="imgImprimir"
+                    Grid.Column="0"
+                      HorizontalAlignment="Right" 
+                         Width="90"
+                            Height="50"
+                               Source="../Imagenes/iconoprint.ico"
+                                 MouseLeftButtonDown="ImgImprimir_OnMouseLeftButtonDown_"
+                                   VerticalAlignment="Center"/>
+                    <Button x:Name="btnGuardar" 
+                       Content="{x:Static resx:Resources.BoletaVigilancia_BtnGuardar}"  
+                         HorizontalAlignment="Right"
+                            Width="90"
+                               Height="23"                            
+                                 Grid.Column="1"
+                                   
+                                      Click="btnGuardar_Click"/>
+                    <Button x:Name="btnCancelar" 
+                            Content="{x:Static resx:Resources.BoletaVigilancia_BtnCancelar}"
+                            HorizontalAlignment="Right"
+                            Width="90"
+                            Height="23"                            
+                            Grid.Column="2"
+                            Click="btnCancelar_Click" />
+        </Grid>
+    </Grid>
+</Vista:ControlBase>

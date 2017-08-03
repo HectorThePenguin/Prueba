@@ -1,0 +1,28 @@
+﻿<table id="GridFormulaAcumulada" class="table table-hover table-striped table-bordered table-advance">
+    <thead>
+        <tr>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Formula}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.CantidadProgramada}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.CantidadReal}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.VerDetalle}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#foreach $T.Valores as item}
+        <tr>
+            <td class="columnaID alineacionCentro">
+                {$T.item.Formula.Descripcion}
+            </td>
+            <td class="columnaDescripcion alineacionCentro formatea">
+                {$T.item.CantidadReparto}
+            </td>
+            <td class="columnaID alineacionCentro formatea">
+                {$T.item.CantidadProducida}
+            </td>
+            <td class="columnaDescripcion alineacionCentro">
+                <a  href="javascript:AbrirDetalle('{$T.item.Formula.Descripcion}');">Ver Detalle</a>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

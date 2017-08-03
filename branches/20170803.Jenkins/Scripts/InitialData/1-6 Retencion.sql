@@ -1,0 +1,10 @@
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De ISR', 'ISR', 'A1', '03', 28.00, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De ISR', 'ISR', 'A1', '04', 4.90, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De ISR', 'ISR', 'A1', '05', 5.00, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De IVA', 'IVA', 'B1', '01', 66.67, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De IVA', 'IVA', 'B1', '02', 66.67, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De IVA', 'IVA', 'B2', '01', 4.00, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De IVA', 'IVA', 'B1', '03', 66.67, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Retencion De Impuesto Cedular', 'CED', 'C1', '01', 1.00, 1, GETDATE(), 1)
+INSERT INTO Retencion (Descripcion,TipoRetencion,IndicadorRetencion,IndicadorImpuesto,Tasa,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Sin Retencion', 'SR', '', '', 0.00, 1, GETDATE(), 1)
+

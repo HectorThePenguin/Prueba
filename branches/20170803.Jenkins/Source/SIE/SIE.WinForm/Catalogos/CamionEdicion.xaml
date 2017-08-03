@@ -1,0 +1,339 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.CamionEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Title="Camion Edicion"
+                 Height="535"
+                 Width="600"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    
+    <Grid Background="white"
+          Margin="2,2,2,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Camion_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="121" />
+                    <ColumnDefinition Width="389" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="72"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Id}"
+                       Margin="8,4" Height="28" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       x:Name="lblDescripcionRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" Margin="0,6,93,4" Height="26" />
+
+
+                <Label Grid.Row="1"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Descripcion}"
+                       Margin="8,4"
+                       VerticalAlignment="Center" Height="28" />
+                
+                <Label Grid.Row="2"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Economico}"
+                       Margin="8,4"
+                       VerticalAlignment="Center" Height="28" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       x:Name="lblProveedorRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" Margin="0,3,93,7" Height="26" />
+                
+                <Label Grid.Row="3"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Marca}"
+                       Margin="8,4"
+                       VerticalAlignment="Center" Height="28" />
+                <Label Grid.Row="4"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Modelo}"
+                       Margin="8,4"
+                       VerticalAlignment="Center" Height="28" />
+                <Label Grid.Row="6"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Color}"
+                       Margin="8,4"
+                       VerticalAlignment="Center" Height="28" />
+                <Label Grid.Row="7"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Boletinado}"
+                       Margin="8,6,8,3"
+                       VerticalAlignment="Center" Height="26" />
+                <Label Grid.Row="8"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_Observaciones}"
+                       Margin="8,9,8,37"
+                       VerticalAlignment="Center" Height="26" />
+                <Label Grid.Row="5"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_ProveedorId}"
+                       Margin="6,5,10,3" Height="Auto" />
+
+                <StackPanel Name="SplAyudaProveedor"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Height="24"
+                            VerticalAlignment="Center" Margin="0,6">
+                </StackPanel>
+
+                <Label Content="Estatus:"
+                       Grid.Row="9"
+                       VerticalAlignment="Center"
+                       Margin="8,6,8,3" Height="26" />
+
+                <TextBox x:Uid="txtCamionId"
+                         x:Name="txtCamionId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         IsEnabled="false" Margin="0,6,0,7" Height="Auto">
+                    <TextBox.Text>
+                        <Binding Path="CamionID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         PreviewTextInput="TxtValidarLetrasConAcentosPreviewTextInput"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0"
+                         MaxLength="10"
+                         CharacterCasing="Upper" Margin="0,7,0,6" Height="Auto">
+                    <TextBox.Text>
+                        <Binding Path="PlacaCamion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                
+                <TextBox x:Uid="txtEconomico"
+                         x:Name="txtEconomico"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         PreviewTextInput="TxtValidarLetrasConAcentosPreviewTextInput"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="1"
+                         MaxLength="10"
+                         CharacterCasing="Upper" Margin="0,7,0,6" Height="Auto">
+                    <TextBox.Text>
+                        <Binding Path="Economico"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Uid="txtModelo"
+                         x:Name="txtModelo"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         PreviewTextInput="TxtValidarSoloNumerosPreviewTextInput"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="3"
+                         MaxLength="4"
+                         CharacterCasing="Upper" Margin="0,7,0,6" Height="Auto">
+                    <TextBox.Text>
+                        <Binding Path="Modelo"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Uid="txtColor"
+                         x:Name="txtColor"
+                         Grid.Row="6"
+                         Grid.Column="1"
+                         PreviewTextInput="TxtValidarSoloLetrasPreviewTextInput"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="5"
+                         MaxLength="255"
+                         CharacterCasing="Upper" Margin="0,7,0,6" Height="Auto">
+                    <TextBox.Text>
+                        <Binding Path="Color"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Uid="txtObservacionesObtener"
+                         x:Name="txtObservacionesObtener"
+                         Grid.Row="8"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="7"
+                         MaxLength="255"
+                         IsEnabled="false"
+                         CharacterCasing="Upper" Margin="0,10,0,37" Height="Auto" Width="342">
+                    <TextBox.Text>
+                        <Binding Path="ObservacionesObtener"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="9"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Width="119"
+                          HorizontalAlignment="Left"
+                          TabIndex="8" Margin="0,10,0,5" Height="Auto" />
+                
+                <ComboBox x:Name="cmbMarca"
+                          Grid.Row="3"
+                          Grid.Column="1"
+                          SelectedValuePath="MarcaId"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=MarcaID, Mode=TwoWay}"
+                          SelectedItem="{Binding Path=MarcaDescripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="170"
+                          HorizontalAlignment="Left"
+                          TabIndex="2" Margin="0,10,0,5" Height="Auto" />
+                <StackPanel Grid.Row="10"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                        x:Name="btnGuardar"
+                		Click="Guardar_Click"
+                		Margin="0,6"
+                		TabIndex="9" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                        x:Name="btnCancelar"
+                    	Click="Cancelar_Click"
+                    	Margin="15,6,0,6"
+                    	TabIndex="10" />
+                </StackPanel>
+                <Label Grid.Row="2"
+                	Content="*"
+                	x:Name="lblDescripcionRequerido_Copy"
+                	Style="{StaticResource labelRequerido}"
+                	VerticalAlignment="Center" Margin="0,6,93,4" Height="26" />
+                <CheckBox Content="" TabIndex="6" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="7" VerticalAlignment="Top" Height="16" Width="13"
+                          IsChecked="{Binding Path=Boletinado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Click="CheckBox_Checked_1"/>
+                <Label Content="{x:Static resx:Resources.CamionEdicion_Lbl_Nota}" HorizontalAlignment="Left" Margin="10,24,0,-15" Grid.Row="10" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="514" Height="26" Grid.RowSpan="2"/>
+                <Label Grid.Row="4"
+                	Content="*"
+                	x:Name="lblProveedorRequerido_Copy"
+                	Style="{StaticResource labelRequerido}"
+                	VerticalAlignment="Center" Margin="0,6,93,4" Height="26" />
+                <Label Grid.Row="5"
+                	Content="*"
+                	x:Name="lblProveedorRequerido_Copy1"
+                	Style="{StaticResource labelRequerido}"
+                	VerticalAlignment="Center" Margin="0,4,93,6" Height="26" />
+                <Label Grid.Row="6"
+                	Content="*"
+                	x:Name="txtObservacionesCapturar"
+                	Style="{StaticResource labelRequerido}"
+                	VerticalAlignment="Center" Margin="0,4,93,6" Height="26" />
+                <TextBox x:Uid="txtObservacionesOculto"
+                	x:Name="txtObservacionesOculto"
+                	Grid.Row="8"
+                	Grid.Column="1"
+                	Style="{StaticResource textBoxInError}"
+                	PreviewTextInput="TxtValidarLetrasConAcentosPreviewTextInput"
+                	MaxLength="255"
+                    IsEnabled="false"
+                	CharacterCasing="Upper" Margin="0,49,0,34" Height="Auto" Width="342" Grid.RowSpan="2">
+                </TextBox>
+                <TextBox x:Uid="txtObservacionesEnviar"
+                	x:Name="txtObservacionesEnviar"
+                	Grid.Row="8"
+                	Grid.Column="1"
+                	Style="{StaticResource textBoxInError}"
+                    PreviewTextInput="TxtValidarLetrasConAcentosPreviewTextInput"
+                	TabIndex="7"
+                	MaxLength="255"
+                	CharacterCasing="Upper" Margin="0,49,0,34" Height="Auto" Width="342" Grid.RowSpan="2">
+                    <Binding Path="ObservacionesEnviar"
+                		Mode="TwoWay"
+                		UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+                
+                <Label Grid.Row="8"
+                	Content="*"
+                	x:Name="NoVacio"
+                	Style="{StaticResource labelRequerido}"
+                	VerticalAlignment="Center" Margin="0,13,93,33" Height="26" Visibility="hidden"/>
+                
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>
+

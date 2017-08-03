@@ -1,0 +1,12 @@
+﻿<Application x:Class="SIE.WinForm.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="Seguridad\Login.xaml">
+    <!--xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="Principal.xaml">-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>                
+                <ResourceDictionary Source="Recursos/Diccionario/Estilos.xaml" />
+                <!--<ResourceDictionary Source="Temas/ShinyRed.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

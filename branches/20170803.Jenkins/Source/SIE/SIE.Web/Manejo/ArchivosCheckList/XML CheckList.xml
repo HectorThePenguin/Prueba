@@ -1,0 +1,165 @@
+
+<itext>
+<table Valor="TablaCheckList" columns="6" width="100%" align="Center" cellpadding="2.0" widths="16.6666;16.6666;16.6666;16.6666;16.6666;16.6666" borderwidth="0.8" left="true" right="true" top="true" bottom="true" red="213" green="213" blue="213">
+		<row>
+			<cell bgred="216" bggreen="216" bgblue="216" borderwidth="0" left="true" right="true" top="true" bottom="true" horizontalalign="Center" colspan="2"   header="true" leading="18.0">
+			<chunk font="Arial" size="10.0"> FENVIZ-07-104 </chunk>	
+			</cell>			
+			<cell bgred="216" bggreen="216" bgblue="216" borderwidth="0"  left="true" right="true" top="true" bottom="true" horizontalalign="Center"   colspan="2"  header="true" leading="18.0">
+			<chunk font="Arial" size="10.0"> Revisión: 1 </chunk>
+			</cell>
+			<cell bgred="216" bggreen="216" bgblue="216" borderwidth="0"  left="true" right="true" top="true" bottom="true" horizontalalign="Center"   colspan="2" header="true" leading="18.0">
+				<chunk font="Arial" size="10.0"> Fecha: 13 de Abril del 2009  </chunk>
+			</cell>			
+		</row>
+		<row>
+		<cell borderwidth="0.5" bgred="216" bggreen="216" bgblue="216" left="true" right="true" top="true" bottom="true" red="236" green="236" blue="236" horizontalalign="Center"   colspan="6" leading="18.0">
+			<chunk font="Arial" size="10.0">Check List Cierre de Corral</chunk>
+			</cell>
+		</row>
+		<!-- Primer Renglon -->
+		<row>
+			<cell red="236" green="236" blue="236"  borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+			<chunk font="Arial" size="8.0"> Corral</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236"  borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Right"   leading="12.0">
+				<chunk Valor="Corral" font="Arial" size="8.0"></chunk>
+			</cell>
+				<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0"> Lote</chunk>
+				</cell>
+			<cell red="236" green="236" blue="236"  borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Right"   leading="12.0">
+			<chunk Valor="Lote" font="Arial" size="8.0"> </chunk>
+			</cell>
+					<cell red="236" green="236" blue="236"  borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0"> Fecha</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236"  borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="Fecha" font="Arial" size="8.0"></chunk>
+			</cell>
+		</row>
+		<!-- Segundo Renglon -->
+		<row>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0"> Peso de Corte</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Right"   leading="12.0">
+				<chunk Valor="PesoCorte" font="Arial" size="8.0"></chunk>
+			</cell>
+				<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0"> Cabezas Sistema</chunk>
+				</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Right"   leading="12.0">
+				<chunk Valor="CabezasSistema" font="Arial" size="8.0"></chunk>
+			</cell>			
+					<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0"> Fecha de Sacrificio</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="FechaSacrificio" font="Arial" size="8.0" ></chunk>
+			</cell>
+		</row>
+		
+		<!-- Tercer Renglon -->
+		<row>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Fecha Abierto</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="FechaAbierto" font="Arial" size="8.0" ></chunk>
+			</cell>
+				<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Cabezas Conteo</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Right"   leading="12.0">
+				<chunk Valor="CabezasConteo" font="Arial" size="8.0" ></chunk>
+			</cell>			
+					<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Fecha 1er Reimplante</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="Fecha1Reimplante" font="Arial" size="8.0" ></chunk>
+			</cell>
+		</row>
+		
+		<!-- Cuarto Renglon -->
+		<row>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Fecha Cerrado</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="FechaCerrado" font="Arial" size="8.0" ></chunk>
+			</cell>
+				<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > % Ocupación</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Right"   leading="12.0">
+				<chunk Valor="Ocupacion" font="Arial" size="8.0" ></chunk>
+			</cell>
+					<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Fecha 2o Reimplante</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="Fecha2Reimplante" font="Arial" size="8.0" ></chunk>
+			</cell>
+		</row>
+		
+		<!-- Quinto Renglon -->
+		<row>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Días de Engorda</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="DiasEngorda" font="Arial" size="8.0" ></chunk>
+			</cell>
+				<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Tipo</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="Tipo" font="Arial" size="8.0" ></chunk>
+			</cell>
+					<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk font="Arial" size="8.0" > Raza</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   leading="12.0">
+				<chunk Valor="Raza" font="Arial" size="8.0" ></chunk>
+			</cell>
+		</row>
+	</table>
+	<!-- Tabla Ganado -->
+	<paragraph leading="18.0" font="unknown" align="Default">
+		<newline />
+	</paragraph>
+	<table Valor="TablaGanado" columns="3" width="100%" align="Center" cellpadding="2.0" widths="33.33333;33.33333;33.33333" borderwidth="1.0" left="true" right="true" top="true" bottom="true" red="213" green="213" blue="213">
+		<!-- Cabecero -->
+		<row>
+			<cell red="236" green="236" blue="236" bgred="216" bggreen="216" bgblue="216" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   header="true" leading="18.0">
+				<chunk font="Arial" size="10.0" ></chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" bgred="216" bggreen="216" bgblue="216" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   header="true" leading="18.0">
+				<chunk font="Arial" size="10.0" ></chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" bgred="216" bggreen="216" bgblue="216" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   header="true" leading="18.0">
+				<chunk font="Arial" size="10.0" > Observaciones</chunk>
+			</cell>
+			</row>		
+	</table>
+	<!-- Tabla Corral -->
+	<paragraph leading="18.0" font="unknown" align="Default">
+		<newline />
+	</paragraph>
+	<table  Valor="TablaCorral" columns="3" width="100%" align="Center" cellpadding="2.0" widths="33.33333;33.33333;33.33333" borderwidth="1.0" left="true" right="true" top="true" bottom="true" red="213" green="213" blue="213">
+		<!-- Cabecero -->
+		<row>
+		<cell red="236" green="236" blue="236" bgred="216" bggreen="216" bgblue="216" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   header="true" leading="18.0">
+				<chunk font="Arial" size="10.0" > Estructura</chunk>
+			</cell>
+			<cell red="236" green="236" blue="236" bgred="216" bggreen="216" bgblue="216" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   header="true" leading="18.0">
+				<chunk font="Arial" size="10.0" > Observaciones</chunk>
+			</cell>			
+				<cell red="236" green="236" blue="236" bgred="216" bggreen="216" bgblue="216" borderwidth="0.5" left="true" right="true" top="true" bottom="true" horizontalalign="Default"   header="true" leading="18.0">
+				<chunk font="Arial" size="10.0" > Acciones Tomadas</chunk>
+			</cell>
+		</row>		
+	</table>
+</itext>

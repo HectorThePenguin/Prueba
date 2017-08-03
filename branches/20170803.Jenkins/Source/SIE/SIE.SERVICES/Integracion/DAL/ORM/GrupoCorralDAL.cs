@@ -1,0 +1,202 @@
+using System;
+using System.Linq;
+using System.Reflection;
+using SIE.Base.Exepciones;
+using SIE.Base.Infos;
+using SIE.Base.Integracion.DAL;
+using SIE.Base.Log;
+using SIE.Services.Info.Enums;
+using SIE.Services.Info.Info;
+
+namespace SIE.Services.Integracion.DAL.ORM
+{
+    internal class GrupoCorralDAL : BaseDAL
+    {
+        GrupoCorralAccessor grupoCorralAccessor;
+
+        protected override void inicializar()
+        {
+            grupoCorralAccessor = da.inicializarAccessor<GrupoCorralAccessor>();
+        }
+
+        protected override void destruir()
+        {
+            grupoCorralAccessor = null;
+        }
+
+        /// <summary>
+        /// Obtiene una lista paginada de GrupoCorral
+        /// </summary>
+        /// <param name="pagina"></param>
+        /// <param name="filtro"></param>
+        /// <returns></returns>
+        public ResultadoInfo<GrupoCorralInfo> ObtenerPorPagina(PaginacionInfo pagina, GrupoCorralInfo filtro)
+        {
+            try
+            {
+                Logger.Info();
+                ResultadoInfo<GrupoCorralInfo> result = new ResultadoInfo<GrupoCorralInfo>();
+                var condicion = da.Tabla<GrupoCorralInfo>().Where(e=> e.Activo == filtro.Activo);
+                if (filtro.GrupoCorralID > 0)
+                {
+                    condicion = condicion.Where(e=> e.GrupoCorralID == filtro.GrupoCorralID);
+                }
+                if (!string.IsNullOrEmpty(filtro.Descripcion))
+                {
+                    condicion = condicion.Where(e=> e.Descripcion.Contains(filtro.Descripcion));
+                }
+                result.TotalRegistros = condicion.Count();
+                
+                int inicio = pagina.Inicio;
+                int limite = pagina.Limite;
+                if (inicio > 1)
+                {
+                    int limiteReal = (limite - inicio) + 1;
+                    inicio = (limite / limiteReal);
+                    limite = limiteReal;
+                }
+                var paginado = condicion
+                    .OrderBy(e => e.Descripcion)
+                    .Skip((inicio - 1)*limite)
+                    .Take(limite);
+
+                result.Lista = paginado.ToList();
+
+                return result;
+            }
+            catch(ExcepcionGenerica)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex);
+                throw new ExcepcionDesconocida(MethodBase.GetCurrentMethod(), ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene una lista de GrupoCorral
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<GrupoCorralInfo> ObtenerTodos()
+        {
+            try
+            {
+                Logger.Info();
+                return da.Tabla<GrupoCorralInfo>();
+            }
+            catch(ExcepcionGenerica)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex);
+                throw new ExcepcionDesconocida(MethodBase.GetCurrentMethod(), ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene una lista de GrupoCorral filtrando por el estatus Activo = 1, Inactivo = 0
+        /// </summary>
+        /// <param name="estatus"></param>
+        /// <returns></returns>
+        public IQueryable<GrupoCorralInfo> ObtenerTodos(EstatusEnum estatus)
+        {
+            try
+            {
+                Logger.Info();
+                return this.ObtenerTodos().Where(e=> e.Activo == estatus);
+            }
+            catch(ExcepcionGenerica)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex);
+                throw new ExcepcionDesconocida(MethodBase.GetCurrentMethod(), ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene una entidad de GrupoCorral por su Id
+        /// </summary>
+        /// <param name="grupoCorralId">Obtiene una entidad GrupoCorral por su Id</param>
+        /// <returns></returns>
+        public GrupoCorralInfo ObtenerPorID(int grupoCorralId)
+        {
+            try
+            {
+                Logger.Info();
+                return this.ObtenerTodos().Where(e=> e.GrupoCorralID == grupoCorralId).FirstOrDefault();
+            }
+            catch(ExcepcionGenerica)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex);
+                throw new ExcepcionDesconocida(MethodBase.GetCurrentMethod(), ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtiene una entidad de GrupoCorral por su descripcion
+        /// </summary>
+        /// <param name="descripcion">Obtiene una entidad GrupoCorral por su descripcion</param>
+        /// <returns></returns>
+        public GrupoCorralInfo ObtenerPorDescripcion(string descripcion)
+        {
+            try
+            {
+                Logger.Info();
+                return this.ObtenerTodos().Where(e=> e.Descripcion.ToLower() == descripcion.ToLower()).FirstOrDefault();
+            }
+            catch(ExcepcionGenerica)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex);
+                throw new ExcepcionDesconocida(MethodBase.GetCurrentMethod(), ex);
+            }
+        }
+
+        /// <summary>
+        /// Metodo para Guardar/Modificar una entidad GrupoCorral
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        public int Guardar(GrupoCorralInfo info)
+        {
+            try
+            {
+                Logger.Info();
+                var id = 0;
+                if (info.GrupoCorralID > 0)
+                {
+                    id = da.Actualizar<GrupoCorralInfo>(info);
+                    grupoCorralAccessor.ActualizarFechaModificacion(info.GrupoCorralID);
+                }
+                else
+                {
+                    id = da.Insertar<GrupoCorralInfo>(info);
+                }
+                return id;
+            }
+            catch(ExcepcionGenerica)
+            {
+                throw;
+            }
+            catch(Exception ex)
+            {
+                Logger.Error(ex);
+                throw new ExcepcionDesconocida(MethodBase.GetCurrentMethod(), ex);
+            }
+        }
+    }
+}

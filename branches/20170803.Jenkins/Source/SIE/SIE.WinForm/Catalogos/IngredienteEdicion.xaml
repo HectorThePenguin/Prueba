@@ -1,0 +1,222 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.IngredienteEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                 Title="Configuracion Formula"
+                 Height="650"
+                 Width="720"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.IngredienteEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="410"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="340"></ColumnDefinition>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                      Content="{x:Static resx:Resources.Ingrediente_LblOrganizacionID}"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                    Margin="8,0,0,0"
+                      >
+                </Label>
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaOrganizacion"
+                                        DataContext="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Indicador_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaIndicador}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaOrganizacion_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Organizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorIDOmitiendoTipos"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaOmitiendoTipos"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" 
+                                        />
+                <Label Content="{x:Static resx:Resources.IngredienteEdicion_LblActivo}"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       Margin="8,0,0,0" RenderTransformOrigin="0.5,0.5" >
+
+                </Label>
+                <ComboBox x:Name="cmbEstatus"  
+                       Grid.Row="0"
+                       Grid.Column="3"
+                       ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+					     SelectedItem="{Binding Path=Activo, Mode=TwoWay}"
+					     Width="150"
+					     HorizontalAlignment="Left"
+					     TabIndex="3" DropDownClosed="cmbEstatus_DropDownClosed" SelectionChanged="cmbEstatus_SelectionChanged" />
+                <Label Content="{x:Static resx:Resources.IngredienteEdicion_LblFormulaID}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" RenderTransformOrigin="0.5,0.5" >
+                    
+                </Label>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaFormula"
+                                        DataContext="{Binding Path=Formula, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="true"
+                                        ControlIndex="2"
+                                        EsBindeable="true"
+                                        MaximoCaracteres="10"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.MuestreoFibra_msgAyudaFormula_ClaveInvalida}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaIndicador}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaIndicador_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Indicador_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.MuestreoFibra_msgAyudaFormula_Cerrar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.Indicador_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.Indicador_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerActivoPorId"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="FormulaId" 
+                                        />
+
+                <Button Name="BotonNuevoProducto"
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        Style="{StaticResource botonAgregar}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Click="BotonNuevoProducto_Click">
+                    <Image Source="{StaticResource addIcon}"
+                           Style="{StaticResource iconImage}"
+                           ToolTip="{x:Static resx:Resources.IngredienteEdicion_ToolTipProducto}" />
+                </Button>
+
+                <DataGrid Name="gridDatosProducto"
+                          Grid.Row="3"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="4"
+                          Height="Auto"
+                          ColumnWidth="*"
+                          Margin="0,0,0,0"
+                          TabIndex="4"
+                          SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <!--<DataGridTextColumn Width="200"
+                                            Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                            Header="{x:Static resx:Resources.IngredienteEdicion_Grid_Producto}" />-->
+                        <DataGridTemplateColumn Width="Auto" Header="{x:Static resx:Resources.IngredienteEdicion_Grid_Producto}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="Info:IngredienteInfo">
+                                    <StackPanel Name="stpAyudaProducto"
+                                                DataContext="{Binding Path=Producto}"
+                                                Loaded="stpAyudaProducto_Loaded">
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="170" Header="{x:Static resx:Resources.IngredienteEdicion_Grid_Porcentaje}" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="Info:IngredienteInfo">
+                                    <TextBox Name="txtPorcentaje"
+                                             Text="{Binding Path=PorcentajeProgramado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                             LostFocus="txtPorcentaje_LostFocus"
+                                             MaxLength="7"
+                                             
+                                              >
+                                    </TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                        <DataGridTemplateColumn Width="90" Header="{x:Static resx:Resources.IngredienteEdicion_Grid_Estatus}" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="Info:IngredienteInfo">
+                                    <ComboBox Name="cmbEstatusIngrediente" Width="80"
+                                              ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                                              SelectedItem="{Binding Path=Activo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              DropDownClosed="cmbEstatus_DropDownClosed"
+                                              SelectionChanged="cmbEstatusAyudas_SelectionChanged"
+                                              >
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left">Total Porcentaje Programado: </Label>
+                <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Name="lblTotalPorcentaje" ></Label>
+                <StackPanel Grid.Row="5"
+                            Grid.Column="2"
+                            Orientation="Horizontal" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

@@ -1,0 +1,36 @@
+﻿<fieldset class="scheduler-border">
+    <legend class="scheduler-border">
+        <span>{$T.Recursos.Titulo}</span>
+    </legend>
+    {#foreach $T.Preguntas as item}
+        <div class="span12 seleccion" id="dvItems">
+            <span class="span3">
+                <div class="span12">
+                    <span class="requerido">*</span>
+                    <span id="lbl{$T.item.RoladoraRango}">{$T.item.Descripcion}</span>
+                </div>
+            </span>
+            <span class="span3">
+                <select id="dllRango{$T.item.RoladoraRango}" class="rango span12" name="{$T.item.RoladoraRango}" >
+                    <option value ="0">{$T.Recursos.SeleccioneRango}</option>
+                    {#foreach $T.item.Rangos as rango}
+                    <option value="{$T.rango.Clave}">{$T.rango.Descripcion}</option>
+                    {#/for}
+                </select>
+            </span>
+            <span class="span1">
+                <div id="divSemaforo{$T.item.RoladoraRango}">
+                    <span>&nbsp;</span>
+                </div>
+            </span>
+            <span class="span5">
+                <select id="dllAccion{$T.item.RoladoraRango}" class="accion span9" disabled="disabled" name="{$T.item.RoladoraRango}">
+                    <option value ="0">{$T.Recursos.SeleccioneAccion}</option>
+                    {#foreach $T.item.Acciones as accion}
+                    <option value="{$T.accion.Clave}">{$T.accion.Descripcion}</option>
+                    {#/for}
+                </select>
+            </span>
+        </div>
+    {#/for}
+</fieldset>

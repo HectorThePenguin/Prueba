@@ -1,0 +1,217 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.ParametroTrampa"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded">
+
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ParametroTrampa_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ParametroTrampa_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="93" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="55" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="270" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.ParametroTrampa_LblTrampa}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <!--<Label Content="{x:Static resx:Resources.ParametroTrampa_LblParametroTrampaID}"
+                       Grid.Row="0"
+                       Grid.Column="3"
+                       VerticalAlignment="Center">
+                </Label>-->
+
+                <Label Content="{x:Static resx:Resources.ParametroTrampa_LblActivo}"
+                       Grid.Row="0"
+                       Grid.Column="5"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Controles:ControlAyuda x:Name="skAyudaTrampa"
+                                        AnchoDescripcion="240"
+                                        AnchoClave="60"
+                                        DataContext="{Binding Path=Trampa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="8"
+                                        EsAyudaSimple="False"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaTrampa_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaTrampa_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaTrampa_Busqueda_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaTrampa_Seleccionar }"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaTrampa_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaTrampa_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaTrampa_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="TrampaID"
+                                        CampoLlaveOcultaClave="TrampaID"
+                                        Grid.ColumnSpan="3" />
+
+                <!--<ComboBox x:Name="cmbTipoParametro"
+                          Grid.Row="0"
+                          Grid.Column="2"
+                          SelectedValuePath="TipoParametroID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedItem="{Binding Path=Parametro.TipoParametro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Parametro.TipoParametro.TipoParametroID, Mode=TwoWay}"
+                          Width="150"
+                          SelectionChanged="TipoParametroChaged"
+                          HorizontalAlignment="Left"
+                          TabIndex="0" />
+
+                <StackPanel Name="stpParametro"
+                            Grid.Row="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Grid.Column="4" />-->
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="0"
+                          Grid.Column="6"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"   
+                          VerticalAlignment="Top"
+                          TabIndex="2" />
+                
+                <StackPanel Grid.Column="8"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}"
+                            Click="BtnBuscar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.btnNuevo}"
+                            Click="BtnNuevo_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.btnClonar}"
+                            Click="BtnClonar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=ParametroTrampaInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=ParametroTrampaID}"
+                                    Header="Id" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Parametro.TipoParametro.Descripcion}"
+                                    Header="{x:Static resx:Resources.ParametroTrampa_Grid_TipoParametro}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Parametro.Descripcion}"
+                                    Header="{x:Static resx:Resources.ParametroTrampa_Grid_Parametro}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Trampa.Descripcion}"
+                                    Header="{x:Static resx:Resources.ParametroTrampa_Grid_Trampa}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Valor}"
+                                    Header="{x:Static resx:Resources.ParametroTrampa_Grid_Valor}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Activo}"
+                                    Header="{x:Static resx:Resources.ParametroTrampa_Grid_Estatus}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.ParametroTrampa_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

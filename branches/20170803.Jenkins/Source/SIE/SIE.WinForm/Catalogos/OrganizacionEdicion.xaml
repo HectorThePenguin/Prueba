@@ -1,0 +1,328 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.OrganizacionEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Title="Organizacion Edicion"
+                 Height="500"
+                 Width="600"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Organizacion_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="310" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblId}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblDescripcion}"
+                       Grid.Row="1"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblDireccion}"
+                       Grid.Row="2"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_lblDivision}"
+                       Grid.Row="3"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_lblSociedad}"
+                       Grid.Row="4"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                
+
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblRfc}"
+                       Grid.Row="5"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="6"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblTipoOrganizacion}"
+                       Grid.Row="6"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="7"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblIva}"
+                       Grid.Row="7"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_LblEstatus}"
+                       Grid.Row="8"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.OrganizacionEdicion_Zona}"
+                       Grid.Row="9"
+                       Margin="8"
+                       VerticalAlignment="Center" />
+
+                
+
+                <TextBox x:Uid="txtOrganizacionId"
+                         x:Name="txtOrganizacionId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Width="110"
+                         IsEnabled="false"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="OrganizacionID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         Width="300"
+                         TabIndex="1"
+                         PreviewTextInput="TxtAceptaNumerosLetrasParentesisPreviewTextInput"
+                         MaxLength="50">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDireccion"
+                         x:Name="txtDireccion"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         Width="300"
+                         PreviewTextInput="TxtAceptaNumerosLetrasParentesisPreviewTextInput"
+                         TabIndex="2"
+                         MaxLength="255">
+                    <TextBox.Text>
+                        <Binding Path="Direccion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDivision"
+                         x:Name="txtDivision"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         Width="40"
+                         PreviewTextInput="TxtAceptaNumerosLetrasPreviewTextInput"
+                         TabIndex="2"
+                         MaxLength="4">
+                    <TextBox.Text>
+                        <Binding Path="Division"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtSociedad"
+                         x:Name="txtSociedad"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         Width="30"
+                         PreviewTextInput="TxtAceptaNumerosLetrasPreviewTextInput"
+                         TabIndex="2"
+                         MaxLength="3">
+                    <TextBox.Text>
+                        <Binding Path="Sociedad"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtRfc"
+                         x:Name="txtRfc"
+                         Grid.Row="5"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         Width="110"
+                         PreviewTextInput="TxtAceptaNumerosLetrasPreviewTextInput"
+                         TabIndex="3"
+                         MaxLength="20" Margin="0,3,0,10">
+                    <TextBox.Text>
+                        <Binding Path="RFC"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbTipoOrganizacion"
+                          Grid.Row="6"
+                          Grid.Column="1"
+                          SelectedValuePath="TipoOrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=TipoOrganizacion.TipoOrganizacionID, Mode=TwoWay}"
+                          SelectedItem="{Binding Path=TipoOrganizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="4" />
+
+
+                <ComboBox x:Name="cmbIva"
+                          Grid.Row="7"
+                          Grid.Column="1"
+                          SelectedValuePath="IvaID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=Iva.IvaID, Mode=TwoWay}"
+                          SelectedItem="{Binding Path=Iva, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="8"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="6" />
+
+                <Controles:ControlAyuda x:Name="skAyudaZona"
+                                            AnchoDescripcion="200"
+                                            DataContext="{Binding Path=Zona, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            Grid.Row="9"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Top"
+                                            HorizontalAlignment="Left"
+                                            AceptaSoloNumeros="True"
+                                            ControlIndex="0"
+                                            EsBindeable="True"
+                                            MaximoCaracteres="8"
+                                            EsAyudaSimple="False"
+                                            MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaCodigoInvalido}"
+                                            ConceptoBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaLeyendaBusqueda}"
+                                            TituloBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaBusquedaTitulo}"
+                                            MensajeAgregarBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaSeleccionar }"
+                                            MensajeCerrarBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaSalirSinSeleccionar}"
+                                            EncabezadoClaveBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaClave}"
+                                            EncabezadoDescripcionBusqueda="{x:Static resx:Resources.OrganizacionEdicion_AyudaDescripcion}"
+                                            MetodoInvocacion="ObtenerPorIdSinValidarPais"
+                                            MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                            CampoDescripcion="Descripcion"
+                                            CampoClave="ZonaID"
+                                            Grid.ColumnSpan="3"
+                                            Grid.RowSpan="2" />
+
+                <StackPanel Grid.Row="11"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="20 0 0 0"
+                            TabIndex="7" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>
+

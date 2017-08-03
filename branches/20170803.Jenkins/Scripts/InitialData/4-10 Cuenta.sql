@@ -1,0 +1,11 @@
+INSERT INTO Cuenta (Descripcion,TipoCuentaID,ClaveCuenta,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Cuenta Inventario Ganadera',1,'CTAINVGAN',1,GETDATE(),1)
+INSERT INTO Cuenta (Descripcion,TipoCuentaID,ClaveCuenta,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Cuenta Inventario Maquila',1,'CTAINVMAQ',1,GETDATE(),1)
+INSERT INTO Cuenta (Descripcion,TipoCuentaID,ClaveCuenta,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Cuenta Inventario Intensivo',1,'CTAINVINT',1,GETDATE(),1)
+INSERT INTO Cuenta (Descripcion,TipoCuentaID,ClaveCuenta,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Cuenta Inventario Centro',1,'CTAINVCEN',1,GETDATE(),1)
+INSERT INTO Cuenta (Descripcion,TipoCuentaID,ClaveCuenta,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Cuenta Inventario Pradera',1,'CTAINVPRA',1,GETDATE(),1)
+INSERT INTO Cuenta (Descripcion,TipoCuentaID,ClaveCuenta,Activo,FechaCreacion,UsuarioCreacionID) VALUES ('Cuenta Inventario Transito',1,'CTAINVTRAN',1,GETDATE(),1)
+INSERT INTO Cuenta (Descripcion, TipoCuentaID, ClaveCuenta, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Costo Inventario Ganadera', 1, 'CTACTOGAN', 1, GETDATE(), 1)
+INSERT INTO Cuenta(Descripcion, TipoCuentaID, ClaveCuenta, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Beneficio Inventario Ganadera', 1, 'CTABNFGAN', 1, GETDATE(), 1)
+
+INSERT INTO Cuenta (Descripcion, TipoCuentaID, ClaveCuenta, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Costo Inventario MP', 1, 'CTACTOMP', 1, GETDATE(), 1)
+INSERT INTO Cuenta(Descripcion, TipoCuentaID, ClaveCuenta, Activo, FechaCreacion, UsuarioCreacionID) VALUES ('Beneficio Inventario MP', 1, 'CTABNFMP', 1, GETDATE(), 1)

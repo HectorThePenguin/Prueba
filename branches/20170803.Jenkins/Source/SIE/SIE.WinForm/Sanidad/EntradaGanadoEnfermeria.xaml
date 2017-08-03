@@ -1,0 +1,993 @@
+﻿<vista:ControlBase x:Class="SIE.WinForm.Sanidad.EntradaGanadoEnfermeria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"  Loaded="UserControl_Loaded"
+        Unloaded="Window_Closing"
+        Height="Auto" Width="Auto"
+        >
+
+    <Grid Margin="10,2,10,2"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Height="0" 
+                    Width="0"></StackPanel>
+        <Controles:Titulo
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.EntradaGanadoEnfermeria_Titulo}"
+                          x:Name="ucTitulo" Grid.ColumnSpan="3" Grid.Column="0" Margin="0,6,0,0" Height="Auto" />
+        <GroupBox  Grid.Row="1" 
+                   Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGenerales}" 
+                   Height="235" 
+                   HorizontalAlignment="Stretch" 
+                   Margin="22,6,0,0" Name="gpbDatosGenerales" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Stretch"
+                   Width="Auto" FontFamily="Arial Narrow">
+            <Grid Margin="0,0,0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="LblNoPartidasRequerido"
+                       Style="{StaticResource labelRequerido}" Margin="-8,3,8,0"/>
+                <Label Name="lblNoPartidas" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesNoPartida}" 
+                       Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,3,0,25" Height="Auto" Grid.RowSpan="2"/>
+                <TextBox x:Name="txtNoPartida" 
+                	MaxLength="15" 
+                    TabIndex="1" 
+                	Width="Auto" 
+                	Grid.Column="1" 
+                	Grid.Row="0" 
+                	Margin="0,4,26,3"  
+                    HorizontalAlignment="Stretch" 
+                    IsReadOnly="True" 
+                    Height="Auto" />
+                <Image x:Name="imgBuscar"  
+                       Grid.Column="1" 
+                       HorizontalAlignment="Right" 
+                       Margin="0,0,0,0" 
+                       Width="19" 
+                       Source="../Imagenes/buscar.ico" MouseDown="imgBuscar_MouseDown"/>
+                
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Content="*"
+                       x:Name="LblIndividualRequerido"
+                       Style="{StaticResource labelRequerido}" 
+                       Margin="-6,0,5,0"></Label>
+                <Label Name="lblNoIndividual" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesNoIndividual}" 
+                       Grid.Column="0" 
+                       Grid.Row="1" 
+                       Grid.ColumnSpan="2" Height="Auto" Margin="0,1"/>
+                <TextBox Name="txtNoIndividual"
+                         MaxLength="15" 
+                         TabIndex="1" 
+                         ContextMenu="{x:Null}"
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch" 
+                         Grid.Column="1" 
+                         Grid.Row="1" 
+                         Height="Auto" 
+                         Margin="0,3,5,4" 
+                         PreviewTextInput="TxtNoIndividual_OnPreviewTextInput"
+                         KeyDown="txtNoIndividual_KeyDown"
+                         KeyUp="txtNoIndividual_KeyUp" 
+                         TextChanged="txtNoIndividual_TextChanged" 
+                         PreviewKeyDown="txtNoIndividual_PreviewKeyDown"
+                          />
+                <Label Name="lblAreteTestigo" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesAreteMetalico}" 
+                       Grid.Column="0" 
+                       Grid.Row="2" 
+                       Grid.ColumnSpan="2" Height="Auto" Margin="0,1"/>
+                <TextBox Name="txtAreteTestigo"
+                         MaxLength="15" 
+                         TabIndex="2" 
+                         Grid.Column="1" 
+                         Grid.Row="2" 
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch" 
+                         Height="Auto" 
+                         Margin="0,4,5,3" 
+                         GotFocus="txtAreteTestigo_GotFocus" 
+                         FocusableChanged="txtAreteTestigo_FocusableChanged" 
+                         PreviewTextInput="txtAreteTestigo_PreviewTextInput" KeyDown="txtAreteTestigo_KeyDown"
+                           />
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Content="*"
+                       x:Name="LblSexoRequerido"
+                       Style="{StaticResource labelRequerido}" 
+                       Margin="-6,2,6,0" 
+                       RenderTransformOrigin="0.477,1.396"/>
+                <Label  Name="lblSexo" 
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesSexo}" 
+                        Grid.Column="0" 
+                        Grid.Row="3" 
+                        Grid.ColumnSpan="2" Height="Auto" Margin="0,2,6,2"/>
+                <ComboBox Name="cboSexo" 
+                          TabIndex="3" 
+                          ItemsSource="{Binding}" 
+                          Grid.Column="1" 
+                          Grid.Row="3"  
+                          Height="Auto" 
+                          Margin="0,2,30,2"
+                          SelectionChanged="cboSexo_SelectionChanged"
+                          />
+                <Image x:Name="imgCambiarSexo"
+                            HorizontalAlignment="Right"
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            ToolTip="{x:Static resx:Resources.CorteGanado_lblCambioDeSexo}"
+                            Width="19"
+                            Height="19"
+                            MouseDown="imgCambiarSexo_MouseDown"
+                            Source="../Imagenes/updatered.ico" 
+                            />
+                <Label
+                       Content="*"
+                       Grid.Column="0"
+                       x:Name="lblCalidadRequerido"
+                       Style="{StaticResource labelRequerido}" 
+                        Grid.Row="4" Margin="-6,1,6,1" />
+                <Label Name="lblCalidad" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesCalidad}" 
+                       Grid.Row="4" 
+                       Grid.Column="0" Margin="0,1" Grid.ColumnSpan="2" Height="Auto" />
+                <ComboBox Name="cboCalidad" 
+                          TabIndex="4" 
+                          Grid.Column="1" 
+                          Grid.Row="4" 
+                          SelectedValuePath="CalidadGanadoID"
+                          DisplayMemberPath="Descripcion" 
+                          ItemsSource="{Binding}" 
+                          SelectedIndex="0" 
+                          IsSynchronizedWithCurrentItem="True" 
+                           Height="Auto" Margin="0,2,5,2"
+                          />
+                <Label Name="lblDiasAlta" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesDiasAlta}" 
+                       Grid.Row="5" 
+                       Grid.Column="0" 
+                       Margin="0,1,0,0" 
+                       Grid.ColumnSpan="2" 
+                       Height="Auto" />
+                <TextBox Name="txtDiasAlta"
+                         MaxLength="6" 
+                         TabIndex="5" 
+                         Grid.Column="1" 
+                         Grid.Row="5" 
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch" 
+                         Height="Auto" 
+                         Margin="0,3,5,4" />
+                <Label
+                          Grid.Row="6" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesHoraDeteccion}" 
+                       Margin="0,2,0,1" Grid.ColumnSpan="2" Grid.Column="0" Height="Auto" />
+
+                <Label Name="lblFechaDeteccion" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosGeneralesFechaDeteccion}" 
+                       Grid.Column="0" 
+                       Grid.Row="7" 
+                       Grid.ColumnSpan="2" Margin="0,3,1,-1" Height="Auto"  />
+                <DatePicker Name="dtpFechaDeteccion" 
+                            Style="{StaticResource ResourceKey=dtp}" 
+                            Grid.Column="1" 
+                            Grid.Row="7" 
+                            Width="Auto" 
+                            Height="Auto" 
+                            Margin="0,2,5,0" 
+                            TabIndex="7" />
+
+                <xctk:DateTimeUpDown Name="dtuHorasDeteccion"
+                                     Format="Custom"
+                                     FormatString="hh:mm tt"
+                                    Grid.Row="6"
+                                    Grid.Column="1"
+                                    Width="Auto" 
+                                    HorizontalAlignment="Stretch" 
+                                    ShowButtonSpinner="True"
+                                    MaxLength="8"
+                                    BorderThickness="1"
+                                    MinWidth="10"
+                                    TabIndex="6" 
+                                    Margin="0,2,5,2" 
+                                    IsEnabled="False"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Grid.Column="0"
+                  Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinico  }" 
+                  Height="290" 
+                  HorizontalAlignment="Stretch" 
+                  Margin="25,0,0,0"
+                  Name="gpbDatosClinicos" 
+                  VerticalAlignment="Top" 
+                  HorizontalContentAlignment="Stretch"
+                   FontFamily="Arial Narrow">
+            <Grid Margin="0,0,-2,7" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="280*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150*"/>
+                   
+                </Grid.ColumnDefinitions>
+            <Grid Margin="0,0,-2,1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="158*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Name="lblProblema" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoProblema}" 
+                       Grid.Column="0" 
+                       Grid.Row="0" Margin="0,0,0,0" Height="Auto" Grid.RowSpan="2"/>
+                    <TextBox  
+                        Name="txtProblemaDetectado"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontFamily="Arial Narrow" 
+                        IsReadOnly="True"
+                        Width="Auto" 
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Stretch" 
+                        TabIndex="8">
+                    </TextBox>
+
+
+                    <Label Name="lblGradoEnfermedad" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoGradoEnfermedad}" 
+                       Grid.Column="0"  Height="Auto" Margin="0,17,0,24" Grid.RowSpan="4">
+                        <Label.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                        </Label.Resources>
+                    </Label>
+                    <ComboBox Name="cboGradoEnfermedad" 
+                          Grid.Column="1" 
+                          Grid.Row="1" 
+                          TabIndex="9"
+                          SelectedValuePath="GradoID"
+                          DisplayMemberPath="DescripcionCompleta"
+                          Margin="0,2,5,2"
+                          FontFamily="Arial Narrow" 
+                          Height="Auto"
+                          SelectionChanged="cboGrado_SelectionChanged"/>
+                <Label
+                       Content="*"
+                       Grid.Column="0"
+                       x:Name="lblPesoRequerido"
+                       Grid.Row="2"
+                       Style="{StaticResource labelRequerido}" Margin="-6,5,6,0" />
+                <Label Name="lblPeso" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoPeso}" 
+                       Grid.Column="0" 
+                       Grid.Row="2"  Height="Auto"/>
+                <TextBox Name="txtPeso"
+                         MaxLength="4" 
+                         TabIndex="10" 
+                         Grid.Column="1" 
+                         Grid.Row="2" 
+                         Width="Auto" 
+                         Margin="0,0,5,0"
+                         HorizontalAlignment="Stretch"  
+                         PreviewTextInput="txtPeso_PreviewTextInput" 
+                         PreviewKeyDown="txtPeso_PreviewKeyDown" 
+                         LostFocus="txtPeso_LostFocus" 
+                         TextChanged="txtPeso_TextChanged"
+                         KeyUp="txtPeso_OnKeyUp"/>
+                <Label
+                       Grid.Column="0"
+                       Content="*"
+                       x:Name="lblTemperaturaRequerido"
+                       Grid.Row="3"
+                       Style="{StaticResource labelRequerido}" Margin="-6,5,6,0" />
+                <Label Name="lblTemperatura" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoTemperatura}" 
+                       Grid.Column="0" 
+                       Grid.Row="3"  Height="Auto"/>
+                <TextBox Name="txtTemperatura"
+                         MaxLength="4" 
+                         TabIndex="11" 
+                         Grid.Column="1" 
+                         Grid.Row="3" 
+                         Width="Auto" 
+                         Margin="0,0,5,0"
+                         HorizontalAlignment="Stretch" 
+                         PreviewTextInput="TxtTemperatura_OnPreviewTextInput"
+                         PreviewKeyDown="TxtTemperatura_OnPreviewKeyDown"/>
+
+                <Label
+                       Grid.Column="0"
+                       Content="*"
+                       x:Name="lblTipoGanadoRequerido"
+                       Grid.Row="4"
+                       Style="{StaticResource labelRequerido}" Margin="-6,5,6,0" />
+                <Label Name="lblTipoGanado" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoTipoGanado}" 
+                       Grid.Column="0" 
+                       Grid.Row="4"  Height="Auto"/>
+                <ComboBox Name="cboTipoGanado" 
+                          Grid.Column="1" 
+                          Grid.Row="4" 
+                          TabIndex="12"
+                          ItemsSource="{Binding}" 
+                          SelectedValuePath="TipoGanadoID"
+                          DisplayMemberPath="Descripcion"
+                          Margin="0,2,5,2"
+                          FontFamily="Arial Narrow" Height="Auto"/>
+
+                <Label
+                       Content="*"
+                       Grid.Column="0"
+                       x:Name="lblClasificacionRequerido"
+                       Grid.Row="5"
+                       Style="{StaticResource labelRequerido}" Margin="-6,5,6,0" />
+                <Label Name="lblClasificacion" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoClasificacion}" 
+                       Grid.Column="0" 
+                       Grid.Row="5"  Height="Auto"/>
+                <ComboBox Name="cboClasificacion" 
+                          Grid.Column="1" 
+                          Grid.Row="5" 
+                          TabIndex="13"
+                          ItemsSource="{Binding}" 
+                          SelectedValuePath="ClasificacionGanadoID"
+                          DisplayMemberPath="Descripcion"
+                          Margin="0,2,5,2"
+                          FontFamily="Arial Narrow" Height="Auto"/>
+
+                <Label Name="lblCorralOrigen" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoCorralOrigen}" 
+                       Grid.Column="0" 
+                       Grid.Row="6"  Height="Auto"/>
+                <TextBox Name="txtCorralOrigen"
+                         MaxLength="6" 
+                         TabIndex="14" 
+                         Grid.Column="1" 
+                         Grid.Row="6" 
+                         Width="Auto" 
+                         Margin="0,0,5,0"
+                         HorizontalAlignment="Stretch"  />
+                <Label
+                       Content="*"
+                       Grid.Column="0"
+                       x:Name="lblCorralDestinoRequerido"
+                       Grid.Row="7"
+                       Style="{StaticResource labelRequerido}" Margin="-6,5,6,0" />
+                <Label Name="lblCorralDestino" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoCorralDestino}" 
+                       Grid.Column="0" 
+                       Grid.Row="7"  Height="Auto"/>
+                <TextBox Name="txtCorralDestino"
+                         MaxLength="6" 
+                         TabIndex="15" 
+                         Grid.Column="1" 
+                         Grid.Row="7" 
+                         Width="Auto" 
+                         Margin="0,0,5,0"
+                         HorizontalAlignment="Stretch" 
+                         KeyDown="txtCorralDestino_KeyDown"
+                         PreviewTextInput="TxtCorralDestino_OnPreviewTextInput" 
+                         TextChanged="txtCorralDestino_TextChanged" 
+                         PreviewKeyDown="txtCorralDestino_PreviewKeyDown" LostFocus="txtCorralDestino_LostFocus"
+                         />
+                <ComboBox Name="cboCorralDestino" 
+                          Grid.Column="1" 
+                          Grid.Row="7" 
+                          TabIndex="16"
+                          ItemsSource="{Binding}" 
+                          SelectedValuePath="CorralID"
+                          DisplayMemberPath="Codigo"
+                          Margin="0,3"
+                          Visibility="Hidden"
+                          FontFamily="Arial Narrow" 
+                          Height="Auto"
+                          SelectionChanged="cboCorralDestino_SelectionChanged"/>
+
+               
+                <Label Name="lblGananciaDiaria" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoGanacia}" 
+                       Grid.Column="0" 
+                       Grid.Row="8"  Height="Auto"/>
+                <TextBox Name="txtGananciaDiaria"
+                         MaxLength="6" 
+                         TabIndex="16" 
+                         Grid.Column="1" 
+                         Grid.Row="8" 
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch" 
+                         Margin="0,0,5,0"
+                         IsReadOnly="true"/>
+                
+            </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="9*"/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Name="ckbCronico" 
+                          TabIndex="17"  
+                          Grid.Column="0" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Center" Checked="ckbCronico_Checked" Unchecked="ckbCronico_Unchecked"
+                           />
+                    <Label Grid.Column="0"
+                           Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoChkCronico}" Margin="10,0,0,0"/>
+                    <CheckBox Name="ckbDiagnosticoAnalista" 
+                          TabIndex="18"  
+                          Grid.Column="1" 
+                          HorizontalAlignment="Left" 
+                          VerticalAlignment="Center"
+                          Checked="ckbDiagnosticoAnalista_Checked" 
+                              Unchecked="ckbDiagnosticoAnalista_Unchecked"
+                           />
+                    
+                    <Label Name="lblDiagnostico" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoChkDiagnostico}" 
+                       Grid.Column="1"  Height="Auto" Margin="10,-10,0,-17">
+                        <Label.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                            </Style>
+                        </Label.Resources>
+                    </Label>
+                    <Button Name="btnDiagnostico" 
+                        TabIndex="19"
+                        Grid.Column="2"
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosClinicoBtnDiagnostico}" 
+                        HorizontalAlignment="Center" Click="btnDiagnostico_Click"  
+                         />
+                </Grid>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" 
+                  Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDeteccion}" 
+                  Height="235" 
+                  HorizontalAlignment="Stretch" 
+                  Margin="3,6,0,0" 
+                  Name="gpbDeteccion" 
+                  VerticalAlignment="Top" 
+                  Width="Auto" 
+                  Grid.Column="1" FontFamily="Arial Narrow">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="180*"/>
+   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="207*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="lblDetectorRequerido"
+                       Style="{StaticResource labelRequerido}" Margin="-6,6,6,31" />
+                <Label Name="lblDetector" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDeteccionDetector}"   
+                       Grid.Column="0" 
+                       Grid.Row="0" Height="Auto" Margin="0,10,0,0" />
+                <ComboBox Name="cboDetector"  
+                          TabIndex="20" 
+                          Grid.Row="0" 
+                          ItemsSource="{Binding}" 
+                          DisplayMemberPath="NombreCompleto" 
+                          SelectedValuePath="OperadorID" 
+                          Margin="68,12,11,5" 
+                          Height="Auto"
+                          IsEnabled="False" Grid.ColumnSpan="2"/>
+                <!--<Button Name="btnTratamientos" 
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDeteccionBotonTratamientos}" 
+                        TabIndex="21"
+                        Width="Auto" 
+                        Grid.Column="0" 
+                        Margin="10,56,10,89" 
+                        RenderTransformOrigin="0.928,0.461" 
+                        Height="Auto" 
+                        Grid.Row="1" 
+                        Click="btnTratamientos_Click"/>-->
+                <DataGrid x:Name="dgTratamientos"
+                          VirtualizingStackPanel.VirtualizationMode="Standard"
+                          HorizontalScrollBarVisibility="Visible"
+                          CanUserResizeColumns="False" 
+                          Width="280"
+                          Grid.Row="1" 
+                          IsTabStop="true"
+                          HorizontalAlignment="Center"
+                          ItemsSource="{Binding Path=TratamientoInfo}"
+                          Margin="2,0,15,10" Grid.Column="0"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_HeaderMedicamentoCodigo}" 
+                                            Binding="{Binding Descripcion}" 
+                                            Width="60*"/>
+
+                        <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_HeaderMedicamentoDescripcion}" 
+                                            Binding="{Binding ProductoDescripcion}" 
+                                            Width="150*"/>
+                        
+                        <DataGridTemplateColumn  Header="{x:Static resx:Resources.CorteGanado_Grid_ColumnaOpcion}"  
+                                                 Width="65*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <CheckBox Name="checkTratamiento" 
+                                              IsChecked="{Binding Path=Seleccionado, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                              IsEnabled="{Binding Path=Habilitado, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                              Checked="checkTratamiento_checked" 
+                                              Unchecked="checkTratamiento_unchecked"
+                                              HorizontalAlignment="Center" >
+
+                                    </CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+        </GroupBox >
+
+        <GroupBox Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoObservaciones}" 
+                  Height="64" 
+                  Margin="3,0,25,0" 
+                  Name="gpbDatosCorte" 
+                  VerticalAlignment="Top" 
+                  HorizontalAlignment="Stretch"
+                  Grid.Row="2" 
+                  Width="auto" 
+                  Grid.Column="1" FontFamily="Arial Narrow" Grid.ColumnSpan="2">
+                  
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="180*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="169*"/>
+                </Grid.ColumnDefinitions>
+                <Label Name="lblFechaCorte" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoObservacionesObservaciones}" 
+                       Grid.Column="0" 
+                       Grid.Row="0" Height="Auto" 
+                       Margin="0,12,0,5" 
+                       HorizontalAlignment="Right"/>
+                <TextBox Name="txtObservacion"
+                         TabIndex="22" 
+                         Grid.Column="1" 
+                         Width="Auto" 
+                         Height="Auto" 
+                         Margin="0,5,0,5" 
+                         MaxLength="150"
+                         AcceptsReturn="True" 
+                         HorizontalAlignment="Stretch"
+                         KeyDown="txtObservaciones_KeyDown"
+                          TextWrapping="Wrap"
+                         />
+                <Label Name="lblComentario" 
+                       Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoObservacionesComentarios}" 
+                       Grid.Column="2" 
+                       Grid.Row="0" 
+                       Height="Auto" 
+                       Margin="0,12,0,5" 
+                       HorizontalAlignment="Right"/>
+                <TextBox Name="txtComentario"
+                         TabIndex="23" 
+                         Grid.Column="3" 
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch"
+                         Height="Auto" 
+                         Margin="0,5,0,5" 
+                         IsReadOnly="true"
+                         TextWrapping="Wrap"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorial}" 
+                  Height="179" 
+                  Margin="3,69,25,0" 
+                  Name="gpbHistorialClinico" 
+                  VerticalAlignment="Top" 
+                  HorizontalAlignment="Stretch"
+                  Width="auto" 
+                  Grid.Row="2" 
+                  Grid.Column="1" FontFamily="Arial Narrow" Grid.ColumnSpan="2">
+            <DataGrid x:Name="dgHistorialClinico" 
+                          CanUserResizeColumns="False" 
+                          IsTabStop="true"
+                          Margin="0,10,-2,21" 
+                          ColumnWidth="*"
+                          ColumnHeaderHeight="40"
+                          HorizontalAlignment="Stretch"
+                        >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialFechaEntrada}" 
+                                            Binding="{Binding FechaEntrada, StringFormat=\{0:dd/MM/yyyy\}}" 
+                                            Width="75">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialFechaSalida}" 
+                                            Binding="{Binding FechaSalidaFormateada, StringFormat=\{0:dd/MM/yyyy\}}" 
+                                            Width="75">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialProblema}" 
+                                            Binding="{Binding Problemas}" 
+                                            Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialTratamiento}" 
+                                            Binding="{Binding CodigoTratamiento}" 
+                                            Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialCostos}" 
+                                            Binding="{Binding Costo}" 
+                                            Width="75">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialDiasEstancia}" 
+                                            Binding="{Binding DiasInstancia}" 
+                                            Width="75">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialPeso}" 
+                                            Binding="{Binding Peso}" 
+                                            Width="50">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialTemperatura}" 
+                                            Binding="{Binding Temperatura}" 
+                                            Width="85">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GridHistorialGrado}" 
+                                            Binding="{Binding GradoEnfermedad}" 
+                                            Width="85">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Width="30" CanUserSort="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click">
+                                    <Image Source="{StaticResource findIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.EntradaGanadoEnfermeria_VerDetalle}" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+    
+        </GroupBox>
+        <Grid Margin="10,5" Grid.Column="2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="52*"/>
+                <RowDefinition Height="67*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="99*"/>
+                <ColumnDefinition Width="65*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox 
+                  Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_GrupoDatosOrigen}" 
+                  Height="126" 
+                  HorizontalAlignment="Stretch" 
+                  Name="gpbGenerales" 
+                  VerticalAlignment="Top" 
+                  Width="Auto" FontFamily="Arial Narrow" 
+                Grid.ColumnSpan="2" 
+                Grid.RowSpan="2"
+                Margin="0,0,15,0">
+            <Grid Margin="0,0,0,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="37*"/>
+                    <RowDefinition Height="59*"/>
+                    <RowDefinition Height="36*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="63*"/>
+                    <ColumnDefinition Width="88*"/>
+                </Grid.ColumnDefinitions>
+                <Label Name="lblFechaRecepcion" 
+                       Content="{x:Static resx:Resources.CorteGanado_lblFechaRecepcion}" 
+                       Grid.Column="0" 
+                       Grid.Row="0" 
+                       Height="Auto" 
+                       Margin="0,4,0,0" />
+                <DatePicker Name="dtpFechaRecepcion" 
+                            Style="{StaticResource ResourceKey=dtp}" 
+                            Grid.Column="1" 
+                            Grid.Row="0" 
+                            Height="Auto" 
+                            Width="Auto" 
+                            Margin="0,6,6,0"  />
+                <Label Name="lblOrigen" 
+                       Content="{x:Static resx:Resources.CorteGanado_lblOrigen}" 
+                       Grid.Column="0" 
+                       Grid.Row="1" Height="Auto" Margin="0,18,0,0" />
+                <TextBox Name="txtOrigen" 
+                         AcceptsReturn="True" 
+                         Height="Auto" 
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch"
+                         Grid.Row="1" 
+                         Margin="0,10,0,0" 
+                         MaxLength="255" 
+                         Grid.Column="1"  />
+                <Label Name="lblProveedor" 
+                       Content="{x:Static resx:Resources.CorteGanado_lblProveedor}" 
+                       Grid.Column="0" 
+                       Grid.Row="2" 
+                       Height="Auto" 
+                       Margin="0,5,0,-9" />
+                <TextBox Name="txtProveedor" 
+                         Width="Auto" 
+                         HorizontalAlignment="Stretch"
+                         Grid.Row="2" 
+                         Height="Auto" 
+                         Margin="0,5,0,0" 
+                         Grid.Column="1" />
+
+            </Grid>
+
+        </GroupBox>
+        
+        <GroupBox 
+                  Header="{x:Static resx:Resources.CorteGanado_gpb6Titulo}" 
+                  Height="53" 
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Stretch" 
+                  Name="gpbDisplayBascula" 
+                  VerticalAlignment="Top" 
+                  Width="Auto" FontFamily="Arial Narrow"  Margin="0,27,15,0" Grid.Row="1">
+            <Grid HorizontalAlignment="Left" Width="auto" Margin="0,-3,0,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="39*"/>
+                </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0"
+                            Grid.Column="0" Margin="10,0,0,-8">
+                        <TextBox Name="txtDisplayPeso"  
+                	        IsReadOnly="True"
+                		    Margin="0,5,0,0"
+                		    Height="30"
+                		    Panel.ZIndex="-1"
+                		    FontSize="20"
+                		    Background="Black"
+                		    Foreground="Red"
+                		    TextAlignment="Right"
+                		    IsTabStop="False"
+                		    Focusable="False" Width="126"/>
+                        <Button Name="btnLeerPeso" 
+                                ToolTip="{x:Static resx:Resources.EntradaEnfermeria_TtLeerPeso}" 
+                                Width="32" Height="32"  
+                                Click="btnLeerPeso_Click_1" 
+                                Margin="0,-35,0,0" 
+                                Background="White" 
+                                HorizontalAlignment="Right">
+                            <Image
+                    	            HorizontalAlignment="Left"
+                    	            Width="25"
+                    	            Height="25"
+                    	            Source="../Imagenes/updatered.ico"/>
+                        </Button>
+                        <Label x:Name="lblKG"
+                    	Margin="125,-26,34,0"
+                    	Content="{x:Static resx:Resources.RecepcionGanado_DisplayKG}"
+                    	FontWeight="Normal"
+                    	FontSize="16" Height="26" />
+                    </StackPanel>
+                </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" 
+                  Grid.Column="0"
+                  Header="{x:Static resx:Resources.CorteGanado_gpb7Titulo}" 
+                  Height="59" 
+                  HorizontalAlignment="Stretch" 
+                  Margin="0,78,15,-5" 
+                  Name="DisplayTemperatura" 
+                  VerticalAlignment="Top"
+                  Grid.ColumnSpan="2"
+                  Width="Auto" 
+                  FontFamily="Arial Narrow" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="39*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Row="0"
+                        Grid.Column="0" Margin="10,0,0,0">
+
+                    <TextBox Name="txtDisplayTemperatura"  
+                	        IsReadOnly="True"
+                	        Margin="0,5,0,0"
+                	        Height="30"
+                	        Panel.ZIndex="-1"
+                	        FontSize="20"
+                	        Background="Black"
+                	        Foreground="Red"
+                	        TextAlignment="Right"
+                	        IsTabStop="False"
+                	        Focusable="False" Width="128" />
+                        <Button Name="btnLeerTemp" 
+                                ToolTip="{x:Static resx:Resources.EntradaEnfermeria_TtLeerTemperatura}"
+                                Width="35" Height="32"  
+                                Click="btnLeerTemp_Click_1" 
+                                Margin="158,-35,0,0" 
+                                Background="White" HorizontalAlignment="Left"
+>
+                            <Image
+                    	            HorizontalAlignment="Left"
+                    	            Width="25"
+                    	            Height="25"
+                    	            Source="../Imagenes/updatered.ico"/>
+                        </Button>
+                        <Label x:Name="lblTemperaturaDisplay"
+                    Margin="125,-26,0,0"
+                    Content="{x:Static resx:Resources.CorteGanado_lblCo}"
+                    FontWeight="Normal"
+                    FontSize="16" Height="26" HorizontalAlignment="Left" Width="36" />
+                    </StackPanel>
+            </Grid>
+        </GroupBox>
+            
+        </Grid>
+        <GroupBox Grid.Row="2" 
+                  Height="42" 
+                  HorizontalAlignment="Right" 
+                  Margin="0,245,20,13" 
+                  Name="gbBotones" 
+                  VerticalAlignment="Center"
+                  Width="311" 
+                  Grid.Column="2" 
+                  RenderTransformOrigin="0.498,0.465" 
+                  BorderThickness="0" ClipToBounds="True">
+            <Grid Margin="0,0,0,-6" HorizontalAlignment="Right" Width="299" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="btnReasignar" 
+                        TabIndex="24" 
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_btnReasignar}" 
+                        HorizontalAlignment="Center"  
+                        Grid.Column="0" Click="btnReasignar_Click" />
+                <Button Name="btnGuardar" 
+                        TabIndex="25" 
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_btnGuardar}" 
+                        HorizontalAlignment="Center"   
+                        Grid.Column="1" Click="btnGuardar_Click" />
+                <Button Name="btnCancelar" 
+                        TabIndex="26"
+                        IsTabStop="true"
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_btnCancelar}" 
+                        HorizontalAlignment="Center" 
+                        Grid.Column="2"  
+                        Click="btnCancelar_Click"/>
+            </Grid>
+        </GroupBox>
+        <Label Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_TotalCosto}" 
+               Grid.Column="1" HorizontalAlignment="Left" Margin="244,221,10,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label Content="" Name="lblCostoTotal"
+               Grid.Column="1" HorizontalAlignment="Left" Margin="322,221,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+    </Grid>
+
+</vista:ControlBase>

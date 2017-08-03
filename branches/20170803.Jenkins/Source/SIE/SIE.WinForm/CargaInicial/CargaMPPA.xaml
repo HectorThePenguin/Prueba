@@ -1,0 +1,176 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.CargaInicial.CargaMPPA"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   mc:Ignorable="d"
+                   d:DesignHeight="600"
+                   d:DesignWidth="1200"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="CargaMPPA_OnLoaded">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.CargaMPPA_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CargaMPPA_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="450" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.CargaMPPA_LblOrganizacion}"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.CargaMPPA_LblArchivo}"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.CargaMPPA_LblNota}"
+                       Grid.Column="1"
+                       Style="{StaticResource labelRequerido}"
+                       Grid.ColumnSpan="4"
+                       Grid.Row="2"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaOrganizacion"
+                                        DataContext="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaOrganizacion_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaOrganizacion_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorIdFiltroTiposOrganizacion"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaTipoOrganizacion"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" />
+
+                <TextBox x:Uid="txtRutaArchivo"
+                         x:Name="txtRutaArchivo"
+                         Grid.Row="1"
+                         Grid.Column="2"
+                         IsEnabled="False"
+                         Text="{Binding Path=Ruta, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         Width="430"
+                         TabIndex="2">
+                </TextBox>
+
+                <StackPanel Grid.Row="1"
+                            Grid.Column="3"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnExaminar}"
+                            Click="Examinar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="4" />
+                    <Button Content="{x:Static resx:Resources.btnValidar}"
+                            Click="Validar_Click"
+                            Margin="15 0 0 0"
+                            TabIndex="5" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2"
+                            Grid.Column="4"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Name="btnGuardar"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            TabIndex="7"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+
+            </Grid>
+
+        </GroupBox>
+
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto"
+                                    Binding="{Binding Path=Almacen.Descripcion}"
+                                    Header="{x:Static resx:Resources.CargaMPPA_Grid_Almacen}" />
+                <DataGridTextColumn Width="Auto"
+                                    Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                    Header="{x:Static resx:Resources.CargaMPPA_Grid_Producto}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Lote}"
+                                    Header="{x:Static resx:Resources.CargaMPPA_Grid_Lote}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=MensajeAlerta}"
+                                    Header="{x:Static resx:Resources.CargaMPPA_Grid_MensajeAlerta}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Vista:ControlBase>

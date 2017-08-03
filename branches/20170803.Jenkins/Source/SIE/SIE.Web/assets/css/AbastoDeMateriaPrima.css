@@ -1,0 +1,220 @@
+﻿
+
+#txtDescripcionProveedorAyuda, #txtDescripcionChoferAyuda, #txtDescripcionPlacaAyuda {
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 771px) and (max-width: 800px) {
+    #dlgAyudaProveedores, #dlgAyudaChoferes, #dlgBusquedaFolio {
+        width: 600px !important;
+        left: 10%;
+    }
+
+    #dlgAyudaPlacas {
+        width: 450px !important;
+        left: 20%;
+    }
+}
+
+@media screen and (min-width: 771px) {
+    .labelfolioticket {
+        width: 50px !important;
+        float: left !important;
+        margin: 5px !important;
+    }
+
+    .cajaFolioTicketText{
+        width: 100px !important;
+        float: left !important;
+        margin: 5px !important;
+    }
+
+    .cajaidentificador {
+        width: 95px !important;
+        float: left !important;
+        margin-right: 1px !important;
+    }
+
+    .cajadescripcion {
+        width: 245px !important;
+        float: left !important;
+        margin-right: 5px !important;
+    }
+
+    .cajaboton {
+        width: 50px !important;
+        float: left !important;
+    }
+
+    .caja {
+        border: 1px solid #c0c0c0;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    fieldset.scheduler-border {
+        width: 730px;
+        padding: 10px !important;
+    }
+
+    #txtDescripcionProveedorAyuda, #txtDescripcionChoferAyuda {
+        width: 170px;
+    }
+
+    #encabezadoDetallesProductos .colProducto, #tbDetallesProductos .colProducto {
+        width: 400px;
+    }
+
+    #encabezadoDetallesProductos .colCantidades {
+        width: 100px;
+    }
+
+    #tbDetallesProductos .colCantidades {
+        width: 100px;
+        padding: 5px;
+    }
+
+    #encabezadoDetallesProductos .colLoteProceso {
+        width: 80px;
+    }
+
+    #tbDetallesProductos .colLoteProceso {
+        width: 80px;
+        padding: 5px;
+    }
+
+    #encabezadoDetallesProductos .colOpcionEditar, #tbDetallesProductos .colOpcionEditar {
+        width: 60px;
+    }
+
+    #encabezadoTablaProveedores thead tr th, #encabezadoTablaChoferes thead tr th, 
+    #encabezadoTablaPlacas thead tr th, #encabezadoGridFoliosProductos thead tr th {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #tablaProveedores tbody tr td, #tablaChoferes tbody tr td,
+    #tablaPlacas tbody tr td, #gridFoliosProductos tbody tr td {
+        font-size: 12px;
+        padding: 7px;
+    }
+
+    .colCheckBox {
+        width: 60px;
+    }
+
+    .colClave {
+        width: 100px;
+    }
+
+    .colDescripcion {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 770px) {
+    .labelfolioticket {
+        width: 50px !important;
+        float: left !important;
+        margin: 5px !important;
+    }
+
+    .cajaFolioTicketText{
+        width: 100px !important;
+        float: left !important;
+        margin: 5px !important;
+    }
+
+    .cajaidentificador {
+        width: 95px !important;
+        float: left !important;
+        margin-right: 5px !important;
+    }
+
+    .cajadescripcion {
+        width: 245px !important;
+        float: left !important;
+        margin-right: 5px !important;
+    }
+    .cajaboton {
+        width: 50px !important;
+        float: left !important;
+    }
+
+    #btnLimpiar, #btnBuscarFolioTicket {
+        float: right !important;
+        margin: 5px;
+    }
+
+    #txtDescripcionProveedorAyuda, #txtDescripcionChoferAyuda {
+        width: 300px;
+    }
+
+    #divBotones, #divBotonesChofer {
+        float: right;
+        padding: 8px;
+    }
+
+    #encabezadoDetallesProductos thead tr th {
+        font-size: 12px;
+    }
+
+    fieldset.scheduler-border {
+        padding: 4px !important;
+        width: 450px;
+    }
+
+    #encabezadoDetallesProductos {
+        width: 440px;
+    }
+
+    .caja {
+        border: 1px solid #c0c0c0;
+        padding: 4px;
+        margin-bottom: 10px;
+    }
+
+    #encabezadoDetallesProductos .colProducto, #tbDetallesProductos .colProducto{
+        width: 100px;
+    }
+
+    #encabezadoDetallesProductos .colCantidades, #tbDetallesProductos .colCantidades {
+        width: 80px;
+    }
+
+    #encabezadoDetallesProductos .colLoteProceso, #tbDetallesProductos .colLoteProceso {
+        width: 60px;
+    }
+
+    #encabezadoDetallesProductos .colOpcionEditar, #tbDetallesProductos .colOpcionEditar {
+        width: 40px;
+    }
+
+    .btnSolicitudMateriaPrima {
+        width: 12px;
+    }
+
+    #encabezadoTablaProveedores thead tr th, #encabezadoTablaChoferes thead tr th,
+    #encabezadoTablaPlacas thead tr th, #encabezadoGridFoliosProductos thead tr th {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #tablaProveedores tbody tr td, #tablaChoferes tbody tr td,
+    #tablaPlacas tbody tr td, #gridFoliosProductos tbody tr td {
+        font-size: 12px;
+        padding: 7px;
+    }
+
+    .colCheckBox {
+        width: 40px;
+    }
+
+    .colClave {
+        width: 100px;
+    }
+
+    .colDescripcion {
+        width: 300px;
+    }
+}

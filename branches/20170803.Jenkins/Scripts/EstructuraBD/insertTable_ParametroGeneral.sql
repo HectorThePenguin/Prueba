@@ -1,0 +1,3 @@
+INSERT INTO ParametroGeneral (ParametroID, Valor, Activo, FechaCreacion, UsuarioCreacionID) VALUES (253, '4', 1, '2017-06-02 15:10:00', 1)
+INSERT INTO ParametroGeneral (ParametroID, Valor, Activo, FechaCreacion, UsuarioCreacionID) VALUES (255, '4', 1, '2017-06-07 15:50:00', 1)
+INSERT INTO ParametroGeneral (ParametroID, Valor, Activo, FechaCreacion, UsuarioCreacionID) VALUES (256, '@sukarne.com', 1, '2017-06-08 17:34:24', 1)

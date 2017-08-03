@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfigurarFormula_ArchivoEnUso" xml:space="preserve">
+    <value>El archivo esta en uso. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_ArchivoNoContieneRegistros" xml:space="preserve">
+    <value>El archivo excel no contiene registros. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_ArchivoNoTieneLaEstructura" xml:space="preserve">
+    <value>El archivo seleccionado no cuenta con la estructura definida. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_ComentarioEjemploLlenarTipoGanado" xml:space="preserve">
+    <value>Ver los identificadores de la pestaña adjunta "Tipo de Ganado". Ej.: Fórmula para "Becerro Liviano" y "Becerro". Escribimos lo siguiente: Tipo Ganado: "1|2".</value>
+  </data>
+  <data name="ConfigurarFormula_DiasEstancia" xml:space="preserve">
+    <value>, Los días de estancia máximo deben ser mayor o igual a los días de estancia mínimo. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_DiasEstanciaMaximo" xml:space="preserve">
+    <value>Días Estancia Máximo</value>
+  </data>
+  <data name="ConfigurarFormula_DiasEstanciaMinimo" xml:space="preserve">
+    <value>Días Estancia Mínimo</value>
+  </data>
+  <data name="ConfigurarFormula_DiasTransicion" xml:space="preserve">
+    <value>, Los días de transición máximo deben ser mayor o igual a los días de transición mínimo. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_DiasTransicionMaximo" xml:space="preserve">
+    <value>Días Transición Máximo</value>
+  </data>
+  <data name="ConfigurarFormula_DiasTransicionMinimo" xml:space="preserve">
+    <value>Días Transición Mínimo</value>
+  </data>
+  <data name="ConfigurarFormula_Disponibilidad" xml:space="preserve">
+    <value>Disponibilidad</value>
+  </data>
+  <data name="ConfigurarFormula_EnLaFormula" xml:space="preserve">
+    <value>En la fórmula: </value>
+  </data>
+  <data name="ConfigurarFormula_Formula" xml:space="preserve">
+    <value>Fórmula</value>
+  </data>
+  <data name="ConfigurarFormula_FormulaNoExiste" xml:space="preserve">
+    <value>La fórmula:</value>
+  </data>
+  <data name="ConfigurarFormula_FormulaNoExiste2" xml:space="preserve">
+    <value>, no existe en el catalogo de fórmulas. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_FormulaSiguiente" xml:space="preserve">
+    <value>Fórmula Siguiente</value>
+  </data>
+  <data name="ConfigurarFormula_PesoInicio" xml:space="preserve">
+    <value>, El peso inicio máximo deben ser mayor o igual a el peso inicio mínimo. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_PesoInicioMaximo" xml:space="preserve">
+    <value>Peso Inicio Máximo</value>
+  </data>
+  <data name="ConfigurarFormula_PesoInicioMinimo" xml:space="preserve">
+    <value>Peso Inicio Mínimo</value>
+  </data>
+  <data name="ConfigurarFormula_PesoSalida" xml:space="preserve">
+    <value>Peso Salida</value>
+  </data>
+  <data name="ConfigurarFormula_PestañaTipoGanado" xml:space="preserve">
+    <value>Tipo de Ganado</value>
+  </data>
+  <data name="ConfigurarFormula_SeleccioneValorDeLista" xml:space="preserve">
+    <value>Seleccione un valor de la lista.</value>
+  </data>
+  <data name="ConfigurarFormula_TipoGanado" xml:space="preserve">
+    <value>Tipo Ganado</value>
+  </data>
+  <data name="ConfigurarFormula_TipoGanadoFaltante" xml:space="preserve">
+    <value>, No tiene especificado los tipos de ganado. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_TipoGanadoInvalido" xml:space="preserve">
+    <value>, Contiene tipos de ganado inválidos. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_TituloExcel" xml:space="preserve">
+    <value>Configuración de Fórmulas</value>
+  </data>
+  <data name="ConfigurarFormula_ValoresFormatoCorrecto" xml:space="preserve">
+    <value>Los valores capturados en el archivo no cumplen con el formato correcto. Favor de validar.</value>
+  </data>
+  <data name="ConfigurarFormula_ValorInvalido" xml:space="preserve">
+    <value>El valor Introducido no es valido.</value>
+  </data>
+  <data name="DescargarDataLink_GuradadoOk" xml:space="preserve">
+    <value>La carga se realizo correctamente.</value>
+  </data>
+  <data name="DescargarDataLink_NoSecargo" xml:space="preserve">
+    <value>No se cargo ningún registro.</value>
+  </data>
+  <data name="DescargarDataLink_ArchivoNoExiste" xml:space="preserve">
+    <value>No se encontró archivo en la ruta configurada.</value>
+  </data>
+  <data name="DescargarDataLink_ArchivoSinDatos" xml:space="preserve">
+    <value>El archivo no cuenta con datos.</value>
+  </data>
+  <data name="DescargarDataLink_ErrorInesperado" xml:space="preserve">
+    <value>Ocurrió un problema al buscar el archivo DataLink.</value>
+  </data>
+  <data name="DescargarDataLink_FechaNoValida" xml:space="preserve">
+    <value>La fecha ingresada no coincide con la fecha del archivo. Favor de verificar.</value>
+  </data>
+  <data name="DescargarDataLink_RutaNoExiste" xml:space="preserve">
+    <value>La ruta configurada no existe o no se puede acceder.</value>
+  </data>
+  <data name="DescargarDataLink_ExtencionArchivoFinal" xml:space="preserve">
+    <value>.BK1</value>
+  </data>
+  <data name="DescargarDataLink_ExtencionArchivoPrincipal" xml:space="preserve">
+    <value>.DAT</value>
+  </data>
+  <data name="DescargarDataLink_ExtencionArchivoInicial" xml:space="preserve">
+    <value>.BK9</value>
+  </data>
+  <data name="DescargarDataLink_ExtencionParcial" xml:space="preserve">
+    <value>.BK</value>
+  </data>
+  <data name="DescargarDataLink_PorcionAno" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="Correo_ErrorParametrosServidor" xml:space="preserve">
+    <value>No se encontraron los parámetros del servidor de correo.</value>
+  </data>
+  <data name="Correo_ErrorParametrosCorreoDestino" xml:space="preserve">
+    <value>No se encontraron los parámetros del los destinatarios del correo.</value>
+  </data>
+  <data name="Correo_ErrorInesperado" xml:space="preserve">
+    <value>Ocurrió un problema al intentar envía el correo.</value>
+  </data>
+  <data name="Correo_SinDestinatario" xml:space="preserve">
+    <value>No existen destinatarios para enviar el correo.</value>
+  </data>
+  <data name="ConfigurarFormula_DatosEnBlanco" xml:space="preserve">
+    <value>En el archivo se encuentran datos en blanco. Favor de validar.</value>
+  </data>
+  <data name="CosteoConsumoForraje_AlmacenGeneral" xml:space="preserve">
+    <value>No se tiene configurado un almacén general para esta organización. Favor de validar.</value>
+  </data>
+  <data name="BasculaMateriaPrima_MsgFolioEsDeBodegaExterna" xml:space="preserve">
+    <value>Folio no permitido, el destino del producto es una bodega externa.</value>
+  </data>
+  <data name="BasculaMateriaPrima_MsgFolioInactivo" xml:space="preserve">
+    <value>El folio de la boleta no está activo. Favor de validar.</value>
+  </data>
+  <data name="ContratoBL_DescripcionMonedaDolar" xml:space="preserve">
+    <value>Dólar</value>
+  </data>
+  <data name="ContratoBL_DescripcionMonedaPesos" xml:space="preserve">
+    <value>Pesos</value>
+  </data>
+  <data name="ContratoBL_DescripcionMonedaDolarMayuscula" xml:space="preserve">
+    <value>DOLAR</value>
+  </data>
+  <data name="ContratoBL_MensajeProveedorAlmacen" xml:space="preserve">
+    <value>El proveedor seleccionado debe tener un almacen asignado.</value>
+  </data>
+  <data name="EvaluacionPartida_CodigoISO" xml:space="preserve">
+    <value>FENVIZ-07-122</value>
+  </data>
+  <data name="EvaluacionPartida_RevisionISO" xml:space="preserve">
+    <value>Rev. 9</value>
+  </data>
+  <data name="EvaluacionPartida_FechaISO" xml:space="preserve">
+    <value>02 DE ENERO DEL 2015</value>
+  </data>
+  <data name="EvaluacionPartida_TituloImpresion" xml:space="preserve">
+    <value>Evaluación de riesgos en las partidas</value>
+  </data>
+  <data name="EvaluacionPartida_Corral" xml:space="preserve">
+    <value>Corral:</value>
+  </data>
+  <data name="EvaluacionPartida_SubTituloImpresion" xml:space="preserve">
+    <value>Evaluación de Riesgo para Complejo Respiratorio Bovino</value>
+  </data>
+  <data name="EvaluacionPartida_Cbz" xml:space="preserve">
+    <value>Cbz:</value>
+  </data>
+  <data name="EvaluacionPartida_NumPartida" xml:space="preserve">
+    <value>Número de partida:</value>
+  </data>
+  <data name="EvaluacionPartida_FechaLlegada" xml:space="preserve">
+    <value>Fecha de llegada:</value>
+  </data>
+  <data name="EvaluacionPartida_ProcedenciaAnimales" xml:space="preserve">
+    <value>Procedencia de Animales:</value>
+  </data>
+  <data name="EvaluacionPartida_FechaEvaluacion" xml:space="preserve">
+    <value>Fecha de evaluación:</value>
+  </data>
+  <data name="EvaluacionPartida_InventarioInicial" xml:space="preserve">
+    <value>Inv inicial:</value>
+  </data>
+  <data name="EvaluacionPartida_Evaluador" xml:space="preserve">
+    <value>Evaluador:</value>
+  </data>
+  <data name="EvaluacionPartida_InventarioFinal" xml:space="preserve">
+    <value>Inv final:</value>
+  </data>
+  <data name="EvaluacionPartida_HoraEvaluacion" xml:space="preserve">
+    <value>Hora de Evaluación:</value>
+  </data>
+  <data name="EvaluacionPartida_Total" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="EvaluacionPartida_Nota" xml:space="preserve">
+    <value>Nota: Para aplicar Metafilaxia debe cumplir con 4 puntos. El Jefe de Sanidad puede confirmar o rechazar la decisión de aplicar Metafilaxia, aplique o no los 4 puntos.</value>
+  </data>
+  <data name="EvaluacionPartida_AccionASeguirMetafilaxia" xml:space="preserve">
+    <value>Acción a Seguir:       Metafilaxia ( X )       Normal (   )</value>
+  </data>
+  <data name="EvaluacionPartida_AccionASeguirNormal" xml:space="preserve">
+    <value>Acción a Seguir:       Metafilaxia (   )       Normal ( X )</value>
+  </data>
+  <data name="EvaluacionPartida_AccionASeguirMetafilaxiaJustificacion" xml:space="preserve">
+    <value>Justificación:</value>
+  </data>
+  <data name="InventarioNormal_ErrorMovimientos" xml:space="preserve">
+    <value>Ocurrió un error al generar los movimientos del inventario</value>
+  </data>
+  <data name="RecepcionMateriaPrima_ObservacionMovimientos" xml:space="preserve">
+    <value>Entrada a Inventario Recepción Materia Prima</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_ArchivoEnUso" xml:space="preserve">
+    <value>El archivo de programación de corte de ganado se encuentra en uso.</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncCabezas" xml:space="preserve">
+    <value>Cabezas</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncCorral" xml:space="preserve">
+    <value>Corral</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncDias" xml:space="preserve">
+    <value>Días</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncEvaluacion" xml:space="preserve">
+    <value>Evaluación</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncFechaEntrada" xml:space="preserve">
+    <value>Fecha Entrada</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncGarrapata" xml:space="preserve">
+    <value>Garrapata</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncHembras" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncMachos" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncOrigen" xml:space="preserve">
+    <value>Origen</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncPartida" xml:space="preserve">
+    <value># Partida</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_EncTotalTitulo" xml:space="preserve">
+    <value>Total de cabezas a trabajar:</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_Fecha" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_FechaFormato" xml:space="preserve">
+    <value>dddd dd \de MMMM yyyy</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_Folio" xml:space="preserve">
+    <value>Folio: </value>
+  </data>
+  <data name="ProgramacionCorteImpresion_FormatoReporte" xml:space="preserve">
+    <value>EN-51/1</value>
+  </data>
+  <data name="ProgramacionCorteImpresion_Logo" xml:space="preserve">
+    <value>Imagenes\\skLogo.png</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorAlConsultarDatos" xml:space="preserve">
+    <value>La factura no fue generada, no se encontraron los datos de la factura.</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorAlGenerarFactura" xml:space="preserve">
+    <value>Ocurrió un error al generar la factura.</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorDirectorioNoExiste" xml:space="preserve">
+    <value>El directorio configurado para la factura no existe. Favor de verificar.</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorFolioFactura" xml:space="preserve">
+    <value>La factura no fue generada, el folio de la factura no esta configurado.</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorParametros" xml:space="preserve">
+    <value>La factura no fue generada, faltan parametros de configuración. Favor de verificar.</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorRutaXml" xml:space="preserve">
+    <value>La factura no fue generada, la ruta del archivo no esta configurada.</value>
+  </data>
+  <data name="FacturaElectronica_MensajeErrorSerie" xml:space="preserve">
+    <value>La factura no fue generada, el número de serie de la factura no esta configurado.</value>
+  </data>
+  <data name="DescargaDataLink_msgCamionNoAsignado" xml:space="preserve">
+    <value>Existen camiones en el reparto,  que no están registrados en el catálogo de camiones. Favor de Verificar.</value>
+  </data>
+  <data name="EntradaEnfermeria_msgLoteSinCapacidad" xml:space="preserve">
+    <value>El corral ya no tiene la capacidad. Favor de Verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgCorralNoExiste" xml:space="preserve">
+    <value>El corral ingresado no existe. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgLoteInactivo" xml:space="preserve">
+    <value>El corral ingresado no tiene lote activo. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgCorralNoProductivo" xml:space="preserve">
+    <value>El corral ingresado no corresponde a producción. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgCorralSinMovimientos" xml:space="preserve">
+    <value>El corral ingresado no tiene movimientos. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgAreteInvalido" xml:space="preserve">
+    <value>El arete ingresado no existe. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgSinMovimientos" xml:space="preserve">
+    <value>El arete ingresado no tiene movimientos. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgCorralDiferente" xml:space="preserve">
+    <value>El arete no corresponde al corral ingresado. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgFaltaCorral" xml:space="preserve">
+    <value>Es necesario primero seleccionar un corral. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_Seleccione" xml:space="preserve">
+    <value>Seleccione</value>
+  </data>
+  <data name="RevisionImplante_msgAreteExiste" xml:space="preserve">
+    <value>El arete ya fue revisado. Favor de verificar.</value>
+  </data>
+  <data name="RevisionImplante_msgFaltanAretes" xml:space="preserve">
+    <value>Debe agregar por lo menos un arete para poder continuar.</value>
+  </data>
+  <data name="RevisionImplante_msgGuardado" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="RevisionImplante_msgYaRevisado" xml:space="preserve">
+    <value>El arete (ARETE) ya fue revisado el día de hoy. Favor de verificar.</value>
+  </data>
+  <data name="BoletaRecepcion_ErrorRangos" xml:space="preserve">
+    <value>No existe configuracion de rango para el producto:</value>
+  </data>
+  <data name="SolicitudAutorizacionBL_AutorizacionRechazadas" xml:space="preserve">
+    <value>Los siguientes ajustes se rechazaron automaticamente al no contar con suficiente inventario {0}.</value>
+  </data>
+  <data name="SolicitudAutorizacionBL_RechazoAutomatico" xml:space="preserve">
+    <value>Rechazo Automatico</value>
+  </data>
+  <data name="PolizaSalidaMuerteIntensiva_msgErrorClaveContableAbono" xml:space="preserve">
+    <value>NO EXISTE CONFIGURACION PARA EL COSTO {0}.</value>
+  </data>
+  <data name="AlertaModulo_ErrorBusqueda" xml:space="preserve">
+    <value>Ocurrió un problema al buscar los modulos.</value>
+  </data>
+  <data name="Incidencia_Cerrada" xml:space="preserve">
+    <value>Incidencia Cerrada</value>
+  </data>
+  <data name="Incidencia_Vencida" xml:space="preserve">
+    <value>Incidencia Vencida</value>
+  </data>
+  <data name="Incidencia_Registrada" xml:space="preserve">
+    <value>Incidencia Registrada</value>
+  </data>
+  <data name="PolizaSalidaMuerteGanadoTransito_CostosNoEncontrados" xml:space="preserve">
+    <value>No se encontraron costos activos.</value>
+  </data>
+  <data name="PolizaSalidaMuerteGanadoTransito_CostosGanadoNoEncontrado" xml:space="preserve">
+    <value>Costo de ganado no encontrado.</value>
+  </data>
+  <data name="PolizaSalidaMuerteGanadoTransito_CostoIdNoEncontrado" xml:space="preserve">
+    <value>No se encontro el costo. CostoID = {0}.</value>
+  </data>
+  <data name="PolizaSalidaMuerteGanadoTransito_DetalleSalidaGanadoTransitoNoProporcionados" xml:space="preserve">
+    <value>No se proporcionaron detalles de salida de ganado en tránsito.</value>
+  </data>
+  <data name="PolizaSalidaMuerteGanadoTransito_CorralesNoEncontrados" xml:space="preserve">
+    <value>No se encontraron corrales para la organizacion.</value>
+  </data>
+  <data name="GanadoIntensivoBL_ErrorAnimalesFacturados" xml:space="preserve">
+    <value>No hay animales pendientes por facturar.</value>
+  </data>
+  <data name="validarLimiteCredito_ErrorConsumoServicio" xml:space="preserve">
+    <value>Error al intentar validar el limite de credito del cliente, no se pudo tener conexion con el servicio web</value>
+  </data>
+  <data name="validarLimiteCredito_RespuestaServicioDesconocida" xml:space="preserve">
+    <value>Respuesta del servicio de validacion de limite de credito no configurada</value>
+  </data>
+  <data name="validarLimiteCredito_SinRespuestaServicio" xml:space="preserve">
+    <value>Sin respuesta del servicio de validacion de limite de credito</value>
+  </data>
+</root>

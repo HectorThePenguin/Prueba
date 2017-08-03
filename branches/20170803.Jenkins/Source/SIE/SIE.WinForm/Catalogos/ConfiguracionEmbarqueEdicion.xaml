@@ -1,0 +1,221 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.ConfiguracionEmbarqueEdicion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ConfiguracionEmbarque Edicion"
+        Height="380"
+        Width="600"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base" Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConfiguracionEmbarque_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+
+                <Label Content="Id:"
+                       Grid.Row="0"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="Origen"
+                       Grid.Row="1"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="Destino"
+                       Grid.Row="2"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="Kilometros"
+                       Grid.Row="3"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="Horas"
+                       Grid.Row="4"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Content="Estatus"
+                       Grid.Row="5"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <TextBox x:Uid="txtConfiguracionEmbarqueId"
+                         x:Name="txtConfiguracionEmbarqueId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         IsEnabled="false"
+                         MaxLength="9"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="ConfiguracionEmbarqueID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <StackPanel x:Name="stpOrigen"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Height="23"
+                            VerticalAlignment="Center" />
+
+                <StackPanel x:Name="stpDestino"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Height="23"
+                            VerticalAlignment="Center" />
+
+                
+                <xctk:DecimalUpDown Name="dtuKilometros"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Increment=".5"
+                                    FormatString="N"
+                                    Minimum="0"
+                                    NumeroDecimal="True"
+                                    TextAlignment="Right"
+                                    Width="100"
+                                    ShowButtonSpinner="False"
+                                    MaxLength="8"
+                                    Height="23"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Left"
+                                    KeyDown="DtuControl_KeyDown"
+                                    MinWidth="10"
+                                    TabIndex="3">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="Kilometros"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+
+                <xctk:DecimalUpDown Name="dtuHoras"
+                                    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    ShowButtonSpinner="True"
+                                    Minimum="0"
+                                    NumeroDecimal="True"
+                                    MaxLength="9"
+                                    Height="23"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Left"
+                                    KeyDown="DtuControl_KeyDown"
+                                    MinWidth="10"
+                                    TabIndex="4">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="Horas"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="5"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+                <StackPanel Grid.Row="7"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="20 0 0 0"
+                            TabIndex="7" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>
+

@@ -1,0 +1,121 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.AlmacenUsuarioEdicionUsuario"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Height="320"
+                 Width="580"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 Loaded="Window_Loaded"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.AlmacenUsuarioEdicionUsuario_Lbl_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.AlmacenUsuarioEdicionUsuario_LblUsuario}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Content="{x:Static resx:Resources.AlmacenUsuarioEdicionUsuario_LblActivo}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Controles:ControlAyuda x:Name="skAyudaUsuario"
+                                        AnchoDescripcion="240"
+                                        AnchoClave="60"
+                                        DataContext="{Binding Path=Usuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="8"
+                                        EsAyudaSimple="False"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaUsuario_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaUsuario_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaUsuario_Busqueda_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaUsuario_Seleccionar }"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaUsuario_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaUsuario_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaUsuario_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Nombre"
+                                        CampoClave="UsuarioID"
+                                        CampoLlaveOcultaClave="UsuarioID"
+                                        Grid.ColumnSpan="3" />
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+
+                <StackPanel Grid.Row="2"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnAceptar}"
+                            Click="btnAceptar_OnClick"
+                            TabIndex="5" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="btnCancelar_OnClick"
+                            Margin="20, 0, 0, 0"
+                            TabIndex="6" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>

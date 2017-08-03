@@ -1,0 +1,178 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.CorralDetectorEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 Title="Camion Edicion"
+                 Height="Auto"
+                 Width="600"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="250*"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="0"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="0"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CorralDetectorEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="200*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35*" />
+                    <RowDefinition Height="35*" />
+                    <RowDefinition Height="35*" />
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="35*" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.CorralDetectorEdicion_LblCorralDetectorID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.CorralDetectorEdicion_LblOperadorID}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Content="{x:Static resx:Resources.CorralDetectorEdicion_LblActivo}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtCorralDetectorID"
+                         x:Name="txtCorralDetectorID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         IsEnabled="False"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="CorralDetectorID"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <StackPanel Name="stpOperador"
+                            Grid.Row="1"
+                            Grid.Column="1" />
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="3" />
+
+                <StackPanel Grid.Row="4"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="4" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+
+
+                
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Column="0"
+                  Grid.Row="2"
+                  Margin="20 10 20 10"
+                  Header="{x:Static resx:Resources.EnfermeriaEdicion_AsignacionCorral}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.EnfermeriaEdicion_TipoCorral}"></Label>
+                <ListBox x:Name="lbTipoCorral"
+                         Margin="10" 
+                         Grid.Row="1" 
+                         />
+                <Label Grid.Column="1" Content="{x:Static resx:Resources.EnfermeriaEdicion_Corral}"></Label>
+                <DataGrid x:Name="dgCorral"
+                          Grid.Column="1"
+                          Grid.Row="1"
+                          HeadersVisibility="None"
+                          Margin="10">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox Checked="ToggleButton_OnChecked" 
+                                              Unchecked="ToggleButton_OnUnchecked" 
+                                              ClickMode="Release" 
+                                              IsChecked="{Binding Marcado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding Elemento.Codigo}">
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        
+    </Grid>
+
+</Vista:VistaBase>

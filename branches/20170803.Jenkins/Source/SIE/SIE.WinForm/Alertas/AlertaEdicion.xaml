@@ -1,0 +1,231 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Alertas.AlertaEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black"
+                 Height="365"
+                 Width="570" Loaded="AlertaEdicion_OnLoaded">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
+    <Grid Background="White" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="460"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Controles:Titulo Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.RegistrarAlerta_Titulo}"
+                          x:Name="ucTitulo" />
+
+        <GroupBox Grid.Row="1"
+                  Grid.Column="0"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="15,10,22,238" Grid.RowSpan="2" RenderTransformOrigin="0.357,0.5">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.RegistrarAlerta_AlertaDatos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="177"></ColumnDefinition>
+                    <ColumnDefinition Width="197*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label 
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="15,6,92,9" Grid.Row="1" />
+                <Label 
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="15,6,65,9" Grid.Row="2" />
+                <Label 
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" Margin="15,6,92,9" Grid.Row="3" />
+                 
+                <Label Grid.Row="0"
+                       Content="{x:Static resx:Resources.RegistrarAlerta_LblId}"
+                       Margin="25,4,0,4"
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" Width="26" />
+                <Label Grid.Row="1"
+                       Content="{x:Static resx:Resources.RegistrarAlerta_LblModulo}"
+                       Margin="25,4,0,4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Width="60" />
+                <Label Grid.Row="2"
+                       Content="{x:Static resx:Resources.RegistrarAlerta_LblDescripcion}"
+                       Margin="25,4,0,4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Width="87" />
+                <Label Content="{x:Static resx:Resources.RegistrarAlerta_LblHorasRespuesta}"
+                       Grid.Row="3"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Width="122" />
+                <Label Content="{x:Static resx:Resources.RegistrarAlerta_LblTerminadoAutomatico}"
+                       Grid.Row="4"
+                       Margin="25,8,0,1"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Grid.ColumnSpan="2" Height="26" Width="162" />
+                <Label Content="{x:Static resx:Resources.RegistrarAlerta_LblEstatus}"
+                       Grid.Row="5"
+                       Margin="25,7,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Height="28" Width="61" />
+
+                <TextBox 
+                         Name="txtId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Height="Auto"
+                         Width="69"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0"
+                         MaxLength="50"
+                         IsEnabled="false"
+                         Margin="20,4,0,6">
+                    <TextBox.Text>
+                        <Binding Path="AlertaID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+
+                <TextBox x:Uid="txtDescripcion" Name="txtDescripcion" 
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Height="Auto"
+                         Width="300"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="True"
+                         Margin="21,6,0,4" MaxLength="255" HorizontalAlignment="Left">
+                    <TextBox.Text>
+
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+
+                <TextBox x:Uid="txtHorasRespuesta" PreviewKeyDown="TxtHorasRespuesta_OnPreviewKeyDown"
+                         Name="txtHorasRespuesta"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         Height="25"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="True"
+                         PreviewTextInput="txtHorasRespuesta_PreviewTextInput"
+                         MaxLength="4"
+                         Width="69"
+                         Margin="20,0,0,5" VerticalAlignment="Bottom">
+                    <TextBox.Text>
+                        <Binding Path="HorasRespuesta"
+                                 Mode="TwoWay" 
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbModulo"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="ModuloID"
+                          SelectedItem="{Binding Path=Modulo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Modulo.ModuloID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Height="Auto"
+                          Width="200"
+                          TabIndex="3"
+                          HorizontalAlignment="Left"
+                          Margin="20,6,0,4" />
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="5"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Height="Auto"
+                          Width="200"
+                          TabIndex="3"
+                          HorizontalAlignment="Left"
+                          Margin="20,7,0,3" />
+                <Button Content="{x:Static resx:Resources.RegistrarAlerta_BtnGuardar}" x:Name="btnGuardar"
+                	Grid.Row="6"
+                    Grid.Column="1"
+                    Margin="0,8,228,2"
+                	IsEnabled="True"
+                    Click="BtnGuardar_Click"
+                	 Height="25" Width="75" HorizontalAlignment="Right"/>
+                
+                <CheckBox x:Name="cbTerminadoAUtomatico" Grid.Column="1" HorizontalAlignment="Left" Margin="20,9,0,0" 
+                          Grid.Row="4" VerticalAlignment="Top" Height="16" Width="17"  RenderTransformOrigin="0.706,0.625"
+                          DataContextChanged="CbTerminadoAUtomatico_OnDataContextChanged"
+                          Click="CbTerminadoAUtomatico_OnClick">
+                </CheckBox>
+
+                <Button Content="{x:Static resx:Resources.RegistrarAlerta_BtnCancelar}" x:Name="BtnCancelar" 
+                                Grid.Row="6"  
+                                Grid.Column="1" 
+                                Margin="0,8,103,2"
+                                Width="75"
+                                Click="BtnCancelar_OnClick"
+                                Height="25"
+                        HorizontalAlignment="Right"/>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Vista:VistaBase>
+
+

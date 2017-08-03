@@ -1,0 +1,52 @@
+﻿<table id="DatosEmbarque" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroId}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroFolioEmbarque}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroOperador}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroPlacaTracto}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroPlacaJaula}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroEcoTracto}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroEcoJaula}</th>
+        <th class="alineacionCentro columnaGridTitulo columnaObservacionesProgramacion" scope="col">{$T.Recursos.cabeceroObservaciones}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroOpcion}</th>
+        <th class="alineacionCentro columnaGridTitulo" scope="col">{$T.Recursos.cabeceroOpcion}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.ListadoProgramacionDatos as item}
+        <tr data-EmbarqueID={$T.item.EmbarqueID}
+            data-FolioEmbarque={$T.item.FolioEmbarque}
+            data-Operador={$T.item.Operador1.Nombre}
+            data-PlacaTracto={$T.item.Tracto.PlacaCamion}
+            data-PlacaJaula={$T.item.Jaula.PlacaJaula}
+            data-EcoTracto={$T.item.Tracto.EcoTracto}
+            data-EcoJaula={$T.item.Jaula.EcoJaula}
+            data-Observaciones={$T.item.Observaciones}
+            >
+            
+            <td class="alineacionCentro">{$T.item.EmbarqueID}
+            </td>
+            <td class="alineacionCentro">{$T.item.FolioEmbarque} 
+            </td>
+            <td class="alineacionCentro">{$T.item.Operador1.Nombre}
+            </td>
+            <td class="alineacionCentro">{$T.item.Tracto.PlacaCamion}
+            </td>
+            <td class="alineacionCentro">{$T.item.Jaula.PlacaJaula}
+            </td>
+            <td class="alineacionCentro">{$T.item.Tracto.Economico}
+            </td>
+            <td class="alineacionCentro">{$T.item.Jaula.NumEconomico}
+            </td>
+            <td class="alineacionCentro">{$T.item.Observaciones}
+            </td>
+
+            <td class="alineacionCentro">
+                <a onClick="BtnEditarDatos_OnClick('{$T.item.EmbarqueID}');" class="{$T.rolTransporteDatos ? '' : 'btn-disabled'}"><img src="../Images/pencil.png" class="imagen" /></a>
+            </td>
+            <td class="alineacionCentro">
+                <a onClick="Eliminar('{$T.item.EmbarqueID}',3)" class="{$T.rolTransporteDatos ? '' : 'btn-disabled'}"><img src="../Images/EmptyTrash.png" class="imagen" /></a>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

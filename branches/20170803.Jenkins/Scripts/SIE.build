@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="DB_SIE" basedir="." default="CrearSp" xmlns="http://nant.sf.net/schemas/nant-0.85.win32.net-1.0.xsd">
+	<!--Targets de entrada-->
+	
+	
+	
+
+	<target name="CrearSp" depends="GlobalInit_Normal, InitDesarrollo_Normal,  CreateSPs" />
+	
+	
+
+	<target name="GlobalInit_Normal">
+		<!--Directorios-->
+		<property name="root" value="${project::get-base-directory()}" />
+		<property name="outDir" value="${root}" />
+		<property name="DBServer" value="srv-siapdbc" />
+		<property name="DBName" value="siap" />
+		<property name="SAUser" value="ls_user" />
+		<property name="SAPassword" value="suKarnedbadmin" />
+		<property name="DBUser" value="ls_user" />
+		<property name="DBPassword" value="suKarnedbadmin" />
+		<property name="temp" value="${root}\temp" />
+		<property name="failOnError" value="false" />
+		<property name="nant.onfailure" value="RemoveTemp" />
+		<property name="nant.onsuccess" value="RemoveTemp" />
+	</target>
+	
+	
+	
+	<target name="InitDesarrollo_Normal">
+		<!--Inicializa-->
+		<property name="DBServer" value="srv-siapdbc" />
+		<property name="failOnError" value="false" />
+	</target>
+	
+	
+
+	
+	<target name="CreateSPs">
+		<!--Crea los Stored Procedures -->
+		<!-- @@dboUser -->
+		<mkdir dir="${temp}" />
+
+		<copy todir="${temp}\SPaejecutar\" overwrite="true" verbose="false" flatten = "false" inputencoding="utf-8" outputencoding="utf-8">
+			<fileset basedir="${root}\SPaejecutar\">
+				<include name="**/*.sql" />
+			</fileset>
+			<filterchain>
+				<replacestring from="@@dboUser" to="${DBUser}"  ignorecase="true"/>
+			</filterchain>
+		</copy>
+		<!--<echo message="Create Stored Procedures"/> -->
+		<foreach item="File" property="filename">
+			<in>
+				<items>
+					<include name="${temp}\SPaejecutar\**/*.sql" />
+				</items>
+			</in>
+			<do>
+				<echo message="${filename}" />
+					<sql 
+						connstring="Provider=SQLOLEDB;Server=${DBServer};Database=${DBName};User ID=${DBUser};Password=${DBPassword};"
+						transaction="false"
+						delimiter="GO"
+						delimstyle="Line"
+						encoding="utf-8"
+						batch="false"
+						source="${filename}"
+						failonerror="${failOnError}"
+						verbose="false"
+					/>
+			</do>
+		</foreach>	
+		<delete dir="${temp}"/>
+	</target>
+	
+	
+	
+	<target name="RemoveTemp">
+		<!--On Sucess o al finalizar borra temporales -->
+		<delete dir="${temp}" failonerror="false"/>
+	</target>
+</project>

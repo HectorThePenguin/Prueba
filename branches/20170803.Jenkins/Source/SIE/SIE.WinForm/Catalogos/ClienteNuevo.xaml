@@ -1,0 +1,434 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.ClienteNuevo"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black"
+                 Height="610"
+                 Width="700"
+                 Loaded="Window_Loaded">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+
+    <Grid Background="White"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="460"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Controles:Titulo Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.Cliente_Nuevo_Titulo}"
+                          x:Name="ucTitulo" />
+
+        <GroupBox Grid.Row="1"
+                  Grid.Column="0"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="15 0 15 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Cliente_Filtros}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.Cliente_Grid_Sociedad}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.Cliente_Grid_CodigoSAP}"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       VerticalAlignment="Center" />
+
+                <TextBox x:Name="txtSociedad"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         MaxLength="4"
+                         TabIndex="1"
+                         Text="{Binding Path=Sociedad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Width="40"
+                         TextAlignment="Right"
+                         PreviewTextInput="txtCliente_PreviewTextInput"></TextBox>
+
+
+                <TextBox x:Name="txtCliente"
+                         Grid.Row="0"
+                         Grid.Column="3"
+                         Text="{Binding Path=CodigoSAP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MaxLength="10"
+                         TabIndex="1"
+                         Width="75"
+                         TextAlignment="Right"
+                         KeyDown="txtCliente_KeyDown"
+                         KeyUp="TxtCliente_OnKeyUp"
+                         PreviewTextInput="txtCliente_PreviewTextInput"></TextBox>
+
+                <Button Content="{x:Static resx:Resources.btnBuscar}"
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Click="BtnBuscar_Click"
+                        Margin="10 0 0 0">
+                </Button>
+                <Button Content="{x:Static resx:Resources.btnGuardar}"
+                        Grid.Row="0"
+                        Name="btnGuardar"
+                        IsEnabled="False"
+                        Grid.Column="5"
+                        Click="BtnGuardar_Click"
+                        Margin="1,2,0,0"
+                        VerticalAlignment="Top">
+                </Button>
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2"
+                  Grid.Column="0"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="15 0 15 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Cliente_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="300*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Content="{x:Static resx:Resources.ClienteEdicion_lbNombre}"
+                       Margin="25,4,0,4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="1"
+                       Content="{x:Static resx:Resources.ClienteEdicion_lbCodigoSAP}"
+                       Margin="25,4,0,4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="2"
+                       Content="{x:Static resx:Resources.ClienteEdicion_lblPoblacion}"
+                       Margin="25,4,0,4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbEstado}"
+                       Grid.Row="3"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbPais}"
+                       Grid.Row="4"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbCalle}"
+                       Grid.Row="5"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbCodigoPostal}"
+                       Grid.Row="6"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbRFC}"
+                       Grid.Row="7"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbMetodoPago}"
+                       Grid.Row="8"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbCondicionPago}"
+                       Grid.Row="9"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbDiasPago}"
+                       Grid.Row="10"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.ClienteEdicion_lbEstatus}"
+                       Grid.Row="11"
+                       Margin="25,3,0,5"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center" />
+
+                <TextBox 
+                         Name="txtNombre"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0"
+                         MaxLength="50"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Uid="txtCliente"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="1"
+                         MaxLength="10"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="CodigoSAP"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtPoblacion"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="200"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="Poblacion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtEstado"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="Estado"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtPais"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="Pais"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtCalle"
+                         Grid.Row="5"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="Calle"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtCodigoPostal"
+                         Grid.Row="6"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="CodigoPostal"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtRFC"
+                         Grid.Row="7"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="false"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="RFC"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbMetodoPago"
+                          Grid.Row="8"
+                          Grid.Column="1"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="MetodoPagoID"
+                          SelectedItem="{Binding Path=MetodoPago, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=MetodoPago.MetodoPagoID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Height="25"
+                          Width="180"
+                          TabIndex="3"
+                          HorizontalAlignment="Left"
+                          Margin="0,5" />
+
+                <TextBox x:Uid="txtCondicionPago"
+                         Grid.Row="9"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="CondicionPago"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDiasPago"
+                         Grid.Row="10"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         PreviewTextInput="txtCliente_PreviewTextInput"
+                         MaxLength="4"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         Margin="0,5">
+                    <TextBox.Text>
+                        <Binding Path="DiasPago"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="11"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Height="25"
+                          Width="180"
+                          TabIndex="3"
+                          HorizontalAlignment="Left"
+                          Margin="0,4,0,6" />
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Vista:VistaBase>

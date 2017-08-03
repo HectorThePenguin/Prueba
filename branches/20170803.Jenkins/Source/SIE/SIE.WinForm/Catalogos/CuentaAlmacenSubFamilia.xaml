@@ -1,0 +1,181 @@
+<Vista:ControlBase
+	    x:Class="SIE.WinForm.Catalogos.CuentaAlmacenSubFamilia"
+	    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        Height="Auto"
+	    Width="Auto"
+	    Loaded="Window_Loaded">
+
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20"
+        Background="White"
+    ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+            Direction="-90"
+            RenderingBias="Quality"
+            ShadowDepth="2"/>
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>  
+            <RowDefinition Height="100"></RowDefinition> 
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>  
+            <RowDefinition Height="40"></RowDefinition>  
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                 Grid.Row="0"
+                 Padding="20 0 20 0"
+                 VisibleCerrar="Hidden"
+                 TextoTitulo="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Titulo}"
+                 x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+                <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Filtro}"></Label>
+                </GroupBox.Header>
+
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="190" />
+                        <ColumnDefinition Width="90" />
+               </Grid.ColumnDefinitions>
+
+
+                <Label Content="{x:Static resx:Resources.CuentaAlmacenSubFamilia_LblAlmacen}"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      VerticalAlignment="Center">
+               </Label>
+               <Label Content="{x:Static resx:Resources.CuentaAlmacenSubFamilia_LblActivo}"
+                      Grid.Row="0"
+                      Grid.Column="3"
+                      VerticalAlignment="Center">
+               </Label>
+
+                <Controles:ControlAyuda x:Name="skAyudaAlmacen"
+                                        AnchoDescripcion="240"
+                                        AnchoClave="60"
+                                        DataContext="{Binding Path=Almacen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="8"
+                                        EsAyudaSimple="False"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaAlmacen_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaAlmacen_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaAlmacen_Busqueda_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaAlmacen_Seleccionar }"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaAlmacen_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaAlmacen_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaAlmacen_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="AlmacenID"
+                                        CampoLlaveOcultaClave="AlmacenID"
+                                        Grid.ColumnSpan="3"
+                                        Grid.RowSpan="2" />
+             <ComboBox x:Name="cmbActivo"  
+                       Grid.Row="0"
+                       Grid.Column="4"
+                       ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+					     SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+					     Width="150"
+					     HorizontalAlignment="Left"
+					     TabIndex="0" />
+                    <StackPanel Grid.Column="6"
+                    			Orientation="Horizontal">
+                    	<Button Content="{x:Static resx:Resources.btnBuscar}"
+                    			Click="BtnBuscar_Click"
+                    			Margin="10 0 0 0">
+                    	</Button>
+                    	<Button Content="{x:Static resx:Resources.btnNuevo}"
+                    			Click="BtnNuevo_Click"
+                    			Margin="10 0 0 0">
+                    	</Button>
+                    </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=CuentaAlmacenSubFamiliaInfo}"
+                  SelectionMode="Single"> 
+            <DataGrid.Columns>
+                    <DataGridTextColumn Width="100"
+                    Binding="{Binding Path=CuentaAlmacenSubFamiliaID}"
+                    Header="Id" />
+                <DataGridTextColumn Width="300*"
+                                    Binding="{Binding Path=Almacen.Descripcion}"
+                                    Header="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Grid_Almacen}" />
+                <DataGridTextColumn Width="200*"
+                                    Binding="{Binding Path=SubFamilia.Descripcion}"
+                                    Header="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Grid_SubFamilia}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=CuentaSAP.CuentaSAP}"
+                                    Header="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Grid_CuentaSAP}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Activo}"
+                                    Header="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Grid_Activo}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                      <Button Style="{StaticResource iconButton}"
+                            CommandParameter="{Binding}"
+                            Click="BtnEditar_Click">
+                            <Image Source="{StaticResource editIcon}"
+                                    Style="{StaticResource iconImage}"
+                                    ToolTip="{x:Static resx:Resources.CuentaAlmacenSubFamilia_Grid_Editar}"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion" Grid.Row="3" Grid.Column="1" Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

@@ -1,0 +1,122 @@
+﻿.modal.large {
+    width: 60%;
+    margin-left: -30%;
+}
+
+.close {
+    width: 60px !important;
+    height: 40px !important;
+}
+
+#modalSupervisor {
+    margin-top: -150px;
+}
+
+.divTable {
+    display: table;
+}
+
+.divRow {
+    display: table-row;
+}
+
+.divCell {
+    display: table-cell;
+}
+
+.textBoxTablas {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+}
+
+.anchoColumnaTemplate {
+    width: 100px !important;
+}
+
+.anchoColumnaHorometro {
+    width: 120px !important;
+}
+
+.anchoTextBoxHorometro {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    width: 75px !important;
+}
+
+.anchoColumnaHumedad {
+    width: 120px !important;
+}
+
+.anchoTextBoxHumedad {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    width: 80px !important;
+}
+
+.anchoTextBoxAgua {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    width: 210px !important;
+}
+
+.anchoTextBoxSurfactante {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    width: 110px !important;
+}
+
+.anchoTextBoxGrano {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    width: 200px !important;
+}
+
+.anchoColumnaBoxGrano {
+    width: 150px !important;
+}
+
+.anchoColumnaTemplateAgua {
+    width: 140px !important;
+}
+
+.anchoTextBoxDiesel {
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    width: 200px !important;
+}
+
+.anchoColumnaBoxDiesel {
+    width: 150px !important;
+}
+
+#modalSupervisor, #modalNotificaciones
+{
+    margin-top: -150px;
+}
+
+.sinSupervisar {
+    background-image: url(../Images/close.png);
+}
+
+.supervisar {
+    background-image: url(../Images/Correct.png);
+}
+
+.anchoResponsable {
+    width: 115px !important;
+}
+
+.existeNotificacion {
+    color: #00FF00 !important;
+}
+
+.noExisteNotificacion {
+    color: #FF0000 !important;
+}

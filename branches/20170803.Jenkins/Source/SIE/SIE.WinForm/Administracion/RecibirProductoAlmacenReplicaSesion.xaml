@@ -1,0 +1,161 @@
+﻿<Window x:Class="SIE.WinForm.Administracion.RecibirProductoAlmacenReplicaSesion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        Background="Black"
+        WindowStartupLocation="CenterScreen"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        Height="270"
+        Width="380"
+        Icon="../Imagenes/cabezaVaca.png">
+    <Grid Margin="2"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_Titulo}"
+                          x:Name="ucTitulo"
+                          Margin="58,12,2,12"
+                          Grid.ColumnSpan="2" />
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  HorizontalAlignment="Stretch"
+                  Style="{StaticResource groupBox}"
+                  Margin="40 0 40 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_GbxBusqueda}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="220" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="80*" />
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Grid.Column="0"
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            Margin="10,5,5,10"
+                            Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0"
+                               Content="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_Sesion1}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"
+                               Margin="0,0,0,0"
+                               Grid.Column="0"
+                               Height="25" />
+                        <RadioButton x:Uid="rbSesion1"
+                                     x:Name="rbSesion1"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Height="20"
+                                     Margin="20,7,0,0"
+                                     TabIndex="0"
+                                     Grid.ColumnSpan="2"
+                                     Width="20" />
+                        <Label Grid.Row="1"
+                               Content="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_Sesion2}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"
+                               Margin="0,0,0,0"
+                               Height="25" />
+                        <RadioButton x:Uid="rbSesion2"
+                                     x:Name="rbSesion2"
+                                     Grid.Row="1"
+                                     Grid.Column="1"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Height="20"
+                                     Margin="20,7,0,0"
+                                     TabIndex="0"
+                                     Grid.ColumnSpan="2"
+                                     Width="20" />
+                        <Label Grid.Row="2"
+                               Grid.Column="0"
+                               Content="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_Sesion3}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"
+                               Margin="0,0,0,0"
+                               Height="25" />
+                        <RadioButton x:Uid="rbSesion3"
+                                     x:Name="rbSesion3"
+                                     Grid.Row="2"
+                                     Grid.Column="1"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Top"
+                                     Height="20"
+                                     Margin="20,7,0,0"
+                                     TabIndex="0"
+                                     Grid.ColumnSpan="2"
+                                     Width="20" />
+                    </Grid>
+                </StackPanel>
+
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 20 0"
+                    Orientation="Horizontal">
+            <Button  x:Uid="btnGuardar"
+                     x:Name="btnGuardar"
+                     Click="BtnGuardar_Click"
+                     Content="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_BtnGuardar}"
+                     Margin="15 0 0 0"
+                     TabIndex="10">
+            </Button>
+
+            <Button x:Uid="btnCancelar"
+                    x:Name="btnCancelar"
+                    Click="BtnCancelar_Click"
+                    Content="{x:Static resx:Resources.RecibirProductoAlmacenReplicaSesion_BtnCancelar}"
+                    Margin="15 0 0 0"
+                    TabIndex="11" />
+        </StackPanel>
+    </Grid>
+</Window>

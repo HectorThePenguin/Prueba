@@ -1,0 +1,83 @@
+﻿<table id="GridCheckListReparto" class="table table-hover table-striped table-bordered">
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.NumeroTolva}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Servicio}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Reparto}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Racion}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.KilosEmbarcados}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.KilosRepartidos}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Sobrante}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CorralInicio}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.CorralFinal}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HoraInicioReparto}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HoraFinalReparto}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.TiempoTotalViaje}</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <input class="numeroTolva textBoxTablas span12" oninput="maxLengthCheck(this)" maxlength="10" type="text" />
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {#foreach $T.Repartos as item}
+        <tr data-pesofinal="{$T.item.PesoFinal}">
+            <td>{#if $T.item.NumeroTolva != 0}
+                <input class="numeroTolvaGuardar textBoxTablas span12" value="{$T.item.NumeroTolva}" disabled="disabled" oninput="maxLengthCheck(this)" maxlength="7" type="text" />
+                {#else} 
+                <input class="numeroTolvaGuardar textBoxTablas span12" oninput="maxLengthCheck(this)" maxlength="7" type="text" />
+                {#/if}
+            </td>
+            <td class="textoDerecha columnaServicio">{$T.item.Servicio}
+            </td>
+            <td class="textoDerecha columnaReparto">{$T.item.Reparto}
+            </td>
+            <td class="textoDerecha columnaRacionFormula">{$T.item.RacionFormula}
+            </td>
+            <td class="textoDerecha columnaKilosEmbarcados">{$T.item.KilosEmbarcados}
+            </td>
+            <td class="textoDerecha columnaKilosRepartidos">{$T.item.KilosRepartidos}
+            </td>
+            <td class="textoDerecha columnaSobrante">{$T.item.Sobrante}
+            </td>
+            <td class="textoIzquierda columnaCorralInicio">{$T.item.CorralInicio}
+            </td>
+            <td class="textoIzquierda columnaCorralFinal">{$T.item.CorralFinal}
+            </td>
+            <td class="textoIzquierda columnaHoraInicio">{$T.item.HoraInicioReparto}
+            </td>
+            <td class="textoIzquierda columnaHoraFinal">{$T.item.HoraFinalReparto}
+            </td>
+            <td class="textoIzquierda">{$T.item.TiempoTotalViaje}
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{$T.Recursos.PiePaginaTotal}</td>
+            <td class="textoDerecha pieTotalKilosEmbarcados"></td>
+            <td class="textoDerecha pieTotalKilosRepartidos"></td>
+            <td class="textoDerecha pieTotalSobrante"></td>
+            <td colspan="2">{$T.Recursos.PiePaginaMerma}
+            </td>
+            <td class="textoDerecha pieMerma"></td>
+            <td>{$T.Recursos.PiePaginaTotal}
+            </td>
+            <td class="textoIzquierda pieTotalTiempo"></td>
+        </tr>
+    </tfoot>
+</table>

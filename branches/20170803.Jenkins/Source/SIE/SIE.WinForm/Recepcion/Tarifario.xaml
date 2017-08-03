@@ -1,0 +1,240 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Recepcion.Tarifario"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base">
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="160"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.Tarifario_LblTitulo}"
+                          x:Name="ucTitulo" Height="Auto" Margin="0,12"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20,0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Tarifario_LblTituloAgrupador}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" ></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="6" />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.Tarifario_LblOrigen}"
+                       Grid.Column="2"
+                       VerticalAlignment="Center" Height="26" Margin="140,0,150,29" Grid.RowSpan="2" Grid.Row="1"/>
+
+
+                <Label Content="{x:Static resx:Resources.Tarifario_LblDestino}"
+                       Grid.Column="4"
+                       VerticalAlignment="Center" Height="26" Margin="140,34,147,0" Grid.RowSpan="2"/>
+
+                <Label Content="{x:Static resx:Resources.Tarifario_LblProveedor}"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Margin="33,4,32,5" Height="26"/>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaProveedor"
+                                        DataContext="{Binding Path=ProveedorInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.skAyudaProveedor_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.skAyudaProveedor_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaProveedor_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaProveedor_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.skAyudaProveedor_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaProveedor_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaProveedor_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorCodigoSAP"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="CodigoSAP" VerticalAlignment="Center" Height="26" 
+                                        TabIndex="1" Margin="0,4,0,5"/>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                       x:Name="skAyudaOrganizacionOrigen"
+                                        DataContext="{Binding Path=OrganizacionInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="3"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaOrigen}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaOrigen_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Origen_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Origen_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.Origen_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" VerticalAlignment="Center" Height="30" 
+                                        TabIndex="3" Grid.Column="2"/>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaOrganizacionDestino"
+                                       DataContext="{Binding Path=OrganizacionInfo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="4"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaDestino}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaDestino_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Destino_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Destino_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.Destino_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" VerticalAlignment="Center" Height="30" 
+                                        TabIndex="4" Grid.Column="4" Width="340"/>
+
+                <Label Content="{x:Static resx:Resources.Tarifario_LblEstatus}"
+                       Grid.Column="4"
+                       VerticalAlignment="Center"
+                       Margin="0,5,285,4" Height="26"/>
+                
+                
+                <ComboBox Grid.Column="4"
+                          Height="20"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Center"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Name="cboEstatus"
+                          Width="110"
+                          TabIndex="2" Margin="65,9,0,6" DropDownClosed="cboEstatus_DropDownClosed"/>
+
+                <Button x:Name="btnBuscar" Grid.Column="4"
+                        Content="{x:Static resx:Resources.btnBuscar}"
+                		Click="btnBuscar_Click"
+                		Margin="140,1,130,16"
+                		TabIndex="5" Grid.Row="3"
+                            />
+
+                <Button x:Name="btnLimpiar" Grid.Column="4"
+                        Content="{x:Static resx:Resources.btnLimpiar}"
+                		Margin="247,1,23,16" Grid.Row="3"
+                        TabIndex="7"
+                        Click="BtnLimpiar_Click" />
+
+                <Label Content="{x:Static resx:Resources.Tarifario_LblRuta}"
+                	Grid.Column="1"
+                	VerticalAlignment="Center"
+                	Margin="33,4,32,0" Height="26" Grid.Row="2"/>
+
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=TarifarioInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=NombreProveedor}"
+                                    Visibility="Visible"
+                                    Header="{x:Static resx:Resources.Tarifario_Grid_ColumnaProveedor}" />
+                <DataGridTextColumn Width="500"
+                                    Binding="{Binding Path=Organizaciones}"
+                                    Header="{x:Static resx:Resources.Tarifario_Grid_ColumnaOrigenDestino}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Ruta}"
+                                    Header="{x:Static resx:Resources.Tarifario_Grid_ColumnaRuta}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Kilometros, StringFormat=0.00 KM}"
+                                    Header="{x:Static resx:Resources.Tarifario_Grid_ColumnaKilometros}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Tarifa, StringFormat=C}"
+                                    Header="{x:Static resx:Resources.Tarifario_Grid_ColumnaTarifa}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Width="*"
+                                        Header="{x:Static resx:Resources.Tarifario_Grid_Gastos}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    TabIndex="6"
+                                    Click="btnVerGastosFijos_Click">
+                                <Image Source="{StaticResource findIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Tarifario_Grid_Gastos}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

@@ -1,0 +1,265 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.OperadorEdicion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title= "Operador Edicion"
+        Height="475"
+        Width="600"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base" Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Operador_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="128*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="0"
+                       VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.OperadorEdicion_Lbl_Id}" />
+                
+                <Label Grid.Row="2"
+                       Content="{x:Static resx:Resources.OperadorEdicion_Lbl_Nombre}"                       
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="3"
+                       Content="{x:Static resx:Resources.OperadorEdicion_Lbl_ApellidoPaterno}"                       
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="4"
+                       Content="{x:Static resx:Resources.OperadorEdicion_Lbl_ApellidoMaterno}"                       
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="1"
+                       Content="{x:Static resx:Resources.OperadorEdicion_Lbl_CodigoSAP}"                       
+                       VerticalAlignment="Center" />
+                <Label Grid.Row="5"
+                       Content="{x:Static resx:Resources.OperadorEdicion_Lbl_Rol}"                       
+                       VerticalAlignment="Center" />
+                <Label Content="{x:Static resx:Resources.OperadorEdicion_Lbl_Organizacion}"
+                       Grid.Row="6"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.OperadorEdicion_Lbl_Usuario}"
+                       Grid.Row="7"
+                       VerticalAlignment="Center" />
+
+
+                <Label Content="{x:Static resx:Resources.OperadorEdicion_Lbl_Estatus}"
+                       Grid.Row="8"
+                       VerticalAlignment="Center" />
+
+                <TextBox x:Uid="txtOperadorId"
+                         x:Name="txtOperadorId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         IsEnabled="false"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="OperadorID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtNombre"
+                         x:Name="txtNombre"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="1"
+                         MaxLength="50"
+                         CharacterCasing="Upper"
+                         IsEnabled="False">
+                    <TextBox.Text> 
+                        <Binding Path="Nombre"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtApellidoPaterno"
+                         x:Name="txtApellidoPaterno"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="2"
+                         MaxLength="50"
+                         CharacterCasing="Upper"
+                         IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="ApellidoPaterno"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtApellidoMaterno"
+                         x:Name="txtApellidoMaterno"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="280"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="3"
+                         MaxLength="50"
+                         CharacterCasing="Upper"
+                         IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="ApellidoMaterno"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <StackPanel Name="SplAyudaEmpleado"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Height="23"                            
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <TextBox x:Uid="txtCodigoSAP"
+                         x:Name="txtCodigoSAP"
+                         Grid.Row="1"
+                         Visibility="Hidden"
+                         Grid.Column="1"
+                         Height="25"
+                         Width="100"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         IsEnabled="False"
+                         TabIndex="4"
+                         MaxLength="50">
+                    <TextBox.Text>
+                        <Binding Path="CodigoSAP"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbRol"
+                          Grid.Row="5"
+                          Grid.Column="1"
+                          SelectedValuePath="RolID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=Rol.RolID, Mode=TwoWay}"
+                          SelectedItem="{Binding Path=Rol, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Height="25"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          Margin="0"
+                          TabIndex="2"/>
+
+                <StackPanel Name="SplAyudaOrganizacion"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Height="23"
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <StackPanel Name="SplAyudaUsuario"
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Height="23"
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <ComboBox Grid.Row="8"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Height="25"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          Margin="0"
+                          TabIndex="5" />
+                
+                <StackPanel Grid.Row="10"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            TabIndex="6"
+                            Click="Guardar_Click"/>
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            TabIndex="7"
+                            Margin="20 0 0 0"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>
+

@@ -1,0 +1,97 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:resx="clr-namespace:SIE.WinForm.Properties" 
+             xmlns:Controles="clr-namespace:SIE.WinForm.Controles" 
+             x:Class="SIE.WinForm.Manejo.ProgramacionCorteGanado" 
+             Height="Auto"
+             Width="Auto"
+             Loaded="ProgramacionCorteGanado_OnLoaded" mc:Ignorable="d">
+
+    <Grid Margin="20"
+          Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="329*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblInformacion" 
+               Style="{StaticResource informacionEtiqueta}" 
+               Grid.Column="1" 
+               Grid.Row="1"/>
+        <Label x:Name="lblSubTitulo" 
+               Content="{x:Static resx:Resources.ProgramacionCorteGanado_LblSubTitulo}" 
+               Grid.Column="1" 
+               Margin="20 0 20 0"
+               Grid.Row="1" />
+        <DataGrid x:Name="dgProgramacionCorteGanado" 
+                  AutoGenerateColumns="False"  
+                  Grid.Column="1" 
+                  Grid.Row="2" 
+                  Grid.RowSpan="2"
+                  Width="Auto" 
+                  Margin="20 0 20 0" LoadingRow="dgProgramacionCorteGanado_LoadingRow"
+                  CanUserResizeColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <CheckBox x:Name="chkTodos" Click="ChkTodos_OnClick" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="chkSelect" 
+                                      IsChecked="{Binding Manejado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                      HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaPartida}" 
+                                    Binding="{Binding FolioEntradaAgrupado}" Width="60"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaCorral}" 
+                                    Binding="{Binding CodigoCorral}" Width="60" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaLote}" 
+                                    Binding="{Binding LoteID}" Width="60"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaTipoOrigen}" 
+                                    Binding="{Binding OrganizacionOrigenAgrupado}" Width="160"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaTotal}" 
+                                    Binding="{Binding CabezasRecibidasAgrupadas}" Width="60"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaEvaluador}" 
+                                    Binding="{Binding Evaluador}" Width="200"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaFechaRecepcion}" 
+                                    Binding="{Binding FechaEntrada, StringFormat=\{0:dd/MM/yyyy\}}" Width="120" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaFechaEvaluacion}" 
+                                    Binding="{Binding FechaEvaluacion, StringFormat=\{0:dd/MM/yyyy\}}" Width="116" />
+                <DataGridTextColumn Header="{x:Static resx:Resources.ProgramacionCorteGanado_Grid_ColumnaNivelGarrapata}"
+                                    Binding="{Binding LeyendaNivelGarrapata}"
+                                    Width="116" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnProgramarCorte" 
+                Content="{x:Static resx:Resources.ProgramacionCorteGanado_BtnProgramarCorte}" 
+                Grid.Column="1" 
+                Grid.Row="4" 
+                HorizontalAlignment="Right"
+                Width="115"
+                Click="btnProgramarCorte_Click" 
+                Margin="20 0 20 0" />
+        <Controles:Titulo
+        	Padding="20 0 20 0"
+        	VisibleCerrar="Hidden"
+        	TextoTitulo="{x:Static resx:Resources.ProgramacionCorteGanado_LblTitulo}"
+        	x:Name="ucTitulo" Grid.Column="1" />
+    </Grid>
+</UserControl>

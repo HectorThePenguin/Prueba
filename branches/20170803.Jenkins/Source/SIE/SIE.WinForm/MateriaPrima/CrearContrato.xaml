@@ -1,0 +1,664 @@
+﻿<Window x:Class="SIE.WinForm.MateriaPrima.CrearContrato"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Height="750"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="1300"
+        WindowStartupLocation="CenterScreen"
+        Background="Black"
+        Margin="2"
+        WindowStyle="None"
+        HorizontalAlignment="Center"
+        Loaded="CrearContrato_OnLoaded"
+        KeyDown="CrearContrato_OnKeyDown">
+    <Grid Margin="2"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="670"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition />
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="20 5 20 5"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.CrearContrato_Titulo}"
+                          x:Name="ucTitulo"
+                          Height="Auto"
+                          Grid.ColumnSpan="3"
+                          Margin="0,0,0,5" />
+        <GroupBox Grid.Column="1"
+                  Header="{x:Static resx:Resources.CrearContrato_GbContratoDeCompraTitulo}"
+                  Margin="0,0,0,0"
+                  Grid.Row="1">
+            <Grid Margin="2"
+                  Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="590"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                <GroupBox Header="{x:Static resx:Resources.CrearContrato_GbDatosProducto}"
+                          Margin="0,0,0,0"
+                          Grid.Row="0">
+                    <Grid Margin="2"
+                          Background="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Margin="0,0,0,0"
+                              Background="White"
+                              Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="*"
+                                   x:Name="LblDivisionRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblDivision"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblDivision}"
+                                   Grid.Row="0"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblProductoRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblDatosProducto"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblDatosProducto}"
+                                   Grid.Row="1"
+                                   Grid.Column="0" />
+                            <Label Name="LblTipoCompra"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblTipoCompra}"
+                                   Grid.Row="2"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblProductoRequerido14"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblCuenta"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblCuenta}"
+                                   Grid.Row="3"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblTipoCompraRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Content="*"
+                                   x:Name="LblProveedorRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="4"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblProveedor"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblProveedor}"
+                                   Grid.Row="4"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblToneladasRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="5"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblToneladas"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblToneladas}"
+                                   Grid.Row="5"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblToleranciaRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="6"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblTolerancia"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblTolerancia}"
+                                   Grid.Row="6"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblMonedaRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="7"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblMoneda"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblMoneda}"
+                                   Grid.Row="7"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblPrecioRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="8"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblPrecio"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblPrecio}"
+                                   Grid.Row="8"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblCompraRequerida"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="9"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblCompra"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblCompra}"
+                                   Grid.Row="9"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblMermaPermitidaRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="10"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblMermaPermitida"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblMermaPermitida}"
+                                   Grid.Row="10"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblFleteRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="11"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblFlete"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblFlete}"
+                                   Grid.Row="11"
+                                   Grid.Column="0" />
+                            <Label Content="*"
+                                   x:Name="LblPesoNegociadoRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="12"
+                                   Grid.Column="0"
+                                   Margin="-5,4,0,0" />
+                            <Label Name="LblPesoNegociado"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblPesoNegociado}"
+                                   Grid.Row="12"
+                                   Grid.Column="0" />
+                            <Label Name="LblContratoAcerca"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblContratoAcerca}"
+                                   Grid.Row="13"
+                                   Grid.Column="0" />
+                            <Label Name="LblFolioCobertura"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblFolioCobertura}"
+                                   Grid.Row="14"
+                                   Grid.Column="0" />
+                            <Label Name="LblCalidad"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblCalidad}"
+                                   Grid.Row="15"
+                                   Grid.Column="0" />
+                            <Label Name="LblCostoSecado"
+                                   Content="{x:Static resx:Resources.CrearContrato_GridLblAplicaCostoSecado}"
+                                   Grid.Row="16"
+                                   Grid.Column="0" />
+                            <StackPanel Name="SplAyudaDivision"
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Height="40"
+                                        Margin="0,10,0,0" />
+                            <StackPanel Name="SplAyudaProducto"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Height="40"
+                                        Margin="0,10,0,0" />
+                            <ComboBox Name="CboTipoCompra"
+                                      Grid.Row="2"
+                                      Grid.Column="1"
+                                      Width="200"
+                                      SelectedValuePath="TipoContratoId"
+                                      DisplayMemberPath="Descripcion"
+                                      ItemsSource="{Binding}"
+                                      HorizontalAlignment="Left"
+                                      SelectionChanged="CboTipoCompra_SelectionChanged"
+                                      TabIndex="2" />
+                            <StackPanel Name="SplAyudaCuenta"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        Height="40"
+                                        Margin="0,10,0,0" />
+                            <StackPanel Name="SplAyudaProveedor"
+                                        Grid.Column="1"
+                                        Grid.Row="4"
+                                        Height="40"
+                                        Margin="0,10,0,0" />
+                            <xctk:DecimalUpDown Name="TxtToneladas"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                Grid.Column="1"
+                                                Grid.Row="5"
+                                                DefaultValue="0"
+                                                FormatString="N3"
+                                                Height="25"
+                                                NumeroDecimal="True"
+                                                HorizontalAlignment="Left"
+                                                Width="200"
+                                                MaxLength="12"
+                                                CultureInfo="en-US"
+                                                TabIndex="5" />
+                            <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <xctk:DecimalUpDown Name="TxtTolerancia"
+                                                    AllowSpin="False"
+                                                    ShowButtonSpinner="False"
+                                                    Grid.Column="0"
+                                                    DefaultValue="0"
+                                                    FormatString="N2"
+                                                    Height="25"
+                                                    NumeroDecimal="True"
+                                                    HorizontalAlignment="Left"
+                                                    Width="200"
+                                                    MaxLength="2"
+                                                    CultureInfo="en-US"
+                                                    TabIndex="6" />
+                                <Label Name="LblPorcentajeMerma"
+                                       Content="{x:Static resx:Resources.CrearContrato_GridLblPorcentaje}"
+                                       Grid.Column="1" />
+                            </Grid>
+                            <ComboBox Name="CboMoneda"
+                                      Grid.Row="7"
+                                      Grid.Column="1"
+                                      Width="200"
+                                      SelectedValuePath="TipoCambioId"
+                                      DisplayMemberPath="Descripcion"
+                                      ItemsSource="{Binding}"
+                                      HorizontalAlignment="Left"
+                                      TabIndex="7" />
+                            <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <xctk:DecimalUpDown Name="TxtPrecio"
+                                                    AllowSpin="False"
+                                                    ShowButtonSpinner="False"
+                                                    Grid.Column="0"
+                                                    Grid.Row="0"
+                                                    DefaultValue="0"
+                                                    FormatString="N2"
+                                                    Height="25"
+                                                    NumeroDecimal="True"
+                                                    HorizontalAlignment="Left"
+                                                    Width="200"
+                                                    MaxLength="7"
+                                                    CultureInfo="en-US"
+                                                    TabIndex="8" />
+                                <Label Name="LblTon"
+                                       Content="{x:Static resx:Resources.CrearContrato_GridLblTon}"
+                                       Grid.Column="1" />
+                            </Grid>
+                            <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="9">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="65"></ColumnDefinition>
+                                    <ColumnDefinition Width="65"></ColumnDefinition>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Name="RbCompraTotal"
+                                             Grid.Column="0"
+                                             Margin="0,12,0,0"
+                                             GroupName="RbCompraTotal"
+                                             Content="{x:Static resx:Resources.CrearContrato_GridLblCompraTotal}"
+                                             Checked="RbCompraTotal_OnChecked"
+                                             TabIndex="9" />
+                                <RadioButton Name="RbCompraParcial"
+                                             Grid.Column="1"
+                                             Margin="0,12,0,0"
+                                             GroupName="RbCompraParcial"
+                                             Content="{x:Static resx:Resources.CrearContrato_GridLblCompraParcial}"
+                                             Checked="RbCompraParcial_OnChecked"
+                                             TabIndex="10" />
+                                <Button x:Name="BtnCapturarCompra"
+                                        Margin="0,0,0,0"
+                                        Content="{x:Static resx:Resources.CrearContrato_BtnCapturarCompra}"
+                                        Grid.Column="2"
+                                        Height="25"
+                                        VerticalAlignment="Center"
+                                        Width="70"
+                                        Click="BtnCapturarCompra_OnClick"
+                                        TabIndex="11" />
+                            </Grid>
+                            <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <xctk:DecimalUpDown Name="TxtMermaPermitida"
+                                                    AllowSpin="False"
+                                                    ShowButtonSpinner="False"
+                                                    Grid.Column="0"
+                                                    Grid.Row="0"
+                                                    DefaultValue="0"
+                                                    FormatString="N3"
+                                                    Height="25"
+                                                    NumeroDecimal="True"
+                                                    HorizontalAlignment="Left"
+                                                    Width="100"
+                                                    MaxLength="6"
+                                                    CultureInfo="en-US"
+                                                    TabIndex="12" />
+                                <Label Name="LblPorcentaje"
+                                       Content="{x:Static resx:Resources.CrearContrato_GridLblPorcentaje}"
+                                       Grid.Column="1" />
+                                <Button x:Name="BtnHumedad"
+                                        Margin="0,0,0,0"
+                                        Content="{x:Static resx:Resources.CrearContrato_BtnHumedad}"
+                                        Grid.Column="2"
+                                        Height="25"
+                                        VerticalAlignment="Center"
+                                        Width="70"
+                                        TabIndex="13"
+                                        Click="BtnHumedad_OnClick" />
+                            </Grid>
+                            <ComboBox Name="CboFlete"
+                                      Grid.Row="11"
+                                      Grid.Column="1"
+                                      Width="200"
+                                      SelectedValuePath="TipoFleteId"
+                                      DisplayMemberPath="Descripcion"
+                                      ItemsSource="{Binding}"
+                                      HorizontalAlignment="Left"
+                                      TabIndex="14" />
+                            <ComboBox Name="CboPesoNegociado"
+                                      Grid.Row="12"
+                                      Grid.Column="1"
+                                      Width="200"
+                                      HorizontalAlignment="Left"
+                                      KeyDown="CboPesoNegociado_OnKeyDown"
+                                      TabIndex="15" />
+
+                            <TextBox Name="txtContratoAcerca"
+                                     Grid.Column="1"
+                                     Grid.Row="13"
+                                     Height="25"
+                                     HorizontalAlignment="Left"
+                                     Width="200"
+                                     MaxLength="12"
+                                     TabIndex="16"
+                                     IsEnabled="False" />
+                            <xctk:DecimalUpDown Name="txtFolioCobertura"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                Grid.Column="1"
+                                                Grid.Row="14"
+                                                DefaultValue="0"
+                                                Height="25"
+                                                NumeroDecimal="True"
+                                                HorizontalAlignment="Left"
+                                                Width="200"
+                                                MaxLength="15" 
+                                                CultureInfo="en-US"
+                                                TabIndex="17"
+                                                IsEnabled="False" />
+
+
+                            <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="65"></ColumnDefinition>
+                                    <ColumnDefinition Width="65"></ColumnDefinition>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Name="RbCalidadOrigen"
+                                             Grid.Column="0"
+                                             Margin="0,12,0,0"
+                                             GroupName="RbCalidad"
+                                             Content="{x:Static resx:Resources.CrearContrato_GridLblCalidadOrigen}"
+                                             Checked="RbCalidadOrigen_OnChecked"
+                                             TabIndex="18" />
+                                <RadioButton Name="RbCalidadDestino"
+                                             Grid.Column="1"
+                                             Margin="0,12,0,0"
+                                             GroupName="RbCalidad"
+                                             Content="{x:Static resx:Resources.CrearContrato_GridLblCalidadDestino}"
+                                             Checked="RbCalidadDestino_OnChecked"
+                                             TabIndex="19" />
+
+                            </Grid>
+                            <Grid Margin="2"
+                                  Background="White"
+                                  Grid.Column="1"
+                                  Grid.Row="16">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="125"></ColumnDefinition>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Name="chkCostoSecado"
+                                          Grid.Column="0"
+                                          Margin="0,10,0,0"
+                                          IsEnabled="False"
+                                          TabIndex="20" />
+                                <Label Name="LblDescuento"
+                                       Content="{x:Static resx:Resources.CrearContrato_GridLblDescuento}"
+                                       Grid.Column="1" />
+                                <CheckBox Name="chkDescuento"
+                                          Grid.Column="2"
+                                          Margin="0,10,0,0"
+                                          TabIndex="21" />
+
+                            </Grid>
+
+                        </Grid>
+                        <Grid Background="White"
+                              Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"></RowDefinition>
+                                <RowDefinition Height="20*"></RowDefinition>
+                                <RowDefinition Height="140*"></RowDefinition>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Background="White"
+                                  Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Name="lblFecha"
+                                       Content="{x:Static resx:Resources.CrearContrato_LblFecha}"
+                                       Grid.Row="0"
+                                       Grid.Column="0" />
+                                <TextBox Name="txtFecha"
+                                         MaxLength="50"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         Width="120"
+                                         IsEnabled="False" />
+                                <Label Name="lblFolio"
+                                       Content="{x:Static resx:Resources.CrearContrato_LblFolio}"
+                                       Grid.Row="0"
+                                       Grid.Column="4" />
+                                <Label Name="lblNumeroFolio"
+                                       Content="{x:Static resx:Resources.CrearContrato_LblNumeroFolio}"
+                                       Grid.Row="0"
+                                       Grid.Column="5" />
+                            </Grid>
+                            <Label Content="*"
+                                   x:Name="lblRangosRequeridosAst"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Margin="-5,3,0,0" />
+                            <Label Name="lblRangosRequeridos"
+                                   Content="{x:Static resx:Resources.CrearContrato_LblRangosRequeridos}"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Margin="0,5,0,0" />
+                            <GroupBox Grid.Column="0"
+                                      Header="{x:Static resx:Resources.CrearContrato_GbIndicadoresCalidad}"
+                                      Margin="0,0,0,0"
+                                      Grid.Row="2">
+                                <DataGrid Name="GridIndicadores"
+                                          IsTabStop="True"
+                                          SelectionMode="Single"
+                                          Margin="10,10,10,10"
+                                          IsSynchronizedWithCurrentItem="True"
+                                          PreviewKeyDown="GridIndicadores_OnPreviewKeyDown"
+                                          CurrentCellChanged="GridIndicadores_OnCurrentCellChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="250*"
+                                                            IsReadOnly="True"
+                                                            Binding="{Binding Indicador.Descripcion}"
+                                                            Header="{x:Static resx:Resources.CrearContrato_GridHeaderIndicador}" />
+                                        <DataGridTemplateColumn Header="{x:Static resx:Resources.CrearContrato_GridHeaderPorcentajePermitido}"
+                                                                IsReadOnly="true"
+                                                                Width="200*">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <xctk:DecimalUpDown Name="TxtPorcentajePermitido"
+                                                                        AllowSpin="False"
+                                                                        ShowButtonSpinner="False"
+                                                                        DefaultValue="0"
+                                                                        FormatString="N2"
+                                                                        Height="25"
+                                                                        NumeroDecimal="True"
+                                                                        HorizontalAlignment="Left"
+                                                                        Width="250"
+                                                                        Value="{Binding PorcentajePermitido, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
+                                                                        MaxLength="10" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+                <Grid Margin="2,10,2,0"
+                      Background="White"
+                      Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnActualizar"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnActualizar}"
+                            Grid.Column="1"
+                            Click="BtnActualizar_OnClick"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            IsEnabled="False"/>
+                    <Button x:Name="BtnImprimir"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnImprimirContrato}"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            Click="BtnImprimir_OnClick" />
+                    <Button x:Name="BtnGuardar"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnGuardar}"
+                            Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            Click="btnGuardar_Click" />
+                    <Button x:Name="BtnCancelar"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnCancelar}"
+                            Grid.Column="4"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            Click="btnCancelar_Click" />
+                    <Button x:Name="BtnOtrosCostos"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnOtrosCostos}"
+                            Grid.Column="5"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            Click="btnOtrosCostos_Click" />
+                    <Button x:Name="BtnCerrarContrato"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnCerrarContrato}"
+                            Grid.Column="6"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            Click="BtnCerrarContrato_OnClick" />
+                    <Button x:Name="BtnCancelarContrato"
+                            Content="{x:Static resx:Resources.CrearContrato_BtnCancelarContrato}"
+                            Grid.Column="7"
+                            HorizontalAlignment="Center"
+                            Margin="2,5,2,5"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            Width="90"
+                            Click="btnCancelarContrato_Click" />
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

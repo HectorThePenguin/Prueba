@@ -1,0 +1,166 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.CostoOrganizacion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="Auto"
+             Width="Auto"
+             Loaded="Window_Loaded"
+             KeyDown="Window_KeyDown"
+             xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+             xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+             xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+             xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base">
+<Grid Margin="20"
+        Background="White"
+        ScrollViewer.CanContentScroll="True">
+
+    <Grid.Effect>
+        <DropShadowEffect BlurRadius="15"
+                            Direction="-90"
+                            RenderingBias="Quality"
+                            ShadowDepth="2" />
+    </Grid.Effect>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="50"></RowDefinition>
+        <RowDefinition Height="100"></RowDefinition>
+        <RowDefinition Height="200*"></RowDefinition>
+        <RowDefinition Height="40"></RowDefinition>
+        <RowDefinition Height="40"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="60"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="60"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <Controles:Titulo Grid.Column="1"
+                        Grid.Row="0"
+                        Padding="20 0 20 0"
+                        VisibleCerrar="Hidden"
+                        TextoTitulo="{x:Static resx:Resources.CostoOrganizacion_Titulo}"
+                        x:Name="ucTitulo"></Controles:Titulo>
+    <GroupBox Grid.Column="1"
+                Grid.Row="1"
+                Style="{StaticResource groupBox}"
+                HorizontalAlignment="Stretch"
+                Margin="20 0 20 0">
+        <GroupBox.Header>
+            <Label Content="{x:Static resx:Resources.Camion_Filtro}"></Label>
+        </GroupBox.Header>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="260" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="90" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1"
+                       Content="{x:Static resx:Resources.CostoOrganizacion_LblTipoOrganizacion}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0,10"></Label>
+            <ComboBox Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DisplayMemberPath="Descripcion"
+                        SelectedValuePath="TipoOrganizacionID"
+                        SelectedItem="{Binding Path=TipoOrganizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedValue="{Binding Path=TipoOrganizacion.TipoOrganizacionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Name="cboTipoOrganizacion"
+                        TabIndex="0"
+                        Width="110" />
+
+            <Label Grid.Column="3"
+                    Content="{x:Static resx:Resources.CostoOrganizacion_LblCosto}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0,10"></Label>
+            <StackPanel x:Name="stpCosto"
+                    Grid.Column="4"
+                    Height="23"
+                    VerticalAlignment="Center" />
+            
+            <Label Grid.Column="5"
+                Content="{x:Static resx:Resources.Costo_Lbl_Estatus}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="10"
+                Grid.ColumnSpan="2"></Label>
+            <ComboBox Grid.Column="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Name="cboEstatus"
+                        SelectedItem="{Binding Path=Activo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedValue="{Binding Path=Activo}"
+                        TabIndex="2"
+                        Width="110" />
+            <Button Name="btnBuscar"
+                    Grid.Column="7"
+                    HorizontalAlignment="Center"
+                    Click="BtnBuscar_OnClick"
+                    TabIndex="3"
+                    Content="{x:Static resx:Resources.btnBuscar}">
+            </Button>
+            <Button Name="btnNuevo"
+                    Grid.Column="8"
+                    HorizontalAlignment="Center"
+                    TabIndex="4"
+                    Click="BtnNuevo_OnClick"
+                    Content="{x:Static resx:Resources.btnNuevo}">
+            </Button>
+        </Grid>
+    </GroupBox>
+    <DataGrid Name="gridDatos"
+                Grid.Column="1"
+                Grid.Row="2"
+                Height="270"
+                ColumnWidth="*"
+                  ItemsSource="{Binding Path=CostoOrganizacionInfo}"
+                SelectionMode="Single">
+        <DataGrid.Columns>
+            <DataGridTextColumn Width="180"
+                                Binding="{Binding Path=TipoOrganizacion.Descripcion}"
+                                    Header="{x:Static resx:Resources.CostoOrganizacion_Grid_TipoOrganizacion}" />
+            <DataGridTextColumn Width="180"
+                                    Binding="{Binding Path=Costo.ClaveContable}"
+                                Header="{x:Static resx:Resources.CostoOrganizacion_Grid_ClaveContable}" />
+            <DataGridTextColumn Width="150*"
+                                Binding="{Binding Path=Costo.Descripcion}"
+                                Header="{x:Static resx:Resources.CostoOrganizacion_Grid_DescripcionCosto}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Automatico}"
+                                    Header="{x:Static resx:Resources.CostoOrganizacion_Grid_Automatico}" />
+                <DataGridTextColumn Width="100"
+                                Binding="{Binding Path=Activo}"
+                                Header="Estatus" />
+            <DataGridTemplateColumn Width="50">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Style="{StaticResource iconButton}"
+                                Click="Edicion_OnClick"
+                                CommandParameter="{Binding}">
+                            <Image Source="{StaticResource editIcon}"
+                                    Style="{StaticResource iconImage}"
+                                    ToolTip="{x:Static resx:Resources.Camion_Grid_Editar}" />
+                        </Button>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+    <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Margin="20,0,20,0"></PaginControl:PaginacionControl>
+</Grid>
+</Vista:ControlBase>

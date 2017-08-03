@@ -1,0 +1,49 @@
+﻿<Window x:Class="SIE.WinForm.MateriaPrima.BusquedaFolioBoletaRecepcion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        Title="BusquedaFolioBoletaRecepcion" Height="400" Width="598"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+        Background="Black"
+        ResizeMode="NoResize" Loaded="Window_Loaded_1" ShowInTaskbar="False">
+    <Grid Margin="2,2,2,2" Background="White">
+        <controles:Titulo
+                          TextoTitulo="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_Titulo}"  
+                          Grid.Row="0"
+                          Margin="10,10,0,361"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo" HorizontalAlignment="Left" Width="574"/>
+        <GroupBox Header="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_Filtro}" HorizontalAlignment="Left" Height="70" Margin="10,51,0,0" VerticalAlignment="Top" Width="574">
+            <Grid HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="564" Margin="0,0,-2,0">
+                <Label Content="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_Folio}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox Name="txtFolio" MaxLength="10" HorizontalAlignment="Left" Height="23" Margin="81,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="104" PreviewKeyDown="txtFolio_PreviewKeyDown" PreviewTextInput="txtFolio_PreviewTextInput"/>
+                <Button x:Name="btnBuscar" Content="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_BtnBuscar}" HorizontalAlignment="Left" Margin="210,14,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscar_Click"/>
+                <Button x:Name="btnAgregar" Content="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_BtnAgregar}" HorizontalAlignment="Left" Margin="303,14,0,0" VerticalAlignment="Top" Width="75" Click="BtnAgregar_Click"/>
+                <Button x:Name="btnCancelar" Content="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_BtnCancelar}" HorizontalAlignment="Left" Margin="398,14,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+            </Grid>
+        </GroupBox>
+        <DataGrid x:Name="dgFoliosEntradaProducto" HorizontalAlignment="Left" Height="244" Margin="10,142,0,0" VerticalAlignment="Top" Width="574" MouseDoubleClick="DataGrid_MouseDoubleClick_1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100" Header="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_dgFolio}" Binding="{Binding Path=Folio}" ClipboardContentBinding="{x:Null}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100" Header="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_dgContrato}" Binding="{Binding Path=Contrato.Folio}" ClipboardContentBinding="{x:Null}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="170" Header="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_dgProducto}" Binding="{Binding Path=Producto.Descripcion}" ClipboardContentBinding="{x:Null}"/>
+                <DataGridTextColumn Width="170" Header="{x:Static resx:Resources.BusquedaFolioBoletaRecepcion_Proveedor}" Binding="{Binding Path=RegistroVigilancia.Transportista}" ClipboardContentBinding="{x:Null}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

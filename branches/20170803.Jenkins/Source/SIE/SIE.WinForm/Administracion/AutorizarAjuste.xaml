@@ -1,0 +1,101 @@
+﻿<vista:ControlBase x:Class="SIE.WinForm.Administracion.AutorizarAjuste"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        Height="Auto"
+        Width="Auto"
+        Loaded="AutorizarAjuste_OnLoaded">
+    <!-- Title="TraspasoGanadoCorrales"  -->
+    <Grid Margin="20"
+          Background="White">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition />
+            <RowDefinition Height="10"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="700*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Column="1"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.AutorizarAjuste_Titulo}"
+                          x:Name="ucTitulo">
+        </controles:Titulo>
+        
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.AutorizarAjuste_GbAutorizarAjuste}"                   
+                  Margin="20,0,20,0"
+                  Style="{StaticResource groupBox}"
+                  Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="318"/>
+                    <ColumnDefinition Width="106"/>
+                    <ColumnDefinition Width="94"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" 
+                       Content="{x:Static resx:Resources.AutorizarAjuste_LblAlmacen}"  
+                       HorizontalAlignment="Center" 
+                       Height="25" 
+                       Width="69"  />
+                <ComboBox Name="cboAlmacenes"
+                          Grid.Column="1" 
+                          LostFocus="CboAlmacenes_OnLostFocus"
+                          KeyDown="CboAlmacenes_OnKeyDown"
+                          HorizontalAlignment="Left" 
+                          Width="300"
+                          SelectedValuePath="AlmacenID"
+                          DisplayMemberPath="Descripcion" 
+                          ItemsSource="{Binding}" />
+                <Button x:Name="btnDetalle" 
+                        Content="{x:Static resx:Resources.AutorizarAjuste_BtnDetalle}" Grid.Column="2" 
+                        HorizontalAlignment="Left" 
+                        Width="75" 
+                        Click="btnDetalle_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="2" 
+                  Grid.Column="1"
+                  Style="{StaticResource groupBox}"
+                  Margin="20,0,20,0"
+                  Header="{x:Static resx:Resources.AutorizarAjuste_GbRegistros}">
+            <DataGrid Name="gridDatos"
+                  ColumnWidth="*"
+                  MouseDoubleClick="GridDatos_OnMouseDoubleClick"
+                  SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="100"
+                                    Binding="{Binding FechaCreacion, StringFormat={}{0:dd/MM/yyyy}}"
+                                    Header="{x:Static resx:Resources.AutorizarAjuste_GridFecha}"/>
+                    <DataGridTextColumn Width="*"
+                                    Binding="{Binding NombreTipoMovimiento}"
+                                    Header="{x:Static resx:Resources.AutorizarAjuste_GridTipoMovimiento}" />
+                    <DataGridTextColumn Width="*"
+                                    Binding="{Binding FolioMovimiento}"
+                                    Header="{x:Static resx:Resources.AutorizarAjuste_GridFolio}" />
+                    <DataGridTextColumn Width="*"
+                                    Binding="{Binding NombreUsuarioCreacion}"
+                                    Header="{x:Static resx:Resources.AutorizarAjuste_GridUsuarioReg}" />
+                    <DataGridTextColumn Width="100"
+                                        Binding="{Binding Observaciones}"
+                                    Header="{x:Static resx:Resources.AutorizarAjuste_GridObservaciones}" />
+                    <DataGridTextColumn Width="5"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</vista:ControlBase>

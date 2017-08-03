@@ -1,0 +1,2 @@
+INSERT INTO CausaTiempoMuerto(Descripcion,TipoCausa,Activo,FechaCreacion,UsuarioCreacionID) VALUES('Se atasco el molino', 1,1, GETDATE(), 1)
+INSERT INTO CausaTiempoMuerto(Descripcion,TipoCausa,Activo,FechaCreacion,UsuarioCreacionID) VALUES('Cambio de cribas', 1,1, GETDATE(), 1)

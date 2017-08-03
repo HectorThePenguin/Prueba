@@ -1,0 +1,397 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.JaulaEdicion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title= "Jaula Edicion"
+        Height="615"
+        Width="650"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base" Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216*"/>
+            <ColumnDefinition Width="431*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo
+                          Grid.Row="0"
+                          Margin="20,12,20,2"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo" Grid.ColumnSpan="2"/>
+
+        <GroupBox
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10" Grid.ColumnSpan="2">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Jaula_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="440"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="128*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Id}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       x:Name="lblDescripcionRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="1"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Descripcion}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       x:Name="lblNumEconomicoRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="2"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_NumEconomico}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       x:Name="lblMarcaRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="3"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Marca}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       x:Name="lblModeloRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Row="4"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Modelo}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="5"
+                       Content="*"
+                       x:Name="lblProveedorRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,0,4" Width="120" />
+
+                <Label Grid.Row="5"
+                       Content="{x:Static resx:Resources.CamionEdicion_Lbl_ProveedorId}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                <StackPanel Name="SplAyudaProveedor"
+                            Grid.Row="5"
+                            Grid.Column="1"/>
+
+                <Label Grid.Row="6"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Capacidad}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="7"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Secciones}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="8"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Boletinado}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                
+                <Label Grid.Row="9"
+                       Content="*"
+                       x:Name="lblObservacionesRequerido"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,0,4" Width="120"
+                       Visibility="Hidden"/>
+
+                <Label Grid.Row="9"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Observaciones}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+
+                <Label Grid.Row="11"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Estatus}"
+                       VerticalAlignment="Center"
+                       Margin="8" />
+                
+                <TextBox x:Uid="txtJaulaId"
+                         x:Name="txtJaulaId"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         IsEnabled="false">
+                    <TextBox.Text>
+                        <Binding Path="JaulaID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0"
+                         MaxLength="10"
+                         PreviewTextInput="TxtDescripcionPreviewTextInput"
+                         CharacterCasing="Upper">
+                    <TextBox.Text> 
+                        <Binding Path="PlacaJaula"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtNumEconomico"
+                         x:Name="txtNumEconomico"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="1"
+                         MaxLength="10"
+                         PreviewTextInput="TxtDescripcionPreviewTextInput"
+                         CharacterCasing="Upper">
+                    <TextBox.Text>
+                        <Binding Path="NumEconomico"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbMarca"
+                          Grid.Row="3"
+                          Grid.Column="1"
+                          SelectedValuePath="MarcaId"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=Marca.MarcaId, Mode=TwoWay}"
+                          SelectedItem="{Binding Path=Marca.Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="2" />
+
+                <TextBox x:Uid="txtModelo"
+                         x:Name="txtModelo"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="3"
+                         MaxLength="4"
+                         PreviewTextInput="TxtSoloNumerosPreviewTextInput"
+                         CharacterCasing="Upper">
+                    <TextBox.Text>
+                        <Binding Path="Modelo"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtCapacidades"
+                         x:Name="txtCapacidades"
+                         Grid.Row="6"
+                         Grid.Column="1"
+                         Height="25"
+                         PreviewTextInput="TxtSoloNumerosPreviewTextInput"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         TabIndex="5">
+                    <TextBox.Text>
+                        <Binding Path="Capacidad"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">    
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtSecciones"
+                         x:Name="txtSecciones"
+                         Grid.Row="7"
+                         Grid.Column="1"
+                         PreviewTextInput="TxtSoloNumerosPreviewTextInput"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         TabIndex="6">
+                    <TextBox.Text>
+                        <Binding Path="Secciones"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <CheckBox x:Uid="chkBoletinado"
+                          x:Name="chkBoletinado"
+                          Grid.Row="8"
+                          Grid.Column="1"
+                          TabIndex="7"
+                          IsChecked="{Binding Path=Boletinado, Mode=TwoWay}"
+                          VerticalAlignment="Center"
+                          Click="Boletinado_OnClick" Margin="0,11,427,11"/>
+
+                <TextBox x:Uid="txtObservacionesConsulta"
+                         x:Name="txtObservacionesConsulta"
+                         Grid.Row="9"
+                         Grid.Column="1"
+                         Width="440"
+                         PreviewTextInput="TxtSoloNumerosPreviewTextInput"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="255"
+                         TabIndex="4"
+                         IsEnabled="false" 
+                         Margin="0,7,0,6">
+                    <TextBox.Text>
+                        <Binding Path="Observaciones"
+                                 Mode="OneTime"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Uid="txtObservacionesOculto"
+                         x:Name="txtObservacionesOculto"
+                         Grid.Row="10"
+                         Grid.Column="1"
+                         Width="440"
+                         PreviewTextInput="TxtDescripcionPreviewTextInput"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="255"
+                         TabIndex="8"
+                         IsEnabled="false" 
+                         Margin="0,6,0,7"/>
+                
+                <TextBox x:Uid="txtObservacionesRegistro"
+                         x:Name="txtObservacionesRegistro"
+                         Grid.Row="10"
+                         Grid.Column="1"
+                         Width="440"
+                         PreviewTextInput="TxtDescripcionPreviewTextInput"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="255"
+                         TabIndex="8"
+                         IsEnabled="false" 
+                         Margin="0,6,0,7">                 
+                    <TextBox.Text>
+                        <Binding Path="Observaciones"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="11"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="9" />
+                
+                <StackPanel Grid.Row="13"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            TabIndex="10"
+                            Click="Guardar_Click"/>
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            TabIndex="11"
+                            Click="Cancelar_Click"
+                            Margin="20 0 0 0"/>
+                </StackPanel>
+
+                <Label Grid.Row="14"
+                       FontWeight="Bold"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_Nota}"
+                       VerticalAlignment="Center"
+                       Margin="70 0 0 0" />
+
+                <Label Grid.Row="14"
+                       Grid.Column="1"
+                       FontWeight="Bold"
+                       Content="{x:Static resx:Resources.JaulaEdicion_Lbl_ContenidoNota}"
+                       VerticalAlignment="Center"
+                       Margin="0"
+                       Padding="0 5"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>
+

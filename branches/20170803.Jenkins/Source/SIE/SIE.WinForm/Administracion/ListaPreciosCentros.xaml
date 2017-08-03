@@ -1,0 +1,562 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Administracion.ListaPreciosCentros"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Enums="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base">
+    <Vista:ControlBase.Resources>
+    </Vista:ControlBase.Resources>
+    <Grid Margin="20,10,20,10"
+          Background="White"
+          ScrollViewer.CanContentScroll="True"
+          Height="Auto">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ListaPreciosCentros_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  HorizontalAlignment="Stretch"
+                  Style="{StaticResource groupBox}"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ListaPreciosCentros_Filtro}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0"
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            Height="66"
+                            Margin="0,0,0,0"
+                            Grid.RowSpan="1">
+                    <Label Margin="25,10,10,0"
+                           Content="{x:Static resx:Resources.ListaPreciosCentros_Sociedad}"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Top" />
+                    <ComboBox x:Name="cmbSociedad"
+                              Margin="0,12,0,0"
+                              SelectionChanged="CmbSociedad_OnSelectionChanged"
+                              VerticalAlignment="Top"
+                              Width="290" />
+                    <!--<Label Grid.Column="3"
+                           Grid.Row="0"
+                           Margin="55,10,10,0"
+                           Content="{x:Static resx:Resources.ListaPreciosCentros_Estatus}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"></Label>
+                    <ComboBox x:Name="cmbEstatus"
+                              Grid.Row="0"
+                              Margin="0,12,0,0"
+                              Grid.Column="4"
+                              ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                              SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                              Width="180"
+                              VerticalAlignment="Top"
+                              HorizontalAlignment="Left"
+                              TabIndex="4" />-->
+                </StackPanel>
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            Height="66"
+                            Grid.RowSpan="1">
+                    <Label Content="{x:Static resx:Resources.ListaPreciosCentros_Zona}"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Margin="45,0,11,0"
+                           VerticalAlignment="Top" />
+                    <Controles:ControlAyuda x:Name="skAyudaZona"
+                                            AnchoDescripcion="200"
+                                            DataContext="{Binding Path=Zona, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Top"
+                                            HorizontalAlignment="Left"
+                                            AceptaSoloNumeros="True"
+                                            ControlIndex="0"
+                                            EsBindeable="True"
+                                            MaximoCaracteres="8"
+                                            EsAyudaSimple="False"
+                                            MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaCodigoInvalido}"
+                                            ConceptoBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaLeyendaBusqueda}"
+                                            TituloBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaBusquedaTitulo}"
+                                            MensajeAgregarBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaSeleccionar }"
+                                            MensajeCerrarBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaSalirSinSeleccionar}"
+                                            EncabezadoClaveBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaClave}"
+                                            EncabezadoDescripcionBusqueda="{x:Static resx:Resources.ListaPreciosCentros_AyudaDescripcion}"
+                                            MetodoInvocacion="ObtenerPorID"
+                                            MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                            CampoDescripcion="Descripcion"
+                                            CampoClave="ZonaID"
+                                            Grid.ColumnSpan="3"
+                                            Grid.RowSpan="2" />
+                </StackPanel>
+                <StackPanel Grid.Column="1"
+                            Grid.Row="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            Height="Auto"
+                            Margin="0,0,0,0"
+                            Grid.RowSpan="1">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}"
+                            Margin="10 5 0 0"
+                            VerticalAlignment="Top"
+                            Click="BtnBuscar_OnClick"
+                            HorizontalAlignment="Right"
+                            Name="btnBuscar">
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="Auto"
+                  Margin="20,20,20,20"
+                  ColumnWidth="*"
+                  CanUserResizeColumns="False"
+                  VerticalScrollBarVisibility="Auto"
+                  ItemsSource="{Binding Path=ListaPreciosCentrosInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="1"
+                                        Visibility="Hidden">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label HorizontalAlignment="Right"
+                                   Content="{Binding Path=OrganizacionId}"></Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="1"
+                                        Visibility="Hidden">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label HorizontalAlignment="Right"
+                                   Content="{Binding Path=SociedadId}"></Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="1"
+                                        Visibility="Hidden">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label HorizontalAlignment="Right"
+                                   Content="{Binding Path=ZonaId}"></Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="250"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridCentroAcopio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label HorizontalAlignment="Left"
+                                   Content="{Binding Path=Organizacion}"></Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridMachoPesado}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtMachoPesado"
+                                                Value="{Binding Path=MachoPesado, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                DefaultValue="0"
+                                                ShowButtonSpinner="False"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtMachoPesadoPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioMachoPesado, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridTorete}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtTorete"
+                                                Value="{Binding Path=Torete, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtToretePesoPromedio"
+                                                Value="{Binding Path=PesoPromedioTorete, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridBecerroLigero}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerroLigero"
+                                                Value="{Binding Path=BecerroLigero, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerroLigeroPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioBecerroLigero, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridBecerro}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerro"
+                                                Value="{Binding Path=Becerro, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerroPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioBecerro, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridVaquillaTipo2}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtVaquillaTipo2"
+                                                Value="{Binding Path=VaquillaTipo2, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                CultureInfo="en-US"
+                                                DefaultValue="0"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtVaquillaTipo2PesoPromedio"
+                                                Value="{Binding Path=PesoPromedioVaquillaTipo2, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridHembraPesada}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtHembraPesada"
+                                                Value="{Binding Path=HembraPesada, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                CultureInfo="en-US"
+                                                DefaultValue="0"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtHembraPesadaPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioHembraPesada, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridVaquilla}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtVaquilla"
+                                                Value="{Binding Path=Vaquilla, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtVaquillaPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioVaquilla, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridBecerra}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerra"
+                                                Value="{Binding Path=Becerra, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerraPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioBecerra, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridBecerraLigera}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerraLigera"
+                                                Value="{Binding Path=BecerraLigera, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                CultureInfo="en-US"
+                                                DefaultValue="0"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtBecerraLigeraPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioBecerraLigera, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>                
+                <DataGridTemplateColumn Width="110"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridToretePesado}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtToretePesado"
+                                                Value="{Binding Path=ToretePesado, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="71"
+                                        Header="{x:Static resx:Resources.ListaPreciosCentros_GridPesoPromedio}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate DataType="info:CostoEntradaMateriaPrimaInfo">
+                            <xctk:DecimalUpDown Name="txtToretePesadoPesoPromedio"
+                                                Value="{Binding Path=PesoPromedioToretePesado, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                                                AllowSpin="False"
+                                                ShowButtonSpinner="False"
+                                                DefaultValue="0"
+                                                CultureInfo="en-US"
+                                                NumeroDecimal="True"
+                                                FormatString="N2"
+                                                MaxLength="8">
+                            </xctk:DecimalUpDown>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="4"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Height="Auto"
+                    Margin="0,0,20,0"
+                    Grid.RowSpan="1">
+            <Button Content="{x:Static resx:Resources.btnGuardar}"
+                    Margin="10 5 0 0"
+                    VerticalAlignment="Top"
+                    Click="BtnGuardar_OnClick"
+                    HorizontalAlignment="Right"
+                    Name="btnGuardar">
+            </Button>
+            <Button Content="{x:Static resx:Resources.btnCancelar}"
+                    Margin="10 5 0 0"
+                    VerticalAlignment="Top"
+                    Click="BtnCancelar_OnClick"
+                    HorizontalAlignment="Right"
+                    Name="btnCancelar">
+            </Button>
+        </StackPanel>
+        <!--<PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>-->
+    </Grid>
+</Vista:ControlBase>

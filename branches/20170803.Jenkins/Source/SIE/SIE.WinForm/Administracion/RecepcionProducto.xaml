@@ -1,0 +1,468 @@
+﻿<vista:ControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    mc:Ignorable="d" x:Class="SIE.WinForm.Administracion.RecepcionProducto"
+        Loaded="RecepcionProductoLoaded"
+        Height="auto"
+        Width="Auto"
+    >
+    <Grid
+        Margin="10,10,10,0"
+          Background="White"
+          ScrollViewer.CanContentScroll="True" Width="Auto" Height="563" VerticalAlignment="Top">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                                  Direction="-90"
+                                  RenderingBias="Quality"
+                                  ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="203"/>
+            <RowDefinition Height="203"/>
+            <RowDefinition Height="43"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="58"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="58"/>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo
+            Grid.Row="0"
+            Padding="30 10 30 10"
+            x:Name="ucTitulo" Height="Auto" TextoTitulo="{x:Static resx:Resources.RecepcionProducto_Titulo}" VisibleCerrar="Hidden" Margin="28,0,29,0" Grid.ColumnSpan="3"/>
+        <Label 
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Height="29" 
+            Width="119"
+            Content="{x:Static resx:Resources.RecepcionProducto_AlmacenGeneral}" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <TextBox
+            Name="txtAlmacenGeneral"
+            Grid.Column="1"
+            Grid.Row="1"
+            Height="20"
+            Width="70"
+            Margin="130,3,0,0" IsEnabled="False" VerticalAlignment="Top"/>
+
+        <TextBox
+            Name="txtDescripcionAlmacen"
+            Grid.Column="1"
+            Grid.Row="1"
+            Height="21"
+            Width="200"
+            Margin="230,2,0,0" IsEnabled="False" VerticalAlignment="Top"/>
+        <GroupBox
+            Header="{x:Static resx:Resources.RecepcionProducto_DatosCompra}"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="Auto"
+            Height="Auto"
+            Margin="0,0,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="76"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="342*" />
+                    <ColumnDefinition Width="293*" />
+                    <ColumnDefinition Width="216*" />
+                    <ColumnDefinition Width="100*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Content="*"
+                    x:Name="lblOrdenRequerida"
+                    Style="{StaticResource labelRequerido}" 
+                    Grid.Row="0"
+                    Grid.Column="0" Margin="-5,0,190,10" />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_OrdenCompra}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="0,1" Height="Auto"
+                    />
+                <TextBox
+                    Name="txtOrdenCompra"
+                    Margin="121,3,0,4" Width="100" HorizontalAlignment="Left"
+                    MaxLength="6"
+                    TabIndex="0"
+                    PreviewTextInput="TxtOrdenCompra_OnPreviewTextInput" 
+                    PreviewKeyUp="TxtOrdenCompra_OnPreviewKeyUp"
+                    KeyDown="TxtOrdenCompra_OnKeyDown"
+                    Height="Auto"/>
+                <Button x:Name="btnBuscar" 
+                        Grid.Row="0"
+                    	Grid.Column="0"
+                    	Content="{x:Static resx:Resources.RecepcionProducto_btnBuscar}" 
+                    	Margin="234,4,0,6" 
+                    	Width="100" 
+                        TabIndex="1"
+                    	Height="Auto" Click="BtnBuscar_OnClick" HorizontalAlignment="Left"/>
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_Proveedor}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="0,0,0,0" Height="Auto" HorizontalAlignment="Left" Width="80"
+                    />
+                <TextBox
+                    Name="txtProveedor"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Height="22"
+                    Width="200"
+                    Margin="100,3,0,0" IsEnabled="False" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_FechaSolicitud}"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Margin="0,1" Height="auto"
+                    Width="110"
+                    HorizontalAlignment="Left"
+                    />
+                <TextBox 
+                    Name="txtFecha"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Height="22"
+                    Width="100"
+                    Margin="110,3,0,0" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top"
+                    />
+                <CheckBox Name="chkDll"
+                         Grid.Column="3"
+                         Grid.Row="0"
+                         VerticalAlignment="Center"
+                         Content="Dlls" />
+                <DataGrid
+                    Name="dgRecepcionCompra"
+                    AutoGenerateColumns="False"
+                    CanUserResizeColumns="False" 
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="4"
+                    Margin="0,8,0,-76"
+                    SelectionMode="Single" 
+                    >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_ProductoHeader}" CanUserSort="False"/>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Cantidad,StringFormat=N0}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_CantidadHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Producto.DescripcionUnidad}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_UnidadHeader}" CanUserSort="False"/>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=PrecioPromedio,StringFormat=N2}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_CostoHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Importe,StringFormat=N2}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_ImporteHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <GroupBox
+            Name="gbDatos"
+            Grid.Column="1"
+            Grid.Row="3"
+            Margin="0,0,0,0"
+            Header="{x:Static resx:Resources.RecepcionProducto_DatosRecepcionProducto}"
+            Width="auto"
+            Height="Auto"
+            IsEnabled="False"
+            >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="121*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="427*"/>
+                    <ColumnDefinition Width="427*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Content="*"
+                    x:Name="lblProveedorRequerido"
+                    Style="{StaticResource labelRequerido}" 
+                    Grid.Row="0"
+                    Grid.Column="0" Margin="-5,0,190,0" />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_Proveedor}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="0,1" Height="auto"
+                    Width="77"
+                    HorizontalAlignment="Left"
+                    />
+                <StackPanel x:Name="splAyudaProveedor"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left" 
+                            Margin="81,1,0,0" Width="337" 
+                            />
+                <Label
+                    Content="*"
+                    x:Name="lblProductoRequerido"
+                    Style="{StaticResource labelRequerido}" 
+                    Grid.Row="0" Margin="-5,0,203,10" Grid.Column="1" />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_Producto}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="0,1" Height="auto" HorizontalAlignment="Left" Width="75"
+                    />
+                <StackPanel x:Name="splAyudaProducto"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left" 
+                            Margin="71,1,0,0" Width="244" 
+                            />
+                <Button x:Name="btnLimpiar" 
+                        Grid.Row="0"
+                    	Grid.Column="1"
+                    	Content="{x:Static resx:Resources.RecepcionProducto_btnLimpiar}" 
+                    	Margin="320,4,6,6" 
+                    	Width="100" 
+                    	Height="20"
+                        TabIndex="7"
+                        Click="BtnLimpiar_OnClick"/>
+                <Label
+                    Content="*"
+                    x:Name="lblFacturaRequerido"
+                    Style="{StaticResource labelRequerido}" 
+                    Grid.Row="1"
+                    Grid.Column="0" Margin="-5,0,190,10" />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_Factura}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Margin="0,1" Height="auto"
+                    Width="77"
+                    HorizontalAlignment="Left"
+                    />
+                <TextBox
+                    Name="txtFactura"
+                    Grid.Column="0"
+                    Margin="80,0,0,4" Height="22" VerticalAlignment="Bottom" Grid.Row="1"
+                    MaxLength="50"
+                    TabIndex="4"
+                    PreviewTextInput="TxtFactura_OnPreviewTextInput"
+                    />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_UnidadMedida}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Margin="181,1,0,0" Height="auto"
+                    Width="130"
+                    HorizontalAlignment="Left"
+                    />
+                <TextBox
+                    Name="txtUnidad"
+                    Grid.Column="0"
+                    Margin="308,0,10,4" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1" Width="100"
+                    IsEnabled="False"
+                    />
+                <Label
+                    Content="*"
+                    x:Name="lblCantidadRequerido"
+                    Style="{StaticResource labelRequerido}" 
+                    Grid.Row="1" Margin="-5,0,218,10" Grid.Column="1" />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_Cantidad}"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="0,1,0,0" Height="auto"
+                    Width="75"
+                    HorizontalAlignment="Left"
+                    />
+                <xctk:DecimalUpDown
+                    AllowSpin="False"
+                    ShowButtonSpinner="False"
+                    NumeroDecimal="True"
+                    FormatString="N0"
+                    CultureInfo="en-US"
+                    Name="txtCantidad"
+                    MaxLength="16"
+                    Grid.Column="1"
+                    TabIndex="5"
+                    Margin="71,0,0,4" Height="22" VerticalAlignment="Bottom" Grid.Row="1" Width="85" HorizontalAlignment="Left"
+                    />
+
+                <Label
+                    Content="*"
+                    x:Name="lblImporteRequerido"
+                    Style="{StaticResource labelRequerido}" 
+                    Grid.Row="1" Margin="155,0,0,10" Grid.Column="1" HorizontalAlignment="Left" Width="15" />
+                <Label
+                    Content="{x:Static resx:Resources.RecepcionProducto_Importe}"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="159,1,0,0" Height="auto"
+                    Width="61"
+                    HorizontalAlignment="Left"
+                    />
+                <xctk:DecimalUpDown
+                    AllowSpin="False"
+                    ShowButtonSpinner="False"
+                    NumeroDecimal="True"
+                    FormatString="N2"
+                    CultureInfo="en-US"
+                    Name="txtImporte"
+                    Grid.Column="1"
+                    MaxLength="16"
+                    TabIndex="6"
+                    Margin="219,0,0,4" Height="22" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Left" Width="96"
+                    />
+                <Button x:Name="btnAgregar" 
+                        Grid.Row="1"
+                    	Grid.Column="1"
+                    	Content="{x:Static resx:Resources.RecepcionProducto_btnAgregar}" 
+                    	Margin="320,6,6,0" 
+                    	Width="100" 
+                    	Height="20" VerticalAlignment="Top"
+                        TabIndex="8"
+                        Click="BtnAgregar_OnClick"/>
+                <DataGrid
+                    Name="dgRecepcion"
+                    AutoGenerateColumns="False"
+                    CanUserResizeColumns="False" 
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Margin="0,0,0,0"
+                    Grid.ColumnSpan="2"
+                    SelectionMode="Single" 
+                    TabIndex="9"
+                    >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Producto.ProductoId}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_IDHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_ProductoHeader}" CanUserSort="False"/>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Cantidad,StringFormat=N0}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_CantidadHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Producto.DescripcionUnidad}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_UnidadHeader}" CanUserSort="False"/>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=PrecioPromedio,StringFormat=N2}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_PrecioPromedioHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                        Binding="{Binding Path=Importe,StringFormat=N2}"
+                                        Header="{x:Static resx:Resources.RecepcionProducto_ImporteHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBox.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btnEditar"  Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="ButtonBase_OnClick">
+                                        <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Grupo_Grid_Editar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="ButtonBaseEliminar_OnClick">
+                                        <Image Source="{StaticResource borrarIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.ProgramaciondeFletes_Grid_Eliminar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <Label
+            Content="{x:Static resx:Resources.RecepcionProducto_Observaciones}"
+            Grid.Column="1"
+            Grid.Row="4"
+            Margin="0,1,0,0" Height="auto"
+            Width="130"
+            HorizontalAlignment="Left"
+            />
+        <TextBox 
+            Name="txtObservaciones"
+            Grid.Column="1"
+            Grid.Row="4"
+            TabIndex="10"
+            Margin="115,2,244,2" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" MaxLength="255" TextWrapping="Wrap"></TextBox>
+        <Button x:Name="btnGuardar" 
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="{x:Static resx:Resources.RecepcionProducto_btnRecibir}" 
+            Margin="0,11,128,12" 
+            Width="100" 
+            TabIndex="11"
+            Height="Auto" HorizontalAlignment="Right" IsEnabled="False" Click="BtnGuardar_OnClick"/>
+        <Button x:Name="btnCancelar" 
+            Grid.Row="4"
+            Grid.Column="1"
+            Content="{x:Static resx:Resources.RecepcionProducto_btnCancelar}" 
+            Margin="0,11,14,12" 
+            Width="100" 
+            TabIndex="12"
+            Height="Auto" HorizontalAlignment="Right" Click="BtnCancelar_OnClick"/>
+    </Grid>
+</vista:ControlBase>

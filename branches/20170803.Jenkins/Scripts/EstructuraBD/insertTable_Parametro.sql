@@ -1,0 +1,3 @@
+INSERT INTO Parametro (TipoParametroID, Descripcion, Clave, Activo, FechaCreacion, UsuarioCreacionID) VALUES (18, 'Enviar correo a los usuarios con rol de logistica', 'CorreoLogistica', 1, '2017-06-02 15:08:00', 1)
+INSERT INTO Parametro (TipoParametroID, Descripcion, Clave, Activo, FechaCreacion, UsuarioCreacionID) VALUES (18, 'Enviar correo a los usuarios con el rol JefeManejo', 'CorreoJefeManejo', 1, '2017-06-07 15:49:00', 1)
+INSERT INTO Parametro (TipoParametroID, Descripcion, Clave, Activo, FechaCreacion, UsuarioCreacionID) VALUES (18, 'Terminación de los correos', 'CorreoTerminacion', 1, '2017-06-08 16:21:16', 1)

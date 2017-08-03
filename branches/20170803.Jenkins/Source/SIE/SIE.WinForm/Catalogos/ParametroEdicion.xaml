@@ -1,0 +1,198 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.ParametroEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 Title="Camion Edicion"
+                 Height="345"
+                 Width="600"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ParametroEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="310" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.ParametroEdicion_LblParametroID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.ParametroEdicion_LblTipoParametroID}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.ParametroEdicion_LblDescripcion}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.ParametroEdicion_LblClave}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Content="{x:Static resx:Resources.ParametroEdicion_LblActivo}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtParametroID"
+                         x:Name="txtParametroID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         TabIndex="0"
+                         IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="ParametroID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbTipoParametro"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          SelectedValuePath="TipoParametroID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedItem="{Binding Path=TipoParametro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=TipoParametro.TipoParametroID, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="1" />
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         MaxLength="50"
+                         PreviewTextInput="TxtValidarLetrasConAcentosPreviewTextInput"
+                         TabIndex="2"
+                         Width="300">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtClave"
+                         x:Name="txtClave"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         MaxLength="30"
+                         TabIndex="3"
+                         Width="200">
+                    <TextBox.Text>
+                        <Binding Path="Clave"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="4"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="4" />
+
+                <StackPanel Grid.Row="6"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="5" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

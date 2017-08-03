@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="SuKarne.Controls.PaginControl.PaginacionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:SuKarne.Controls.Properties" mc:Ignorable="d"              
+              MinWidth="100" MinHeight="10" d:DesignHeight="40" Loaded="UserControl_Loaded"
+             >
+    <UserControl.Resources>
+
+        <BitmapImage x:Key="anteriorIcon" UriSource="../Recursos/Imagenes/Anterior.png" />
+        <BitmapImage x:Key="siguienteIcon" UriSource="../Recursos/Imagenes/Siguiente.png" />
+        <Style x:Key="paginadorButton" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        
+        <Style x:Key="iconImage" TargetType="{x:Type Image}">
+            <Setter Property="Width" Value="Auto" />
+            <Setter Property="Height" Value="Auto" />
+            <Setter Property="Margin" Value="0" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="25"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="130"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>            
+        </Grid.ColumnDefinitions>
+        <Button Name="btnAnterior" Grid.Column="0" Style="{StaticResource paginadorButton}" Click="btnAnterior_Click">
+            <Image Source="{StaticResource anteriorIcon}" Style="{StaticResource iconImage}" />
+        </Button>
+        <Label Content="{x:Static res:Resources.PaginacionControl_Pagina}" Grid.Column="1" Grid.Row="0"/>
+        <Label Name="lblPaginaActual" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="Auto" />
+        <Label Content="{x:Static res:Resources.PaginacionControl_De}" Grid.Column="3" VerticalAlignment="Center"/>
+        <Label Name="lblPaginasTotales" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="Auto"/>
+        <Button Name="btnSiguiente" Grid.Column="5" Style="{StaticResource paginadorButton}" Click="btnSiguiente_Click">
+            <Image Source="{StaticResource siguienteIcon}" Style="{StaticResource iconImage}" />
+        </Button>
+        <Label Content="{x:Static res:Resources.PaginacionControl_TotalRegistros}" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Name="lblTotalRegistros" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Left" Width="Auto"/>
+        <Label Content="{x:Static res:Resources.PaginacionControl_Resultados_Pagina}" Grid.Column="9" VerticalAlignment="Center"/>
+        <ComboBox Grid.Column="10" Height="25" Name="cboResultado">
+        </ComboBox>
+    </Grid>
+</UserControl>

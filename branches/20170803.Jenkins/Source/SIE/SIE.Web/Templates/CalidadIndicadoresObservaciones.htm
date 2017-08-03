@@ -1,0 +1,41 @@
+﻿<div class="span6" style="border: solid 1px #ddd">
+    <div class="span12">
+        <span class="span3">
+            <span class="span12">{$T.Recursos.IndicadoresCalidad}</span>
+        </span>
+        <span class="span3">
+            <span>{$T.Recursos.Resultado}</span>
+        </span>
+        <span class="span3">
+            <span>{$T.Recursos.RangoObjetivo}</span>
+        </span>
+    </div>
+    {#foreach $T.Indicadores as item}
+    <div class="span12" id="dvIndicadores">
+        <span class="span3">
+            <span class="requerido">*</span>
+            <span>{$T.item.Descripcion}</span>
+        </span>
+        <span class="span3">
+            <input type="tel" id="txtProteina" class="alfanumerico span9" value="{$T.item.Resultado}" name="{$T.item.Descripcion}" />
+            <span>{$T.item.Medicion}</span>
+        </span>
+        <span class="span3">
+            <input type="text" disabled="disabled" id="txtRango" class="span9" value="{$T.item.RangoObjetivo}" />
+            <span>{$T.item.Medicion}</span>
+        </span>
+        <span class="span3">
+            <div id="dvSemaforo">
+                <span>&nbsp;</span>
+            </div>            
+        </span>
+    </div>
+    {#/for}
+</div>
+<div class="span6">
+    <span class="span12">
+        <span id="observacionRequerida"></span>
+        <span>{$T.Recursos.Observaciones}</span>
+    </span>
+	<textarea id="txtObservaciones" class="span12" rows="6"></textarea>
+</div>

@@ -1,0 +1,27 @@
+﻿<table id="Surfactante" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col"></th>
+        <th class="alineacionCentro" scope="col">Inicio</th>
+        <th class="alineacionCentro" scope="col">Final</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Surfactantes as item}
+        <tr data-SurfactanteID ={$T.item.SurfactanteID}>
+            <td class="tabs-right anchoColumnaTemplate">{$T.item.Surfactante}
+            </td>
+            <td class="tabs-right anchoColumnaTemplate">
+                <input type="number" min="0" max="999999" id="txtSurfactanteInicio{$T.item.SurfactanteID}" 
+                       class="surfactante anchoTextBoxSurfactante textoDerecha"
+                       name="{$T.item.SurfactanteID}"  />
+                kgs
+            </td>
+            <td class="tabs-right anchoColumnaTemplate">
+                <input type="number" min="0" max="999999" id="txtSurfactanteFinal{$T.item.SurfactanteID}" 
+                       class="surfactante anchoTextBoxSurfactante textoDerecha"
+                       name="{$T.item.SurfactanteID}" />
+                kgs
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

@@ -1,0 +1,276 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Abasto.TipoGanadoCentrosEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Height="450"
+                 Width="600"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="sexoFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:Sexo}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:Sexo" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblTipoGanadoID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblDescripcion}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblSexo}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblPesoMinimo}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblPesoMaximo}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="5"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblPesoSalida}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="6"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.TipoGanadoEdicion_LblActivo}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtTipoGanadoID"
+                         x:Name="txtTipoGanadoID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         TabIndex="0"
+                         IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="TipoGanadoID"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         CharacterCasing="Upper"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="50"
+                         Width="300"
+                         PreviewTextInput="TxtDescripcionPreviewTextInput"
+                         TabIndex="1">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbSexo"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Sexo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource sexoFromEnum}}"
+                          HorizontalAlignment="Left"
+                          Width="150"
+                          TabIndex="2" />
+
+                <TextBox x:Uid="txtPesoMinimo"
+                         x:Name="txtPesoMinimo"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         TextAlignment="Right"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         PreviewTextInput="TxtSoloNumerosPreviewTextInput"
+                         TabIndex="3">
+                    <TextBox.Text>
+                        <Binding Path="PesoMinimo"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtPesoMaximo"
+                         x:Name="txtPesoMaximo"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         TextAlignment="Right"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         PreviewTextInput="TxtSoloNumerosPreviewTextInput"
+                         TabIndex="4">
+                    <TextBox.Text>
+                        <Binding Path="PesoMaximo"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <xctk:IntegerUpDown Name="iudPesoSalida"
+                                    AllowSpin="False"
+                                    ShowButtonSpinner="False"
+                                    Grid.Row="5"
+                                    Grid.Column="1"
+                                    TabIndex="4"
+                                    DefaultValue="0"
+                                    Minimum="0"
+                                    Height="25"
+                                    NumeroInteger="True"
+                                    Value="{Binding Path=PesoSalida, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    HorizontalAlignment="Left"
+                                    Width="150"
+                                    MaxLength="10" />
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="6"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          HorizontalAlignment="Left"
+                          Width="150"
+                          TabIndex="5" />
+
+                <StackPanel Grid.Row="8"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

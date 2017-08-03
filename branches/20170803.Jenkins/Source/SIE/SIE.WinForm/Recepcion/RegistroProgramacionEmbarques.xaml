@@ -1,0 +1,528 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Recepcion.RegistroProgramacionEmbarques"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 Title="Registro Programación de Embarque"
+                 Height="680"
+                 Width="1200"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Grid Background="white"
+          Margin="2">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="0"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          TextoTitulo="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblTitulo}"
+                          VisibleCerrar="Visible"
+                          Grid.ColumnSpan="5"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Row="1"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="5"
+                  Grid.RowSpan="3"
+                  Margin="5,5,5,5"
+                  BorderBrush="black"
+                  BorderThickness="1">
+
+            <GroupBox.Header>
+
+                <Label Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblDatosGenerales}"></Label>
+
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="500"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblFolio}"></Label>
+                <TextBox Name="TxtFolioEmbarque"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Text="{Binding Path=Embarque.FolioEmbarque, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         KeyDown="TxtFolioEmbarque_KeyDown"
+                         TabIndex="1"></TextBox>
+
+                <Label Grid.Row="0"
+                       Grid.Column="3"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="0"
+                       Grid.Column="3"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblTipoEmbarque}"
+                       Margin="6,0,0,0"></Label>
+
+                <ComboBox Grid.Row="0"
+                          Grid.Column="4"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          SelectedItem="{Binding Path=Embarque.TipoEmbarque,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Embarque.TipoEmbarque.TipoEmbarqueID}"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="TipoEmbarqueID"
+                          KeyDown="CmbTipoEmbarque_KeyDown"
+                          Name="CmbTipoEmbarque"
+                          TabIndex="2"></ComboBox>
+
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblOrganizacion}"
+                       Margin="6,0,0,0"></Label>
+                <StackPanel Name="SplAyudaOrganizacion"
+                            Grid.Row="0"
+                            Grid.Column="1"></StackPanel>
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal"
+                            Grid.Column="5"
+                            HorizontalAlignment="Right">
+                </StackPanel>
+
+
+                <Label Grid.Row="1"
+                       Grid.Column="3"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblEstatus}"></Label>
+
+                <ComboBox Grid.Row="1"
+                          Grid.Column="4"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          SelectedValuePath="Value"
+                          DisplayMemberPath="Text"
+                          SelectionChanged="CmbEstatus_SelectionChanged"
+                          SelectedValue="{Binding Path=Embarque.Estatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Name="CmbEstatus"
+                          TabIndex="3"></ComboBox>
+
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Grid.Row="4"
+                  Margin="5,5,5,5"
+                  Grid.Column="0"
+                  Grid.RowSpan="5"
+                  Grid.ColumnSpan="5"
+                  BorderBrush="black"
+                  BorderThickness="1">
+            <GroupBox.Header>
+
+                <Label Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblDetalleEmbarque}"></Label>
+
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblTransportista}"
+                       Margin="6,0,0,0"></Label>
+                <StackPanel Name="SplAyudaTransportista"
+                            Grid.Row="0"
+                            Grid.Column="1"></StackPanel>
+
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblTipoOrigen}"
+                       Margin="6,0,0,0"></Label>
+                <ComboBox Name="CmbTipoOrigen"
+                          Grid.Row="0"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          SelectedValuePath="TipoOrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          SelectionChanged="CmbTipoOrigen_SelectionChanged"
+                          Margin="0,0,0,10"
+                          KeyDown="CmbTipoOrigen_KeyDown"
+                          Grid.Column="3"
+                          TabIndex="8"></ComboBox>
+
+                <Label Grid.Row="0"
+                       Grid.Column="4"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblFechaHoraSalida}"></Label>
+
+                <DatePicker Name="DtpFechaSalida"
+                            Grid.Row="0"
+                            Width="150"
+                            IsManipulationEnabled="False"
+                            KeyDown="Fechas_KeyDown"
+                            KeyUp="Fechas_KeyDown"
+                            SelectedDate="{Binding Path=EmbarqueDetalle.FechaSalida, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Grid.Column="5"
+                            SelectedDateChanged="DtpFechaSalida_SelectedDateChanged"></DatePicker>
+                <xctk:DateTimeUpDown Grid.Column="6"
+                                     Grid.Row="0"
+                                     Name="DtuHoraSalida"
+                                     Format="Custom"
+                                     FormatString="HH:mm"
+                                     Width="60"
+                                     TabIndex="11"
+                                     KeyDown="DtuHoraSalida_KeyDown"
+                                     LostFocus="DtuHoraSalida_LostFocus" />
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblChofer}"
+                       Margin="6,0,0,0"></Label>
+                <StackPanel Name="SplAyudaChofer"
+                            Grid.Row="1"
+                            Grid.Column="1"></StackPanel>
+
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblOrigen}"
+                       Margin="6,0,0,0"></Label>
+                <StackPanel Name="SplAyudaOrigen"
+                            Grid.Row="1"
+                            Grid.Column="3"></StackPanel>
+                <Label Grid.Row="1"
+                       Grid.Column="4"
+                       FontWeight="Bold"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblFechaHoraLlegada}"></Label>
+                <DatePicker Name="DtpFechaLlegada"
+                            Grid.Row="1"
+                            SelectedDate="{Binding Path=EmbarqueDetalle.FechaLlegada, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
+                            Grid.Column="5"
+                            IsEnabled="False"></DatePicker>
+                <xctk:DateTimeUpDown Grid.Column="6"
+                                     Grid.Row="1"
+                                     Name="DtuHoraLlegada"
+                                     Format="Custom"
+                                     Width="60"
+                                     FormatString="HH:mm"
+                                     IsEnabled="False" />
+
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblPlacaJaula}"
+                       Margin="6,0,0,0"></Label>
+
+                <StackPanel Name="stpJaula"
+                            Grid.Row="2"
+                            Grid.Column="1" />
+
+                <Label Grid.Row="2"
+                       Grid.Column="2"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="2"
+                       Grid.Column="2"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblDestino}"
+                       Margin="6,0,0,0"></Label>
+                <StackPanel Name="SplAyudaDestino"
+                            Grid.Row="2"
+                            Grid.Column="3"></StackPanel>
+
+                <Label Grid.Row="2"
+                       Grid.Column="4"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblKms}"></Label>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Height="33"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            Grid.Column="5">
+
+                    <xctk:DecimalUpDown Name="dudKms"
+                                        Width="70"
+                                        FormatString="N0"                                        
+                                        Height="22"
+                                        MaxLength="6"
+                                        KeyDown="DudKms_OnKeyDown"
+                                        Value="{Binding Path=EmbarqueDetalle.Kilometros, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        ShowButtonSpinner="False" />
+                    <!--<TextBox Name="TxtKms"
+                                 Width="70"
+                                 IsReadOnly="False"
+                                 IsEnabled="False"></TextBox>-->
+
+                    <Label Margin="5,0,0,0"
+                           Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblHoras}"></Label>
+                    <xctk:DecimalUpDown Name="dudHoras"
+                                        Width="40"
+                                        FormatString="N2"
+                                        IsEnabled="False"
+                                        Height="22"
+                                        MaxLength="5"
+                                        KeyDown="DudHoras_OnKeyDown"
+                                        ShowButtonSpinner="False" />
+                </StackPanel>
+
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       FontWeight="Bold"
+                       Content="*"
+                       Foreground="Red"></Label>
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblPlacaCamion}"
+                       Margin="6,0,0,0"></Label>
+                <StackPanel x:Name="stpCamion"
+                            Grid.Row="3"
+                            Grid.Column="1" />
+
+                <Label Name="LblComentarios"
+                       Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_LblComentarios}"
+                       Grid.Row="4"
+                       Grid.Column="0"></Label>
+
+                <TextBox Grid.Row="4"
+                         Grid.ColumnSpan="7"
+                         Name="TxtComentarios"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         Text="{Binding Path=EmbarqueDetalle.Comentarios, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         VerticalScrollBarVisibility="Visible"
+                         Height="60"
+                         Width="750"
+                         Margin="6"
+                         HorizontalAlignment="Left"
+                         Grid.Column="1"></TextBox>
+
+            </Grid>
+        </GroupBox>
+        
+        <StackPanel Grid.Row="9"
+                    Orientation="Horizontal"
+                    Grid.Column="4"
+                    Margin="0,0,110,0"
+                    HorizontalAlignment="Right">
+            <Button Name="BtnAgregar"
+                    Margin="0,0,5,0"
+                    Click="BtnAgregar_OnClick"
+                    Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_BtnAgregar}"></Button>
+            <Button Name="BtnCostos"
+                    Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_BtnCapturaCostos}"
+                    IsEnabled="False"
+                    Click="BtnCostos_Click"></Button>
+        </StackPanel>
+        
+        <Border Grid.Column="0"
+                Grid.Row="10"
+                Grid.ColumnSpan="5"
+                Style="{StaticResource groupBoxBorder}"
+                HorizontalAlignment="Stretch">
+
+            <Grid Height="235">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="205*" />
+                    <RowDefinition Height="30*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1200*" />
+                </Grid.ColumnDefinitions>
+
+
+                <DataGrid Grid.Row="0"
+                          x:Name="DgEmbarques"
+                          HorizontalAlignment="Center"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Visible"
+                          AutoGenerateColumns="False"
+                          Width="1100"
+                          ColumnWidth="Auto">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=FolioEmbarque}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaFolio}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=PlacaJaula}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaPlacaJaula}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=PlacaCamion}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaPlacaCamion}" />
+                        <DataGridTextColumn Width="200"
+                                            Binding="{Binding Path=NombreCompleto}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaChofer}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=TipoOrigen}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaTipoOrigen}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=OrganizacionOrigen}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaOrigen}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=OrganizacionDestino}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaDestino}" />
+                        <DataGridTextColumn Width="120"
+                                            Binding="{Binding Path=FechaSalida,StringFormat={}{0:dd/MM/yyyy HH:mm:ss}}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaFechaSalida}" />
+                        <DataGridTextColumn Width="120"
+                                            Binding="{Binding Path=FechaLlegada,StringFormat={}{0:dd/MM/yyyy HH:mm:ss}}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaFechaLlegada}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=Estatus}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaEstatus}" />
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=TipoEmbarque}"
+                                            Header="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_ColumnaTipoEmbarque}" />
+                        <DataGridTextColumn Binding="{Binding Path=Kilometros}"
+                                            Visibility="Hidden" />
+                        <DataGridTextColumn Binding="{Binding Path=Horas}"
+                                            Visibility="Hidden" />
+                        <DataGridTemplateColumn Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                            CommandParameter="{Binding}"
+                                            Click="BtnEliminar_Click">
+                                        <Image Source="{StaticResource borrarIcon}"
+                                               Style="{StaticResource iconImage}"
+                                               ToolTip="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_Eliminar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                            Click="BtnEditar_Click"
+                                            CommandParameter="{Binding}">
+                                        <Image Source="{StaticResource editIcon}"
+                                               Style="{StaticResource iconImage}"
+                                               ToolTip="{x:Static resx:Resources.RegistroProgramacionEmbarque_Grid_Editar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Grid.Row="1"
+                            HorizontalAlignment="Center">
+                    <Grid Height="30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400*" />
+                            <ColumnDefinition Width="400*" />
+                            <ColumnDefinition Width="400*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Name="BtnGuardar"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Click="BtnGuardar_OnClick"
+                                HorizontalAlignment="right"
+                                Margin="0,3,16,0"
+                                Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_BtnGuardar}"
+                                VerticalAlignment="Top"></Button>
+
+                        <Button Name="BtnCancelar"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                HorizontalAlignment="left"
+                                Margin="0,1,16,0"
+                                Content="{x:Static resx:Resources.RegistroProgramacionEmbarque_BtnCancelar}"
+                                Click="BtnCancelar_Click"></Button>
+
+                        <Button Name="BtnCancelarEmbarque"
+                                Grid.Column="3"
+                                Grid.Row="0"
+                                HorizontalAlignment="left"
+                                IsEnabled="False"
+                                Margin="0,1,16,0"
+                                Width="110"
+                                Content="{x:Static resx:Resources.btnCancelarEmbarque}"
+                                Click="BtnCancelarEmbarque_Click"></Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+
+    <!--</ScrollViewer>-->
+</Vista:VistaBase>

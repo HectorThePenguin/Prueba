@@ -1,0 +1,221 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.PrecioGanadoEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Title="Camion Edicion"
+                 Height="380"
+                 Width="600"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo" 
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="128*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_LblPrecioGanadoID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_LblOrganizacionID}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_LblTipoGanadoID}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_LblPrecio}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <Label Grid.Row="4"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_LblFechaVigencia}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+               
+
+                <Label Content="{x:Static resx:Resources.PrecioGanadoEdicion_LblActivo}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       Margin="8,0,0,0"/>
+
+                <TextBox x:Uid="txtPrecioGanadoID"
+                         x:Name="txtPrecioGanadoID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="50"
+                         IsEnabled="false">
+                    <TextBox.Text> 
+                        <Binding Path="PrecioGanadoID"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <StackPanel Name="SplAyudaOrganizacion"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Height="23"
+                            VerticalAlignment="Center">
+                </StackPanel>
+
+                <ComboBox x:Name="cmbTipoGanado"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          SelectedValuePath="TipoGanadoID"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValue="{Binding Path=TipoGanado.TipoGanadoID, Mode=TwoWay}"
+                          SelectedItem="{Binding Path=TipoGanado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          Margin="0"
+                          TabIndex="1"/>
+
+                <xctk:DecimalUpDown Name="dtuPrecio"
+                                    Grid.Row="3"
+                                    Grid.Column="1"                                    
+                                    Width="100"
+                                    ShowButtonSpinner="False"
+                                  
+                                    TextAlignment="Right"
+                                    MaxLength="9"
+                                    Height="23"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Left"
+                                    KeyDown="DtuControl_KeyDown"
+                                    MinWidth="10"
+                                    TabIndex="2">
+                    <xctk:DecimalUpDown.Text>
+                        <Binding Path="Precio"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:ValidadorRango Mensaje="El precio debe ser mayor a 0 y menor a 999999.99"
+                                                            RangoInicial="0"
+                                                            RangoFinal="999999.99"  />                                
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </xctk:DecimalUpDown.Text>
+                </xctk:DecimalUpDown>
+
+                <DatePicker Name="dtpFechaVigencia"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Height="25"
+                            Width="150"
+                            HorizontalAlignment="Left"
+                            IsManipulationEnabled="False"
+                            SelectedDate="{Binding Path=FechaVigencia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Keyboard.PreviewKeyDown="DtpControl_PreviewKeyDown"
+                            TabIndex="3">
+                </DatePicker>
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="5"
+                          Grid.Column="1"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          HorizontalAlignment="Left"
+                          Width="150"
+                          TabIndex="4" />
+
+                      <StackPanel Grid.Row="7"     
+                              Grid.Column="1"
+                              Orientation="Horizontal">
+                          <Button Content="{x:Static resx:Resources.btnGuardar}"
+                              Click="Guardar_Click"
+                              Margin="0 0 0 0"
+                              TabIndex="6" />
+                          <Button Content="{x:Static resx:Resources.btnCancelar}"
+                              Click="Cancelar_Click"
+                              Margin="15 0 0 0"/>
+                      </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

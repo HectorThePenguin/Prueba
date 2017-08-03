@@ -1,0 +1,333 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Administracion.ProcesarAutoFacturacionDeCompra"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="570"
+                   Width="1300"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base">
+    <Grid Margin="20" Background="White" ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="130"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1" 
+                          Grid.Row="0" 
+                          Padding="20 0 20 0" 
+                          VisibleCerrar="Hidden" 
+                          TextoTitulo="{x:Static resx:Resources.ProcesarAutoFacturacion_Titulo}" 
+                          x:Name="ucTitulo">            
+        </Controles:Titulo>
+        <GroupBox Grid.Column="1" 
+                  Grid.Row="1" 
+                  HorizontalAlignment="Stretch" 
+                  Style="{StaticResource groupBox}" 
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ProcesarAutoFacturacion_Filtro}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="340" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="230" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+                <Label Content="{x:Static resx:Resources.ProcesarAutoFacturacion_CentroAcopio}" 
+                       Grid.Row="0" 
+                       Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       Width="Auto"
+                       Margin="0,0,0,0"
+                       VerticalAlignment="Top"/>
+                <Controles:ControlAyuda x:Name="skAyudaCentroAcopio"
+                                        AnchoDescripcion="200"
+                                        DataContext="{Binding Path=CentroAcopio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        VerticalAlignment="Top"
+                                        HorizontalAlignment="Left"
+                                        TabIndex="1"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="8"
+                                        EsAyudaSimple="False"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_Busqueda_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_Seleccionar }"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_GridClave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.ProcesarAutoFacturacion_GridDescripcion}"
+                                        MetodoInvocacion="ObtenerPorIdSoloCentrosCadisDescansos"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaCentrosCadisDescansos"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID"
+                                        Margin="0,0,0,0" 
+                                        Width="340" />
+                <Label Grid.Row="1" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_Folio}" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top" 
+                       Margin="0,0,0,0" 
+                       Grid.Column="0"
+                       Width="Auto" />
+                <TextBox x:Uid="txtFolio"
+                         TextChanged="txtFolio_TextChanged" 
+                         KeyDown="txtFolio_KeyDown" 
+                         x:Name="txtFolio" 
+                         Grid.Row="1"
+                         Grid.Column="1" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Center" 
+                         Style="{StaticResource textBoxInError}" 
+                         CharacterCasing="Upper" 
+                         MaxLength="8"   
+                         Width="115"
+                         Margin="0,0,0,0" 
+                         TabIndex="3">                    
+                </TextBox>
+                <Label Grid.Row="1" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_Cheque}" 
+                       HorizontalAlignment="left" 
+                       VerticalAlignment="Top" 
+                       Margin="133,0,0,0" 
+                       Grid.Column="1"
+                       Width="Auto" />
+                <TextBox x:Uid="txtCheque"
+                         x:Name="txtCheque" 
+                         Grid.Row="1" 
+                         Grid.Column="1" 
+                         TextChanged="txtCheque_TextChanged"
+                         KeyDown="txtCheque_KeyDown"
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Center" 
+                         Style="{StaticResource textBoxInError}" 
+                         CharacterCasing="Upper" 
+                         MaxLength="8"                         
+                         Width="115"
+                         Margin="185,0,0,0" 
+                         TabIndex="4" >                    
+                </TextBox>
+                <Label Grid.Column="2"
+                       Grid.Row="0" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_Estatus}" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top"
+                       Margin="0,0,0,0"
+                       Width="Auto" />
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="0"
+                          Grid.Column="3"
+                          ItemsSource="{Binding Path=ListEstatus}"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="EstatusId"
+                          SelectedItem="{Binding Path=Estatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                          SelectedValue="{Binding Path=Estatus.EstatusId}"
+                          Width="180"
+                          HorizontalAlignment="Left"
+                          SelectionChanged="CmbEstatus_OnSelectionChanged"
+                          VerticalAlignment="Center" 
+                          TabIndex="2"
+                          Margin="0,0,0,0" />
+                <Label Grid.Column="2" 
+                       Grid.Row="1"
+                       Margin="0,0,0,0"
+                       HorizontalAlignment="Right"
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_FormaPago}"
+                       VerticalAlignment="Top"
+                       Width="Auto" />
+                <ComboBox x:Name="cmbFormaPago"
+                          Grid.Row="1"
+                          Margin="0,0,0,0"
+                          Grid.Column="3"
+                          Width="180"
+                          HorizontalAlignment="Left"
+                          ItemsSource="{Binding Path=ListFormasPago}"
+                          DisplayMemberPath="Descripcion"
+                          SelectedValuePath="FormaPagoId"
+                          SelectedItem="{Binding Path=FormaPago, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"
+                          SelectedValue="{Binding Path=FormaPago.FormaPagoId}"
+                          VerticalAlignment="Top"
+                          SelectionChanged="CmbFormaPago_OnSelectionChanged"
+                          TabIndex="5"/>
+                <StackPanel Grid.Column="5" 
+                            Grid.Row="0"
+                            Margin="40 0 0 0"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal" 
+                            VerticalAlignment="Top">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}" 
+                            Margin="10 0 0 0" 
+                            TabIndex="8"
+                            Click="btnBuscar_OnClick" 
+                            Name="btnBuscar" >                        
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.btnLimpiar}" 
+                            Margin="10 0 0 0" 
+                            TabIndex="9"
+                            Click="btnLimpiar_OnClick" 
+                            Name="btnLimpiar" >                        
+                    </Button>
+                </StackPanel>
+                <Label Grid.Column="0"
+                       Grid.Row="3" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_FechaInicio}" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top"
+                       Margin="0,0,0,0"
+                       Width="Auto" />
+                <DatePicker Name="dpFechaInicio"
+                            HorizontalAlignment="Left" 
+                            Grid.Column="1" 
+                            Grid.Row="3" 
+                            Width="115"
+                            Height="25"
+                            TabIndex="6"
+                            SelectedDateFormat="Short" 		            
+                            VerticalAlignment="Center"
+                            IsTodayHighlighted="True"
+		                    Margin="0,0,0,2"
+                            Focusable="False"
+                            />
+                <Label Grid.Column="1"
+                       Grid.Row="3" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_FechaFin}" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Top"
+                       Margin="0,0,155,0"
+                       Width="Auto" />
+                <DatePicker Name="dpFechaFin"
+                            HorizontalAlignment="Right" 
+                            Grid.Column="1" 
+                            Grid.Row="3" 
+                            Width="115"
+                            Height="24"
+                            TabIndex="7"
+                            SelectedDateFormat="Short" 		            
+                            VerticalAlignment="Center"
+                            IsTodayHighlighted="True"
+		                    Margin="0,0,40,2"
+                            Focusable="False"
+                            />
+                <StackPanel Grid.Column="5" 
+                            Grid.Row="1"
+                            Margin="40 0 0 0"
+                            HorizontalAlignment="Left"
+                            Orientation="Horizontal" 
+                            VerticalAlignment="Top">
+                    <Button Content="{x:Static resx:Resources.ProcesarAutoFacturacion_btnExportar}" 
+                            Margin="10 0 0 0" 
+                            TabIndex="10"
+                            Click="btnExportar_Click"
+                            Name="btnExportar" >                        
+                    </Button>
+                </StackPanel>
+                <Label Grid.Column="3"
+                       Grid.Row="3" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_Mensaje1}" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center"
+                       Name="lblMensaje1"
+                       Foreground="Red"
+                       Visibility="Hidden"
+                       Margin="0,0,0,0"
+                       Width="Auto" />
+                <Label Grid.Column="4"
+                       Grid.Row="3" 
+                       Content="{x:Static resx:Resources.ProcesarAutoFacturacion_Mensaje2}" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center"
+                       Name="lblMensaje2"
+                       Foreground="Red"
+                       Visibility="Hidden"
+                       Margin="-5,0,0,0"
+                       Width="Auto" />
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  Margin="20 0 20 20"
+                  ColumnWidth="*"
+                  CanUserResizeColumns="False"
+                  ItemsSource="{Binding Path=AutoFacturacionInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1"
+                                    Binding="{Binding Path=PagoId}"
+                                    Visibility="Hidden" />
+                <DataGridTextColumn Width="1"
+                                    Binding="{Binding Path=TipoCompra}"
+                                    Visibility="Hidden" />
+                <DataGridTextColumn Width="1"
+                                    Binding="{Binding Path=EstatusId}"
+                                    Visibility="Hidden" />
+                <DataGridTextColumn Width="1"
+                                    Binding="{Binding Path=OrganizacionId}" Visibility="Hidden" />
+                <DataGridTextColumn Width="195*"
+                                    Binding="{Binding Path=Organizacion}" Header="{x:Static resx:Resources.ProcesarAutoFacturacion_GridCentroAcopio}" />
+                <DataGridTextColumn Width="110"
+                                    Binding="{Binding Path=FolioCompra}"
+                                    IsReadOnly="True"
+                                    Header="{x:Static resx:Resources.ProcesarAutoFacturacion_GridFolioCompra}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="FrameworkElement.HorizontalAlignment"
+                                    Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="1"
+                                    Binding="{Binding Path=ProveedorId}"
+                                    Visibility="Hidden" />
+                <DataGridTextColumn Width="195*"
+                                    Binding="{Binding Path=Proveedor}" Header="{x:Static resx:Resources.ProcesarAutoFacturacion_GridProveedor}" />
+                <DataGridTextColumn Width="130"
+                                    Binding="{Binding Path=FechaCompra}" Header="{x:Static resx:Resources.ProcesarAutoFacturacion_GridFecha}" />
+                <DataGridTextColumn Width="75"
+                                    Binding="{Binding Path=Importe, StringFormat=N2}"
+                                    IsReadOnly="True"
+                                    Header="{x:Static resx:Resources.ProcesarAutoFacturacion_GridImporte}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style>
+                            <Setter Property="FrameworkElement.HorizontalAlignment"
+                                    Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=FormasPago}" Header="{x:Static resx:Resources.ProcesarAutoFacturacion_GridFormaPago}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEditar_OnClick" Style="{StaticResource iconButton}" CommandParameter="{Binding}">
+                                <Image Source="{StaticResource editIcon}" Style="{StaticResource iconImage}" ToolTip="{x:Static resx:Resources.ProcesarAutoFacturacion_GridBotonEditar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion" Grid.Row="3" Grid.Column="1" Margin="20,0,20,10"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

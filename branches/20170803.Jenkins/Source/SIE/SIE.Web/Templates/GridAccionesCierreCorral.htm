@@ -1,0 +1,27 @@
+﻿<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Estructura}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Observaciones}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.AccionesTomadas}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Acciones as item}
+        <tr>
+            <td class="columnaDescripcion">{$T.item.Descripcion}
+            </td>
+            <td>
+                <select class="comboObservacion combosTablas span2">
+                <option value="|">Seleccione</option>
+                {#foreach $T.item.ListaObservaciones as observacion}
+                <option value="{$T.observacion.ObservacionID}">{$T.observacion.Descripcion}</option>
+                {#/for}
+                    </select>
+            </td>
+            <td>
+                <!--{$T.item.AccionesTomadas}-->
+                <input class="accionesTomadas textBoxTablas span3 Alfanumerico" maxlength="300" type="text"/>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

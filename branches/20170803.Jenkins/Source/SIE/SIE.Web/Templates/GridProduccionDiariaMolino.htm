@@ -1,0 +1,62 @@
+﻿<table id="GridProduccionDiariaMolino" class="table table-hover table-striped table-bordered">
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Ticket}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HoraTicket}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Producto}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HorometroInicial}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HorometroFinal}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.EspecificacionForraje}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Lote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.KilosNeto}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.ConsumoAgua}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HumedadForraje}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.HorasMuertas}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.ConteoPacas}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Produccion as item}
+        <tr>
+            <td class="textoDerecha tabs-right ">{$T.item.Ticket}
+            </td>
+            <td class="textoIzquierda tabs-right ">{$T.item.HoraTicket}
+            </td>
+            <td class="textoIzquierda tabs-right ">{$T.item.Producto}
+            </td>
+            <td class="textoDerecha tabs-right ">{$T.item.HorometroInicial}
+            </td>
+            <td class="textoDerecha tabs-right ">{$T.item.HorometroFinal}
+            </td>
+            <td class="textoIzquierda tabs-right ">{$T.item.EspecificacionForraje}
+            </td>
+            <td class="textoDerecha tabs-right  ">{$T.item.Lote}
+            </td>
+            <td class="textoDerecha tabs-right columnaKilosNeto  ">{$T.item.KilosNeto}
+            </td>
+            <td class="textoDerecha tabs-right columnaConsumo  ">{$T.item.ConsumoAgua}
+            </td>
+            <td class="textoDerecha tabs-right  ">{$T.item.HumedadForraje}
+            </td>
+            <td class="textoDerecha tabs-right  ">{$T.item.HorasMuertas}
+            </td>
+            <td class="textoDerecha tabs-right columnaConteoPacas  ">{$T.item.ConteoPacas}
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td ></td>
+            <td class="textoDerecha pieKilosNetos"></td>
+            <td class="textoDerecha pieConsumo"></td>
+            <td ></td>
+            <td ></td>
+            <td class="textoDerecha pieConteoPacas"></td>
+        </tr>
+    </tfoot>
+</table>

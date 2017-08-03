@@ -1,0 +1,147 @@
+<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.AlmacenUsuarioEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 Title="Camion Edicion"
+                 Height="500"
+                 Width="650"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo" 
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.AlmacenUsuarioEdicion_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="430" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="280" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+
+                <Label Content="{x:Static resx:Resources.AlmacenUsuarioEdicion_LblAlmacenID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtDescripcion"
+                         x:Name="txtDescripcion"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         IsEnabled="false"
+                         MaxLength="100"
+                         Width="300"
+                         TabIndex="2">
+                    <TextBox.Text>
+                        <Binding Path="Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <Button Name="BotonNuevoUsuario"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Style="{StaticResource botonAgregar}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Click="BotonNuevoUsuario_OnClick">
+                    <Image Source="{StaticResource addIcon}"
+                           Style="{StaticResource iconImage}"
+                           ToolTip="{x:Static resx:Resources.CentroCostoEdicion_ToolTipUsuario}" />
+                </Button>
+
+                <DataGrid Name="gridDatosUsuario"
+                          Grid.Row="2"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Height="Auto"
+                          ColumnWidth="*"
+                          Margin="0,0,0,0"
+                          SelectionMode="Single">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="300"
+                                            Binding="{Binding Path=Usuario.Nombre}"
+                                            Header="{x:Static resx:Resources.AlmacenUsuarioEdicion_Grid_Usuario}" />
+
+                        <DataGridTextColumn Width="100"
+                                            Binding="{Binding Path=Activo}"
+                                            Header="{x:Static resx:Resources.AlmacenUsuarioEdicion_Grid_Estatus}" />
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                            CommandParameter="{Binding}"
+                                            Click="BotonEditar_Click">
+                                        <Image Source="{StaticResource editIcon}"
+                                               Style="{StaticResource iconImage}"
+                                               ToolTip="{x:Static resx:Resources.AlmacenUsuarioEdicion_Grid_Editar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="5" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

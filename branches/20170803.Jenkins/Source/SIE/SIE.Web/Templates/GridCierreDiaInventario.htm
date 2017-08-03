@@ -1,0 +1,38 @@
+﻿<table id="GridCierreDiaInventario" class="table table-hover table-striped table-bordered">
+    <thead>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Producto}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Lote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.TamanioLote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.InventarioTeorico}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.InventarioFisico}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.MermaSuperavit}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.PorcentajeLote}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.PorcentajePermitido}</th>
+        <th class="alineacionCentro" scope="col">{$T.Recursos.Autorizar}</th>
+    </thead>
+    <tbody>
+        {#foreach $T.MovimientosAutorizar as item}
+        <tr data-ProductoID ={$T.item.ProductoID} data-CostoUnitario ={$T.item.CostoUnitario} data-AlmacenInventarioLoteID ={$T.item.AlmacenInventarioLoteID}>
+            <td class="textoIzquierda">{$T.item.Producto}
+            </td>
+            <td class="textoDerecha columnaLote">{$T.item.Lote}
+            </td>
+            <td class="textoDerecha">{$T.item.TamanioLote}
+            </td>
+            <td class="textoDerecha columnaInventarioTeorico">{$T.item.InventarioTeorico}
+            </td>
+            <td class="textoDerecha columnaInventarioFisico">{$T.item.InventarioFisico}
+            </td>
+            <td class="textoDerecha">{$T.item.PorcentajeMermaSuperavit}
+            </td>
+            <td class="textoDerecha">{$T.item.PorcentajeLote}
+            </td>
+            <td class="textoDerecha">{$T.item.PorcentajePermitido}
+            </td>
+            <td class="alineacionCentro">
+                <input type="checkbox" class="checkAutorizar"/>
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

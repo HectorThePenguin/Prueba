@@ -1,0 +1,232 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Reporte.ReporteMedicamentosAplicados"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Properties="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   mc:Ignorable="d"
+                   Loaded="ControlBase_Loaded"
+                   Height="Auto"
+                   Width="Auto">
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static Properties:Resources.ReporteMedicamentosAplicados_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="80" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.ReporteMedicamentosAplicados_LblOrganizacion}"
+                       VerticalAlignment="Center"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_lblTipoTratamiento}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <ComboBox x:Name="cmbOrganizacion"
+                          Grid.Row="0"
+                          Grid.Column="1"
+                          Grid.ColumnSpan="3"
+                          SelectedValuePath="OrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          Width="280"
+                          HorizontalAlignment="Left"
+                          TabIndex="1" />
+
+                <ComboBox x:Name="cmbTipoMovimiento"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          SelectedValuePath="TipoMovimientoID"
+                          DisplayMemberPath="Descripcion"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="1" />
+
+                <GroupBox Grid.Column="2"
+                          Grid.Row="1"
+                          Style="{StaticResource groupBox}"
+                          HorizontalAlignment="Stretch"
+                          Margin="20 0 20 0">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_PeriodoFechas}"></Label>
+                    </GroupBox.Header>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="170" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                               Content="*"
+                               Style="{StaticResource labelRequerido}"
+                               VerticalAlignment="Center" />
+
+
+                        <Label Grid.Column="0"
+                               Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_lblFechaInicial}"
+                               VerticalAlignment="Center"
+                               Height="28"
+                               Margin="8,0,0,0" />
+
+                        <Label Grid.Column="2"
+                               Content="*"
+                               Style="{StaticResource labelRequerido}"
+                               VerticalAlignment="Center" />
+
+                        <Label Grid.Column="2"
+                               Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_lblFechaFinal}"
+                               VerticalAlignment="Center"
+                               Height="28"
+                               Margin="8,0,0,0" />
+
+
+                        <StackPanel Grid.Column="1"
+                                    Width="160"
+                                    KeyboardNavigation.IsTabStop="False"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                            <DatePicker x:Name="DtpFechaInicial"
+                                        ToolTip="Fecha inicio DD/MM/YYYY"
+                                        KeyDown="Fechas_KeyDown"
+                                        KeyUp="Fechas_KeyDown"
+                                        Width="150"
+                                        HorizontalAlignment="Left"
+                                        KeyboardNavigation.TabIndex="0"
+                                        LostFocus="DtpFechaInicial_LostFocus">
+                                <DatePicker.SelectedDate>
+                                    <Binding Path="FechaInicial"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </DatePicker.SelectedDate>
+                            </DatePicker>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="3"
+                                    Width="160"
+                                    KeyboardNavigation.IsTabStop="False"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                            <DatePicker x:Name="DtpFechaFinal"
+                                        ToolTip="Fecha Final DD/MM/YYYY"
+                                        KeyDown="Fechas_KeyDown"
+                                        KeyUp="Fechas_KeyDown"
+                                        Width="150"
+                                        HorizontalAlignment="Left"
+                                        KeyboardNavigation.TabIndex="1"
+                                        LostFocus="DtpFechaFinal_LostFocus">
+                                <DatePicker.SelectedDate>
+                                    <Binding Path="FechaFinal"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </DatePicker.SelectedDate>
+                            </DatePicker>
+                        </StackPanel>
+
+                    </Grid>
+
+
+
+                </GroupBox>
+
+                <StackPanel  Name="spConsultar"
+                             Focusable="False"
+                             Grid.Row="2"
+                             Grid.Column="2"
+                             HorizontalAlignment="Left"
+                             Orientation="Horizontal"
+                             Margin="20,0,20,0">
+                    <Button Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_btnConsultar}"
+                            Click="btnGenerar_Click"
+                            Margin="10 0 0 0">
+                        <Button.IsEnabled>
+                            <Binding Path="Valido"
+                                     Mode="TwoWay"
+                                     UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </Button.IsEnabled>
+                    </Button>
+                    <Button Content="{x:Static Properties:Resources.ReporteMedicamentosAplicados_btnLimpiar}"
+                            Click="btnLimpiar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+
+            </Grid>
+
+
+        </GroupBox>
+
+       
+
+    </Grid>
+</Vista:ControlBase>

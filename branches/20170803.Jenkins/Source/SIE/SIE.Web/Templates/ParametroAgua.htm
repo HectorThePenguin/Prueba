@@ -1,0 +1,19 @@
+﻿<table id="Aguas" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col"></th>
+        <th class="alineacionCentro" scope="col"></th>
+    </thead>
+    <tbody>
+        {#foreach $T.Aguas as item}
+        <tr data-AguaID ={$T.item.AguaID}>
+            <td class="tabs-right anchoColumnaBoxGrano">{$T.item.Agua}
+            </td>
+            <td class="tabs-right anchoColumnaTemplate">
+                <input type="tel" id="txtAgua{$T.item.AguaID}" class="agua anchoTextBoxAgua textoDerecha" 
+                       name="{$T.item.AguaID}" />
+                lts
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutorizacionMovimientos_Home.Text" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="CapturaPedido_Title.Text" xml:space="preserve">
+    <value>Captura Pedido</value>
+  </data>
+  <data name="BusquedaGanadera_Title.Text" xml:space="preserve">
+    <value>Búsqueda de Organización</value>
+  </data>
+  <data name="lblAceptar.Text" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="lblActualizar.Text" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="lblAlmacen.Text" xml:space="preserve">
+    <value>Almacén</value>
+  </data>
+  <data name="lblAutRech.Text" xml:space="preserve">
+    <value>Autorizar/Rechazar</value>
+  </data>
+  <data name="lblAyudaGridGanadera.Text" xml:space="preserve">
+    <value>Organización</value>
+  </data>
+  <data name="lblAyudaGridIdentificador.Text" xml:space="preserve">
+    <value>Identificador</value>
+  </data>
+  <data name="lblBuscar.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="lblCancelar.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCantidadAjuste.Text" xml:space="preserve">
+    <value>Cantidad Ajuste</value>
+  </data>
+  <data name="lblCostoUnitario.Text" xml:space="preserve">
+    <value>Costo Unitario</value>
+  </data>
+  <data name="lblDatosGenerales.Text" xml:space="preserve">
+    <value>Filtro de búsqueda</value>
+  </data>
+  <data name="lblFecha.Text" xml:space="preserve">
+    <value>Semana:</value>
+  </data>
+  <data name="lblFiltro.Text" xml:space="preserve">
+    <value>Filtros</value>
+  </data>
+  <data name="lblFolio" xml:space="preserve">
+    <value>folio</value>
+  </data>
+  <data name="lblFolio.Text" xml:space="preserve">
+    <value>folio</value>
+  </data>
+  <data name="lblFolio.Text1" xml:space="preserve">
+    <value>Folio</value>
+  </data>
+  <data name="lblGuardar.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblJustificacion.Text" xml:space="preserve">
+    <value>Justificación</value>
+  </data>
+  <data name="lblLimpiar.Text" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="lblLote.Text" xml:space="preserve">
+    <value>Lote</value>
+  </data>
+  <data name="lblLoteUtilizar.Text" xml:space="preserve">
+    <value>Lote a Utilizar</value>
+  </data>
+  <data name="LblMotivoCambio.Text" xml:space="preserve">
+    <value>Motivo de Cambio</value>
+  </data>
+  <data name="lblMovimiento.Text" xml:space="preserve">
+    <value>Movimiento:</value>
+  </data>
+  <data name="lblObservaciones.Text" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="lblOrganizacion.Text" xml:space="preserve">
+    <value>Organización:</value>
+  </data>
+  <data name="lblPorcentajeAjuste.Text" xml:space="preserve">
+    <value>Porcentaje Ajuste</value>
+  </data>
+  <data name="lblPrecioVenta.Text" xml:space="preserve">
+    <value>Precio Venta</value>
+  </data>
+  <data name="lblProducto.Text" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="lblPromedioCabezas" xml:space="preserve">
+    <value>Promedio cabezas</value>
+  </data>
+  <data name="lblPromedioCabezas.Text" xml:space="preserve">
+    <value>Promedio cabezas</value>
+  </data>
+  <data name="lblTituloCapturaPedido.Text" xml:space="preserve">
+    <value>Captura  Pedido</value>
+  </data>
+  <data name="msgCancelar.Text" xml:space="preserve">
+    <value>¿Seguro que desea cancelar la captura?, todos los cambios no guardados se perderán.</value>
+  </data>
+  <data name="msgCancelarBuscar.Text" xml:space="preserve">
+    <value>¿Está seguro que desea salir sin agregar la organización?</value>
+  </data>
+  <data name="msgDialogoNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="msgDialogoSi.Text" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="msgErrorMovimientos.Text" xml:space="preserve">
+    <value>Ocurrio un error al consultar los movimientos.</value>
+  </data>
+  <data name="msgErrorPrecondiciones.Text" xml:space="preserve">
+    <value>Ocurrio un error al consultar las precondiciones.</value>
+  </data>
+  <data name="msgGuardadoConExito.Text" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="msgGuardadoSinExito.Text" xml:space="preserve">
+    <value>Ocurrio un error al guardar.</value>
+  </data>
+  <data name="msgJaulasDomingoVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Domingo para continuar.</value>
+  </data>
+  <data name="msgJaulasJuevesVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Jueves para continuar.</value>
+  </data>
+  <data name="msgJaulasLunesVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Lunes para continuar.</value>
+  </data>
+  <data name="msgJaulasMartesVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Martes para continuar.</value>
+  </data>
+  <data name="msgJaulasMiercolesVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Miercoles para continuar.</value>
+  </data>
+  <data name="msgJaulasSabadoVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Sabado para continuar.</value>
+  </data>
+  <data name="msgJaulasViernesVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Viernes para continuar.</value>
+  </data>
+  <data name="msgMotivoCambioVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Motivo de Cambio para continuar.</value>
+  </data>
+  <data name="msgOrganizacionVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Organizacion para continuar.</value>
+  </data>
+  <data name="msgPromedioCabezasVacio.Text" xml:space="preserve">
+    <value>Debe ingresar Promedio Cabezas para continuar.</value>
+  </data>
+  <data name="msgSeleccionarMovimiento.Text" xml:space="preserve">
+    <value>Debe ingresar un movimiento para continuar.</value>
+  </data>
+  <data name="msgSeleccionarOrganizacion.Text" xml:space="preserve">
+    <value>Debe seleccionar una organización.</value>
+  </data>
+  <data name="msgSinCambioEstatus.Text" xml:space="preserve">
+    <value>Es necesario autorizar/rechazar por lo menos un folio.</value>
+  </data>
+  <data name="msgSinMovimientosPendientes.Text" xml:space="preserve">
+    <value>No existen folios pendientes de autorización. Favor de verificar.</value>
+  </data>
+  <data name="msgSinMovimientosPendientesSeleccionado.Text" xml:space="preserve">
+    <value>No existen folios pendientes de autorización para el movimiento seleccionado. Favor de verificar.</value>
+  </data>
+  <data name="msgSinObservacionesCapturadas.Text" xml:space="preserve">
+    <value>Es necesario ingresar las observaciones para los movimientos rechazados.</value>
+  </data>
+  <data name="msgSinOrganizacionValida.Text" xml:space="preserve">
+    <value>El código de la organización no es válido. Favor de verificar.</value>
+  </data>
+  <data name="msgSinTipoAutorizacion.Text" xml:space="preserve">
+    <value>No existen tipos de autorización registrados. Favor de verificar.</value>
+  </data>
+  <data name="msgSinTipoGanadera.Text" xml:space="preserve">
+    <value>No existen organización de tipo ganadera registradas. Favor de verificar.</value>
+  </data>
+  <data name="txtMotivoCambio.Text" xml:space="preserve">
+    <value>Motivo de Cambio</value>
+  </data>
+  <data name="msgCancelarMotivo.Text" xml:space="preserve">
+    <value>¿Está seguro que desea salir sin guardar los cambios ?</value>
+  </data>
+  <data name="msgAsuntoCorreo.Text" xml:space="preserve">
+    <value>{0} de Pedido Semana {1} de {2}</value>
+  </data>
+  <data name="msgMensajeCorreo.Text" xml:space="preserve">
+    <value>{0} a la programación de Pedidos Semana {1}. &lt;BR&gt;Saludos.</value>
+  </data>
+  <data name="msgErrorConsultar.Text" xml:space="preserve">
+    <value>Ocurrió un error al consultar los datos.</value>
+  </data>
+  <data name="msgErrorGuardar.Text" xml:space="preserve">
+    <value>Ocurrió un error al guardar.</value>
+  </data>
+  <data name="msgGuardarExito.Text" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="lblAutorizar.Text" xml:space="preserve">
+    <value>Autorizar</value>
+  </data>
+  <data name="lblRechazar.Text" xml:space="preserve">
+    <value>Rechazar</value>
+  </data>
+  <data name="msgSinOrganizaciones.Text" xml:space="preserve">
+    <value>No existen organizaciones activas. Favor de verificar.</value>
+  </data>
+  <data name="clvAutorizacion.Text" xml:space="preserve">
+    <value>Se Autoriza el Cambio</value>
+  </data>
+  <data name="clvCorreoJefeManejo.Text" xml:space="preserve">
+    <value>CorreoJefeManejo</value>
+  </data>
+  <data name="clvCorreoLogistica.Text" xml:space="preserve">
+    <value>CorreoLogistica</value>
+  </data>
+  <data name="clvPedido.Text" xml:space="preserve">
+    <value>Pedido</value>
+  </data>
+  <data name="clvRechazar.Text" xml:space="preserve">
+    <value>Se Niega el Cambio</value>
+  </data>
+  <data name="clvRegistro.Text" xml:space="preserve">
+    <value>Registro de Pedido</value>
+  </data>
+  <data name="clvSolicitud.Text" xml:space="preserve">
+    <value>Solicitud de Cambio</value>
+  </data>
+  <data name="clvCambio.Text" xml:space="preserve">
+    <value>Se Realizo el Cambio</value>
+  </data>
+  <data name="msgHaySolicitudes.Text" xml:space="preserve">
+    <value>Ya existe una solicitud pendiente. Favor de verificar.</value>
+  </data>
+</root>

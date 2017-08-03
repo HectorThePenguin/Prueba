@@ -1,0 +1,222 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.CuentaGastosEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:Auxiliar="clr-namespace:SIE.WinForm.Auxiliar" Title="Camion Edicion"
+                 Height="380"
+                 Width="600"
+                 
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CuentasGasto_lblDatosCuentaGastos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.TrampaEdicion_LblTrampaID}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Label Grid.Row="1"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.CuentasGasto_lblOrganizacion}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+                
+                <Controles:ControlAyuda AnchoDescripcion="265"
+                                        x:Name="skAyudaOrganizacion"
+                                        DataContext="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaOrganizacion_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaOrganizacion_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaOrganizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaOrganizacion_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorIdSoloCentrosCadisDescansos"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaCentrosCadisDescansos"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" />
+
+                <Label Grid.Row="2"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.CuentasGasto_lblCuentas}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaCuentaSAP"
+                                        DataContext="{Binding Path=CuentaSAP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaCuentaSAP_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorCuentaSAP"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaSinId"
+                                        CampoDescripcion="Descripcion"
+                                        AnchoClave="75"
+                                        CampoClave="CuentaSAP" />
+
+                <Label Grid.Row="3"
+                       Content="*"
+                       Style="{StaticResource labelRequerido}"
+                       Visibility="Visible"
+                       VerticalAlignment="Center" />
+
+                <Label Content="{x:Static resx:Resources.CuentasGasto_lblCostos}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <Controles:ControlAyuda AnchoDescripcion="265"
+                                        x:Name="skAyudaCosto"
+                                        DataContext="{Binding Path=Costos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="1"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaCostos_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaCostos_BusquedaTitulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaCostos_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaCostos_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaCostos_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaCostos_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaCostos_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPaginaSinId"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="CostoID" />
+
+                <Label Content="{x:Static resx:Resources.CuentasGasto_lblEstatus}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtCuentaGastosID"
+                         x:Name="txtCuentaGastosID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         IsEnabled="False"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="CuentaGastoID"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="4"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="5" />
+
+                <StackPanel Grid.Row="6"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnGuardar}"
+                            Name="Guardar"
+                            Click="Guardar_Click"
+                            Margin="0 0 0 0"
+                            TabIndex="6" />
+                    <Button Content="{x:Static resx:Resources.btnCancelar}"
+                            Click="Cancelar_Click"
+                            Margin="15 0 0 0" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+
+</Vista:VistaBase>
+

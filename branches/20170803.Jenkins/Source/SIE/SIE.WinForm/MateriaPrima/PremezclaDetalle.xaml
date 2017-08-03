@@ -1,0 +1,86 @@
+﻿
+<Window x:Name="WindowPremezclaDetalle" x:Class="SIE.WinForm.MateriaPrima.PremezclaDetalle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        Title="PremezclaDetalle" 
+        Height="335"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="570"
+        WindowStartupLocation="CenterScreen" 
+        Background="Black" Margin="2"
+        WindowStyle="None" HorizontalAlignment="Center" 
+        >
+    <Grid Margin="2"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="150*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Grid.Column="0"
+                          Padding="20 10 20 10"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.PremezclaDetalle_Titulo}"
+                          x:Name="ucTitulo" Height="50" />
+        <GroupBox 
+                  Header="{x:Static resx:Resources.PremezclaDetalle_GBPremezcla}"
+                  Grid.Row="1" 
+            Margin="20">
+            <Grid  Background="White" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DataGrid Name="gridPremezcla"
+                      IsTabStop="true"
+                      SelectionMode="Single"
+                      ItemsSource="{Binding Path=PremezclaDetalleInfo}"
+                      Margin="10"    
+                      LoadingRow="gridPremezcla_LoadingRow"
+                      Grid.Row="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Producto.Descripcion}"
+                                    Header="{x:Static resx:Resources.PremezclaDetalle_GridHeaderProducto}"
+                                    KeyboardNavigation.TabNavigation="None" />
+                        <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Path=Kilogramos}"
+                                    Header="{x:Static resx:Resources.PremezclaDetalle_GridHeaderKilogramos}"
+                                            >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Right" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                       </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="100" Header="{x:Static resx:Resources.PremezclasDistribucionIngredientes_Lote}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox SelectionChanged="Selector_OnSelectionChanged" 
+                                              ItemsSource="{Binding Path=LotesDisponibles, Mode=TwoWay}" 
+                                              DisplayMemberPath="LoteCombo" 
+                                              SelectedValuePath="AlmacenInventarioLoteId" 
+                                              SelectedValue="{Binding Path=Lote.AlmacenInventarioLoteId, 
+                                              Mode=TwoWay}">
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                
+            </Grid>
+        </GroupBox>
+        
+    </Grid>
+</Window>

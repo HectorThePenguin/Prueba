@@ -1,0 +1,260 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.AdministracionRuteoEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+                 xmlns:paginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                 Title="Ruteo Edicion"
+                 Height="550"
+                 Width="620"
+                 Loaded="Window_Loaded"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Controles:Titulo x:Name="ucTitulo"
+                          Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible">
+        </Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.AdministracionRuteoEdicion_Group_Datos}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="115" />
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="128*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static resx:Resources.AdministracionRuteoEdicion_LblId}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                
+                <Label Content="{x:Static resx:Resources.AdministracionRuteoEdicion_LblOrigen}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+               
+
+                <Label Content="{x:Static resx:Resources.AdministracionRuteoEdicion_LblNombreRuteo}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+                
+                <Label Content="{x:Static resx:Resources.AdministracionRuteoEdicion_LblDestino}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+                
+                <Label Content="{x:Static resx:Resources.AdministracionRuteoEdicion_LblEstatus}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Margin="8,0,0,0" />
+
+                <TextBox x:Uid="txtRuteoID"
+                         x:Name="txtRuteoID"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="9"
+                         IsEnabled="False"
+                         TabIndex="0">
+                    <TextBox.Text>
+                        <Binding Path="RuteoID"
+                                 Mode="OneTime"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtNombreRuteo"
+                         x:Name="txtNombreRuteo"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         MaxLength="50"
+                         Width="300"
+                         IsEnabled="False"
+                         TabIndex="1">
+                    <TextBox.Text>
+                        <Binding Path="NombreRuteo"
+                                 Mode="OneTime"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtOrigen"
+                         x:Name="txtOrigen"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         PreviewTextInput="txtDescripcion_PreviewTextInput"
+                         MaxLength="50"
+                         Width="300"
+                         TabIndex="1"
+                         IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="OrganizacionOrigen.Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                           
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <TextBox x:Uid="txtDestino"
+                         x:Name="txtDestino"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         CharacterCasing="Upper"
+                         PreviewTextInput="txtDescripcion_PreviewTextInput"
+                         MaxLength="50"
+                         Width="300"
+                         TabIndex="1"
+                         IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="OrganizacionDestino.Descripcion"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+
+                <ComboBox x:Name="cmbActivo"
+                          Grid.Row="4"
+                          Grid.Column="1"
+                          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="3" 
+                          IsEnabled="False"/>
+            </Grid>
+            
+        </GroupBox>
+        <Grid Grid.Row="2" Margin="18 0 18 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="180"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="BotonNuevoSintoma"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource botonAgregar}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                  >
+                <Image Source="{StaticResource addIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.ProblemaSintomaEdicion_ToolTipSintoma}" />
+            </Button>
+
+            <DataGrid Name="gridDatosDetalle"
+                                      Grid.Row="1"
+                                      Grid.Column="1"
+                                      Height="Auto"
+                                      ColumnWidth="*"
+                                      Margin="0,0,0,0"
+                                      SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=OrganizacionOrigen.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministracionRuteoEdicion_Grid_Origen}" />
+
+                    <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=OrganizacionDestino.Descripcion}"
+                                    Header="{x:Static resx:Resources.AdministracionRuteoEdicion_Grid_Destino}" />
+                    <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Kilometros}"
+                                    Header="{x:Static resx:Resources.AdministracionRuteoEdicion_Grid_Kilometrios}" >
+                        <DataGridTextColumn.CellStyle>
+                            <Style>
+                                <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Horas}"
+                                    Header="{x:Static resx:Resources.AdministracionRuteoEdicion_Grid_Horas}" >
+                        <DataGridTextColumn.CellStyle>
+                            <Style>
+                                <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <paginControl:PaginacionControl x:Name="ucPaginacionDetalle"
+                                                            Grid.Row="2"
+                                                            Grid.Column="0"
+                                                            Margin="0">
+            </paginControl:PaginacionControl>
+        </Grid>
+        <StackPanel Grid.Row="3"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 20 0"
+                    Orientation="Horizontal">
+            <Button Content="{x:Static resx:Resources.btnCancelar}"
+            	Click="Cancelar_Click"
+            	Margin="15 0 0 0" />
+        </StackPanel>
+    </Grid>
+
+</Vista:VistaBase>
+

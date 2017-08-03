@@ -1,0 +1,200 @@
+<Vista:ControlBase
+	    x:Class="SIE.WinForm.Catalogos.CamionReparto"
+	    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        Height="Auto"
+	    Width="Auto"
+	    Loaded="Window_Loaded">
+
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20"
+        Background="White"
+    ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+            Direction="-90"
+            RenderingBias="Quality"
+            ShadowDepth="2"/>
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>  
+            <RowDefinition Height="100"></RowDefinition> 
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>  
+            <RowDefinition Height="40"></RowDefinition>  
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                 Grid.Row="0"
+                 Padding="20 0 20 0"
+                 VisibleCerrar="Hidden"
+                 TextoTitulo="{x:Static resx:Resources.CamionReparto_Titulo}"
+                 x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+                <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.CamionReparto_Filtro}"></Label>
+                </GroupBox.Header>
+
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition Width="350" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="15" />
+                        <ColumnDefinition Width="190" />
+                        <ColumnDefinition Width="90" />
+               </Grid.ColumnDefinitions>
+
+
+                <Label Content="{x:Static resx:Resources.CamionReparto_LblOrganizacionID}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Center">
+                </Label>
+                <Label Content="{x:Static resx:Resources.CamionReparto_LblNumeroEconomico}"
+                      Grid.Row="0"
+                      Grid.Column="3"
+                      VerticalAlignment="Center">
+               </Label>
+               <Label Content="{x:Static resx:Resources.CamionReparto_LblActivo}"
+                      Grid.Row="0"
+                      Grid.Column="5"
+                      VerticalAlignment="Center">
+               </Label>
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaOrganizacion"
+                                        DataContext="{Binding Path=Organizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="2"
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="0"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.Organizacion_CodigoInvalido}"
+                                        ConceptoBusqueda="{x:Static resx:Resources.LeyendaAyudaBusquedaOrganizacion}"
+                                        TituloBusqueda="{x:Static resx:Resources.BusquedaOrganizacion_Titulo}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.Organizacion_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.Organizacion_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.TipoObservacion_EncabezadoClaveGrid}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.TipoObservacion_EncabezadoDescripcionGrid}"
+                                        MetodoInvocacion="ObtenerPorID"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="OrganizacionID" />
+
+                <TextBox x:Uid="txtCamionRepartoNumeroEconomico"
+                         x:Name="txtCamionRepartoNumeroEconomico"
+                         Grid.Row="0"
+                         Grid.Column="4"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource textBoxInError}"
+                         MaxLength="10"
+                         Width="70"
+                         TabIndex="1">
+                    <TextBox.Text> 
+                        <Binding Path="NumeroEconomico"
+                                 Mode="TwoWay"
+                                 TargetNullValue=""
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+             <ComboBox x:Name="cmbActivo"  
+                       Grid.Row="0"
+                       Grid.Column="6"
+                       ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+					     SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+					     Width="150"
+					     HorizontalAlignment="Left"
+					     TabIndex="2" />
+                    <StackPanel Grid.Column="8"
+                    			Orientation="Horizontal">
+                    	<Button Content="{x:Static resx:Resources.btnBuscar}"
+                    			Click="BtnBuscar_Click"
+                    			Margin="10 0 0 0">
+                    	</Button>
+                    	<Button Content="{x:Static resx:Resources.btnNuevo}"
+                    			Click="BtnNuevo_Click"
+                    			Margin="10 0 0 0">
+                    	</Button>
+                    </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=CamionRepartoInfo}"
+                  SelectionMode="Single"> 
+            <DataGrid.Columns>
+                    <DataGridTextColumn Width="100"
+                    Binding="{Binding Path=CamionRepartoID}"
+                    Header="Id" />
+                <DataGridTextColumn Width="200*"
+                                    Binding="{Binding Path=Organizacion.Descripcion}"
+                                    Header="{x:Static resx:Resources.CamionReparto_Grid_OrganizacionID}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=CentroCosto.CentroCostoSAP}"
+                                    Header="{x:Static resx:Resources.CamionReparto_Grid_CentroCosto}" />
+                <DataGridTextColumn Width="100*"
+                                    Binding="{Binding Path=NumeroEconomico}"
+                                    Header="{x:Static resx:Resources.CamionReparto_Grid_NumeroEconomico}" />
+                <DataGridTextColumn Width="100"
+                    Binding="{Binding Path=Activo}"
+                    Header="{x:Static resx:Resources.CamionReparto_Grid_Activo}" />
+            <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                      <Button Style="{StaticResource iconButton}"
+                            CommandParameter="{Binding}"
+                            Click="BtnEditar_Click">
+                            <Image Source="{StaticResource editIcon}"
+                                    Style="{StaticResource iconImage}"
+                                    ToolTip="{x:Static resx:Resources.CamionReparto_Grid_Editar}"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion" Grid.Row="3" Grid.Column="1" Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

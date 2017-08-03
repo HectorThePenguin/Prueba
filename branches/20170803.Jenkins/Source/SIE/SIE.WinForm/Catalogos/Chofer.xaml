@@ -1,0 +1,157 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Catalogos.Chofer"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"                   
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base">
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="Administración de Chofer"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Chofer_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="1"
+                       Content="{x:Static resx:Resources.Chofer_Lbl_Descripcion}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Grid.Column="3"
+                       Content="{x:Static resx:Resources.Chofer_Lbl_Estatus}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="2"></Label>
+                <TextBox Grid.Column="2"
+                         Width="270"
+                         Name="txtDescripcion"
+                         CharacterCasing="Upper"
+                         TabIndex="0"
+                         MaxLength="150"
+                         
+                         PreviewTextInput="TxtSoloLetrasPreviewTextInput">
+                    <TextBox.Text>
+                        <Binding Path="Nombre"
+                                 Mode="TwoWay"
+                                 UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+
+                </TextBox>
+                
+                <ComboBox Grid.Column="4"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Name="cboEstatus"
+                          SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                          TabIndex="1"
+                          Width="110" />
+
+                <StackPanel Grid.Column="6"
+                            Orientation="Horizontal">
+                    <Button Content="{x:Static resx:Resources.btnBuscar}"
+                            Click="btnBuscar_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                    <Button Content="{x:Static resx:Resources.btnNuevo}"
+                            Click="btnNuevo_Click"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=ChoferInfo}"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=ChoferID}"
+                                    Header="{x:Static resx:Resources.Chofer_Grid_Id}"/>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Nombre}"
+                                    Header="{x:Static resx:Resources.Chofer_Grid_Descripcion}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=ApellidoPaterno}"
+                                    Header="{x:Static resx:Resources.lblApellidoPaterno}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=ApellidoMaterno}"
+                                    Header="{x:Static resx:Resources.lblApellidoMaterno}" />
+                <DataGridTextColumn Width="100"
+                                    Binding="{Binding Path=Activo}"
+                                    Header="{x:Static resx:Resources.Chofer_Grid_Estatus}" />
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BotonEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Chofer_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

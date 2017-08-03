@@ -1,0 +1,21 @@
+﻿<table id="Humedad" class="table table-hover table-striped table-bordered" table-layout:fixed>
+    <thead>
+        <th class="alineacionCentro" scope="col"></th>
+        <th class="alineacionCentro" scope="col">Reporte de lab</th>
+    </thead>
+    <tbody>
+        {#foreach $T.Humedades as item}
+        <tr data-HumedadID ={$T.item.HumedadID}>
+            <td class="tabs-right">{$T.item.Humedad}
+            </td>
+            <td class="tabs-right anchoColumnaHumedad">
+                <input type="text" id="txtHumedad{$T.item.HumedadID}" 
+                       class="alfanumerico humedad textoDerecha anchoTextBoxHumedad"
+                       value="0"
+                       name="{$T.item.HumedadID}" />
+                %
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

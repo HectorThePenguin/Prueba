@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="imgLogoResource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="imgLogoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCabezasConteoResource1.Text" xml:space="preserve">
+    <value>Cabezas Conteo</value>
+  </data>
+  <data name="lblCabezasConteoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCabezasSistemasResource1.Text" xml:space="preserve">
+    <value>Cabezas Sistema</value>
+  </data>
+  <data name="lblCabezasSistemasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCancelarResource1.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="lblCancelarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCheckListResource1.Text" xml:space="preserve">
+    <value>Check List de Cierre de Corrales</value>
+  </data>
+  <data name="lblCheckListResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCheckResource1.Text" xml:space="preserve">
+    <value>CHECK LIST CIERRE DE CORRALES</value>
+  </data>
+  <data name="lblCheckResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblCorralResource1.Text" xml:space="preserve">
+    <value>Corral</value>
+  </data>
+  <data name="lblCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblDiasEngordaResource1.Text" xml:space="preserve">
+    <value>Días Engorda</value>
+  </data>
+  <data name="lblDiasEngordaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRequiereRevision.Text" xml:space="preserve">
+    <value>Revisión</value>
+  </data>
+  <data name="lblRequiereRevision.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFecha1ReimplanteResource1.Text" xml:space="preserve">
+    <value>Fecha 1er Reimplante</value>
+  </data>
+  <data name="lblFecha1ReimplanteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFecha2ReimplanteResource1.Text" xml:space="preserve">
+    <value>Fecha 2do Reimplante</value>
+  </data>
+  <data name="lblFecha2ReimplanteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaAbiertoResource1.Text" xml:space="preserve">
+    <value>Fecha Abierto</value>
+  </data>
+  <data name="lblFechaAbiertoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaCerradoResource1.Text" xml:space="preserve">
+    <value>Fecha Cerrado</value>
+  </data>
+  <data name="lblFechaCerradoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaCorralResource1.Text" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="lblFechaCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaResource1.Text" xml:space="preserve">
+    <value>Fecha: 13 de Abril del 2009</value>
+  </data>
+  <data name="lblFechaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFechaSacrificioResource1.Text" xml:space="preserve">
+    <value>Fecha Sacrificio</value>
+  </data>
+  <data name="lblFechaSacrificioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblFolioISOResource1.Text" xml:space="preserve">
+    <value>FENVIZ-07-104</value>
+  </data>
+  <data name="lblFolioISOResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblGuardarResource1.Text" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="lblGuardarResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblLoteResource1.Text" xml:space="preserve">
+    <value>No. Lote</value>
+  </data>
+  <data name="lblLoteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblMonitorResource1.Text" xml:space="preserve">
+    <value>Monitor</value>
+  </data>
+  <data name="lblMonitorResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblOcupacionResource1.Text" xml:space="preserve">
+    <value>% Ocupación</value>
+  </data>
+  <data name="lblOcupacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblPesoCorteResource1.Text" xml:space="preserve">
+    <value>Peso Corte</value>
+  </data>
+  <data name="lblPesoCorteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRazaResource1.Text" xml:space="preserve">
+    <value>Raza</value>
+  </data>
+  <data name="lblRazaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblRevisionResource1.Text" xml:space="preserve">
+    <value>Revisión: 1</value>
+  </data>
+  <data name="lblRevisionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTipoResource1.Text" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="lblTipoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lblTituloResource1.Text" xml:space="preserve">
+    <value>Cierre de Corral</value>
+  </data>
+  <data name="lblTituloResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCabezasConteoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCabezasConteoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCabezasSistemasResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCabezasSistemasResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCorralResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDiasEngordaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtDiasEngordaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFecha1ReimplanteResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFecha1ReimplanteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFecha2ReimplanteResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFecha2ReimplanteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaAbiertoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaAbiertoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaCerradoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaCerradoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaCorralResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaCorralResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaSacrificioResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFechaSacrificioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLoteResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLoteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtOcupacionResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtOcupacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtPesoCorteResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtPesoCorteResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtRazaResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtRazaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtTipoResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtTipoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Abierto" xml:space="preserve">
+    <value>Abierto</value>
+  </data>
+  <data name="Acciones.AccionesTomadas" xml:space="preserve">
+    <value>Acciones Tomadas</value>
+  </data>
+  <data name="Acciones.Estructura" xml:space="preserve">
+    <value>Estructura</value>
+  </data>
+  <data name="Acciones.Observaciones" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="Cerrado" xml:space="preserve">
+    <value>Cerrado</value>
+  </data>
+  <data name="Conceptos.Bueno" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="Conceptos.Concepto" xml:space="preserve">
+    <value>Concepto</value>
+  </data>
+  <data name="Conceptos.Malo" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="Conceptos.Observaciones" xml:space="preserve">
+    <value>Observaciones</value>
+  </data>
+  <data name="Corrales.CabezasActuales" xml:space="preserve">
+    <value>Cabezas Actuales</value>
+  </data>
+  <data name="Corrales.CabezasRestantes" xml:space="preserve">
+    <value>Cabezas Restantes</value>
+  </data>
+  <data name="Corrales.Corral" xml:space="preserve">
+    <value>Corral</value>
+  </data>
+  <data name="Corrales.Estatus" xml:space="preserve">
+    <value>Estatus</value>
+  </data>
+  <data name="Corrales.FechaFin" xml:space="preserve">
+    <value>Fecha Fin</value>
+  </data>
+  <data name="Corrales.FechaInicio" xml:space="preserve">
+    <value>Fecha Inicio</value>
+  </data>
+  <data name="Corrales.Lote" xml:space="preserve">
+    <value>Lote</value>
+  </data>
+  <data name="Corrales.Opcion" xml:space="preserve">
+    <value>Opción</value>
+  </data>
+  <data name="Corrales.TotalCabezas" xml:space="preserve">
+    <value>Total Cabezas</value>
+  </data>
+  <data name="datatable.Anterior" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="datatable.Buscar" xml:space="preserve">
+    <value>Buscar:</value>
+  </data>
+  <data name="datatable.Cargando" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="datatable.Filtrando" xml:space="preserve">
+    <value>- Filtrando de _MAX_ registros</value>
+  </data>
+  <data name="datatable.Mostrando" xml:space="preserve">
+    <value>Mostrando (_START_ a _END_) registros de _TOTAL_</value>
+  </data>
+  <data name="datatable.Mostrar" xml:space="preserve">
+    <value>Mostrar _MENU_ registros</value>
+  </data>
+  <data name="datatable.PrimeraPagina" xml:space="preserve">
+    <value>Primera Página</value>
+  </data>
+  <data name="datatable.Procesando" xml:space="preserve">
+    <value>Procesando la información</value>
+  </data>
+  <data name="datatable.Siguiente" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="datatable.SinDatos" xml:space="preserve">
+    <value>No hay información en la tabla</value>
+  </data>
+  <data name="datatable.SinInformacion" xml:space="preserve">
+    <value>No hay información para mostrar</value>
+  </data>
+  <data name="datatable.SinRegistros" xml:space="preserve">
+    <value>No hay información para mostrar</value>
+  </data>
+  <data name="datatable.UltimaPagina" xml:space="preserve">
+    <value>Ultima Página</value>
+  </data>
+  <data name="Dias" xml:space="preserve">
+    <value> Días</value>
+  </data>
+  <data name="js.CheckListSinInformacion" xml:space="preserve">
+    <value>Actualmente el check list cierre de corral no contiene información que imprimir. Favor de verificar.</value>
+  </data>
+  <data name="js.DatosObligatorios" xml:space="preserve">
+    <value>Existen datos obligatorios en blanco. Es necesario ingresarlos para continuar.</value>
+  </data>
+  <data name="js.ErrorConsultarCorrales" xml:space="preserve">
+    <value>Ocurrio un error al consultar los corrales.</value>
+  </data>
+  <data name="js.ErrorGuardar" xml:space="preserve">
+    <value>Ocurrio un error al guardar los datos.</value>
+  </data>
+  <data name="js.ErrorInformacionCorral" xml:space="preserve">
+    <value>Ocurrio un error al consultar la información del corral.</value>
+  </data>
+  <data name="js.GuardoExito" xml:space="preserve">
+    <value>Datos guardados con éxito.</value>
+  </data>
+  <data name="js.Imprimir" xml:space="preserve">
+    <value>Debe guardar los datos antes de poderlos imprimir.</value>
+  </data>
+  <data name="js.No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="js.SalirSinGuardar" xml:space="preserve">
+    <value>¿Está seguro de salir sin guardar datos?</value>
+  </data>
+  <data name="js.Si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="js.SinCorrales" xml:space="preserve">
+    <value>No existen corrales pendientes de realizar check list</value>
+  </data>
+  <data name="js.ErrorImprimir" xml:space="preserve">
+    <value>Ocurrio un error al Imprimir el CheckList.</value>
+  </data>
+  <data name="js.Impreso" xml:space="preserve">
+    <value>Documento impreso correctamente</value>
+  </data>
+  <data name="js.ErrorPartidaAbierta" xml:space="preserve">
+    <value>No se puede generar la proyección, porque una de las partidas no ha sido cerrada, partida .</value>
+  </data>
+  <data name="js.ErrorConteoCero" xml:space="preserve">
+    <value>El conteo de los animales regreso 0, favor de revisar.</value>
+  </data>
+  <data name="js.ErrorPesoCompra" xml:space="preserve">
+    <value>La sumatoria de los pesos de compra, dan 0, favor de revisar.</value>
+  </data>
+</root>

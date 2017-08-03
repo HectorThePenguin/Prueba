@@ -1,0 +1,146 @@
+﻿.CajaAcceso {
+    width: 15% !important;
+    height: 100px !important;
+}
+/*Inicia Seccion de Efectos*/
+.ch-grid {
+	margin: 20px 0 0 0 !important;
+	padding: 0!important;
+	list-style: none!important;
+	display: block!important;
+	text-align: center!important;
+	width: 100%!important;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: ''!important;
+    display: table!important;
+}
+
+.ch-grid:after {
+	clear: both!important;
+}
+
+.ch-grid li {
+	width: 220px!important;
+	height: 220px!important;
+	display: inline-block!important;
+	margin: 20px!important;
+}
+
+.ch-item {
+	width: 100%!important;
+	height: 100%!important;
+	border-radius: 50%!important;
+	position: relative!important;
+	cursor: default!important;
+	box-shadow: 
+		inset 0 0 0 16px rgba(255,255,255,0.6),
+		0 1px 2px rgba(0,0,0,0.1)!important;
+		
+	-webkit-transition: all 0.4s ease-in-out!important;
+	-moz-transition: all 0.4s ease-in-out!important;
+	-o-transition: all 0.4s ease-in-out!important;
+	-ms-transition: all 0.4s ease-in-out!important;
+	transition: all 0.4s ease-in-out!important;
+}
+
+.ch-img-1 { 
+	background-image: url(../../Images/SIAPEngorda.PNG) !important;
+    cursor: pointer !important;
+}
+
+.ch-img-2 { 
+	background-image: url(../../Images/SIAPAbastos.PNG) !important;
+    cursor: pointer !important;
+}
+
+.ch-info {
+	position: absolute!important;
+	background: rgba(63,147,147, 0.8)!important;
+	width: inherit!important;
+	height: inherit!important;
+	border-radius: 50%!important;
+	opacity: 0!important;
+	
+	-webkit-transition: all 0.4s ease-in-out!important;
+	-moz-transition: all 0.4s ease-in-out!important;
+	-o-transition: all 0.4s ease-in-out!important;
+	-ms-transition: all 0.4s ease-in-out!important;
+	transition: all 0.4s ease-in-out!important;
+	
+	-webkit-transform: scale(0)!important;
+	-moz-transform: scale(0)!important;
+	-o-transform: scale(0)!important;
+	-ms-transform: scale(0)!important;
+	transform: scale(0)!important;
+	
+	-webkit-backface-visibility: hidden!important;
+
+}
+
+.ch-info h3 {
+	color: #fff!important;
+	text-transform: uppercase!important;
+	letter-spacing: 2px!important;
+	font-size: 22px!important;
+	margin: 0 30px!important;
+	padding: 45px 0 0 0!important;
+	height: 140px!important;
+	font-family: 'Open Sans', Arial, sans-serif!important;
+	text-shadow: 
+		0 0 1px #fff, 
+		0 1px 2px rgba(0,0,0,0.3)!important;
+}
+
+.ch-info p {
+	color: #fff!important;
+	padding: 10px 5px!important;
+	font-style: italic!important;
+	margin: 0 30px!important;
+	font-size: 12px!important;
+	border-top: 1px solid rgba(255,255,255,0.5)!important;
+	opacity: 0!important;
+	-webkit-transition: all 1s ease-in-out 0.4s!important;
+	-moz-transition: all 1s ease-in-out 0.4s!important;
+	-o-transition: all 1s ease-in-out 0.4s!important;
+	-ms-transition: all 1s ease-in-out 0.4s!important;
+	transition: all 1s ease-in-out 0.4s!important;
+}
+
+.ch-info p a {
+	display: block!important;
+	color: #fff!important;
+	color: rgba(255,255,255,0.7)!important;
+	font-style: normal!important;
+	font-weight: 700!important;
+	text-transform: uppercase!important;
+	font-size: 9px!important;
+	letter-spacing: 1px!important;
+	padding-top: 4px!important;
+	font-family: 'Open Sans', Arial, sans-serif!important;
+}
+
+.ch-info p a:hover {
+	color: #fff222!important;
+	color: rgba(255,242,34, 0.8)!important;
+}
+
+.ch-item:hover {
+	box-shadow: 
+		inset 0 0 0 1px rgba(255,255,255,0.1),
+		0 1px 2px rgba(0,0,0,0.1)!important;
+}
+.ch-item:hover .ch-info {
+	-webkit-transform: scale(1)!important;
+	-moz-transform: scale(1)!important;
+	-o-transform: scale(1)!important;
+	-ms-transform: scale(1)!important;
+	transform: scale(1)!important;
+	opacity: 1!important;
+}
+
+.ch-item:hover .ch-info p {
+	opacity: 1!important;
+}

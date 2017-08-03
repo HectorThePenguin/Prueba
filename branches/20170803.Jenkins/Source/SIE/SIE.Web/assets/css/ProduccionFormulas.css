@@ -1,0 +1,43 @@
+﻿  #lblMensajeCapturarKilogramos
+        {
+            color: brown;
+        }
+
+  .modal.large
+{
+    width: 60%;
+    margin-left: -30%;
+}
+  .close
+{
+    width: 60px !important;
+    height: 40px !important;
+}
+
+  
+#modalBusquedaLote
+{
+    margin-top: -150px;
+}
+
+#divGridLotes
+{
+    height: 300px;
+    overflow: auto;
+}
+
+
+#GridLotes
+{
+    max-height: 200px;
+}
+
+.highlight > td
+{
+    background-color: #FFC8C8 !important;
+}
+
+#GridLotes tbody tr
+{
+    cursor: pointer;
+}

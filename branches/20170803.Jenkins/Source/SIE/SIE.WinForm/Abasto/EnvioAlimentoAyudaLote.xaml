@@ -1,0 +1,84 @@
+﻿<Window x:Class="SIE.WinForm.Abasto.EnvioAlimentoAyudaLote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+        Height="500" Width="600"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Black"
+        Loaded="EnvioAlimentoAyudaLote_Loaded">
+    <Grid Margin="2" Background="White" ScrollViewer.CanContentScroll="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="52"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="52"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.EnvioAlimentoAyudaLote_Titulo}"
+                          x:Name="ucTitulo" Height="Auto" Margin="0,12"></Controles:Titulo>
+        <DataGrid Name="dgLotes"
+            CanUserSortColumns="False"
+            CanUserResizeColumns="False"
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="0,10" Grid.RowSpan="2"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="60*" Header="{x:Static resx:Resources.EnvioAlimentoAyudaLote_Lote}" Binding="{Binding Path=Lote}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100*" Header="{x:Static resx:Resources.EnvioAlimentoAyudaLote_Cantidad}" Binding="{Binding Path=Cantidad}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="105*" Header="{x:Static resx:Resources.EnvioAlimentoAyudaLote_Precio}" Binding="{Binding Path=PrecioPromedio}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="95*" Header="{x:Static resx:Resources.EnvioAlimentoAyudaLote_Piezas}" Binding="{Binding Path=Piezas}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100*" Header="{x:Static resx:Resources.EnvioAlimentoAyudaLote_Importe}" Binding="{Binding Path=Importe}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnCerrar"
+                Grid.Column="1"
+                Grid.Row="3"
+                HorizontalAlignment="Right"
+                Content="{x:Static resx:Resources.EnvioAlimentoAyudaLote_btnCerrar}" Click="BtnCerrar_Click"
+                ></Button>
+    </Grid>
+</Window>

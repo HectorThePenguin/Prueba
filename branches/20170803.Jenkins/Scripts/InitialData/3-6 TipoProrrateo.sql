@@ -1,0 +1,5 @@
+INSERT INTO TipoProrrateo (Descripcion,Activo,UsuarioCreacionID,FechaCreacion) VALUES ('No Aplica',1,1,GETDATE())
+INSERT INTO TipoProrrateo (Descripcion,Activo,UsuarioCreacionID,FechaCreacion) VALUES ('Kilos Origen',1,1,GETDATE())
+INSERT INTO TipoProrrateo (Descripcion,Activo,UsuarioCreacionID,FechaCreacion) VALUES ('Kilos Consumo',1,1,GETDATE())
+INSERT INTO TipoProrrateo (Descripcion,Activo,UsuarioCreacionID,FechaCreacion) VALUES ('Cabezas',1,1,GETDATE())
+INSERT INTO TipoProrrateo (Descripcion,Activo,UsuarioCreacionID,FechaCreacion) VALUES ('Dias Animal',1,1,GETDATE())

@@ -1,0 +1,25 @@
+<ROOT>
+  <Configuracion>
+    <PuertoBascula>COM4</PuertoBascula>
+    <BasculaDataBits>7</BasculaDataBits>
+    <BasculaParidad>None</BasculaParidad>
+    <BasculaBaudrate>9600</BasculaBaudrate>
+    <BasculaBitStop>One</BasculaBitStop>
+    <ImpresoraRecepcionGanado>HP LaserJet P2035</ImpresoraRecepcionGanado>
+    <MaxCaracteresLinea>40</MaxCaracteresLinea>
+    <ImpresoraPoliza>PDFCreator</ImpresoraPoliza>
+    <MaxLineasPorPaginaPoliza>85</MaxLineasPorPaginaPoliza>
+    <ServidorActiveDirectory>DCPCLN2</ServidorActiveDirectory>
+    <NombreFuentePoliza>Lucida Console</NombreFuentePoliza>
+    <Dominio>gviz</Dominio>
+    <ServidorActiveDirectory>DCPCLN2</ServidorActiveDirectory>
+    <Contenedor>DC=gviz, DC=com</Contenedor>
+    <GrupoAD>SIAP</GrupoAD>
+    <ProveedorPropio>SKA</ProveedorPropio>
+    <PuertoDickey>COM3</PuertoDickey>
+    <DickeyDataBits>7</DickeyDataBits>
+    <DickeyParidad>None</DickeyParidad>
+    <DickeyBaudrate>9600</DickeyBaudrate>
+    <DickeyBitStop>One</DickeyBitStop>
+</Configuracion>
+</ROOT>

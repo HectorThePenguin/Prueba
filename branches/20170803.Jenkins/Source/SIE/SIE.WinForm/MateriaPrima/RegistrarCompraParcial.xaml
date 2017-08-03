@@ -1,0 +1,156 @@
+﻿<Window x:Class="SIE.WinForm.MateriaPrima.RegistrarCompraParcial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Height="400"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Width="570"
+        WindowStartupLocation="CenterScreen"
+        Background="Black"
+        Margin="2"
+        WindowStyle="None"
+        HorizontalAlignment="Center"
+        Loaded="RegistrarCompraParcial_OnLoaded"
+        KeyDown="RegistrarCompraParcial_OnKeyDown"
+        >
+    <Grid Margin="2"
+          Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Row="0"
+                          Padding="20 10 20 10"
+                          Margin="0,0,-165,0"
+                          VisibleCerrar="Visible"
+                          TextoTitulo="{x:Static resx:Resources.RegistrarCompraParcial_Titulo}"
+                          x:Name="UcTitulo"
+                          Height="Auto" />
+        <GroupBox Header="{x:Static resx:Resources.RegistrarCompraParcial_GbDatosCompraParcial}"
+                  Margin="10,0,-155,0"
+                  Grid.Row="1">
+            <Grid Margin="2"
+                  Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Content="*"
+                                   x:Name="LblDivisionRequerido"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="-5,0,0,0" />
+                <Label Name="LblToneladas"
+                       Content="{x:Static resx:Resources.RegistrarCompraParcial_LblToneladas}"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+                <Label Content="*"
+                                   x:Name="LblDivisionRequerido2"
+                                   Style="{StaticResource labelRequerido}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Margin="-5,0,0,0" />
+                <Label Name="LblImporte"
+                       Content="{x:Static resx:Resources.RegistrarCompraParcial_LblImporte}"
+                       Grid.Row="1"
+                       Grid.Column="0" />
+                <xctk:DecimalUpDown Name="TxtToneladas"
+                                    AllowSpin="False"
+                                    ShowButtonSpinner="False"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    DefaultValue="0"
+                                    FormatString="N3"
+                                    Height="25"
+                                    NumeroDecimal="True"
+                                    HorizontalAlignment="Left"
+                                    Width="180"
+                                    MaxLength="12" />
+                <xctk:DecimalUpDown Name="TxtImporte"
+                                    AllowSpin="False"
+                                    ShowButtonSpinner="False"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    DefaultValue="0"
+                                    FormatString="N2"
+                                    Height="25"
+                                    NumeroDecimal="True"
+                                    HorizontalAlignment="Left"
+                                    Width="180"
+                                    MaxLength="15" />
+                <Button x:Name="BtnAgregar"
+                        Content="{x:Static resx:Resources.RegistrarCompraParcial_BtnAgregar}"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="110"
+                        Click="BtnAgregar_OnClick"
+                        />
+                <Button x:Name="BtnSalir"
+                        Content="{x:Static resx:Resources.RegistrarCompraParcial_BtnSalir}"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,0"
+                        VerticalAlignment="Center"
+                        Width="110"
+                        Click="BtnSalir_OnClick"
+                        />
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="GridContratoParcial"
+                  IsTabStop="true"
+                  SelectionMode="Single"
+                  Margin="10,10,-155,-126"
+                  Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Cantidad, StringFormat=N3}"
+                                    Header="{x:Static resx:Resources.RegistrarCompraParcial_GridHeaderToneladas}"
+                                    KeyboardNavigation.TabNavigation="None" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding Importe, StringFormat=N2}"
+                                    Header="{x:Static resx:Resources.RegistrarCompraParcial_GridHeaderImporte}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="100*"
+                                    IsReadOnly="True"
+                                    Binding="{Binding FechaCreacion, StringFormat='dd/MM/yyyy'}"
+                                    Header="{x:Static resx:Resources.RegistrarCompraParcial_GridHeaderFecha}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

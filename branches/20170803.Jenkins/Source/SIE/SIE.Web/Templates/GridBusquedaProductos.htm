@@ -1,0 +1,20 @@
+﻿<table id="GridProductos" class="table table-hover table-striped table-bordered table-advance">
+    <thead>
+        <tr>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Id}</th>
+            <th class="alineacionCentro" scope="col">{$T.Recursos.Descripcion}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#foreach $T.Productos as item}
+        <tr>
+            <td class="columnaID alineacionCentro">
+                {$T.item.ProductoId}
+            </td>
+            <td class="columnaDescripcion alineacionCentro">
+                {$T.item.Descripcion}
+            </td>
+        </tr>
+        {#/for}
+    </tbody>
+</table>

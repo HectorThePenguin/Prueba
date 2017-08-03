@@ -1,0 +1,191 @@
+<Vista:ControlBase
+	    x:Class="SIE.WinForm.Catalogos.ProblemaSintoma"
+	    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+        xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        Height="Auto"
+	    Width="Auto"
+	    Loaded="Window_Loaded">
+
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+
+    <Grid Margin="20"
+        Background="White"
+    ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+            Direction="-90"
+            RenderingBias="Quality"
+            ShadowDepth="2"/>
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>  
+            <RowDefinition Height="110"></RowDefinition> 
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>  
+            <RowDefinition Height="40"></RowDefinition>  
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Controles:Titulo Grid.Column="1"
+                 Grid.Row="0"
+                 Padding="20 0 20 0"
+                 VisibleCerrar="Hidden"
+                 TextoTitulo="{x:Static resx:Resources.ProblemaSintoma_Titulo}"
+                 x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+
+                <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ProblemaSintoma_Filtro}"></Label>
+                </GroupBox.Header>
+
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="180" />
+               </Grid.ColumnDefinitions>
+
+                <Label Content="{x:Static resx:Resources.ProblemaSintoma_LblTipoProblema}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Center">
+                </Label>
+
+                <Label Content="{x:Static resx:Resources.ProblemaSintoma_LblProblemaID}"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      VerticalAlignment="Center">
+               </Label>
+               <Label Content="{x:Static resx:Resources.ProblemaSintoma_LblActivo}"
+                      Grid.Row="1"
+                      Grid.Column="3"
+                      VerticalAlignment="Center">
+               </Label>
+
+                <ComboBox x:Name="cmbTipoProblema"
+                          Grid.Row="0"
+                          Grid.Column="2"
+                          SelectedValuePath="TipoProblemaId"
+                          DisplayMemberPath="Descripcion"
+                          SelectedItem="{Binding Path=Problema.TipoProblema, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Problema.TipoProblema.TipoProblemaId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="150"
+                          HorizontalAlignment="Left"
+                          TabIndex="1" />
+
+                <Controles:ControlAyuda AnchoDescripcion="240"
+                                        x:Name="skAyudaProblema"
+                                        DataContext="{Binding Path=Problema, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Left"
+                                        AceptaSoloNumeros="True"
+                                        ControlIndex="2"
+                                        EsBindeable="True"
+                                        MaximoCaracteres="10"
+                                        ConceptoBusqueda="{x:Static resx:Resources.AyudaProblema_LeyendaBusqueda}"
+                                        TituloBusqueda="{x:Static resx:Resources.AyudaProblema_Busqueda_Titulo}"
+                                        MensajeClaveInexistenteBusqueda="{x:Static resx:Resources.AyudaProblema_CodigoInvalido}"
+                                        MensajeAgregarBusqueda="{x:Static resx:Resources.AyudaProblema_Seleccionar}"
+                                        MensajeCerrarBusqueda="{x:Static resx:Resources.AyudaProblema_SalirSinSeleccionar}"
+                                        EncabezadoClaveBusqueda="{x:Static resx:Resources.AyudaProblema_Grid_Clave}"
+                                        EncabezadoDescripcionBusqueda="{x:Static resx:Resources.AyudaProblema_Grid_Descripcion}"
+                                        MetodoInvocacion="ObtenerPorIDTipoProblema"
+                                        MetodoInvocacionBusqueda="ObtenerPorPagina"
+                                        CampoDescripcion="Descripcion"
+                                        CampoClave="ProblemaID" />
+                <ComboBox x:Name="cmbActivo"  
+                       Grid.Row="1"
+                       Grid.Column="4"
+                       ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+					     SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+					     Width="150"
+					     HorizontalAlignment="Left"
+					     TabIndex="3" />
+                    <StackPanel Grid.Column="5"
+                                Grid.Row="1"
+                    			Orientation="Horizontal">
+                    	<Button Content="{x:Static resx:Resources.btnBuscar}"
+                    			Click="BtnBuscar_Click"
+                    			Margin="10 0 0 0">
+                    	</Button>
+                    	<Button Content="{x:Static resx:Resources.btnNuevo}"
+                    			Click="BtnNuevo_Click"
+                    			Margin="10 0 0 0">
+                    	</Button>
+                    </StackPanel>
+            </Grid>
+
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="270"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=ProblemaSintomaInfo}"
+                  SelectionMode="Single"> 
+            <DataGrid.Columns>
+                    <DataGridTextColumn Width="100"
+                    Binding="{Binding Path=ProblemaSintomaID}"
+                    Header="Id" />
+                <DataGridTextColumn Width="100*"
+                                    Binding="{Binding Path=Problema.TipoProblema.Descripcion}"
+                                    Header="{x:Static resx:Resources.ProblemaSintoma_Grid_TipoProblema}" />
+                <DataGridTextColumn Width="100*"
+                                    Binding="{Binding Path=Problema.Descripcion}"
+                                    Header="{x:Static resx:Resources.ProblemaSintoma_Grid_ProblemaID}" />
+                <DataGridTextColumn Width="100*"
+                                    Binding="{Binding Path=Sintoma.Descripcion}"
+                                    Header="{x:Static resx:Resources.ProblemaSintoma_Grid_SintomaID}" />
+                <DataGridTextColumn Width="100"
+                    Binding="{Binding Path=Activo}"
+                                    Header="{x:Static resx:Resources.ProblemaSintoma_Grid_Activo}" />
+            <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                  <DataTemplate>
+                      <Button Style="{StaticResource iconButton}"
+                            CommandParameter="{Binding}"
+                            Click="BtnEditar_Click">
+                            <Image Source="{StaticResource editIcon}"
+                                    Style="{StaticResource iconImage}"
+                                    ToolTip="{x:Static resx:Resources.ProblemaSintoma_Grid_Editar}"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion" Grid.Row="3" Grid.Column="1" Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

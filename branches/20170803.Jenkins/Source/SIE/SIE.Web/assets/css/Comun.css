@@ -1,0 +1,182 @@
+﻿fieldset.scheduler-border
+{
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border
+{
+    width: auto; /* Or auto */
+    padding: 0 10px; /* To give a bit of padding on the left and right */
+    border-bottom: none;
+    font-size: small;
+    font-weight: bold;
+}
+
+fieldset.scheduler-border-sinPadding
+{
+    border: 1px groove #ddd !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border-sinPadding
+{
+    width: auto; /* Or auto */
+    border-bottom: none;
+    font-size: small;
+    font-weight: bold;
+}
+
+.soloNumeros {
+     text-align: right !important;
+}
+
+.alineacionCentro {
+    text-align: center !important;
+}
+
+.alineacionIzquierda {
+    float: left !important;
+}
+
+.alineacionDerecha {
+    float: right !important ;
+}
+
+.textoDerecha {
+    text-align: right !important;
+}
+
+.textoIzquierda {
+    text-align: left !important;
+}
+
+.margenLabel {
+    margin-right: 3% !important;
+}
+
+.LockOff {
+    display: none;
+    visibility: hidden;
+}
+
+.LockOn {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    width: 105%;
+    height: 105%;
+    background: no-repeat center #FFFFFF;
+    font: normal 16px Tahoma, Geneva, sans-serif;
+    text-align: center;
+    color: #0000FF;
+    font-weight: bolder;
+    padding-top: 20%;
+    filter: alpha(opacity=80);
+    opacity: 0.75;
+    overflow: auto;
+}
+
+.LockOnModal {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 80%;
+    background: no-repeat center #FFFFFF;
+    font: normal 16px Tahoma, Geneva, sans-serif;
+    text-align: center;
+    color: #0000FF;
+    font-weight: bolder;
+    padding-top: 20%;
+    filter: alpha(opacity=80);
+    opacity: 0.75;
+    overflow: auto;
+}
+
+.espacioCortoDerecha {
+    margin-right: 10px;
+}
+
+.espacioCortoArriba {
+    margin-top: 10px;
+}
+
+.textBoxChico
+{
+    min-height: 20px !important;
+    height: 25px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+}
+.imagen {
+    cursor: pointer;
+}
+textarea {
+    resize: none;
+}
+
+.campoRequerido {
+    color: red;
+     font-weight: bold;
+}
+
+.textBoxTablas
+{
+    height: 15px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+}
+
+.table-advance thead tr th {
+    background-color: #ddd;
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.labelRequerido{
+  color: #e02222 !important;
+  font-size: 12px;
+  padding-left: 2px;
+    width: 1% !important;
+}
+
+@media (max-width: 979px) {
+    .skmessage {
+        width: 50% !important;
+        top: 30% !important;
+        display: block;
+        left: 25% !important;
+    }
+}
+
+.textBoxGrande
+{
+    min-height: 40px !important;
+    height: 50px !important;
+    margin-bottom: 0px !important;
+    outline: none !important;
+    font-size: 35px!important;
+    text-align: right  !important;
+}
+
+.imagenesGrid {
+    cursor: pointer;
+}
+
+.close
+{
+    width: 60px !important;
+    height: 40px !important;
+}

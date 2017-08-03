@@ -1,0 +1,194 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Abasto.TratamientoCentros"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"
+                   KeyDown="Window_KeyDown"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.Tratamiento_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Tratamiento_Filtro}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.Tratamiento_Lbl_TipoOrganizacion}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+
+                <Label Grid.Column="3"
+                       Grid.Row="0"
+                       Content="{x:Static resx:Resources.Tratamiento_Lbl_Organizacion}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Grid.ColumnSpan="2"></Label>
+                <ComboBox Grid.Column="2"
+                          Grid.Row="0"
+                          TabIndex="0"
+                          SelectedValuePath="TipoOrganizacionID"
+                          DisplayMemberPath="Descripcion"
+                          HorizontalAlignment="Center"
+                          SelectionChanged="CboTipoOrganizacion_OnSelectionChanged"
+                          SelectedItem="{Binding Path=Organizacion.TipoOrganizacion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValue="{Binding Path=Organizacion.TipoOrganizacion.TipoOrganizacionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          VerticalAlignment="Center"
+                          Name="cboTipoOrganizacion"
+                          Width="110" />
+                <StackPanel Grid.Column="4"
+                            Grid.ColumnSpan="4"
+                            Grid.Row="0"
+                            VerticalAlignment="Center"
+                            Name="stpAyudaOrganizacion" />
+                <Label Grid.Column="3"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.Tratamiento_Lbl_CodigoTratamiento}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"></Label>
+                <xctk:IntegerUpDown Name="iudCodigoTratamiento"
+                                    AllowSpin="False"
+                                    ShowButtonSpinner="False"
+                                    Grid.Row="1"
+                                    Grid.Column="4"
+                                    TabIndex="3"
+                                    DefaultValue="0"
+                                    Height="23"
+                                    NumeroInteger="True"
+                                    Value="{Binding Path=CodigoTratamiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    HorizontalAlignment="Left"
+                                    Width="150"
+                                    MaxLength="10" />
+
+                <Label Grid.Column="6"
+                       Grid.Row="1"
+                       Content="{x:Static resx:Resources.Tratamiento_Estatus}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       ></Label>
+
+                <ComboBox x:Name="cmbEstatus"
+                          Grid.Row="1"
+                          Grid.Column="7"
+                          SelectedValue="{Binding Path=Estatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding Path=Estatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                          
+                          Width="110"
+                          TabIndex="4"
+                          HorizontalAlignment="Left" />
+                <StackPanel Grid.Column="6"
+                            Orientation="Horizontal"
+                            Grid.ColumnSpan="2">
+                    <Button 
+                        TabIndex="5"                        
+                        Click="btnBuscar_Click"
+                        HorizontalAlignment="Center"
+                        Content="{x:Static resx:Resources.btnBuscar}"
+                        Margin="5 0 0 0">
+                    </Button>
+                    <Button TabIndex="6"
+                            Click="btnNuevo_Click"
+                            HorizontalAlignment="Center"
+                            Content="{x:Static resx:Resources.btnNuevo}"
+                            Margin="10 0 0 0">
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <DataGrid Name="gridDatos"
+                  Grid.Column="1"
+                  Grid.Row="2"
+                  Height="250"
+                  ColumnWidth="*"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="300"
+                                    Binding="{Binding Path=Organizacion.Descripcion}"
+                                    Header="{x:Static resx:Resources.Tratamiento_Grid_Organizacion}" />
+
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=CodigoTratamiento}"
+                                    Header="{x:Static resx:Resources.Tratamiento_Grid_CodigoTratamiento}" />
+
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Auxiliar}"
+                                    Header="{x:Static resx:Resources.Tratamiento_Grid_Descripcion}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Activo}"
+                                    Header="{x:Static resx:Resources.Tratamiento_Grid_Estatus}" />
+
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BotonEditar_Click">
+                                <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Tratamiento_Grid_Editar}" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PaginControl:PaginacionControl x:Name="ucPaginacion"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="20,0,20,0"></PaginControl:PaginacionControl>
+    </Grid>
+</Vista:ControlBase>

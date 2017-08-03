@@ -1,0 +1,200 @@
+﻿<Window x:Class="SIE.WinForm.Sanidad.EntradaGanadoEnfermeriaBusqueda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+        xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        mc:Ignorable="d"
+        ResizeMode="NoResize" 
+        d:DesignWidth="903" 
+        SizeToContent="WidthAndHeight"
+        Title="Búsqueda de Partida" 
+        ShowInTaskbar="False" 
+        Background="Black" Grid.IsSharedSizeScope="True" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
+    <Grid Width="903" Margin="2,2,2,2" Background="white" Height="452">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="877*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="277*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
+
+        <controles:Titulo
+                          TextoTitulo="{x:Static resx:Resources.CorteGanado_lblBusquedaPartida}"  
+                          Grid.Row="0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo" Height="Auto" Margin="20,12,20,2"/>
+
+                <DataGrid AutoGenerateColumns="False" 
+                      Grid.Row="1"
+                      CanUserResizeColumns="False" 
+                      Height="310" 
+                      Name="GridResultado" 
+                      Width="852" 
+                      HorizontalContentAlignment="Left" 
+                      FlowDirection="LeftToRight" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top" 
+                      VerticalContentAlignment="Top"  
+                      IsSynchronizedWithCurrentItem="True" 
+                      FontFamily="Arial Narrow"  
+                      Margin="20,20,0,0"
+                      RowDetailsVisibilityChanged="GridResultado_RowDetailsVisibilityChanged"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      SelectionChanged="GridResultado_SelectionChanged"
+                      
+                      >
+            <DataGrid.RowHeaderTemplate>
+                <DataTemplate>
+                    <ToggleButton x:Name="RowHeaderToggleButton"
+					              Click="ToggleButton_Click"
+					              Cursor="Hand" />
+                </DataTemplate>
+            </DataGrid.RowHeaderTemplate>
+            <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">        
+                    <StackPanel Orientation="Vertical" Height="200" >
+                    
+                        <DataGrid ItemsSource="{Binding ListaAnimales}" 
+                                      Margin="1" 
+                                      CanUserResizeColumns="False" 
+                                      FontFamily="Arial Narrow" 
+                                      PreviewKeyDown="SubGridResultado_PreviewKeyDown"
+                                      SelectionChanged="SubGridResultado_SelectionChanged"
+                                      Height="200"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                      VerticalScrollBarVisibility="Auto">
+                        
+                            
+                            <DataGrid.Columns>
+                                 
+                                <DataGridTemplateColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridFoto}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Height="50" Width="139" Source="{Binding RutaFotoDeteccion}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridProblema}" 
+                                            Width="119"  
+                                            Binding="{Binding DescripcionProblemas}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridGradoEnfermedad}" 
+                                            Width="125"  
+                                            Binding="{Binding GradoEnfermedad}" >
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style>
+                                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                                    <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridDetector}" 
+                                            Width="129"  
+                                            Binding="{Binding NombreDetector}">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridDescripcionGanado}" 
+                                            Width="155"  
+                                            Binding="{Binding DescripcionGanado.Descripcion}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridFechaDeteccion}" 
+                                            Width="135"  
+                                            Binding="{Binding FechaDeteccion}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                       
+                    </DataGrid>
+                        
+                    </StackPanel>
+                    </ScrollViewer>
+                </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+            <DataGrid.Columns>
+                
+                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridCorral}" 
+                                        Width="70"  
+                                        Binding="{Binding Corral}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridNoPartida}" 
+                                        Width="80" 
+                                        Binding="{Binding FolioEntrada}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridTipoOrigen}" 
+                                        Width="120" 
+                                        Binding="{Binding TipoOrganizacion}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridOrigen}" 
+                                        Width="255" 
+                                        Binding="{Binding Organizacion}"/>
+                <DataGridTextColumn Header="{x:Static resx:Resources.EntradaGanadoEnfermeria_BusquedaGridTotalCabezas}" 
+                                        Width="290" 
+                                        Binding="{Binding TotalCabezas}"/>
+
+                <DataGridTextColumn Visibility="Hidden" />
+                <DataGridTextColumn Binding="{Binding EntradaGanadoID}" Visibility="Hidden" />
+                <DataGridTextColumn Binding="{Binding CorralID}" Visibility="Hidden" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <PaginControl:PaginacionControl HorizontalAlignment="Left" 
+                                        Grid.Row="2"
+                                        HorizontalContentAlignment="Center"
+                                        Name="PaginacionPartidas" 
+                                        VerticalAlignment="Top" 
+                                        Width="781"  FontFamily="Arial Narrow" Height="27"  />
+        <GroupBox Grid.Row="3" 
+                  Height="42" 
+                  HorizontalAlignment="Right" 
+                  Margin="0,0,27,0" 
+                  Name="gbBotones" 
+                  VerticalAlignment="Center"
+                  Width="200" 
+                  BorderThickness="0" ClipToBounds="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                <Button Name="btnSeleccionar" 
+                        TabIndex="17" 
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_btnSeleccionar}" 
+                        HorizontalAlignment="Center"  
+                        Grid.Column="0" 
+                        Click="btnSeleccionar_Click"/>
+                <Button Name="btnCancelar" 
+                        TabIndex="17" 
+                        Content="{x:Static resx:Resources.EntradaGanadoEnfermeria_btnCancelar}" 
+                        HorizontalAlignment="Center"   
+                        Grid.Column="1" 
+                        Click="btnCancelar_Click"/>
+            </Grid>
+            </GroupBox>
+    </Grid>
+</Window>

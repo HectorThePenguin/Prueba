@@ -1,0 +1,280 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.PlantaAlimentos.ConfiguracionPremezclas"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                   Loaded="ConfiguracionPremezclas_OnLoaded"
+                   >
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="1300*"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="15 10 15 10"
+                          Margin="0,0,0,1"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.ConfiguracionDePremezclas_Titulo}"
+                          x:Name="ucTitulo" Height="Auto"></Controles:Titulo>
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.ConfiguracionDePremezclas_GbPremezclas}"
+                  Width="auto"
+                  Margin="15,0,15,10"
+                  Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="600*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Margin="20,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="500"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                       Content="*"
+                       x:Name="LblDivisionRequerido"
+                       Style="{StaticResource labelRequerido}"
+                           Grid.Column="0" Margin="-5,6,0,0" />
+                        <Label
+                            Grid.Column="0" Content="{x:Static resx:Resources.ConfiguracionDePremezclas_LblOrganizacion}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto"
+                       Width="Auto"  
+                       Margin="0,8,0,0"/>
+                        <StackPanel Name="SplAyudaOrganizacion"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Height="28"
+                            VerticalAlignment="Center"
+                            Margin="0,6,100,0"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="500"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                       Content="*"
+                       x:Name="LblDivisionRequerido2"
+                       Style="{StaticResource labelRequerido}"
+                           Grid.Column="0" Margin="-5,8,0,0" />
+                        <Label
+                            Grid.Column="0" Content="{x:Static resx:Resources.ConfiguracionDePremezclas_LblPremezcla}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto"
+                       Width="Auto"  
+                       Margin="0,10,0,0"/>
+                        <StackPanel Name="SplAyudaPremezcla"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Height="28"
+                            VerticalAlignment="Center"
+                            Margin="0,6,100,0"/>
+                    </Grid>
+                </Grid>
+                </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.ConfiguracionDePremezclas_GbPremezclas}"
+                  Width="auto"
+                  Margin="15,0,15,10"
+                  Grid.Row="2" >
+            <Grid Margin="20,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="500"></ColumnDefinition>
+                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                    <ColumnDefinition Width="140"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="280*"></ColumnDefinition>
+                    <ColumnDefinition Width="200*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label
+                       Content="*"
+                       x:Name="LblDivisionRequerido3"
+                       Style="{StaticResource labelRequerido}"
+                           Grid.Column="0" Margin="-5,8,0,0" />
+                <Label
+                            Grid.Column="0" Content="{x:Static resx:Resources.ConfiguracionPremezclaAgregarProducto_LblProducto}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto"
+                       Width="Auto"  
+                       Margin="0,10,0,0"/>
+                <StackPanel Name="SplAyudaProducto"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Height="28"
+                            VerticalAlignment="Center"
+                            Margin="0,6,0,0"/>
+                <Label
+                       Content="*"
+                       x:Name="LblDivisionRequerido4"
+                       Style="{StaticResource labelRequerido}"
+                           Grid.Column="2" Margin="-5,8,0,0" />
+                <Label
+                            Grid.Column="2" Content="{x:Static resx:Resources.ConfiguracionPremezclaAgregarProducto_LblPorcentaje}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto"
+                       Width="Auto"  
+                       Margin="0,10,0,0"/>
+                <xctk:DecimalUpDown Grid.Column="3"
+                         x:Name="TxtPorcentajeAjuste" 
+                         FormatString="N3"
+                         CultureInfo="en-US"
+                         HorizontalAlignment="Left"
+                         TextAlignment="Right"
+                         Height="25"
+                         Margin="0,10,0,0"
+                         MaxLength="8"
+                         ShowButtonSpinner="False"
+                         NumeroDecimal="True"
+                         Text=""
+                         VerticalAlignment="Top" Width="135"/>
+                <Label
+                            Grid.Column="4" Content="{x:Static resx:Resources.ConfiguracionPremezclaAgregarProducto_LblSimboloPorcentaje}"  
+                       HorizontalAlignment="Left" 
+                       Height="Auto"
+                       Width="Auto"  
+                       Margin="0,10,0,0"/>
+                <Button x:Name="BtnAgregar"
+                        Content="{x:Static resx:Resources.ConfiguracionPremezclaAgregarProducto_BtnAgregar}" Grid.Column="5"
+                        HorizontalAlignment="Right"
+                        Margin="30,0,0,0" 
+                        Width="100"
+                        Height="30"
+                        Click="BtnAgregar_OnClick"
+                        />
+                <Button x:Name="BtnLimpiar"
+                        Content="{x:Static resx:Resources.ConfiguracionPremezclaAgregarProducto_BtnLimpiar}" Grid.Column="6"
+                        HorizontalAlignment="Left"
+                        Margin="50,0,0,0" 
+                        Width="100"
+                        Height="30"
+                        Click="BtnLimpiar_OnClick"
+                        />
+            </Grid>
+        </GroupBox>
+            <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.ConfiguracionDePremezclas_GbProductosPremezcla}"
+                  Width="auto"
+                  Margin="15,0,15,10"
+                  Grid.Row="3" >
+            <DataGrid Name="GridPremezclaDetalle" CanUserResizeColumns="False" CanUserResizeRows="False"
+                      VerticalScrollBarVisibility="Auto"
+                      IsTabStop="true"
+                      SelectionMode="Single"
+                      ItemsSource="{Binding Path=PremezclaDetalleInfo}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="130*"
+                                    Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderDatosProducto}" 
+                                    KeyboardNavigation.TabNavigation="None"/>
+                    <DataGridTextColumn Width="100*"
+                                    Binding="{Binding Path=Porcentaje, StringFormat={}{0:N3}}"
+                                    Header="{x:Static resx:Resources.DiferenciasDeInventario_GridHeaderPorcentajeAjuste}" 
+                                    KeyboardNavigation.TabNavigation="None">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="TextBlock.TextAlignment" Value="Right" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FFADAE"/>
+                                        <Setter Property="Foreground" Value="Black"></Setter>
+                                        <Setter Property="BorderThickness" Value="0"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEditar_Click"
+                                    >
+                                    <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.PrecioGanado_Grid_Editar}" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEliminar_OnClick"
+                                    >
+                                    <Image Source="{StaticResource deleteIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.PrecioGanado_Grid_Eliminar}" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <GroupBox Grid.Column="1" 
+                  Width="auto"
+                  Margin="15,0,15,10"
+                  Grid.Row="4" BorderThickness="0">
+            <Grid Margin="20,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="500"></ColumnDefinition>
+                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                    <ColumnDefinition Width="140"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="280*"></ColumnDefinition>
+                    <ColumnDefinition Width="200*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="BtnGuardar"
+                        Content="{x:Static resx:Resources.ConfiguracionDePremezclas_BtnGuardar}" Grid.Column="5"
+                        HorizontalAlignment="Right"
+                        Margin="30,0,0,0" 
+                        Width="100"
+                        Height="30"
+                        Click="BtnGuardar_OnClick"
+                        />
+                <Button x:Name="BtnCancelar"
+                        Content="{x:Static resx:Resources.ConfiguracionDePremezclas_BtnCancelar}" Grid.Column="6"
+                        HorizontalAlignment="Left"
+                        Margin="50,0,0,0" 
+                        Width="100"
+                        Height="30"
+                        Click="BtnCancelar_OnClick"
+                        />
+            </Grid>
+        </GroupBox>
+            
+    </Grid>
+</Vista:ControlBase>

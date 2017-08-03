@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="SIE.WinForm.Administracion.ConciliacionSIAP_SAP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="Auto"
+             Width="Auto"    
+             Loaded="Window_Loaded"
+             xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+             xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+             xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"      
+             >
+    <Grid Margin="20" Background="White" ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"  Direction="-90"  RenderingBias="Quality" ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>                        
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Row="0" Padding="20 0 20 0" VisibleCerrar="Hidden" TextoTitulo="{x:Static resx:Resources.ConciliacionSIAP_SAP_Titulo}" x:Name="ucTitulo" Margin="58,12,2,12" Grid.ColumnSpan="2"/>
+        <GroupBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Style="{StaticResource groupBox}" Margin="20 0 20 0">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.ConciliacionSIAP_SAP_gboxTitulo}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Content="{x:Static resx:Resources.ConciliacionSIAP_SAP_lblTipoPoliza}" Margin="10,1,3,0" VerticalAlignment="Top" />
+                <ComboBox 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Name="cboTipoPoliza"
+                    VerticalAlignment="Center"                            
+                    Margin="0,1,4,26"               
+                        />
+                <Button Content="{x:Static resx:Resources.ConciliacionSIAP_SAP_btnGeneral}"
+                        Grid.Column="2"
+                        TabIndex="4"
+                        Name="btnGeneral"
+                        Click="btnGeneral_Click"                        
+                        Margin="0 1 0 24">
+                    
+                </Button>
+            </Grid>      
+        </GroupBox>
+    </Grid>
+</UserControl>

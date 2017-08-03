@@ -1,0 +1,697 @@
+﻿<Vista:VistaBase x:Class="SIE.WinForm.Catalogos.ProveedorEdicion"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Title="Proveedor Edicion"
+                 Height="449.851"
+                 Width="640"
+                 xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                 xmlns:StyleAlias="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                 xmlns:Validadores="clr-namespace:SIE.Base.Validadores;assembly=SIE.Base"
+                 xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                 xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                 xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                 xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                 ResizeMode="NoResize"
+                 ShowInTaskbar="False"
+                 Loaded="Window_Loaded"
+                 WindowStyle="None"
+                 Background="Black">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type StyleAlias:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="StyleAlias:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Background="white"
+          Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Margin="20 10 20 0"
+                          VisibleCerrar="Visible"
+                          x:Name="ucTitulo"></Controles:Titulo>
+
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch"
+                  Margin="20 10 20 10">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.Proveedor_Datos}"></Label>
+            </GroupBox.Header>
+            <Grid>
+                <TabControl>
+                    <TabItem>
+                        <TabItem.Header>
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_TabProveedor}" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="128*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="18.239"></RowDefinition>
+                                <RowDefinition Height="16.761" />
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="6*" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Margin="25,4,0,4"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Content="{x:Static resx:Resources.ProveedorEdicion_lbProvedorID}" />
+                            <Label Grid.Row="1"
+                                   Content="{x:Static resx:Resources.ProveedorEdicion_lbNombre}"
+                                   Margin="25,4,0,4"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" />
+                            <Label Grid.Row="2"
+                                   Content="{x:Static resx:Resources.ProveedorEdicion_lbCodigoSAP}"
+                                   Margin="25,4,0,4"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" />
+                            <Label Grid.Row="3"
+                                   Content="{x:Static resx:Resources.ProveedorEdicion_lblTipoProveedor}"
+                                   Margin="25,4,0,4"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_lbEstatus}"
+                                   Grid.Row="4"
+                                   Margin="25,4,0,4"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_lblCorreo}"
+                                   Grid.Row="5"
+                                   Margin="25,7,0,3"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" />
+                            <TextBox x:Uid="txtProveedorId"
+                                     x:Name="txtProveedorId"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     Height="25"
+                                     Width="100"
+                                     HorizontalAlignment="Left"
+                                     IsEnabled="false"
+                                     Margin="0,5">
+                                <TextBox.Text>
+                                    <Binding Path="ProveedorID"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <TextBox x:Uid="txtDescripcion"
+                                     x:Name="txtDescripcion"
+                                     Grid.Row="1"
+                                     Grid.Column="1"
+                                     Height="25"
+                                     Width="280"
+                                     HorizontalAlignment="Left"
+                                     Style="{StaticResource textBoxInError}"
+                                     TabIndex="0"
+                                     MaxLength="50"
+                                     IsEnabled="false"
+                                     Margin="0,5">
+                                <TextBox.Text>
+                                    <Binding Path="Descripcion"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <TextBox x:Uid="txtCodigoSap"
+                                     x:Name="txtCodigoSap"
+                                     Grid.Row="2"
+                                     Grid.Column="1"
+                                     Height="25"
+                                     Width="100"
+                                     HorizontalAlignment="Left"
+                                     Style="{StaticResource textBoxInError}"
+                                     TabIndex="1"
+                                     MaxLength="10"
+                                     IsEnabled="false"
+                                     Margin="0,5">
+                                <TextBox.Text>
+                                    <Binding Path="CodigoSAP"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <ComboBox x:Name="cmbTipoProveedor"
+                                      Grid.Row="3"
+                                      Grid.Column="1"
+                                      DisplayMemberPath="Descripcion"
+                                      SelectedValuePath="TipoProveedorID"
+                                      SelectedItem="{Binding Path=TipoProveedor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValue="{Binding Path=TipoProveedor.TipoProveedorID}"
+                                      Height="25"
+                                      Width="180"
+                                      TabIndex="3"
+                                      HorizontalAlignment="Left"
+                                      IsEnabled="false"
+                                      SelectionChanged="cmbTipoProveedor_SelectionChanged"
+                                      Margin="0,5" />
+
+                            <ComboBox x:Name="cmbEstatus"
+                                      Grid.Row="4"
+                                      Grid.Column="1"
+                                      SelectedValue="{Binding Path=Activo, Mode=TwoWay}"
+                                      ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                                      Height="25"
+                                      Width="180"
+                                      TabIndex="3"
+                                      HorizontalAlignment="Left"
+                                      Margin="0,5" />
+                            <TextBox x:Uid="txtCorreo"
+                                     x:Name="txtCorreo"
+                                     Grid.Row="5
+                                     "
+                                     Grid.Column="1"
+                                     Height="25"
+                                     Width="280"
+                                     HorizontalAlignment="Left"
+                                     Style="{StaticResource textBoxInError}"
+                                     TabIndex="1"
+                                     MaxLength="50"
+                                     IsEnabled="false"
+                                     Margin="0,6,0,4"
+                                     Grid.RowSpan="2">
+                                <TextBox.Text>
+                                    <Binding Path="Correo"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <StackPanel Grid.Row="8"
+                                        Grid.Column="1"
+                                        Orientation="Horizontal"
+                                        Grid.ColumnSpan="3"
+                                        Margin="10,0,104,0">
+                                <Button Content="{x:Static resx:Resources.btnGuardar}"
+                                        Click="Guardar_Click"
+                                        TabIndex="2"
+                                        Margin="0,6" />
+                                <Button Content="{x:Static resx:Resources.btnCancelar}"
+                                        Click="Cancelar_Click"
+                                        Margin="20 0 0 0"
+                                        TabIndex="3" />
+
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem>
+                        <TabItem.Header>
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_TabJaula}" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="200"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Name="BotonNuevoJaula"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource botonAgregar}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Click="BotonNuevoJaula_Click">
+                                <Image Source="{StaticResource addIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Jaula_ToolTip_Agregar}" />
+                            </Button>
+
+                            <DataGrid Name="gridDatosJaula"
+                                      Grid.Row="1"
+                                      Grid.Column="1"
+                                      Height="Auto"
+                                      ColumnWidth="*"
+                                      ItemsSource="{Binding Path=JaulaInfo}"
+                                      SelectionMode="Single"
+                                      Margin="0,0,0,0">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=JaulaID}"
+                                                        Header="Id"
+                                                        Visibility="Hidden" />
+                                    <DataGridTextColumn Width="*"
+                                                        Binding="{Binding Path=PlacaJaula}"
+                                                        Header="{x:Static resx:Resources.Jaula_Grid_Descripcion}" />
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=Capacidad}"
+                                                        Header="{x:Static resx:Resources.Jaula_Grid_Capacidad}" />
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=Secciones}"
+                                                        Header="{x:Static resx:Resources.Jaula_Grid_Secciones}" />
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=Activo}"
+                                                        Header="Estatus" />
+                                    <DataGridTemplateColumn Width="50">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource iconButton}"
+                                                        CommandParameter="{Binding}"
+                                                        Click="BotonEditarJaula_Click">
+                                                    <Image Source="{StaticResource editIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.Jaula_Grid_Editar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <PaginControl:PaginacionControl x:Name="ucPaginacionJaula"
+                                                            Grid.Row="2"
+                                                            Grid.Column="0"
+                                                            Margin="0">
+                            </PaginControl:PaginacionControl>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem>
+
+                        <TabItem.Header>
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_TabCamion}" />
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="200"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Name="BotonNuevoCamion"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource botonAgregar}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Click="BotonNuevoCamion_Click">
+                                <Image Source="{StaticResource addIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Camion_ToolTip_Agregar}" />
+                            </Button>
+
+
+                            <DataGrid Name="gridDatosCamion"
+                                      Grid.Row="1"
+                                      Grid.Column="1"
+                                      Height="Auto"
+                                      ColumnWidth="*"
+                                      ItemsSource="{Binding Path=CamionInfo}"
+                                      SelectionMode="Single"
+                                      Margin="0,0,0,0">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=CamionID}"
+                                                        Header="Id"
+                                                        Visibility="Hidden" />
+                                    <DataGridTextColumn Width="*"
+                                                        Binding="{Binding Path=PlacaCamion}"
+                                                        Header="{x:Static resx:Resources.Camion_Grid_Descripcion}" />
+
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=Activo}"
+                                                        Header="Estatus" />
+                                    <DataGridTemplateColumn Width="50">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource iconButton}"
+                                                        CommandParameter="{Binding}"
+                                                        Click="BotonEditarCamion_Click">
+                                                    <Image Source="{StaticResource editIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.Camion_Grid_Editar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <PaginControl:PaginacionControl x:Name="ucPaginacionCamion"
+                                                            Grid.Row="2"
+                                                            Grid.Column="0"
+                                                            Width="Auto"
+                                                            Margin="0">
+                            </PaginControl:PaginacionControl>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem>
+                        <TabItem.Header>
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_TabChofer}"
+                                   RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform Angle="0.041" />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"></RowDefinition>
+                                <RowDefinition Height="200"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Name="BotonNuevoChofer"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource botonAgregar}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Click="BotonNuevoChofer_Click">
+                                <Image Source="{StaticResource addIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Chofer_ToolTip_Agregar}" />
+                            </Button>
+
+
+                            <DataGrid Name="gridDatosChofer"
+                                      Grid.Row="1"
+                                      Grid.Column="1"
+                                      Height="Auto"
+                                      ColumnWidth="*"
+                                      ItemsSource="{Binding Path=Choferes_Observable, Mode=TwoWay}"
+                                      SelectionMode="Single"
+                                      Margin="0,0,0,0">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=ChoferID}"
+                                                        Header="Id" />
+                                    <DataGridTextColumn Width="*"
+                                                        Binding="{Binding Path=NombreCompleto}"
+                                                        Header="Nombre" />
+                                    <DataGridTemplateColumn Width="30">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button x:Name="btnQuitar"
+                                                        Style="{StaticResource botonAgregar}"
+                                                        HorizontalAlignment="Right"
+                                                        VerticalAlignment="Center"
+                                                        Click="btnQuitar_Click">
+                                                    <Image Source="{StaticResource borrarIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.Chofer_ToolTip_Quitar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <PaginControl:PaginacionControl x:Name="ucPaginacionChofer"
+                                                            Grid.Row="2"
+                                                            Grid.Column="0"
+                                                            Width="Auto"
+                                                            Margin="0">
+                            </PaginControl:PaginacionControl>
+                        </Grid>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <Label Content="{x:Static resx:Resources.ProveedorEdicion_TabTarifas}">
+                            </Label>
+                        </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Content="{x:Static resx:Resources.ProveedorEdicion_lblTarifa}">
+
+                            </Label>
+                            <xctk:DecimalUpDown Name="txtTarifa"
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                TextAlignment="Left"
+                                                Width="80"
+                                                Height="25"
+                                                ShowButtonSpinner="False"
+                                                MaxLength="8"
+                                                DefaultValue="0"
+                                                Value="{Binding Path=Tarifa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                NumeroDecimal="True"
+                                                BorderThickness="1"
+                                                HorizontalAlignment="Left"
+                                                MinWidth="10"
+                                                TabIndex="2"
+                                                Margin="0,0">
+                                <xctk:DecimalUpDown.Text>
+                                    <Binding Path="ImporteComision"
+                                             Mode="TwoWay"
+                                             UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <Validadores:TextValidador Mensaje="{x:Static resx:Resources.Campo_Requerido}" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </xctk:DecimalUpDown.Text>
+                            </xctk:DecimalUpDown>
+                            <Label Grid.Row="0"
+                                   Grid.Column="2"
+                                   Content="{x:Static resx:Resources.ProveedorEdicion_lblTipoTarifa}"></Label>
+                            <ComboBox x:Name="cboTipoComision"
+                                      Grid.Row="0"
+                                      Grid.Column="3"
+                                      DisplayMemberPath="{Binding Path=TipoComision.Descripcion}"
+                                      SelectedValuePath="TipoComisionID"
+                                      SelectedItem="{Binding Path=TipoComision, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValue="{Binding Path=TipoComision.TipoComisionID}" />
+                            <Button x:Name="btnAgregarComision"
+                                    Content="{x:Static resx:Resources.ProveedorEdicion_btnAgregarTarifa}"
+                                    Grid.Row="0"
+                                    Grid.Column="4"
+                                    Click="btnAgregarTarifa_Click"
+                                    TabIndex="2"
+                                    Margin="0,6" />
+                            <Button x:Name="btnActualizarComision"
+                                    Content="{x:Static resx:Resources.ProveedorEdicion_btnActualizarComision}"
+                                    Grid.Row="0"
+                                    Grid.Column="4"
+                                    Visibility="Hidden"
+                                    Click="btnActualizarComision_Click"
+                                    TabIndex="2"
+                                    Margin="0,6" />
+                            <Button x:Name="btnCancelarEdicionComision"
+                                    Content="{x:Static resx:Resources.ProveedorEdicion_btnCancelarTarifa}"
+                                    Grid.Row="0"
+                                    Grid.Column="5"
+                                    Click="btnCancelarEdicionComision_Click"
+                                    TabIndex="2"
+                                    Margin="0,6" />
+
+
+                            <DataGrid Name="grdTarifas"
+                                      Grid.Row="1"
+                                      Grid.Column="0"
+                                      Grid.ColumnSpan="3"
+                                      Grid.RowSpan="6"
+                                      Height="Auto"
+                                      ColumnWidth="*"
+                                      ItemsSource="{Binding Path=TarifaInfo}"
+                                      SelectionMode="Single"
+                                      Margin="0,0,0,0">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=ProveedorComisionID}"
+                                                        Header="ProveedorComisionID"
+                                                        Visibility="Hidden" />
+                                    <DataGridTextColumn Width="80"
+                                                        Binding="{Binding Path=TipoComisionID}"
+                                                        Header="TipoComisionID"
+                                                        Visibility="Hidden" />
+                                    <DataGridTextColumn Width="*"
+                                                        Binding="{Binding Path=DescripcionComision}"
+                                                        Header="{x:Static resx:Resources.ProveedorEdicion_hdTipoComision}" />
+                                    <DataGridTextColumn Width="*"
+                                                        Binding="{Binding Path=Tarifa}"
+                                                        Header="{x:Static resx:Resources.ProveedorEdicion_hdTarifa}" />
+                                    <DataGridTemplateColumn Width="50">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource iconButton}"
+                                                        CommandParameter="{Binding}"
+                                                        Click="btnEditarComision_Click">
+                                                    <Image Source="{StaticResource editIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.Jaula_Grid_Editar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Width="50">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{StaticResource iconButton}"
+                                                        CommandParameter="{Binding}"
+                                                        Click="btnBorrarComision_Click">
+                                                    <Image Source="{StaticResource deleteIcon}"
+                                                           Style="{StaticResource iconImage}"
+                                                           ToolTip="{x:Static resx:Resources.Jaula_Grid_Editar}" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <StackPanel Name="stpRetenciones"
+                                        Grid.Row="1"
+                                        Visibility="Hidden"
+                                        Grid.Column="3"
+                                        Grid.ColumnSpan="2"
+                                        Grid.RowSpan="3">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                        <ColumnDefinition Width="120"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox Name="ckbRetencionISR"
+                                              Margin="10,0,0,0"
+                                              Grid.Row="0"
+                                              Unchecked="CheckBoxRetenciones_OnChecked"
+                                              Checked="CheckBoxRetenciones_OnChecked"
+                                              VerticalAlignment="Center"
+                                              Grid.Column="0"></CheckBox>
+
+                                    <Label Grid.Row="0"
+                                           Grid.Column="0"
+                                           Margin="25,0,0,0"
+                                           Content="{x:Static resx:Resources.ProveedorEdicion_lblRetencion}">
+                                    </Label>
+
+                                    <ComboBox x:Name="cboRetencionISR"
+                                              Grid.Row="0"
+                                              Grid.Column="1"
+                                              IsEnabled="False"
+                                              DisplayMemberPath="DescripcionRetencion"
+                                              SelectedValuePath="RetencionID"
+                                              SelectedItem="{Binding Path=RetencionISR, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              SelectedValue="{Binding Path=RetencionISR.RetencionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+
+                                    <CheckBox Name="ckbRetencionIVA"
+                                              Margin="10,0,0,0"
+                                              Grid.Row="1"
+                                              Unchecked="CheckBoxRetenciones_OnChecked"
+                                              Checked="CheckBoxRetenciones_OnChecked"
+                                              VerticalAlignment="Center"
+                                              Grid.Column="0"></CheckBox>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="0"
+                                           Margin="25,0,0,0"
+                                           Content="{x:Static resx:Resources.ProveedorEdicion_lblRetencionIva}">
+                                    </Label>
+
+                                    <ComboBox x:Name="cboRetencionIVA"
+                                              Grid.Row="1"
+                                              Grid.Column="1"
+                                              IsEnabled ="False"
+                                              DisplayMemberPath="DescripcionRetencion"
+                                              SelectedValuePath="RetencionID"
+                                              SelectedItem="{Binding Path=RetencionIVA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              SelectedValue="{Binding Path=RetencionIVA.RetencionID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <CheckBox Name="ckbIVA"
+                                              Margin="10,0,0,0"
+                                              Grid.Row="2"
+                                              Unchecked="CheckBoxRetenciones_OnChecked"
+                                              Checked="CheckBoxRetenciones_OnChecked"
+                                              VerticalAlignment="Center"
+                                              Grid.Column="0"></CheckBox>
+
+                                    <Label Grid.Row="2"
+                                           Grid.Column="0"
+                                           Margin="25,0,0,0"
+                                           Content="{x:Static resx:Resources.ProveedorEdicion_lblIva}">
+                                    </Label>
+
+                                    <ComboBox x:Name="cboIVA"
+                                              Grid.Row="2"
+                                              Grid.Column="1"
+                                              IsEnabled="False"
+                                              DisplayMemberPath="Descripcion"
+                                              SelectedValuePath="IvaID"
+                                              SelectedItem="{Binding Path=IVA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              SelectedValue="{Binding Path=IVA.IvaID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                                </Grid>
+
+                            </StackPanel>
+
+                        </Grid>
+
+
+
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Vista:VistaBase>
+

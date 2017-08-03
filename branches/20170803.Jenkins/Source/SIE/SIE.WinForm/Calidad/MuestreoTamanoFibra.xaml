@@ -1,0 +1,327 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Calidad.MuestreoTamanoFibra"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="auto"
+                   Width="auto"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:PaginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="185"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="52"/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="124*"/>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="375*"/>
+            <ColumnDefinition Width="52"/>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo
+    		Grid.Row="0"
+    		Padding="15 10 15 10"
+    		Margin="38,-3,37,4"
+    		x:Name="ucTitulo" Height="Auto" TextoTitulo="{x:Static resx:Resources.MuestreoFibra_Titulo}" VisibleCerrar="Hidden" Grid.ColumnSpan="8"/>
+        <Label Content="{x:Static resx:Resources.MuestreoFibra_lblFecha}" Grid.Column="1" Margin="0,21,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox Name="txtFecha" Grid.Column="2"  Height="Auto" Margin="5,25,0,23" Grid.Row="1" TextAlignment="Center" Text="00/00/0000" Width="95" HorizontalAlignment="Left" IsEnabled="False" />
+        <GroupBox Grid.Column="3" 
+                  Header="{x:Static resx:Resources.MuestreoFibra_grpProductoFormula}"
+                  Margin="5,0,0,0"
+                  Grid.Row="1" TabIndex="0">
+            <Grid Margin="0,0,8,0">
+                <RadioButton Name="rbProducto"  Content="{x:Static resx:Resources.MuestreoFibra_rbtProducto}" GroupName="rbgProductoFormula" Checked="RbgFormulaProducto_Checked" Margin="0,3,0,0" HorizontalAlignment="Left" Width="74" Height="18" VerticalAlignment="Top"/>
+                <RadioButton Name="rbFormula"  Content="{x:Static resx:Resources.MuestreoFibra_rbtFormula}" GroupName="rbgProductoFormula" Checked="RbgFormulaProducto_Checked" Margin="0,22,0,0" HorizontalAlignment="Left" Width="64" Height="19" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+
+        <Label Content="{x:Static resx:Resources.MuestreoFibra_lblIngredienteFormula}" Grid.Column="4"  Grid.Row="1" Height="Auto" HorizontalAlignment="Left"  Margin="5,8,0,19"/>
+        <StackPanel x:Name="splAyudaProductoFormula"
+                            Grid.Row="1"
+                            Grid.Column="5" 
+                            MinWidth="250"
+                            Width="auto"
+                            Margin="5,23,0,5"/>
+        <GroupBox Name="gbParametrosProductos"
+                  Grid.Column="6" 
+                  Header="{x:Static resx:Resources.MuestreoFibra_grpParametro}"
+                  Grid.Row="1"
+                  Width="333"
+                  Visibility="Visible" HorizontalAlignment="Right">
+            <Grid Margin="0,0,-2,-12">
+                <CheckBox Name="chkProductoGruesos" Content="{x:Static resx:Resources.MuestreoFibra_chkGruesos}" Click="ChkProducto_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,16,0,0"/>
+                <CheckBox Name="chkProductoMedianos" Content="{x:Static resx:Resources.MuestreoFibra_chkMedianos}" Click="ChkProducto_Click" HorizontalAlignment="Left" Margin="80,16,0,0" VerticalAlignment="Top"/>
+                <CheckBox Name="chkProductoFinos" Content="{x:Static resx:Resources.MuestreoFibra_chkFinos}" Click="ChkProducto_Click" HorizontalAlignment="Left" Margin="169,16,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Name="gbParametrosFormula"
+                  Grid.Column="6" 
+                  Header="{x:Static resx:Resources.MuestreoFibra_grpParametro}" Visibility="Hidden" HorizontalAlignment="Right" Width="333" Grid.Row="1" >
+            <Grid Margin="0,0,-2,-12">
+                <CheckBox Name="chkFormulaGrande" Content="{x:Static resx:Resources.MuestreoFibra_chkGrande}" Click="ChkFormula_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,17,0,0"/>
+                <CheckBox Name="chkFormulaMediana" Content="{x:Static resx:Resources.MuestreoFibra_chkMediana}" Click="ChkFormula_Click" HorizontalAlignment="Left" Margin="70,17,0,0" VerticalAlignment="Top"/>
+                <CheckBox Name="chkFormulaFinosTamiz" Content="{x:Static resx:Resources.MuestreoFibra_chkFinosTamiz}" Click="ChkFormula_Click" HorizontalAlignment="Left" Margin="149,17,0,0" VerticalAlignment="Top"/>
+                <CheckBox Name="chkFormulaFinosBase" Content="{x:Static resx:Resources.MuestreoFibra_chkFinosBase}" Click="ChkFormula_Click" HorizontalAlignment="Left" Margin="243,17,0,0" VerticalAlignment="Top" Width="80"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Name="gbDatosMuestreoProducto"
+                  Grid.Column="1"
+                  Header="{x:Static resx:Resources.MuestreoFibra_grpDatosMuestreo}"
+                  Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="6" Visibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="68*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblPesoMuestra}" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39"/>
+                <xctk:DecimalUpDown x:Name="txtProductoPesoMuestra" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="1" Height="23" Margin="10,11,22,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblPesoGranoGrueso}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtProductoPesoGranoGrueso" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="3" Height="23" Margin="10,11,22,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblPesoGranoMediano}" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtProductoPesoGranoMediano" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="5" Height="23" Margin="10,11,23,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblPesoGranoFino}" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtProductoPesoGranoFino" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="7" Height="23" Margin="10,11,25,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblCribaEntrada}" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="48" Margin="0,5,0,0" Grid.Row="1"/>
+                <xctk:DecimalUpDown x:Name="txtProductoPesoCribaEntrada" AllowSpin="False" FormatString="N0" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Row="1" Grid.Column="1" Height="23" Margin="10,9,22,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblCribaSalida}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="48" Margin="0,5,0,0" Grid.Row="1"/>
+                <xctk:DecimalUpDown x:Name="txtProductoPesoCribaSalida" AllowSpin="False" FormatString="N0" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Row="1" Grid.Column="3" Height="23" Margin="10,11,22,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Producto_lblObservaciones}" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Height="48" Margin="0,5,0,0" Grid.Row="1"/>
+                <TextBox Name="txtProductoObservaciones" Grid.ColumnSpan="3" Grid.Column="5" HorizontalAlignment="Stretch" Height="40
+                         " Margin="10,6,24,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="Auto" MaxLength="255"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Name="gbDatosMuestreoFormula"
+                  Grid.Column="1" 
+                  Header="{x:Static resx:Resources.MuestreoFibra_grpDatosMuestreo}"
+                  Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="6" Visibility="Hidden" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="68*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Formula_lblPesoInicial}" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtFormulaPesoInicial" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="1" Height="23" Margin="10,11,28,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Formula_lblPesoFibraGrande}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtFormulaPesoFibraGrande" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="3" Height="23" Margin="10,11,28,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Formula_lblPesoFibraMediana}" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtFormulaPesoFibraMediana" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Column="5" Height="23" Margin="10,11,28,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Formula_lblPesoFinosTamiz}" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="48" Grid.Row="0" Grid.RowSpan="2" Margin="0,-2,0,0"/>
+                <xctk:DecimalUpDown x:Name="txtFormulaPesoFinosTamiz" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Row="0" Grid.Column="7" Height="23" Margin="10,11,11,0" Text="0.00" VerticalAlignment="Top"  TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Formula_lblPesoFinosBase}" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="48" Margin="0,3,0,0" Grid.Row="1"/>
+                <xctk:DecimalUpDown x:Name="txtFormulaPesoFinosBase" AllowSpin="False" FormatString="N2" CultureInfo="en-US" ShowButtonSpinner="False"  NumeroDecimal="True" LostFocus="TxtDecimal_OnLostFocus" 
+                                    Grid.Row="1" Grid.Column="1" Height="23" Margin="10,9,28,0" Text="0.00" VerticalAlignment="Top" TextAlignment="Right" MaxLength="18"/>
+                <Label Content="{x:Static resx:Resources.MuestreoFibra_Formula_lblOrigen}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="39" Margin="0,6,0,0"/>
+                <TextBox Name="txtFormulaOrigen" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" Height="39" Margin="10,6,28,0" VerticalAlignment="Top" Width="Auto" TextWrapping="Wrap" MaxLength="100" Grid.ColumnSpan="3"/>
+
+            </Grid>
+        </GroupBox>
+        <Button Name="btnAgregarActualizar" Click="BtnAgregarActualizar_Click"  Content="{x:Static resx:Resources.MuestreoFibra_btnAgregar}"  Grid.Column="6" Margin="0,2,114,0" Grid.Row="3" VerticalAlignment="Top" Width="76" HorizontalAlignment="Right"/>
+        <Button Name="btnLimpiar"  Content="{x:Static resx:Resources.MuestreoFibra_btnLimpiar}" Click="BtnLimpiar_Click" Grid.Column="6" Margin="0,2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="76" HorizontalAlignment="Right" />
+        <GroupBox Header="Tamaño de Fibra" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DataGrid
+                        AutoGenerateColumns="False"
+                        CanUserResizeColumns="False" 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Name="dgProductosMuestreo"
+                        SelectionMode="Single" 
+                        Margin="0,3,0,3"
+                        Visibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Producto.Descripcion}" Width="200" Header="{x:Static resx:Resources.MuestreoFibra_grdMuestra}"  CanUserSort="False"/>
+                        <DataGridTextColumn Binding="{Binding Path=PesoMuestra, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoMuestra}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoGranoGrueso, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoGranoGrueso}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoGranoMediano, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoGranoMediano}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoGranoFino, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoGranoFinos}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoNeto, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoNeto}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=CribaEntrada, StringFormat=N0}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdCribaEntrada}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=CribaSalida, StringFormat=N0}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdCribaSalida}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Observaciones}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdObservaciones}"  CanUserSort="False" />
+                        <DataGridTemplateColumn Width="40">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                CommandParameter="{Binding}"
+                                Click="BtnEditar_Click">
+                                        <Image Source="{StaticResource editIcon}"
+                                        Style="{StaticResource iconImage}"
+                                        ToolTip="Editar"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid
+                        AutoGenerateColumns="False"
+                        CanUserResizeColumns="False" 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Name="dgFormulasMuestreo"
+                        SelectionMode="Single" 
+                        Margin="0,3,0,3"
+                        Visibility="Hidden">
+                        
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Formula.Descripcion}" Width="200" Header="{x:Static resx:Resources.MuestreoFibra_grdMuestra}"  CanUserSort="False"/>
+                        <DataGridTextColumn Binding="{Binding Path=PesoInicial, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoInicial}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoFibraGrande, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoFibraGrande}"  CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoFibraMediana, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoFibraMediana}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoFinoTamiz, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoFinosTamiz}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoFinoBase, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoFinosBase}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Path=PesoNeto, StringFormat=N2}" Width="*" Header="{x:Static resx:Resources.MuestreoFibra_grdPesoNeto}" CanUserSort="False" TextBlock.TextAlignment="Right" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="40">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                CommandParameter="{Binding}"
+                                Click="BtnEditar_Click">
+                                        <Image Source="{StaticResource editIcon}"
+                                        Style="{StaticResource iconImage}"
+                                        ToolTip="Editar"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <Button Name="btnGuardar" Content="{x:Static resx:Resources.MuestreoFibra_btnGuardar}" Click="BtnGuardar_Click" Grid.Column="6" HorizontalAlignment="Right" Margin="0,5,114,0" Grid.Row="5" VerticalAlignment="Top" Width="76" />
+        <Button Name="btnCancelar" Content="{x:Static resx:Resources.MuestreoFibra_btnCancelar}" Click="BtnCancelar_Click" Grid.Column="6" HorizontalAlignment="Right" Margin="0,5,0,0" Grid.Row="5" VerticalAlignment="Top" Width="76" />
+    </Grid>
+</Vista:ControlBase>

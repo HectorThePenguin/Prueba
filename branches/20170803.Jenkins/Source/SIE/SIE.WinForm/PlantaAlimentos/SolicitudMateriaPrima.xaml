@@ -1,0 +1,300 @@
+﻿<vista:ControlBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+        xmlns:controles="clr-namespace:SIE.WinForm.Controles"
+        xmlns:resx="clr-namespace:SIE.WinForm.Properties" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    mc:Ignorable="d" x:Class="SIE.WinForm.PlantaAlimentos.SolicitudMateriaPrima"
+        Height="auto"
+        Width="1200">
+    <Grid Margin="10,20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True" Height="Auto" Width="Auto">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                                  Direction="-90"
+                                  RenderingBias="Quality"
+                                  ShadowDepth="2" />
+        </Grid.Effect>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="360"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="44"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="58"/>
+            <ColumnDefinition Width="1060"/>
+            <ColumnDefinition Width="58"/>
+        </Grid.ColumnDefinitions>
+        <controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="15 10 15 10"
+                          Margin="0,0,0,1"
+                          x:Name="ucTitulo" Height="Auto" TextoTitulo="{x:Static resx:Resources.SolicitudMateriaPrima_Titulo}" VisibleCerrar="Hidden"/>
+
+        <GroupBox Grid.Column="1" 
+                  Header="{x:Static resx:Resources.SalidaVentaTraspaso_GroupBusqueda}"
+                  Width="auto"
+                  Margin="0,0,0,0"
+                  Grid.Row="1" >
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                       Content="{x:Static resx:Resources.SolicitudMateriaPrima_labelFolio}"  
+                       HorizontalAlignment="Left"
+                       Height="Auto" 
+                       Width="Auto"
+                       Margin="0,0,0,22"/>
+                <StackPanel x:Name="splAyudaFolioPedido"
+                            Grid.Row="0"
+                            HorizontalAlignment="Left" 
+                            Margin="69,1,0,21" Width="303" Grid.ColumnSpan="2" 
+                            />
+            </Grid>
+        </GroupBox>
+
+        <Grid Grid.Row="2" Width="Auto" Grid.Column="1" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0" Grid.ColumnSpan="3"
+                  Header="{x:Static resx:Resources.SolicitudMateriaPrima_DatosProducto}"
+                  Grid.Row="0" RenderTransformOrigin="0.497,1.005" Margin="0,0,0,0">
+                <Grid Margin="0,0,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="367*"/>
+                        <ColumnDefinition Width="341*"/>
+                        <ColumnDefinition Width="341*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                       Content="*"
+                       x:Name="lblFolioRequerido"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="0" Margin="-5,-1,0,0" />
+                    <Label Grid.Column="0" 
+                           Grid.Row="0"
+                       Content="{x:Static resx:Resources.SolicitudMateriaPrima_Producto}"
+                       Height="Auto"
+                       Margin="0,1,230,30" Grid.RowSpan="2"/>
+                    <StackPanel x:Name="splAyudaProducto"
+                            Grid.Row="0" 
+                            Margin="70,3,0,3" Grid.Column="0" 
+                            />
+                    <Label
+                       Content="*"
+                       x:Name="lblCantidadSolicitadaRequerido"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="1" Margin="-5,-1,0,0" />
+                    <Label
+                            Grid.Row="0"
+                           x:Name="lblCantidadSolicitada"
+                       Content="{x:Static resx:Resources.SolicitudMateriaPrima_CantidadSolicitada}"
+                       Height="Auto" Grid.Column="1" HorizontalAlignment="Left" Width="131" Margin="0,1,0,30" Grid.RowSpan="2"/>
+                    <xctk:IntegerUpDown x:Name="txtCantidadSolicitada"
+                            AllowSpin="False"
+                            ShowButtonSpinner="False"
+                             MaxLength="10"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Margin="131,3,31,3"
+                             Width="Auto" 
+                             HorizontalAlignment="Stretch" 
+                             Height="Auto" 
+                             TextAlignment="Right"
+                             PreviewTextInput="TxtCantidadSolicitada_OnPreviewTextInput"
+                             FormatString="N0"
+                             TabIndex="2"
+                                        GotFocus="TxtCantidadSolicitada_OnGotFocus"
+                             />
+                    <Label
+                            Grid.Row="0"
+                           x:Name="lblKG"
+                       Content="KG"
+                       Height="Auto" Grid.Column="1" HorizontalAlignment="Left" Width="31" Margin="310,1,0,30" Grid.RowSpan="2"/>
+                    <Label
+                       Content="*"
+                       x:Name="lblLoteRequerido"
+                       Style="{StaticResource labelRequerido}" Grid.Row="0"
+                           Grid.Column="3" Margin="0,-1,0,0" />
+                    <Label Grid.Column="2"
+                           x:Name="lblLoteProceso"
+                       Content="{x:Static resx:Resources.SolicitudMateriaPrima_LoteProceso}"
+                       Height="Auto" Margin="5,1,163,30" Grid.RowSpan="2"/>
+                    <StackPanel x:Name="splAyudaLote"
+                            Grid.Row="0" 
+                            Margin="106,3,69,3" Grid.Column="2" 
+                            />
+                    <Button x:Name="btnAgregarLote" 
+                        	Grid.Column="2"
+                        	Margin="289,5,4,6" 
+                        	Width="48" 
+                        	Height="20" 
+                        	HorizontalAlignment="Center" Click="BtnAgregarLote_OnClick" TabIndex="4">
+                        <Image Source="../Imagenes/agregar.png"></Image>
+                    </Button>
+                    <Grid Margin="14,27,-9,-6" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="16*"/>
+                            <ColumnDefinition Width="99*"/>
+
+                            <ColumnDefinition Width="112*"/>
+                            <ColumnDefinition Width="115*"/>
+                            <ColumnDefinition Width="85.209"/>
+                            <ColumnDefinition Width="34.791"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="72.075"/>
+                            <ColumnDefinition Width="8.925"/>
+                            <ColumnDefinition Width="19"/>
+                            <ColumnDefinition Width="0"/>
+                            <ColumnDefinition Width="19.567"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btnAgregar" 
+                    	Grid.Column="6"
+                    	Content="{x:Static resx:Resources.SolicitudMateriaPrima_btnAgregar}" 
+                    	Margin="10,12,10,9" 
+                    	Width="100" 
+                    	Height="Auto" 
+                    	HorizontalAlignment="Center" Click="BtnAgregar_OnClick" TabIndex="5"/>
+                        <Button x:Name="btnLimpiar" 
+                        	Grid.Column="7"
+                        	Content="{x:Static resx:Resources.SolicitudMateriaPrima_btnLimpiar}" 
+                        	Margin="10,12,10,9" 
+                        	Width="100" 
+                        	Height="Auto" 
+                        	HorizontalAlignment="Center" Click="BtnLimpiar_OnClick" Grid.ColumnSpan="6"/>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1" Height="34" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150*"/>
+
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="150*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BtnImprimirTicket" 
+                    Grid.Column="3"
+        		    Content="{x:Static resx:Resources.SolicitudMateriaPrima_btnImprimir}" 
+                    Margin="0,0,0,0" 
+                    Width="100" 
+                    Height="20" 
+                    HorizontalAlignment="Center" IsEnabled="False"
+                    Click="BtnImprimirTicket_OnClick"
+            />
+            <Button x:Name="BtnGuardar" 
+                    Grid.Column="4"
+        		    Content="{x:Static resx:Resources.SolicitudMateriaPrima_btnGuardar}" 
+                    Margin="0,0,0,0" 
+                    Width="100" 
+                    Height="20" 
+                    HorizontalAlignment="Center" Click="BtnGuardar_Click" 
+            />
+            <Button x:Name="BtnCancelar" 
+                    Grid.Column="5"
+        		    Content="{x:Static resx:Resources.SolicitudMateriaPrima_btnCancelar}" 
+                    Margin="10,7,10,0" 
+                    Width="100" 
+                    Height="20" 
+                    HorizontalAlignment="Center" 
+                    Click="BtnCancelar_OnClick" VerticalAlignment="Top"
+            />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="108*"/>
+                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="105*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Column="0"  Header="{x:Static resx:Resources.SolicitudMateriaPrima_Solicitud}" Height="206" Margin="0,83,0,-258" Grid.Row="0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="auto" >
+                <DataGrid Name="gridDatosPedido"
+                  ColumnWidth="*"
+                  ItemsSource="{Binding Path=PedidoInfo.DetallePedido}"
+                  SelectionMode="Single" Margin="-1,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=Producto.ProductoDescripcion}"
+                                    Header="{x:Static resx:Resources.SolicitudMateriaPrima_ProductoHeader}" CanUserSort="False" />
+                        <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=CantidadSolicitada, StringFormat='N0'}"
+                                    Header="{x:Static resx:Resources.SolicitudMateriaPrima_CantidadSolicitadaHeader}"  CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=InventarioLoteDestino.Lote}"
+                                    Header="{x:Static resx:Resources.SolicitudMateriaPrima_LoteProcesoHeader}" CanUserSort="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextAlignment" Value="Right"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtbEdidar_OnClick">
+                                        <Image Source="{StaticResource editIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.Grupo_Grid_Editar}" />
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource iconButton}"
+                                    CommandParameter="{Binding}"
+                                    Click="BtnEliminar_Click">
+                                        <Image Source="{StaticResource borrarIcon}"
+                                       Style="{StaticResource iconImage}"
+                                       ToolTip="{x:Static resx:Resources.ProgramaciondeFletes_Grid_Eliminar}" />
+                                    </Button>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <TextBox Name="txtObservaciones" Grid.ColumnSpan="3" MaxLength="255" Height="56" Margin="117,294,6,-400" TextWrapping="Wrap" VerticalAlignment="Top" Width="auto" HorizontalAlignment="Stretch"/>
+        </Grid>
+        <Label Grid.Column="1" 
+            Grid.Row="2"
+            Content="{x:Static resx:Resources.SolicitudMateriaPrima_Observaciones}"  
+            HorizontalAlignment="Left"
+            Height="Auto" 
+            Width="108" Margin="4,294,0,26"/>
+    </Grid>
+</vista:ControlBase>

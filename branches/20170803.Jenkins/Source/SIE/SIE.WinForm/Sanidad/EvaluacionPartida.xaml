@@ -1,0 +1,233 @@
+﻿<Vista:ControlBase x:Class="SIE.WinForm.Sanidad.EvaluacionPartida"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   Height="Auto"
+                   Width="Auto"
+                   Loaded="Window_Loaded"
+                   xmlns:resx="clr-namespace:SIE.WinForm.Properties"
+                   xmlns:Controles="clr-namespace:SIE.WinForm.Controles"
+                   xmlns:Vista="clr-namespace:SIE.Base.Vista;assembly=SIE.Base"
+                   xmlns:Enums="clr-namespace:SIE.Services.Info.Enums;assembly=SIE.Services.Info"
+                   xmlns:paginControl="clr-namespace:SuKarne.Controls.PaginControl;assembly=SuKarne.Controls">
+    <Vista:ControlBase.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type Enums:EstatusEnum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enums:EstatusEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Vista:ControlBase.Resources>
+    <Grid Margin="20"
+          Background="White"
+          ScrollViewer.CanContentScroll="True">
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Direction="-90"
+                              RenderingBias="Quality"
+                              ShadowDepth="2" />
+        </Grid.Effect>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Controles:Titulo Grid.Column="1"
+                          Grid.Row="0"
+                          Padding="20 0 20 0"
+                          VisibleCerrar="Hidden"
+                          TextoTitulo="{x:Static resx:Resources.EvaluacionPartida_Titulo}"
+                          x:Name="ucTitulo"></Controles:Titulo>
+        <GroupBox Grid.Column="1"
+                  Grid.Row="1"
+                  Style="{StaticResource groupBox}"
+                  HorizontalAlignment="Stretch">
+            <GroupBox.Header>
+                <Label Content="{x:Static resx:Resources.EvaluacionPartida_GrbTitulo}"></Label>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Content="{x:Static resx:Resources.EvaluacionPartida_FechaEvaluacion}"
+                               HorizontalAlignment="Left"></Label>
+
+                <StackPanel Grid.Column="1"
+                            Width="160"
+                            KeyboardNavigation.IsTabStop="False"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+
+                    <DatePicker x:Name="dtpFecha"
+                                ToolTip="Fecha Evaluación DD/MM/YYYY"
+                                KeyDown="Fechas_KeyDown"
+                                KeyUp="Fechas_KeyDown"
+                                Height="29" 
+                                Width="150"
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                                KeyboardNavigation.TabIndex="0"
+                                LostFocus="dtpFecha_LostFocus">
+                    </DatePicker>
+                </StackPanel>
+                
+                
+                <StackPanel Grid.Row="0"
+                        Grid.Column="2"
+                            Orientation="Horizontal" Margin="10 0 0 0">
+                    <Button Content="{x:Static resx:Resources.EvaluacionPartida_btnBuscar}"
+                            Click="btnBuscar_Click"
+                            Margin="10 0 0 0"/>
+                    <Button Content="{x:Static resx:Resources.EvaluacionPartida_btnLimpiar}"
+                            Click="btnLimpiar_Click"
+                            Margin="10 0 0 0"/>
+
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <DataGrid Name="gridDatos"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Height="270"
+                        ItemsSource="{Binding Path=EvaluacionCorralInfo}"
+                        ColumnWidth="*"
+                        SelectionMode="Single">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto"
+                                Binding="{Binding Path=EvaluacionID}"
+                                Header="Id"
+                                Visibility="Hidden"/>
+                <DataGridTextColumn Width="50"
+                                Binding="{Binding Path=FolioEvaluacion}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Folio}" 
+                                >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="50"
+                                Binding="{Binding Path=Corral.Codigo}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Corral}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Left" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="50"
+                                Binding="{Binding Path=Lote.Lote}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Lote}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="60"
+                                Binding="{Binding Path=Cabezas}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Cabezas}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"
+                                Binding="{Binding Path=PesoLlegada}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_KilosLlegada}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"
+                                Binding="{Binding Path=FechaRecepcion}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_FechaRecepcion}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"
+                                Binding="{Binding Path=FechaEvaluacion}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_FechaEvaluacion}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"
+                                Binding="{Binding Path=OrganizacionOrigenAgrupadas}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Origen}" />
+
+                <DataGridTextColumn Width="50"
+                                Binding="{Binding Path=FolioOrigen}"
+                                Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Salida}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Right" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTemplateColumn Width="50" Header="{x:Static resx:Resources.EvaluacionPartida_Grid_Opcion}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Style="{StaticResource iconButton}" 
+                                                HorizontalAlignment="Center"
+                                                CommandParameter="{Binding}" 
+                                                Click="btnImprimir_Click" >
+                                    <Image Source="{StaticResource printIcon2}" 
+                                                    Style="{StaticResource iconImage}"
+                                                    ToolTip="{x:Static resx:Resources.EvaluacionPartida_Grid_Imprimir}" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <paginControl:PaginacionControl x:Name="ucPaginacion"
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Margin="20,0,20,0"></paginControl:PaginacionControl>
+
+    </Grid>
+</Vista:ControlBase>
