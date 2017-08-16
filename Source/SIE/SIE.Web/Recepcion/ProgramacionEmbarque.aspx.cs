@@ -32,7 +32,7 @@ namespace SIE.Web.Recepcion
             int result = 0;
             try
             {
-                var precondicionesPL = new TipoAutorizacionPL();
+                var precondicionesP = new TipoAutorizacionPL();
                 result = precondicionesPL.ValidarPreCondiciones();
             }
             catch (ExcepcionDesconocida)
