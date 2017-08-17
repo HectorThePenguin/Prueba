@@ -627,8 +627,7 @@ namespace SIE.Web.Recepcion
                                         .Contains(codigoSAP.ToString(CultureInfo.InvariantCulture).ToUpper())).ToList();
                     }
                 }
-            }
-            catch (ExcepcionDesconocida)
+            } catch (ExcepcionDesconocida)
             {
                 throw;
             }
